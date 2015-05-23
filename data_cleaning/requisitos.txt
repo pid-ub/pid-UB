@@ -1,0 +1,5 @@
+S'han de tenir fora del repositori els següents fitxers originals:
+	* registers_nocleaning.csv
+	* qualifications_nocleaning.csv
+	* conv_nocleaning.csv
+	* assigs_nocleaning.csv
