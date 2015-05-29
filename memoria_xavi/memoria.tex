@@ -1,0 +1,256 @@
+\documentclass[11pt,a4paper,catalan]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} % for images
+\usepackage{booktabs} % for tables
+\usepackage{fancyhdr} % for header and footers
+\usepackage{hyperref} % for links 
+\usepackage{minted}
+\usepackage{todonotes}
+
+%Definició de noms:
+\newcommand{\titleTFG}{AQUI EL TÍTOL DEL TREBALL}
+\newcommand{\myname}{Xavier Moreno Liceras}
+
+
+
+%Definició de colors:
+\definecolor{bgcode}{rgb}{0.93, 0.93, 0.93}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\titleTFG}
+\cfoot{\thepage}
+ 
+\hypersetup{
+    unicode=true,          % non-Latin characters in Acrobat’s bookmarks
+    pdftitle={\titleTFG},    % title
+    pdfsubject={TFG},
+    pdfauthor={\myname},     % author
+    pdfproducer={\LaTeX},   % producer
+    pdfcreator={\myname},   % creator of the document
+    pdfkeywords={tutor} {innovació docent} {predicció} {pla d'acció tutorial}, % list of keywords
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,          % color of internal links (change box color with linkbordercolor)
+    citecolor=blue,        % color of links to bibliography
+    urlcolor=blue           % color of external links
+}
+
+\begin{document}
+
+\bibstyle{plain}
+\thispagestyle{empty}
+
+\begin{titlepage}
+\begin{center}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=6cm]{img/ub.png}
+\end{center}
+\end{figure}
+
+\textbf{\LARGE Treball final de grau} \\
+\vspace*{.5cm}
+\textbf{\LARGE GRAU D'ENGINYERIA INFORMÀTICA } \\
+\vspace*{.5cm}
+\textbf{\LARGE Facultat de Matemàtiques \\ Universitat de Barcelona} \\
+\vspace*{1.5cm}
+\rule{\textwidth}{0.1mm}\\
+\begin{Huge}
+\textbf{\titleTFG} \\
+\end{Huge}
+\rule{\textwidth}{0.1mm}\\
+
+\vspace{1cm}
+
+\begin{flushright}
+\textbf{\LARGE Autor: \myname}
+
+\vspace*{2cm}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{ll}
+\textbf{\Large Director:} & \textbf{\Large Laura Igual } \\
+\textbf{\Large Realitzat a:} & \textbf{\Large  Departament   } \\
+ & \textbf{\Large Matemàtica Aplicada y Anàlisis} \\
+\\
+\textbf{\Large Barcelona,} & \textbf{\Large \today }
+\end{tabular}
+
+\end{flushright}
+
+\end{center}
+\end{titlepage}
+
+\pagenumbering{roman}
+
+\section*{Abstract}
+
+Goldbach's weak conjecture asserts that every odd integer greater than 5 is the sum of three primes. We study that problem and the proof of it presented by H. A. Helfgott and D. Platt. We focus on the circle method. Finally, we describe a computation that confirms Goldbach's weak conjecture up to $10^{28}$.
+
+\section*{Resum}
+Normalment un tutor tutoritza a un conjunt d'alumnes i no dóna temps de mirar detingudament alumne per alumne, això fa que possiblement no es realitzin les accions corresponents per a un alumne. 
+%Fins ara un tutor segueix les pautes d'un pla d'acció tutorial (PAT)
+
+
+
+\newpage 
+
+\section*{Agraïments}
+
+Vull agrair a ... 
+
+%\underline{\hspace{\textwidth}}
+
+\newpage
+\thispagestyle{empty}
+{\hypersetup{linkcolor=black}
+	\tableofcontents
+}
+\thispagestyle{empty}
+\newpage
+
+\pagenumbering{arabic} 
+\setcounter{page}{1}
+
+
+\section{Introducció}
+\newpage
+\section{Planificació}
+\subsection{Problemes de planificació}
+\newpage
+\part{Coneixement de l'àrea}
+\section{Eines}
+\subsection{Suport}
+Aquestes són les eines de suport que m'han ajudat al llarg del treball per tal de fer més còmode la seva organització tant personal com per equip.
+\subsubsection{GitHub}
+GitHub és una plataforma online per desenvolupar projectes software de forma col·laborativa. Aquesta plataforma utilitza un control de versions anomenat Git. La finalitat de GitHub és l'emmagatzenament massiu de projectes amb codi font obert. Per això hem optat per la utilització de GitHub, ja que que volem que el nostre codi el pogui veure tothom i que qualsevol que el necessiti per fer la seva investigació, el pogui utilitzar.
+\subsubsection{Bitbucket}
+Bitbucket és una plataforma semblant a GitHub, però amb el servei d'un altre control de versions com Mercurial a més de Git. Bitbucket té l'advantatge de permetre crear repositoris privats de forma gratuïta. Aquesta plataforma va bé per a l'inici d'un projecte on es fan molts canvis en el codi, ja que pots tenir el codi en privat, i un cop el codi ja agafa forma es pot migrar a GitHub. Això és el que hem fet nosaltres en el projecte, començar amb Bitbucket i després passar-nos a GitHub amb el codi font obert.
+
+\subsubsection{Trello}
+Per últim com eina de suport, hem fet servir Trello, una plataforma online que permet una comunicació més clara entre els membres d'un projecte. Amb Trello pots crear projectes i cada projecte conté un conjunt de llistes que s'omplen de tasques. Nosaltres hem fet servir Trello, per comunicar-nos amb la tutora i tenir present una planificació per tal d'organitzar-nos millor.
+
+\newpage
+\subsection{Eines de programació}
+En aquesta secció trobarem amb el llenguatge de programació i conjunt de llibreries que hem treballat.
+
+\subsubsection{Python}
+Python és un llenguatge d'alt nivell interpretat. Remarquen molt la fàcil lectura del seus codis, per això té una sintaxis molt semblant a un pseudocodi. Python és un llenguatge de codi obert i desenvolupat per \textit{Python Software Foundation}, una organització sense ànim de lucre. Vam escollir Python en el seu moment per dues simples raons; per ser un llenguatge de scripting i per la seves llibreries relacionades amb el tractament de dades (com \hyperlink{pandas}{Pandas}, \hyperlink{numpy}{NumPy} o \hyperlink{sklearn}{Scikit-learn}).
+
+
+\hypertarget{pandas}{
+	\subsubsection{Pandas}
+}
+Pandas és una biblioteca informàtica escrita en python per a la manipulació i anàlisi de dades. Especialment va bé per al tractament de taules alhora de fer consultes, o per a l'agrupació i agrecació d'informació.
+
+\hypertarget{numpy}{
+	\subsubsection{NumPy}
+}
+Numpy és una biblioteca informàtica de Python per operar amb vectors i matrius d'una forma més extensa a la que et permet el mateix llenguatge Python, la qual conté tot un conjunt de funcions matemàtiques d'alt nivell per treballar amb aquests vectors i matrius.
+
+\hypertarget{sklearn}{
+	\subsubsection{Scikit-learn}
+}
+Scikit-learn és una biblioteca informàtica orientada a l'aprenentatge automàtic per a Python. Té suport per classificadors, regressors i clustering. Per aquest projecte hem fet servir clustering i regressors. En la secció de \hyperlink{tecniquesutilitzades}{Tècniques utilitzades} es detalla cada tècnica utilitzada d'aquesta biblioteca informàtica.
+
+\subsubsection{Bokeh}
+Bokeh és una biblioteca informàtica per a la visualització interactiva de dades dirigida als navegadors per a la seva presentació a través d'HTML i JavaScript. Bokeh té el suport per a gràfiques específiques com diagrames de barra, box plots o time series, però a banda d'aquests gràfics pots dibuixar sobre un gràfic amb elements bàsics com cercles, línies, rectangles, entre altres.
+
+\subsubsection{Seaborn}
+Per últim tenim Seaborn que també és una biblioteca informàtica per a visualitazció de dades com Bokeh, amb gràfiques molt més específiques. A més té una part de la biblioteca informàtica dedicada a les paletes de colors i la qual permet escollir un conjunt de colors afavorits per mostrar les dades.\\
+
+
+\begin{figure}[h]
+\begin{minted}
+[
+framesep=5mm,
+baselinestretch=1.2,
+bgcolor=bgcode,
+fontsize=\footnotesize
+]
+{python}
+%matplotlib inline
+import seaborn as sbn
+palette = sbn.color_palette("hls", 5)
+sbn.palplot(palette)
+\end{minted}
+\begin{center}
+\includegraphics[width=8cm]{img/palplot_seaborn.png}
+\end{center}
+\caption{Elecció d'una paleta de 5 colors}
+\end{figure}
+
+
+\subsection{Editors}
+\subsubsection{IPython notebook}
+\subsubsection{Texmaker}
+\newpage
+\hypertarget{tecniquesutilitzades}{
+	\section{Tècniques utilitzades}
+}
+\subsection{Clusterització (Agrupacions)}
+\subsubsection{K-means}
+\subsubsection{MeanShift}
+\subsubsection{DBScan}
+\subsubsection{Mètriques utilitzades}
+\newpage
+\subsection{Predicció}
+\subsubsection{Regressors}
+\subsubsection{Recomanador}
+\subsubsection{Mètriques utilitzades}
+\subsection{Reducció de dimensions}
+\subsubsection{PCA}
+\newpage
+\part{Procés pràctic}
+\section{Etapes del projecte}	
+\subsection{Hipòtesis: prguntes plantejades}
+\subsection{Data cleaning de les primeres dades}
+\subsection{Data cleaning de les noves dades}
+\subsection{Procés de resolució de preguntes}
+\newpage
+\section{Preguntes}
+\subsection{Hi ha perfils d'estudiants basats en les notes?}
+\subsection{Un dels clusters correspon als alumnes que abandonen?}
+\subsection{Quin perfil d'entrada té cada cluster?}
+\subsection{Ranking de dificultat de les assignatures que ha de fer (que ha matriculat) un alumne}
+\newpage
+\section{Treball futur}
+\newpage
+\section{Conclusions}
+\newpage
+\section{Bibliografia}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textit{\textbf{Algoritme$\setminus$Mètriques}}   & \textbf{MAE} & \textbf{MSE} & \textbf{PCC} \\ \midrule
+\textbf{Recomanador col·laboratiu}      & 1.231        & 2.997        & 0.335        \\
+\textbf{Recomanador basat en contingut} & 1.197        & 2.905        & 0.403        \\
+\textbf{Random Forest Regressor}        & 1.134        & 2.584        & 0.490        \\
+\textbf{Linear Regressor}               & 1.175        & 2.720        & 0.462        \\ \bottomrule
+\end{tabular}
+\caption{Dades no normalitzades}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textit{\textbf{Mètriques/Algoritme}}   & \textbf{MAE} & \textbf{MSE} & \textbf{PCC} \\ \midrule
+\textbf{Recomanador col·laboratiu}      & 0.558        & 0.669        & 0.069        \\
+\textbf{Recomanador basat en contingut} & 0.531        & 0.660        & 0.358        \\
+\textbf{Random Forest Regressor}        & 0.509        & 0.565        & 0.393        \\
+\textbf{Linear Regressor}               & 0.538        & 0.648        & 0.462        \\ \bottomrule
+\end{tabular}
+\caption{Dades normalitzades}
+\end{table}
+
+
+
+
+
+
+
+\end{document}
