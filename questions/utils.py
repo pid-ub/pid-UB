@@ -5,7 +5,7 @@ from bokeh.plotting import GridPlot
 import numpy as np
 import pandas as pd
 
-def select_rows_by_subjects(df, group, col):
+def select_rows_by_columns(df, group, col):
     out = pd.DataFrame()
     tmp = df.copy()
     for s in group:
@@ -16,7 +16,7 @@ def select_rows_by_subjects(df, group, col):
 def table_students(df, group_subjects):
 
     # Amb select_rows_by_subjects, ens quedem amb només les qualificacions de les assignatures de primer
-    grp = select_rows_by_subjects(df, group_subjects, 'id_assig')
+    grp = select_rows_by_columns(df, group_subjects, 'id_assig')
 
     # Agrupem les assignatures per niub
     students_by_niub = grp.groupby('id_alumne').size()
