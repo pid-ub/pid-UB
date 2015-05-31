@@ -3,6 +3,7 @@
 \usepackage{graphicx} % for images
 \usepackage{booktabs} % for tables
 \usepackage{fancyhdr} % for header and footers
+\usepackage{titlesec}
 \usepackage{hyperref} % for links 
 \usepackage{minted}
 \usepackage{todonotes}
@@ -15,6 +16,13 @@
 
 %Definició de colors:
 \definecolor{bgcode}{rgb}{0.93, 0.93, 0.93}
+
+%\setcounter{secnumdepth}{4}
+%\setcounter{tocdepth}{4}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -99,8 +107,6 @@ Normalment un tutor tutoritza a un conjunt d'alumnes i no dóna temps de mirar d
 
 Vull agrair a ... 
 
-%\underline{\hspace{\textwidth}}
-
 \newpage
 \thispagestyle{empty}
 {\hypersetup{linkcolor=black}
@@ -115,48 +121,75 @@ Vull agrair a ...
 
 \section{Introducció}
 \newpage
-\section{Planificació}
-\subsection{Problemes de planificació}
+\section{Descripció del problema}
+\subsection{Explicar dades} \todo{change title}
+% Explicar quines dades tenim, amb quines dades treballem.
+\subsection{Ciència de les dades}
+La ciència de les dades és el conjunt d'etapes per tal d'arribar a un resultat, en forma de coneixement, a partir d'un conjunt de dades. Aquesta aplica un conjunt de tècniques de diferents àreas, ara com matemàtiques, estadística, teoria de la informació o tecnologia de l'extracció d'informació.
+\\
+\\
+Un projecte de ciència de les dades es separa en diverses etapes:
+\begin{description}
+	\item[Preguntes] Què és el que volem explorar? Té sentit el que ens estem plantejant?
+	\item[Adquisició de les dades] Com és la font d'obtenció de les dades? (Base de dades, \textit{Web Scraping})
+	\item[Descripció] Aquesta fase abasta tres processos
+	\begin{description}
+		\item[Neteja de dades] Com hem de netejar i separar les dades? (mostres atípiques, filtració, redució de dimensions, normalització, extracció de característiques)
+		\item[Agregació] Com hem de recolectar i resumir les dades? (promig, desviació estàndard, box plots)
+		\item[Enriquiment] Com podem afegir més informació a les nostres dades? (Cerca a altres fonts de dades adicionals)
+	\end{description}
+	\item[Desobriment] Podem segmentar les nostres dades per trobar grups naturals i disgregats? (Clusterització, visualització)
+\end{description}
+\subsection{Etapes del projecte}
+\subsection{Plantejar preguntes} \todo{change title}
+
 \newpage
-\part{Coneixement de l'àrea}
-\section{Eines}
-\subsection{Suport}
+
+\section{Planificació}
+\subsection{Tasques}
+\subsection{Diagrama de Gantt}
+\subsection{Evaluació económica}
+\newpage
+
+\section{Desenvolupament del projecte}
+\subsection{Eines}
+\subsubsection{Eines de suport}
 Aquestes són les eines de suport que m'han ajudat al llarg del treball per tal de fer més còmode la seva organització tant personal com per equip.
-\subsubsection{GitHub}
+\paragraph{GitHub}
 GitHub és una plataforma online per desenvolupar projectes software de forma col·laborativa. Aquesta plataforma utilitza un control de versions anomenat Git. La finalitat de GitHub és l'emmagatzenament massiu de projectes amb codi font obert. Per això hem optat per la utilització de GitHub, ja que que volem que el nostre codi el pogui veure tothom i que qualsevol que el necessiti per fer la seva investigació, el pogui utilitzar.
-\subsubsection{Bitbucket}
+\paragraph{Bitbucket}
 Bitbucket és una plataforma semblant a GitHub, però amb el servei d'un altre control de versions com Mercurial a més de Git. Bitbucket té l'advantatge de permetre crear repositoris privats de forma gratuïta. Aquesta plataforma va bé per a l'inici d'un projecte on es fan molts canvis en el codi, ja que pots tenir el codi en privat, i un cop el codi ja agafa forma es pot migrar a GitHub. Això és el que hem fet nosaltres en el projecte, començar amb Bitbucket i després passar-nos a GitHub amb el codi font obert.
 
-\subsubsection{Trello}
+\paragraph{Trello}
 Per últim com eina de suport, hem fet servir Trello, una plataforma online que permet una comunicació més clara entre els membres d'un projecte. Amb Trello pots crear projectes i cada projecte conté un conjunt de llistes que s'omplen de tasques. Nosaltres hem fet servir Trello, per comunicar-nos amb la tutora i tenir present una planificació per tal d'organitzar-nos millor.
 
 \newpage
-\subsection{Eines de programació}
+\subsubsection{Eines de programació}
 En aquesta secció trobarem amb el llenguatge de programació i conjunt de llibreries que hem treballat.
 
-\subsubsection{Python}
+\paragraph{Python}
 Python és un llenguatge d'alt nivell interpretat. Remarquen molt la fàcil lectura del seus codis, per això té una sintaxis molt semblant a un pseudocodi. Python és un llenguatge de codi obert i desenvolupat per \textit{Python Software Foundation}, una organització sense ànim de lucre. Vam escollir Python en el seu moment per dues simples raons; per ser un llenguatge de scripting i per la seves llibreries relacionades amb el tractament de dades (com \hyperlink{pandas}{Pandas}, \hyperlink{numpy}{NumPy} o \hyperlink{sklearn}{Scikit-learn}).
 
 
 \hypertarget{pandas}{
-	\subsubsection{Pandas}
+	\paragraph{Pandas}
 }
 Pandas és una biblioteca informàtica escrita en python per a la manipulació i anàlisi de dades. Especialment va bé per al tractament de taules alhora de fer consultes, o per a l'agrupació i agrecació d'informació.
 
 \hypertarget{numpy}{
-	\subsubsection{NumPy}
+	\paragraph{NumPy}
 }
 Numpy és una biblioteca informàtica de Python per operar amb vectors i matrius d'una forma més extensa a la que et permet el mateix llenguatge Python, la qual conté tot un conjunt de funcions matemàtiques d'alt nivell per treballar amb aquests vectors i matrius.
 
 \hypertarget{sklearn}{
-	\subsubsection{Scikit-learn}
+	\paragraph{Scikit-learn}
 }
 Scikit-learn és una biblioteca informàtica orientada a l'aprenentatge automàtic per a Python. Té suport per classificadors, regressors i clustering. Per aquest projecte hem fet servir clustering i regressors. En la secció de \hyperlink{tecniquesutilitzades}{Tècniques utilitzades} es detalla cada tècnica utilitzada d'aquesta biblioteca informàtica.
 
-\subsubsection{Bokeh}
+\paragraph{Bokeh}
 Bokeh és una biblioteca informàtica per a la visualització interactiva de dades dirigida als navegadors per a la seva presentació a través d'HTML i JavaScript. Bokeh té el suport per a gràfiques específiques com diagrames de barra, box plots o time series, però a banda d'aquests gràfics pots dibuixar sobre un gràfic amb elements bàsics com cercles, línies, rectangles, entre altres.
 
-\subsubsection{Seaborn}
+\paragraph{Seaborn}
 Per últim tenim Seaborn que també és una biblioteca informàtica per a visualitazció de dades com Bokeh, amb gràfiques molt més específiques. A més té una part de la biblioteca informàtica dedicada a les paletes de colors i la qual permet escollir un conjunt de colors afavorits per mostrar les dades.
 
 \begin{figure}[h]
@@ -180,44 +213,28 @@ sbn.palplot(palette)
 \end{figure}
 
 
-\subsection{Editors}
-\subsubsection{IPython notebook}
-\subsubsection{Texmaker}
+\subsubsection{Eines d'edició}
+\paragraph{IPython notebook}
+\paragraph{Texmaker}
 \newpage
 \hypertarget{tecniquesutilitzades}{
-	\section{Tècniques utilitzades}
+	\subsection{Tècniques utilitzades}
 }
-\subsection{Clusterització (Agrupacions)}
-\subsubsection{K-means}
-\subsubsection{MeanShift}
-\subsubsection{DBScan}
-\subsubsection{Mètriques utilitzades}
+\subsubsection{Clusterització (Agrupacions)}
+\paragraph{K-means}
+\paragraph{MeanShift}
+\paragraph{Mètriques utilitzades}
 \newpage
-\subsection{Predicció}
-\subsubsection{Regressors}
-\subsubsection{Recomanador}
-\subsubsection{Mètriques utilitzades}
-\subsection{Reducció de dimensions}
-\subsubsection{PCA}
+\subsubsection{Predicció}
+\paragraph{Recomanador}
+\paragraph{Random Forest Regressor}
+\paragraph{Regressor lineal}
+\paragraph{Mètriques utilitzades}
+\subsubsection{Reducció de dimensions}
+\paragraph{PCA}
 \newpage
-\part{Procés pràctic}
-\section{Etapes del projecte}	
-\subsection{Hipòtesis: prguntes plantejades}
-\subsection{Data cleaning de les primeres dades}
-\subsection{Data cleaning de les noves dades}
-\subsection{Procés de resolució de preguntes}
-\newpage
-\section{Preguntes}
-\subsection{Hi ha perfils d'estudiants basats en les notes?}
-\subsection{Un dels clusters correspon als alumnes que abandonen?}
-\subsection{Quin perfil d'entrada té cada cluster?}
-\subsection{Ranking de dificultat de les assignatures que ha de fer (que ha matriculat) un alumne}
-\newpage
-\section{Treball futur}
-\newpage
-\section{Conclusions}
-\newpage
-\section{Bibliografia}
+
+\section{Experiments i resultats}
 
 \begin{table}[h]
 \centering
@@ -245,10 +262,13 @@ sbn.palplot(palette)
 \caption{Dades normalitzades}
 \end{table}
 
-
-
-
-
-
-
+% Preguntes:
+%   - Hi ha perfils d'estudiants basats en les notes?
+%   - Un dels clusters correspon als alumnes que abandonen?
+%   - Quin perfil d'entrada té cada cluster?
+%   - Ranking de dificultat de les assignatures que ha de fer (que ha matriculat) un alumne
+\newpage
+\section{Conclusions i treball futur}
+\newpage
+\section{Bibliografia}
 \end{document}
