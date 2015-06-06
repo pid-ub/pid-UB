@@ -17,7 +17,7 @@ def table_students(df, group_subjects):
 
     # Amb select_rows_by_subjects, ens quedem amb només les qualificacions de les assignatures de primer
     grp = select_rows_by_columns(df, group_subjects, 'id_assig')
-
+    grp = grp[grp["tipus_apunt"] != "Convalidat"]
     # Agrupem les assignatures per niub
     students_by_niub = grp.groupby('id_alumne').size()
     # D'aquesta agropació ens quedem amb els 'niubs' que apareixen 10 cops, les assignatures cursades a 1er
