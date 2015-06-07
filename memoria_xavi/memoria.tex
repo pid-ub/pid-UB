@@ -8,6 +8,8 @@
 \usepackage{minted}
 \usepackage{amsmath} % for math annotations
 \usepackage{todonotes}
+\usepackage{enumitem}
+
 
 %Definició de noms:
 \newcommand{\titleTFG}{Sistema intel·ligent de suport al Tutor d'estudis}
@@ -26,6 +28,13 @@
 {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
 \titlespacing*{\paragraph}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+% define letters
+\makeatletter
+\def\iddots{\mathinner{\mkern1mu\raise\p@
+\vbox{\kern7\p@\hbox{.}}\mkern2mu
+\raise4\p@\hbox{.}\mkern2mu\raise7\p@\hbox{.}\mkern1mu}}
+\makeatother
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -80,7 +89,7 @@
 
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{ll}
-\textbf{\Large Director:} & \textbf{\Large Laura Igual } \\
+\textbf{\Large Directora:} & \textbf{\Large Laura Igual } \\
 \textbf{\Large Realitzat a:} & \textbf{\Large  Departament   } \\
  & \textbf{\Large Matemàtica Aplicada y Anàlisis} \\
 \\
@@ -319,7 +328,8 @@ Aquesta és una eina d'edició de \LaTeX, la qual permet poder generar informes,
 \subsubsection{Clusterització (Agrupacions)}
 La clusterització és molt important en el món de les dades si el que volem es reconèixer diferents grups de ítems de les nostres dades, en el nostre cas d'alumnes. Per això, abans de veure els resultats i experiments explorats, cal entendre les diferències entre les diferents tècniques de clusterització. En aquest projecte hem fet servir dues tècniques, on l'objectiu d'elles és el mateix, desframentar les dades i trobar diferents grups d'alumnes. Aquestes dues tècniquies són K-means i MeanShift, ambdues implementades en la biblioteca informàtica de Scikit-learn. \todo{link}
 
-\paragraph{K-means}
+\paragraph{\textit{K-means}}
+\todo{Referenciar al k-means de sklearn.}
 \textit{K-means} probablement és un dels algoritmes d'agrupació més conegut. Partint de $n$ elements, segmenta aquests $n$ elements en $k$ grups (entrada obligatòria de l'algoritme) on cada element pertany al grup més proper a la mitjana. L'algoritme de \textit{K-means} està descrit per la següent fórmula:
 \\
 \\
@@ -336,15 +346,136 @@ Com es veu en la fòrmula, aquest algoritme depén d'una $k$, per determinar agr
 \centering
 \missingfigure{\Huge Nice this triangle?}
 \caption{Some caption}
-\label{nicefigure}
 \end{figure}
 
-\paragraph{MeanShift}
-\paragraph{Mètriques utilitzades}
 \newpage
+
+\paragraph{\textit{Mean Shift}}
+\todo{Referenciar al mean shift de sklearn.}
+\textit{Mean Shift} és l'altre tècnica d'agrupació o clusterització que utilitzo en aquest projecte. L'objectiu d'aquesta tècnica és el mateix que \textit{K-means}, però el seu algoritme funciona de forma diferent, considerant l'espai de característiques com una funció de densitat de probabilitat.
+\\
+\\
+Aquest algoritme no necessita com a entrada el número de clusters que busquem, com \textit{K-means}. Té altres paràmetres d'entrada, però són opcionals. En aquesta imatge podem veure la diferència entre \textit{K-means} i \textit{Mean Shift}.
+
+\begin{figure}[h]
+\centering
+\missingfigure{\Huge Nice this triangle?}
+\caption{Some caption}
+\end{figure}
+
+\newpage
+
+\paragraph{Mètriques utilitzades}
+Existeixen dos indicadors d'avaluació dels resultats de l'anàlisis de les agrupacions:
+\begin{enumerate}
+	\item \textbf{Supervisat} Utilitza les agrupacions reals per comparar-les amb les agrupacions donades per l'algoritme de clusterització.
+	\item \textbf{No supervisat} És tot lo contrari, mesura la qualitat del propi model, basant-se en les característiques d'aquest.
+\end{enumerate}
+
+En el nostre cas, el que volem és explorar i averiguar quins perfils d'estudiants hi han, per tant hem d'utilitzar mètriques no supervisades, ja que no tenim una referència per comparar. La única mètrica no supervisada que utilitzem és la \textit{Silhouette}.
+
+\todo{Referenciar a Silhouette de sklearn.}
+\subparagraph{\textit{Silhouette}}
+És una mesura no supervisada, que valora la integrat de cada node dintre d'un cluster. Per cada punt (o observació) calculem la \textit{silhouette} amb la següent fórmula:
+
+$$ s(i) = \frac{b(i) - a(i)}{\max\{a(i),b(i)\}} $$
+
+on:
+\begin{itemize}[leftmargin=.5in]
+	\item [$i$] és el punt del qual volem calcular la \textit{silhouette}.
+	\item [$a(i)$] és la distància mitja als demés punts dintre del cluster de $i$.
+	\item [$b(i)$] és la distància mitja als punts que no estan dintre del cluster de $i$.
+\end{itemize}
+
+Un cop tenim la \textit{silhouette} calculada per cada observació, per tenir la \textit{silhouette} del cluster, fem la mitja de totes elles.
+
+\newpage
+
 \subsubsection{Predicció}
+La etapa de predicció és important en un projecte de data science, ja que ens permet predir el futur d'una forma estadística en base a les observacions que tenim. Però igual que la clusterització, hi han diverses tècniques, aquí explicaré quines tècniques he utilitzat per aquest projecte.
+
+\todo{lincar la teoria de TNUI - recommenders}
 \paragraph{Recomanador}
-\paragraph{Random Forest Regressor}
+Una de les tècniques per predir dades són els recomanadors. En aquest apartat explicaré com funciona el recomanador que he montat possant-nos en context del nostre projecte. Tenint en compte les notes d'un conjunt d'alumnes, el recomanador és capaç de predir de forma estadística les notes d'un alumne en base a la resta dels altres.
+\\
+\\
+Imaginem que tenim una matriu tal que:
+$$
+C = \bordermatrix{~ &         a_1   &    a_2   &   \cdots    &    a_m  \cr
+                  e_1    &  c_{11}  &     ?    &   \cdots    &  c_{1m} \cr
+                  e_2    &  c_{21}  &  c_{22}  &   \cdots    &    ?    \cr
+                  \vdots &  \vdots  &  \vdots  &   \ddots    &  \vdots \cr
+                  e_n    &    ?     &  c_{n2}  &   \cdots    &  c_{nm} \cr
+                  }
+$$
+
+on:
+\begin{itemize}[leftmargin=.5in]
+	\item [$e_i$] és un estudiant.
+	\item [$a_i$] és una assignatura.
+	\item [$c_{ij}$] és la nota d'un alumne en una assignatura.
+	\item [$?$] són notes no completes, perquè un alumne no ha cursat. l'assignatura.
+\end{itemize}
+
+La finalitat del nostre recomanador, és omplir les notes que apareixen amb $?$ i possar la nota més adient. Abans d'explicar com funciona, introduiré els diferents tipus de recomanadors que podem tenir:
+
+\subparagraph{Recomanador col·laboratiu bassat en estudiant}
+Prediem la nota d'un alumne en base a la semblança de l'alumne amb la resta. És a dir, si n alumne $e_i$ té unes notes semblant a un alumne $e_j$, les assignatures que no ha cursat $e_i$ podrem dir que seran semblants a les notes que ha tret $e_j$ en aquelles assignatures.
+
+\subparagraph{Recomanador col·laboratiu bassat en assignatures}
+Ara en comptes de bassar-nos en la semblança entre els estudiants, ens basem en la semblança entre una assignatura amb la resta. És a dir, si una assignatura $a_i$ segueix una distribució semblant a una assignatura $a_j$, llavors podem dir que un alumne $e_i$ treurà una nota semblant en ambdues assignatures.
+
+\subparagraph{Recomanador híbrid}
+Per últim tenim la barreja dels dos recomanadors esmentats. Aquest recomanador no s'ha fet servir en aquest projecte, però es podria fer servir si es pogués apendre quin pes assignar a cada tipus de recomanador.
+\\
+\\
+Començaré explicant el recomanador col·laboratiu bassat en l'estudiant, el qual agafaré com a base per explicar el bassat en assignatures. Imaginem que tenim una matriu semblant a la d'abans:
+\\
+$$
+C = \bordermatrix{~      &   a_1   & \cdots  &           a_q            & \cdots  &   a_m  \cr
+                  e_1    &  c_{11} & \cdots  & \textbf{c}_{\textbf{1q}} & \cdots  &    ?   \cr
+                  \vdots &  \vdots & \ddots  &     \textbf{\vdots}      & \iddots & \vdots \cr
+                  e_p    &    ?    & \cdots  &       \textbf{?}         & \cdots  & c_{pm} \cr
+                  \vdots &  \vdots & \iddots &       \textbf{\vdots}    & \ddots  & \vdots \cr
+                  e_n    &  c_{n1} & \cdots  & \textbf{c}_{\textbf{nq}} & \cdots  & c_{nm} \cr
+                  }
+$$
+\\
+
+El que volem és predir la nota que té el símbol $?$ en negreta a la posició $c_{pq}$. El que necessitem és aplicar a la posició que volem predir la següent fórmula:
+$$
+	c_{pq} = \sum_{i=1}^n{\alpha_{e_pe_i}c_{iq}}
+$$
+on:
+\begin{itemize}[leftmargin=.5in]
+	\item [$\alpha$] és una funció de similitud, que dóna pes a $c_{a_qe_j}$.
+	\item [$e_i$] és un estudiant.
+	\item [$a_i$] és una assignatura.
+\end{itemize}
+
+Amb aquesta fórmula podem veure la funcionalitat d'aquest recomanador, si ens fixem, com més semblants siguin dos estudiants, més pes li donarem a la nota que ha tret un dels dos per recomanar-li a l'altre. Realment aquesta fórmula és la fórmula de mitja ponderada.
+
+\newpage
+
+Ara bé, si el que volem és fer un recomanador bassat en assignatures, tenim dues opcions. O bé aplicar la següent fórmula:
+$$
+	c_{pq} = \sum_{j=1}^n{\alpha_{a_qa_j}c_{pj}}
+$$
+O fer la transposada de la matriu anterior i aplicar la mateixa fórmula d'abans.
+
+\paragraph{\textit{Random Forest Regressor}}
+Abans d'explicar la tècnica de \textit{Random Forest Regressor}, s'ha d'entendre el concepte d'un arbre de regressió. Un arbre de regressió és una tècnica utilitzada en aprenentatge automàtic, que es defineix com un model predictiu que mapeja observacions sobre una característica a conclusions sobre el valor objectiu d'aquesta característica. En aquestes estructures d'arbre, les fulles representen un valor real d'aquella característica i les branques les conjuccions de caracterítiques que han portat fins a la fulla.
+
+%incrustrar: http://es.wikipedia.org/wiki/Aprendizaje_basado_en_%C3%A1rboles_de_decisi%C3%B3n#/media/File:CART_tree_titanic_survivors.png
+
+\begin{figure}[h]
+\centering
+\missingfigure{\Huge Nice this triangle?}
+\caption{Some caption}
+\end{figure}
+
+Bé doncs, \textit{Random Forest Regressor}, no és més que un conjunt d'arbres de regressió, on el resultat és la mitja de la sortida de cada arbre.
+
 \paragraph{Regressor lineal}
 \paragraph{Mètriques utilitzades}
 \subsubsection{Reducció de dimensions}
