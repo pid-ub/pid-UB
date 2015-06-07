@@ -461,8 +461,9 @@ Ara bé, si el que volem és fer un recomanador bassat en assignatures, tenim du
 $$
 	c_{pq} = \sum_{j=1}^n{\alpha_{a_qa_j}c_{pj}}
 $$
-O fer la transposada de la matriu anterior i aplicar la mateixa fórmula d'abans.
+O bé, fer la transposada de la matriu anterior i aplicar la mateixa fórmula d'abans.
 
+\todo{link de sklearn}
 \paragraph{\textit{Random Forest Regressor}}
 Abans d'explicar la tècnica de \textit{Random Forest Regressor}, s'ha d'entendre el concepte d'un arbre de regressió. Un arbre de regressió és una tècnica utilitzada en aprenentatge automàtic, que es defineix com un model predictiu que mapeja observacions sobre una característica a conclusions sobre el valor objectiu d'aquesta característica. En aquestes estructures d'arbre, les fulles representen un valor real d'aquella característica i les branques les conjuccions de caracterítiques que han portat fins a la fulla.
 
@@ -474,12 +475,56 @@ Abans d'explicar la tècnica de \textit{Random Forest Regressor}, s'ha d'entendr
 \caption{Some caption}
 \end{figure}
 
-Bé doncs, \textit{Random Forest Regressor}, no és més que un conjunt d'arbres de regressió, on el resultat és la mitja de la sortida de cada arbre.
+Bé doncs, \textit{Random Forest Regressor}, no és més que un conjunt d'arbres de regressió, on el resultat és la mitja de la sortida de cada arbre, a més per a cada arbre s'aplica un soroll aleatori a les dades sense variar en la seva distribució, això fa que es benificiï al fer la mitja. 
 
+\newpage
+
+\todo{link de sklearn}
 \paragraph{Regressor lineal}
+Un regressor lineal modelitza una recta de regressió a partir d'un núvol de punts. La recta definida, és la recta més propera que passa per tots els punts. El que busca és definir una variable depenent a partir d'un conjunt de variables, és a dir:
+$$
+y =\beta_0+\beta_1 x_1+\beta_2 x_2+ \cdots + \beta_n x_n + \varepsilon
+$$
+
+on $\beta_i$ són termes constants i $n$ són els conjunts d'observacions que tenim. En el cas d'una sola variable depenent, tindriem un resultat com el de la figura següent:
+
+%http://ca.wikipedia.org/wiki/Regressi%C3%B3_lineal#/media/File:Normdist_regression.png
+\begin{figure}[h]
+\centering
+\missingfigure{\Huge Nice this triangle?}
+\caption{Some caption}
+\end{figure}
+
+\todo{link de sklearn}
 \paragraph{Mètriques utilitzades}
+Igual que en la secció de clusterització, per a la predicció de dades, també hem utilitzat mesures per validar les nostres prediccions. En aquest hem utilitzat tant mètriques supervisades com no supervisades.
+
+\subparagraph{Error promig absolut (MAE)}
+És una mesura supervisada que és basa en fer la mitja dels errors produïts pel predictor. Està definit per la següent fórmula:
+$$ \mathrm{MAE} = \frac{1}{n}\sum_{i=1}^n \left| y_{pred_i}-y_{test_i}\right| $$
+
+\subparagraph{Error promig quadràtic (MSE)}
+Per un altre banda tenim una segona mètrica supervisada també, però aquesta mètrica penalitza els error alts, ja que la diferència es elavada al quadrat, quedaria la següent fórmula:
+$$\mathrm{MSE}=\frac{1}{n}\sum_{i=1}^n(y_{pred_i}-y_{test_i})^2$$
+
+\subparagraph{Coeficient de pearson (PCC)}
+El coeficient de pearson, la utilitzem com una mètrica supervisada i la fem servir per diferencia la distribució de les notes predites amb les notes reals. El coeficient de pearson està definit per la següent fórmula:
+$$\mathrm{PCC} =\left| \frac{\sum_{i=1}^n(y_{pred_i} - \bar{y}_{pred_i})(y_{test_i} - \bar{y}_{test_i})}{\sqrt{\sum_{i=1}^n(y_{pred_i} - \bar{y}_{pred_i})^2  \sum_{i=1}^n(y_{test_i} - \bar{y}_{test_i})^2}}\right|$$
+
+\subparagraph{Desviació estàndard (std)}
+Per últim també calculem la desviació estàndard per veure si els errors són més o menys dispersos. La fórmula utilitzada és la següent:
+
+$$ \sigma = \sqrt{ \frac{1}{n} \sum_{i=1}^n (\left| y_{pred_i}-y_{test_i}\right| - \mu)^2 } $$
+
+Totes aquestes mètriques són necessaries per evaluar cada tècnica de predicció que utilitzo. Tot i així, les tècniques més importants i que tenen més pes són l'error promig absolut i quadràtic.
+
 \subsubsection{Reducció de dimensions}
+Una de les últimes tècniques que utilitzo en aquest projecte d'innovació docent és la reducció de dimensions. És imprescindible per poder visualitzar les teves dades si tenen una dimensió major que 3. Aquestes tècniques a més permeten reduïr el cost computacional sense variar en el seu resultat. Una de les tècniques utilitzades en aquest projecte és l'anàlisis de components principals (PCA).
+
+\todo{link de sklearn}
 \paragraph{PCA}
+L'anàlisis de components principals o PCA el que fa és escollir un nou sistema de coordenades a partir d'una transformació lineal on s'ordenen les variances per mida i la variança amb major mida s'escollirà com eix principal, la segona variança com a segon eix, així successivament fins obtenir la dimensionalitat escollida per argument.
+
 \newpage
 
 \section{Experiments i resultats}
