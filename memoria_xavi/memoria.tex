@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,catalan]{article}
+\documentclass[12pt,a4paper,catalan]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx} % for images
 \usepackage{booktabs} % for tables
@@ -12,7 +12,7 @@
 
 
 %Definició de noms:
-\newcommand{\titleTFG}{Sistema intel·ligent de suport al Tutor d'estudis}
+\newcommand{\titleTFG}{Sistema intel·ligent de suport al tutor d'estudis}
 \newcommand{\myname}{Xavier Moreno Liceras}
 
 
@@ -106,15 +106,15 @@
 \todo{Ha de ser redactat en primer persona del present}
 \todo{Revisió de les faltes d'ortografia}
 
-\section*{Abstract}
 
-Goldbach's weak conjecture asserts that every odd integer greater than 5 is the sum of three primes. We study that problem and the proof of it presented by H. A. Helfgott and D. Platt. We focus on the circle method. Finally, we describe a computation that confirms Goldbach's weak conjecture up to $10^{28}$.
+\section*{\textit{Abstract}}
+\textit{Fins ara a la Facultat de Matemàtiques de la Universitat de Barcelona, cada tutor d'estudis té assignat un grup d'estudiants. Com és obvi, el tutor no pot tenir un coneixement ampli de la situació de cada alumne i és per això que aplica una serie d'accions comunes per a cadascún. Amb aquest projecte d'innovació proposem una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza, amb el suport de dades estadístiques per perfil d'alumne i un recomanador que indica quant de difícil li pot arribar a costar una assignatura a un alumne.}
 
-\section*{Resum}
-Normalment un tutor tutoritza a un conjunt d'alumnes i no dóna temps de mirar detingudament alumne per alumne, això fa que possiblement no es realitzin les accions corresponents per a un alumne. 
-%Fins ara un tutor segueix les pautes d'un pla d'acció tutorial (PAT)
+\section*{\textit{Resum}}
+\textit{Fins ara a la Facultat de Matemàtiques de la Universitat de Barcelona, cada tutor d'estudis té assignat un grup d'estudiants. Com és obvi, el tutor no pot tenir un coneixement ampli de la situació de cada alumne i és per això que aplica una serie d'accions comunes per a cadascún. Amb aquest projecte d'innovació proposem una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza, amb el suport de dades estadístiques per perfil d'alumne i un recomanador que indica quant de difícil li pot arribar a costar una assignatura a un alumne.}
 
-
+\section*{\textit{Resumen}}
+\textit{Hasta ahora cada tutor de estudios de la Facultad de Matemáticas de la Universidad de Barcelona tiene asignado un grupo de estudiantes. Como es obvio, el tutor no puede tener un conocimiento amplio de la situación de cada alumno y es por eso que aplica una serie de acciones comunes para cada uno. Con este proyecto de inovación docente proponemos una herramienta de soporte para al tutor de estudios, la cual permita ayudar al tutor a conocer mejor el perfil de cada alumno que tutoriza, con el soporte de datos estadísticos por cada perfil de alumno existente y un recomendador que indica lo difícil que le puede llegar a costar una asignatura a un alumno.}
 
 \newpage 
 
@@ -135,10 +135,37 @@ Vull agrair a ...
 
 
 \section{Introducció}
+Un dels components bàsics de l'activitat docent és l'acció tutorial, la qual té com a finalitat guiar i aconsellar a l'estudiant durant la seva etapa d'estudis. Ajuda a l'estudiant a millorar el seu rendiment, a la seva orientació professional, i el més important, ajudar a prendre decissions que afavoreixin els seus estudis i la seva satisfacció. Per un altre banda tenim el pla d'acció tutorial (PAT) que tracta d'un document amb un conjunt ordenat d'accions sistemàtiques previament planificades. Una de les coses que impulsa el PAT és l'assignació d'un tutor d'estudis a un grup d'estudiants. Un tutor d'estudis, per tant té com a finalitat entre altres, acompanyar a l'alumnat durant el seu transcurs estudiantil des de l'inici del grau fins al final, aconsellant-lo per cara al món professional.
+\\
+\\
+Ens hem trobat amb el problema que el tutor no pot tenir un control dedicat per cada alumne que tutoritza. Els pot guiar de forma genèrica, així seguint el pla d'acció tutorial. A partir de l'experiència s'ha pogut arribar a conclusions com ara que alumnes amb qualificacions moderades a primer i segon del grau d'Enginyeria Informàtica tenen problemes per afrontar certes assignatures de tercer. Ara bé, a aquest coneixement s'ha pogut obtenir a través de l'experiència, però i si estem evitant altres problemes que no s'han pogut obervar? Això ens ha fet veure que convé observar bé tots aquests successos i d'aquí ha nascut aquest projecte d'innovació docent.
+\\
+\\
+Volem crear un sistema intel·ligent de suport al tutor d'estudis. Una eina que el tutor pogui consultar i li ajudi a prendre decissions cara a les seves tutories. Per tant de la mateixa manera que l'experiència ens ha donat coneixement al llarg del temps (com el cas explicat anteriorment), l'objectiu d'aquest projecte és obtenir coneixement a partir de les dades, i és per això que hem convertit aquest projecte en un projecte de ciència de les dades. Hem hagut de contactar amb el Vicerectorat de Política Docent, qui ens ha proporcionat les dades necessaries per realitzar aquest projecte d'innovació docent. A partir d'aquestes dades hem pogut donar perfils d'estudiants per cursos i per ensenyament, depenent de les seves notes en el grau. També hem fet un sistema de predicció que permet recomanar amb un ranking d'assignatures quines li aniran millor i quines pitjor en base a les seves notes actuals.
+
+
+
 \newpage
+
+
 \section{Descripció del problema}
-\subsection{Explicar dades} \todo{change title}
-% Explicar quines dades tenim, amb quines dades treballem.
+\todo{change title}
+\subsection{Explicar dades} 
+Les dades que hem pogut adquirir són molt enriquidores, tenen la informació necesaria per fer un estudi ampli tant per als estudiants com per a l'estudi d'assignatures. A més les dades estan venen anonimitzades i per tant no podem saber de forma directe tota la informació d'un alumne. Les dades les tenim separades en diferents fitxers, les quals estan relacionades entre si mitjantçant identificadors, com ara un identificador d'alumne o el codi d'una assignatura.
+
+\subparagraph{Registre d'alumnes}
+Aquest fitxer conté per cada registre informació sobre un alumne en termes de matriculació: l'any d'inici de carrera, grau que realitza, la via amb la qual va accedir a la carrera, la nota d'accés a la Universitat, entre altres.
+
+\subparagraph{Assignatures}
+Aquí podem trobar informació de cada assignatura que existeix en els graus d'Enginyeria Informàtica i Matemàtiques: l'identificador de l'assignatura, el nom de l'assignatura, els crèdits ECTS corresponents a aquesta i el grau a la que pertanyen. A més a més, vam obtenir mitjantçant una altre font d'informació, per cada assignatura de quin curs i semestre es tractava. Aquesta dada la vam creuar amb l'anterior per ampliar la informació per assignatura.
+
+\subparagraph{Qualificacions per alumne i per assignatura}
+Per últim i més important, el fitxer que conté les qualificacions de tots els alumnes per assignatura, és a dir, per cada registre tenim: l'identificador de l'alumne que realitze l'assignatura, l'identificador de l'assignatura realitzada, la qualificació d'aquella assignatura, l'ensenyament del qual es tracta, l'any en el que es va realitzar l'assignatura i el tipus d'apunt (ordinaria, reconeixement o convalidada).
+
+Per aquest projecte, majoritariament creuo les assignatures amb els alumnes, així quedant-me una taula on cada cel·la és la qualificació donat un alumne i una assignatura.
+
+\newpage
+
 \subsection{Ciència de les dades}
 La ciència de les dades és el conjunt d'etapes per tal d'arribar a un resultat, en forma de coneixement, a partir d'un conjunt de dades. Aquesta aplica un conjunt de tècniques de diferents àreas, ara com matemàtiques, estadística, teoria de la informació o tecnologia de l'extracció d'informació.
 \\
@@ -157,8 +184,10 @@ Un projecte de ciència de les dades es separa en diverses etapes:
 	\item \textbf{Anàlisis} Com hem de modelar les nostres dades? (Com estan de relacionades cada variable?, Com podem determinar quines són les variables importants?)
 	\item \textbf{Predicció} A partir de les dades que tenim, que podem predir del futur? (Regresions, clasificadors, recomanadors)
 	\item \textbf{Evaluació} Com de segur estem dels nostres resultats? (Proves estadístiques, rendiment del model)
-	
 \end{enumerate}
+
+\newpage
+
 \subsection{Etapes del projecte}
 
 \subsubsection{Preguntes}
