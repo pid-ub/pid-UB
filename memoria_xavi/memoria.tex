@@ -9,6 +9,10 @@
 \usepackage{amsmath} % for math annotations
 \usepackage{todonotes}
 \usepackage{enumitem}
+\usepackage{amsfonts}
+\usepackage{subcaption}
+%\usepackage{caption}
+%\usepackage{siunitx}
 
 
 %Definició de noms:
@@ -270,13 +274,81 @@ A partir de les notes que ha tret un alumne en el seu passat, podem predir quine
 
 \section{Planificació}
 \subsection{Tasques}
-% plantejament de preguntes
-% procés de data cleaning
-% clusterització
-% predicció
-% evaluació
+Les tasques d'aquest projecte són semblants a les etapaes d'un projecte de ciència de les dades. Les tasques són:
+\begin{itemize}[leftmargin=.5in]
+	\item Formació
+	\item Preguntes
+	\item Neteja de dades
+	\item Clusterització
+	\item Predicció
+	\item Evaluació
+	\item Documentació
+\end{itemize}
+
+Les úniques etapes noves que trobem són: la de formació, és la etapa dedicada l'aprenentatge autònom de les eines utilitzades; la de documentació, és el període de temps per tal de desenvolupar aquesta memòria.
+
 \subsection{Diagrama de Gantt}
+He construït dos diagrames de Gantt, un a partir de la planificació inicial i l'altre amb la planificació real per tal de veure les diferències.
+
+\newpage
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\linewidth]{img/initialplanification.png}
+\caption{Planificació inicial}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\linewidth]{img/realplanification.png}
+\caption{Planificació real}
+\end{center}
+\end{figure}
+
+El Treball de fi de Grau equival a 18 crèdits ECTS, si cada crèdit equival a 25 hores, llavors tenim:
+
+$$18\,cr\grave{e}dits \cdot \frac{25\,hores}{1\,cr\grave{e}dits} = 450\,hores$$
+
+Per tant totes les tasques s'han de dividir en 450 hores, les hores dedicades han sigut les següents:
+
+\begin{table}[h]
+\centering
+
+\begin{tabular}{@{}llllllll@{}}
+      & \rotatebox{90}{Formació} & \rotatebox{90}{Preguntes} & \rotatebox{90}{Neteja de dades} & \rotatebox{90}{Clusterització} & \rotatebox{90}{Predicció} & \rotatebox{90}{Evaluació} & \rotatebox{90}{Documentació} \\ \midrule
+Hores & 25       & 25        & 50              & 75             & 75        & 125       & 50           \\ \bottomrule
+\end{tabular}
+\caption{Hores de dedicació per cada tasca}
+\end{table}
+
+\newpage
+
 \subsection{Evaluació económica}
+
+
+
+\begin{table}[h]
+\centering
+
+\begin{tabular}{@{}llll@{}}
+\toprule
+                & Hores & Preu per hora (Euro) & Preu total (Euro) \\ \midrule
+Formació        & 25    & 0                 & 0              \\
+Preguntes       & 25    & 10                & 250            \\
+Neteja de dades & 50    & 20                & 1000           \\
+Clusterització  & 75    & 25                & 1875           \\
+Predicció       & 75    & 25                & 1875           \\
+Evaluació       & 125   & 25                & 3125           \\
+Documentació    & 75    & 0                 & 0              \\ \midrule
+TOTAL           & 450   &                   & 8125           \\ \bottomrule
+\end{tabular}
+\caption{Taula d'evaluació económica}
+\end{table}
+
+El projecte sortiria per 8125 euros, en els quals s'inclou en la etapa de Evaluació, una documentació dels resultats obtinguts i les conclusions d'aquests.
+
 \newpage
 
 \section{Desenvolupament del projecte}
@@ -362,7 +434,7 @@ La clusterització és molt important en el món de les dades si el que volem es
 \textit{K-means} probablement és un dels algoritmes d'agrupació més conegut. Partint de $n$ elements, segmenta aquests $n$ elements en $k$ grups (entrada obligatòria de l'algoritme) on cada element pertany al grup més proper a la mitjana. L'algoritme de \textit{K-means} està descrit per la següent fórmula:
 \\
 \\
-Tenint un conjunt d'elements $(x_1, x_2, \ldots, x_n)$ on cada elements és un vector $d$ dimensional, \textit{K-means} construeix una partició dels elements en $k$ grups, on $k <= n$ quedant $S = \{S_1, S_2, \ldots, S_k\}$. Amb la finalitat de minimitzar la suma dels quadrats dintre de cada grup:
+Tenint un conjunt d'elements $(x_1, x_2, \ldots, x_n)$ on cada elements és un vector $d$ dimensional, \textit{K-means} construeix una partició dels elements en $k$ grups, on $k \leq n$ quedant $S = \{S_1, S_2, \ldots, S_k\}$. Amb la finalitat de minimitzar la suma dels quadrats dintre de cada grup:
 
 $$ \underset{S} {arg\,min} \sum_{i=1}^{k} \sum_{x_j \in S_i} \left\| x_j - \mu_i \right\|^2 $$
 
@@ -557,6 +629,68 @@ L'anàlisis de components principals o PCA el que fa és escollir un nou sistema
 \newpage
 
 \section{Experiments i resultats}
+En aquest apartat s'explicarà pas per pas els resultats obtinguts per cada pregunta plantejada. Fins ara s'han llegit tots els conceptes necessaris per poder entendre aquesta secció de la documentació. Començaré amb les preguntes relacionades amb la clusterització i acabaré amb els resultats obtinguts amb la predicció de notes.
+\\
+\\
+
+Abans de començar a comentar els resultats, explicaré de quina dades parteixo per respondre cada pregunta. D'inicial tenim tota una taula on cada columna és la qualificació d'un alumne donada un assignatura, per tant en cada fila tenim informació com \textit{l'identificador d'alumne, assignatura, tipus apunt (convalidada, ordinaria o de reconeiement), qualificació de l'assignatura,} \ldots És a partir d'aquesta taula que fem una conversió de tal manera que en cada fila ens quedi un alumne i cada columna sigui una assignatura, quedant una matriu tal que així:
+
+$$
+\bordermatrix{C &         a_1   &    a_2   &   \cdots    &    a_m  \cr
+                  e_1    &  c_{11}  &  c_{12}  &   \cdots    &  c_{1m} \cr
+                  e_2    &  c_{21}  &  c_{22}  &   \cdots    &  c_{2m}    \cr
+                  \vdots &  \vdots  &  \vdots  &   \ddots    &  \vdots \cr
+                  e_n    &  c_{n1}  &  c_{n2}  &   \cdots    &  c_{nm} \cr
+                  }
+$$
+on:
+\begin{itemize}[leftmargin=.5in]
+	\item [$e_i$] és un estudiant.
+	\item [$a_i$] és una assignatura.
+	\item [$c_{ij}$] és la nota d'un alumne en una assignatura. l'assignatura.
+\end{itemize}
+
+\todo{formular matemàticament}
+
+$C$ és una matriu amb coeficients reals, $C\in M_{nxn} (\mathbb{R})$ on $0 \leq c_{ij} \leq 10$, és a dir aquesta matriu no conté cap nombre desconegut i que cada alumne $e_i$ ha cursat tot el conjunt d'assignatures $\{a_1, a_2, a_3, \ldots, a_m\}$.
+\\
+\\
+El conjunt d'assignatures que apareixen en les columnes pot variar depenent de la pregunta que volem respondre, pot ser el conjunt d'assignatures de primer, com el conjunt de les de primer més les de segon. Però a partir d'una matriu $C$ com aquesta em basaré algunes qüestions.
+
+\newpage
+
+\paragraph{Hi ha diferents perfils d'alumnes?}
+La resposta a aquesta pregunta és trobar diferents tipus d'estudiants en relació a la seva nota (Alumnes en notes molt bones en tot, alumnes amb males notes en certes assignatures, alumnes que suspenen, entre altres). Però volem que el nostre algoritme explori els grups que hi han.
+\\
+\\
+Com busquem alumnes amb qualificacions semblants, utilitzarem la tècnica de \textit{K-means}, ja que pot agrupar alumnes en relació a la distància entre notes. Però clar, \textit{K-means} té una limitació, i és que necessita com argument el número de clusters que volem segmentar. Hem de trobar una forma de poder trobar la millor \textit{k}.
+\\
+\\
+La primera opció que vam pensar és aplicar \textit{K-means} amb diferents \textit{k} i per cada prova, calcular la mesura de \textit{Silhouette}. L'algoritme de \textit{K-means} rep com a paràmetre una matriu com la matriu $C$ amb els alumnes que hagin cursat totes les assignatures de primer de cada grau implantat en la Facultat de Matemàtiques de la Universitat de Barcelona. 
+
+\begin{figure}
+\centering
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=4cm]{img/silhouette_primer_info.png}
+  \caption{Informàtica}
+\end{subfigure}
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=4cm]{img/silhouette_primer_mates.png}
+  \caption{Matemàtiques}
+\end{subfigure}
+\caption{Càlcul de la mesura \textit{Silhouette}}
+\end{figure}
+
+\paragraph{Quina es la tassa d'abandonament per cada tipus de perfil?}
+
+\paragraph{Cadascun d'aquests perfils amb quin perfil de provinença encaixa?}
+
+
+\paragraph{Predicció de notes per fer un ranking de dificultats}
+
+
 
 \begin{table}[h]
 \centering
