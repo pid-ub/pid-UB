@@ -663,25 +663,92 @@ El conjunt d'assignatures que apareixen en les columnes pot variar depenent de l
 La resposta a aquesta pregunta és trobar diferents tipus d'estudiants en relació a la seva nota (Alumnes en notes molt bones en tot, alumnes amb males notes en certes assignatures, alumnes que suspenen, entre altres). Però volem que el nostre algoritme explori els grups que hi han.
 \\
 \\
-Com busquem alumnes amb qualificacions semblants, utilitzarem la tècnica de \textit{K-means}, ja que pot agrupar alumnes en relació a la distància entre notes. Però clar, \textit{K-means} té una limitació, i és que necessita com argument el número de clusters que volem segmentar. Hem de trobar una forma de poder trobar la millor \textit{k}.
+Com busquem alumnes amb qualificacions semblants, utilitzarem la tècnica de \textit{K-means}, ja que pot agrupar alumnes en relació a la distància entre notes. Però clar, \textit{K-means} té una limitació, i és que necessita com argument el número de clusters que volem segmentar. Hem de trobar una forma de poder trobar la millor $k$.
 \\
 \\
 La primera opció que vam pensar és aplicar \textit{K-means} amb diferents \textit{k} i per cada prova, calcular la mesura de \textit{Silhouette}. L'algoritme de \textit{K-means} rep com a paràmetre una matriu com la matriu $C$ amb els alumnes que hagin cursat totes les assignatures de primer de cada grau implantat en la Facultat de Matemàtiques de la Universitat de Barcelona. 
 
-\begin{figure}
+\begin{figure}[h]
 \centering
-\begin{subfigure}{.4\textwidth}
+\begin{subfigure}{.45\textwidth}
   \centering
-  \includegraphics[width=4cm]{img/silhouette_primer_info.png}
+  \includegraphics[width=\linewidth]{img/silhouette_primer_info.png}
   \caption{Informàtica}
 \end{subfigure}
-\begin{subfigure}{.4\textwidth}
+\begin{subfigure}{.45\textwidth}
   \centering
-  \includegraphics[width=4cm]{img/silhouette_primer_mates.png}
+  \includegraphics[width=\linewidth]{img/silhouette_primer_mates.png}
   \caption{Matemàtiques}
 \end{subfigure}
 \caption{Càlcul de la mesura \textit{Silhouette}}
 \end{figure}
+
+Aquest gràfic ens diu que la millor $k$ en ambdos casos és $k=2$ i la mesura de silhouette descendeix conforme augmenta la el paràmetre $k$. Però clar aquest resultat no ens interesa, perquè busquem un número de clusters major que 2, encara que la seva disgreació sigui menor. Per tant com aquesta tècnica no ens serveix hem de buscar una altre forma per determinar quina és la millor $k$.
+\\
+\\
+L'altre solució proposada és reduïr la dimensionalitat de les dades per tal de poder visualitzar-les en un pla dos-dimensional. Per poder fer això podem aplicar la tècnica de PCA per reduïr de 10 dimensions a 2. Un cop visualitzem cada estudiant en un espai 2D, podem aplicar un algoritme d'agrupació com \textit{Mean Shift} per veure quants clusters hi han i poder determinar una $k$ per cada curs.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{img/pca_info_mates.png}
+\caption{Mean Shift després d'aplicar PCA}
+\end{figure}
+
+\newpage
+
+Ara es poden distingir millor el número de clusters o agrupacions que trobem per cada curs.
+
+\subparagraph{Primer d'enginyeria Informàtica}
+Ens separa tot el conjunt de punts en 6 agrupacions (\textit{vermell, beix, blau claret, verd, lila i blau fosc}), però el grup \textit{blau fosc i lila} són un grup tan reduït i separat de la resta que el podriem comptar com un sol cluster. $k=5$
+
+\subparagraph{Segon d'Enginyeria Informàtica}
+Per a aquest curs ens separa als estudiants en 4 grups, i podem veure que els grups estan força disgregats entre ells i no fa falta unificar cap.  $k=4$
+
+\subparagraph{Primer de Matemàtiques} 
+Per a primer del grau de Matemàtiques ens separa les observacions en 3 clusters, com no veiem cap anomalia, a part de la petita separació dels petits punts verds, però al ser una minoria millor considerar 3 clusters.  $k=3$
+
+\subparagraph{Segon de Matemàtiques}
+Aquest és el curs que m'ha donat més problemes, perquè té els punts més disgregats i això fa que no es pogui interpretar el número de clusters per aplicar \textit{K-means}. Més endavant veurem que el número de clusters òptim és 3, ja que amb 4 ens dóna dos clusters molt semblants, els quals es poden unificar. $k=3$
+\\
+\\
+Ara que ja tenim el valor de $k$ adeqüat per cada curs, podem aplicar la tècnica de \textit{K-means}. S'ha utilitzat una combinació de colors adequada per cada perfil.
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{.2\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{img/aprovats.png}
+  \caption{Aprovats}
+\end{subfigure}
+\begin{subfigure}{.2\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{img/bonesnotes.png}
+  \caption{Bones notes}
+\end{subfigure}
+\begin{subfigure}{.2\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{img/suspesos.png}
+  \caption{Suspesos}
+\end{subfigure}
+\begin{subfigure}{.2\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{img/altresperfils.png}
+  \caption{Altres}
+\end{subfigure}
+\caption{Categoria de colors utilitzada per representar els perfils d'estudiants}
+\end{figure}
+
+\newpage
+
+Començarem comentant els resultats obtinguts amb el curs de primer d'Enginyeria Informàtica on hem dit que aplicariem \textit{K-means} amb $k=5$.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{img/perfils_primer_info.png}
+\caption{Mean Shift després d'aplicar PCA}
+\end{figure}
+
+Primer explicaré que és el que veiem en aquests gràfics i així poder interpretar els demés. Cada gràfic són els diferents perfils d'estudiants que ha trobat la tècnica de \textit{K-means}. En cada gràfic podem veure com a títol l'etiqueta assignada a aquell perfil, el color de cadascún depén de la categoria explicada abans. En l'eix d'abscisses estan les assignatures (en aquest cas les de primer d'Enginyeria Informàtica), i en l'eix d'ordenades tenim la mitja de cada assignatura (llargada de la barra). Per últim les línees negres determinen la desviació estàndard de la distribució de cada assignatura i la línea vermella és una marca per identificar l'alçada de l'aprovat.
 
 \paragraph{Quina es la tassa d'abandonament per cada tipus de perfil?}
 
