@@ -742,13 +742,65 @@ Ara que ja tenim el valor de $k$ adeqüat per cada curs, podem aplicar la tècni
 
 Començarem comentant els resultats obtinguts amb el curs de primer d'Enginyeria Informàtica on hem dit que aplicariem \textit{K-means} amb $k=5$.
 
+\todo{retocar la imatge, per treure el quadrat gris}
 \begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth]{img/perfils_primer_info.png}
 \caption{Mean Shift després d'aplicar PCA}
 \end{figure}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=.55\linewidth]{img/perfils_primer_info_pastilla.png}
+\caption{Percentatges de cada agrupació}
+\end{figure}
+
 Primer explicaré que és el que veiem en aquests gràfics i així poder interpretar els demés. Cada gràfic són els diferents perfils d'estudiants que ha trobat la tècnica de \textit{K-means}. En cada gràfic podem veure com a títol l'etiqueta assignada a aquell perfil, el color de cadascún depén de la categoria explicada abans. En l'eix d'abscisses estan les assignatures (en aquest cas les de primer d'Enginyeria Informàtica), i en l'eix d'ordenades tenim la mitja de cada assignatura (llargada de la barra). Per últim les línees negres determinen la desviació estàndard de la distribució de cada assignatura i la línea vermella és una marca per identificar l'alçada de l'aprovat.
+
+\subparagraph{MP1 - Millors en programació de primer d'Informàtica} 
+Aquest perfil encaixa amb els alumnes que tenen millores notes en les assignatures de programació que les de matemàtiques. Tot i que la distribució d'aquest és molt dispersa, això ho podem veure per la llargada de la barra negra (desviació estàndard). També és, perquè la mostra és petita, representa el 5.36\% de la mostra total.
+
+\subparagraph{BN1 - Bones notes de primer d'Informàtica}
+Aquest perfil correspon als alumnes que tenen bones notes en totes les assignatures de primer i com podem veure en el gràfic de pastilla, representen un 23.37\% del total, sent el segon perfil més abundant. Podem veure ara que la mostra és més gran, la desviació estàndard és menor, és a dir, aquest perfil és força estable, tots els estudiants que hi pertanyent es distancien amb una qualificació promig d'1.5 aproximadament.
+
+\subparagraph{S1 - Suspesos de primer d'Informàtica}
+Com podem veure, aquest perfil són els estudiants que suspenen la majoria d'assignatures. A primeres podem pensar que aquest perfil són els que solen deixar la carrera i és això el que ens preguntem en la següent pregunta. També podem veure que són un 17.2 \% del total d'alumnes que han cursat les assignatures de primer, no són un \% baix.
+
+\subparagraph{A1 - Aprovats de primer d'Informàtica}
+Són la major part dels alumnes, amb un 38.31\% del total, i són els alumnes que de mitja treuen entre 5 i 7. Igual que passa amb el cluster \textit{BN1}, la desviació estàndard de cada assignatura és força baixa, i això fa que el cluster sigui consistent.
+
+\subparagraph{MM1 - Millors en matemàtiques de primer d'Informàtica}
+Aquest perfil igual que \textit{MP1}, són bastant inestables, ja que tenen una desviació estàndard alta, és a dir, hi ha una diversitat de notes elavada, no es concentren tots els alumnes a tenir la mateixa nota. Tot i que siguin dispersos, són un 15.71 \% del total, un percentatge forç alt.
+\\
+\\
+Fent un anàlisis general de les gràfiques, podem veure que en l'assignatura \textit{Estructura de Dades} (ED) presenta sempre una desviació més petita que la resta d'assignatures en cada perfil, és a dir, que les notes en concentren més en la mitja marcada. Per un altre banda també es pot veure que en tots els perfil, sense mirar la qualificació marcada, la nota més alta en els 6 perfils és de l'assignatura de \textit{Càlcul} (CAL).
+\\
+\\
+Seguint amb l'anàlisis podem veure també els perfils de tots els alumnes que hagin cursat totes les assignatures de segon, on he aplicat \textit{K-means} amb $k=4$.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.9\linewidth]{img/perfils_segon_info.png}
+\caption{Mean Shift després d'aplicar PCA}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.4\linewidth]{img/perfils_segon_info_pastilla.png}
+\caption{Percentatges de cada agrupació}
+\end{figure}
+
+\subparagraph{BN2 - Bones notes de segon d'Informàtica}
+Aquest és un perfil força semblant a \textit{BN1}, és per això que ens vam plantejar la pregunta: \textit{Cadascun d'aquests perfils amb quin perfil de provinença encaixa?}, és a dir, és cert que els que tenen bones notes a primer, solen ser els que treuen bones notes a segon, el que anomenem conservació de clusters. De tots els alumnes que han cursat segon un 28.68\% pertanyen a aquest cluster, més d'un quart de la mostra.
+
+\subparagraph{ISF2 - ICC i SO1 fluixes}
+Aquest perfil encara que sigui minoritari, amb un 6.2\% del total, és força curiós, ja que són alumnes que tenen \textit{Introducció a la Computació Científica} (ICC) i \textit{Sistemes operatius I} (SO1) amb notes més baixes de la resta. També s'ha de dir que tot i que les mitjes siguin més petites, les desviacions estàndards són molt altes, el que fa que les notes dels alumnes siguin més diverses i segueixin exactament aquesta distribució.
+
+\subparagraph{A2 - Aprovats de segon d'Informàtica}
+Aquest perfil és semblant al perfil \textit{A1}, que són els alumnes que tenen notes entre 5 i 7. Són el 60.47\% del total d'alumnes que han cursat les assignatures de segon.
+
+\subparagraph{PPIE2 - Problemes amb PIE i Empresa}
+Aquest és el perfil amb un percentatge més petit de població, un 4.65\%. És un perfil força dispers, ja que les desviacions estàndar són altes, i això es pot veure en assignatures com PIS o ICC. A més és curiós perquè és un grup que apareixen amb \textit{Empresa} (EMP) i \textit{Probabilitat i estadística} (PIE) suspeses, però no he trobat un perquè a aquest fenòmen.
 
 \paragraph{Quina es la tassa d'abandonament per cada tipus de perfil?}
 
