@@ -262,11 +262,11 @@ Perfil d'alumnes de primer & Perfil d'alumnes de segon  \\ \bottomrule
 \end{table}
 Els perfils d'alumnes de primer i segon són els perfils determinats a la primera pregunta, i els perfils de via d'accés que hem seleccionat han sigut els següents:
 \begin{enumerate}
-	\item Batxillerat
-	\item Cicle Formatiu de Grau Superior
-	\item Diplomats, Licenciats
-	\item Salt d'Universitat
+	\item Batxillerat (Batx)
+	\item Salt d'Universitat (Uni)
 \end{enumerate}
+
+Hem obviat els alumnes provinents de cicle o ja diplomants, per la seva baixa presència. Les vies d'accés només les comprovem amb els alumnes que hagin cursat totes les assignatures de primer, sense convalidar, el que fa que no apareguin masses alumnes de cicle, ja que la majoria de cicle tenen alguna assignatura convalidada de primer. I pel que fa als alumnes ja diplomats, no hi han masses en totes les dades que tenim.
 
 \paragraph{Predicció de notes per fer un ranking de dificultats}
 A partir de les notes que ha tret un alumne en el seu passat, podem predir quines assignatures li aniran bé i malament en el futur? Bé, això és el que ens plantejem en aquesta última pregunta, volem recomanar a un alumne en quines assignatures anirà fluix per així pogui reforçar més el temari que es donarà en aquella assignatura. Recordem que la finalitat d'aquest projecte es que aquesta eina sigui un suport per al tutor, és a dir, la predicció no ens dirà el que ha de fer un alumne, aquesta decisió es delega al tutor que a partir d'aquesta eina en decidirà que fer.
@@ -632,8 +632,7 @@ L'anàlisis de components principals o PCA el que fa és escollir un nou sistema
 En aquest apartat s'explicarà pas per pas els resultats obtinguts per cada pregunta plantejada. Fins ara s'han llegit tots els conceptes necessaris per poder entendre aquesta secció de la documentació. Començaré amb les preguntes relacionades amb la clusterització i acabaré amb els resultats obtinguts amb la predicció de notes.
 \\
 \\
-
-Abans de començar a comentar els resultats, explicaré de quina dades parteixo per respondre cada pregunta. D'inicial tenim tota una taula on cada columna és la qualificació d'un alumne donada un assignatura, per tant en cada fila tenim informació com \textit{l'identificador d'alumne, assignatura, tipus apunt (convalidada, ordinaria o de reconeiement), qualificació de l'assignatura,} \ldots És a partir d'aquesta taula que fem una conversió de tal manera que en cada fila ens quedi un alumne i cada columna sigui una assignatura, quedant una matriu tal que així:
+Abans de començar a comentar els resultats, explicaré de quines dades parteixo per respondre cada pregunta. D'inicial tenim tota una taula on cada fila és la qualificació d'un alumne donada un assignatura, per tant en cada fila tenim informació com \textit{l'identificador d'alumne, assignatura, tipus d'apunt (convalidada, ordinaria o de reconeixement), qualificació de l'assignatura,} \ldots És a partir d'aquesta taula que fem una conversió de tal manera que en cada fila ens quedi un alumne i cada columna sigui una assignatura, construint una matriu tal que així:
 
 $$
 \bordermatrix{C &         a_1   &    a_2   &   \cdots    &    a_m  \cr
@@ -647,10 +646,8 @@ on:
 \begin{itemize}[leftmargin=.5in]
 	\item [$e_i$] és un estudiant.
 	\item [$a_i$] és una assignatura.
-	\item [$c_{ij}$] és la nota d'un alumne en una assignatura. l'assignatura.
+	\item [$c_{ij}$] és la nota d'un alumne donada una assignatura.
 \end{itemize}
-
-\todo{formular matemàticament}
 
 $C$ és una matriu amb coeficients reals, $C\in M_{nxn} (\mathbb{R})$ on $0 \leq c_{ij} \leq 10$, és a dir aquesta matriu no conté cap nombre desconegut i que cada alumne $e_i$ ha cursat tot el conjunt d'assignatures $\{a_1, a_2, a_3, \ldots, a_m\}$.
 \\
@@ -660,10 +657,10 @@ El conjunt d'assignatures que apareixen en les columnes pot variar depenent de l
 \newpage
 
 \paragraph{Hi ha diferents perfils d'alumnes?}
-La resposta a aquesta pregunta és trobar diferents tipus d'estudiants en relació a la seva nota (Alumnes en notes molt bones en tot, alumnes amb males notes en certes assignatures, alumnes que suspenen, entre altres). Però volem que el nostre algoritme explori els grups que hi han.
+La resposta a aquesta pregunta és trobar diferents tipus d'estudiants en relació a la seva nota (alumnes amb notes molt bones en tot, alumnes amb males notes en certes assignatures, alumnes que suspenen, entre altres). Però volem que el nostre algoritme explori els grups que hi han.
 \\
 \\
-Com busquem alumnes amb qualificacions semblants, utilitzarem la tècnica de \textit{K-means}, ja que pot agrupar alumnes en relació a la distància entre notes. Però clar, \textit{K-means} té una limitació, i és que necessita com argument el número de clusters que volem segmentar. Hem de trobar una forma de poder trobar la millor $k$.
+Com el que busquem són alumnes amb qualificacions semblants, utilitzarem la tècnica de \textit{K-means}, ja que pot agrupar alumnes en relació a la distància de les seves notes. Però clar, \textit{K-means} té una limitació, necessita com argument el número de clusters que volem segmentar. Hem de trobar una forma de poder trobar la millor $k$.
 \\
 \\
 La primera opció que vam pensar és aplicar \textit{K-means} amb diferents \textit{k} i per cada prova, calcular la mesura de \textit{Silhouette}. L'algoritme de \textit{K-means} rep com a paràmetre una matriu com la matriu $C$ amb els alumnes que hagin cursat totes les assignatures de primer de cada grau implantat en la Facultat de Matemàtiques de la Universitat de Barcelona. 
@@ -683,7 +680,7 @@ La primera opció que vam pensar és aplicar \textit{K-means} amb diferents \tex
 \caption{Càlcul de la mesura \textit{Silhouette}}
 \end{figure}
 
-Aquest gràfic ens diu que la millor $k$ en ambdos casos és $k=2$ i la mesura de silhouette descendeix conforme augmenta la el paràmetre $k$. Però clar aquest resultat no ens interesa, perquè busquem un número de clusters major que 2, encara que la seva disgreació sigui menor. Per tant com aquesta tècnica no ens serveix hem de buscar una altre forma per determinar quina és la millor $k$.
+Aquest gràfic ens diu que la millor $k$ en ambdós casos és $k=2$ i la mesura de silhouette descendeix conforme augmenta el paràmetre $k$. Però clar aquest resultat no ens interesa, perquè busquem un número de clusters major que 2, encara que els clusters estiguin menys disgregats. Per tant com aquesta tècnica no ens serveix hem de buscar una altre forma per determinar quina és la millor $k$.
 \\
 \\
 L'altre solució proposada és reduïr la dimensionalitat de les dades per tal de poder visualitzar-les en un pla dos-dimensional. Per poder fer això podem aplicar la tècnica de PCA per reduïr de 10 dimensions a 2. Un cop visualitzem cada estudiant en un espai 2D, podem aplicar un algoritme d'agrupació com \textit{Mean Shift} per veure quants clusters hi han i poder determinar una $k$ per cada curs.
@@ -702,13 +699,13 @@ Ara es poden distingir millor el número de clusters o agrupacions que trobem pe
 Ens separa tot el conjunt de punts en 6 agrupacions (\textit{vermell, beix, blau claret, verd, lila i blau fosc}), però el grup \textit{blau fosc i lila} són un grup tan reduït i separat de la resta que el podriem comptar com un sol cluster. $k=5$
 
 \subparagraph{Segon d'Enginyeria Informàtica}
-Per a aquest curs ens separa als estudiants en 4 grups, i podem veure que els grups estan força disgregats entre ells i no fa falta unificar cap.  $k=4$
+Per a aquest curs ens separa als estudiants en 4 grups, i podem veure que els clusters estan força disgregats entre ells i no fa falta unificar cap.  $k=4$
 
 \subparagraph{Primer de Matemàtiques} 
-Per a primer del grau de Matemàtiques ens separa les observacions en 3 clusters, com no veiem cap anomalia, a part de la petita separació dels petits punts verds, però al ser una minoria millor considerar 3 clusters.  $k=3$
+Per a primer del grau de Matemàtiques ens separa les observacions en 3 clusters. Com no es veu cap anomalia, a part de la petita separació dels petits punts verds, podem considerar els tres clusters.  $k=3$
 
 \subparagraph{Segon de Matemàtiques}
-Aquest és el curs que m'ha donat més problemes, perquè té els punts més disgregats i això fa que no es pogui interpretar el número de clusters per aplicar \textit{K-means}. Més endavant veurem que el número de clusters òptim és 3, ja que amb 4 ens dóna dos clusters molt semblants, els quals es poden unificar. $k=3$
+Aquest és el curs que m'ha donat més problemes, perquè té els punts més distanciats entre ells i això fa que no es pogui interpretar el número de clusters per aplicar \textit{K-means}. Més endavant veurem que el número de clusters òptim és 3, ja que amb 4 ens dóna dos clusters molt semblants, els quals es poden unificar. $k=3$
 \\
 \\
 Ara que ja tenim el valor de $k$ adeqüat per cada curs, podem aplicar la tècnica de \textit{K-means}. S'ha utilitzat una combinació de colors adequada per cada perfil.
@@ -746,7 +743,7 @@ Començarem comentant els resultats obtinguts amb el curs de primer d'Enginyeria
 \begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth]{img/perfils_primer_info.png}
-\caption{Mean Shift després d'aplicar PCA}
+\caption{Perfils d'alumnes de primer d'Enginyeria Informàtica}
 \end{figure}
 
 \begin{figure}[h]
@@ -755,25 +752,25 @@ Començarem comentant els resultats obtinguts amb el curs de primer d'Enginyeria
 \caption{Percentatges de cada agrupació}
 \end{figure}
 
-Primer explicaré que és el que veiem en aquests gràfics i així poder interpretar els demés. Cada gràfic són els diferents perfils d'estudiants que ha trobat la tècnica de \textit{K-means}. En cada gràfic podem veure com a títol l'etiqueta assignada a aquell perfil, el color de cadascún depén de la categoria explicada abans. En l'eix d'abscisses estan les assignatures (en aquest cas les de primer d'Enginyeria Informàtica), i en l'eix d'ordenades tenim la mitja de cada assignatura (llargada de la barra). Per últim les línees negres determinen la desviació estàndard de la distribució de cada assignatura i la línea vermella és una marca per identificar l'alçada de l'aprovat.
+Primer explicaré que és el que veiem en aquests gràfics i així poder interpretar els demés. Cada gràfic són els diferents perfils d'estudiants que ha trobat la tècnica de \textit{K-means}. En cadascun d'ells trobem com a títol l'etiqueta assignada a aquell perfil i el color de cadascún depén de la categoria explicada abans. En l'eix d'abscisses es veuen les assignatures (en aquest cas les de primer d'Enginyeria Informàtica), i en l'eix d'ordenades tenim la mitja de cada assignatura (longitud de la barra). Per últim les línees negres determinen la desviació estàndard de la distribució de cada assignatura i la línea vermella és una marca per identificar l'alçada de l'aprovat.
 
 \subparagraph{MP1 - Millors en programació de primer d'Informàtica} 
-Aquest perfil encaixa amb els alumnes que tenen millores notes en les assignatures de programació que les de matemàtiques. Tot i que la distribució d'aquest és molt dispersa, això ho podem veure per la llargada de la barra negra (desviació estàndard). També és, perquè la mostra és petita, representa el 5.36\% de la mostra total.
+Aquest perfil encaixa amb els alumnes que tenen millores notes en les assignatures de programació que en les de matemàtiques. La distribució d'aquest és molt dispersa, això ho podem veure per la llargada de la barra negra (desviació estàndard). També és, perquè la mostra és petita, representa el 5.36\% de la mostra total.
 
 \subparagraph{BN1 - Bones notes de primer d'Informàtica}
 Aquest perfil correspon als alumnes que tenen bones notes en totes les assignatures de primer i com podem veure en el gràfic de pastilla, representen un 23.37\% del total, sent el segon perfil més abundant. Podem veure ara que la mostra és més gran, la desviació estàndard és menor, és a dir, aquest perfil és força estable, tots els estudiants que hi pertanyent es distancien amb una qualificació promig d'1.5 aproximadament.
 
 \subparagraph{S1 - Suspesos de primer d'Informàtica}
-Com podem veure, aquest perfil són els estudiants que suspenen la majoria d'assignatures. A primeres podem pensar que aquest perfil són els que solen deixar la carrera i és això el que ens preguntem en la següent pregunta. També podem veure que són un 17.2 \% del total d'alumnes que han cursat les assignatures de primer, no són un \% baix.
+Com podem veure, aquest perfil són els estudiants que suspenen la majoria d'assignatures. A primeres podem pensar que són els que solen deixar la carrera i és això el que anem a respondre en la següent pregunta plantejada. També podem veure que són un 17.2 \% del total d'alumnes que han cursat les assignatures de primer, no són un percentatge baix.
 
 \subparagraph{A1 - Aprovats de primer d'Informàtica}
 Són la major part dels alumnes, amb un 38.31\% del total, i són els alumnes que de mitja treuen entre 5 i 7. Igual que passa amb el cluster \textit{BN1}, la desviació estàndard de cada assignatura és força baixa, i això fa que el cluster sigui consistent.
 
 \subparagraph{MM1 - Millors en matemàtiques de primer d'Informàtica}
-Aquest perfil igual que \textit{MP1}, són bastant inestables, ja que tenen una desviació estàndard alta, és a dir, hi ha una diversitat de notes elavada, no es concentren tots els alumnes a tenir la mateixa nota. Tot i que siguin dispersos, són un 15.71 \% del total, un percentatge forç alt.
+Aquest perfil igual que \textit{MP1}, és bastant inestable, ja que tenen una desviació estàndard alta, és a dir, hi ha una diversitat de notes elavada, no es concentren tots els alumnes a tenir la mateixa nota. Tot i que siguin dispersos, són un 15.71 \% del total, un percentatge forç alt.
 \\
 \\
-Fent un anàlisis general de les gràfiques, podem veure que en l'assignatura \textit{Estructura de Dades} (ED) presenta sempre una desviació més petita que la resta d'assignatures en cada perfil, és a dir, que les notes en concentren més en la mitja marcada. Per un altre banda també es pot veure que en tots els perfil, sense mirar la qualificació marcada, la nota més alta en els 6 perfils és de l'assignatura de \textit{Càlcul} (CAL).
+Fent un anàlisis general de les gràfiques, podem veure que en l'assignatura \textit{Estructura de Dades} (ED) presenta sempre una desviació més petita que la resta d'assignatures en cada perfil, és a dir, que les notes en concentren més en la mitja marcada. Per un altre banda també es pot veure que en tots els perfil, sense mirar la qualificació corresponent, la nota més alta en els 6 perfils és de l'assignatura de \textit{Càlcul} (CAL).
 \\
 \\
 Seguint amb l'anàlisis podem veure també els perfils de tots els alumnes que hagin cursat totes les assignatures de segon, on he aplicat \textit{K-means} amb $k=4$.
@@ -781,7 +778,7 @@ Seguint amb l'anàlisis podem veure també els perfils de tots els alumnes que h
 \begin{figure}[h]
 \centering
 \includegraphics[width=.9\linewidth]{img/perfils_segon_info.png}
-\caption{Mean Shift després d'aplicar PCA}
+\caption{Perfils d'alumnes de segon d'Enginyeria Informàtica}
 \end{figure}
 
 \begin{figure}[h]
@@ -791,26 +788,169 @@ Seguint amb l'anàlisis podem veure també els perfils de tots els alumnes que h
 \end{figure}
 
 \subparagraph{BN2 - Bones notes de segon d'Informàtica}
-Aquest és un perfil força semblant a \textit{BN1}, és per això que ens vam plantejar la pregunta: \textit{Cadascun d'aquests perfils amb quin perfil de provinença encaixa?}, és a dir, és cert que els que tenen bones notes a primer, solen ser els que treuen bones notes a segon, el que anomenem conservació de clusters. De tots els alumnes que han cursat segon un 28.68\% pertanyen a aquest cluster, més d'un quart de la mostra.
+Aquest és un perfil força semblant a \textit{BN1}, és per això que ens plantejem la pregunta: \textit{Cadascun d'aquests perfils amb quin perfil de provinença encaixa?}, és a dir, és cert que els que tenen bones notes a primer, solen ser els que treuen bones notes a segon, el que anomenem conservació de clusters. De tots els alumnes que han cursat segon un 28.68\% pertanyen a aquest cluster, més d'un quart de la mostra.
 
 \subparagraph{ISF2 - ICC i SO1 fluixes}
-Aquest perfil encara que sigui minoritari, amb un 6.2\% del total, és força curiós, ja que són alumnes que tenen \textit{Introducció a la Computació Científica} (ICC) i \textit{Sistemes operatius I} (SO1) amb notes més baixes de la resta. També s'ha de dir que tot i que les mitjes siguin més petites, les desviacions estàndards són molt altes, el que fa que les notes dels alumnes siguin més diverses i segueixin exactament aquesta distribució.
+Aquest perfil encara que sigui minoritari, amb un 6.2\% del total, és força curiós, ja que són alumnes que tenen \textit{Introducció a la Computació Científica} (ICC) i \textit{Sistemes operatius I} (SO1) amb notes més baixes que la resta. També s'ha de dir que tot i que les mitjes siguin més petites, les desviacions estàndards són molt altes, el que fa que les notes dels alumnes siguin més diverses i no segueixin exactament la distribució de mitjes de cada perfil.
 
 \subparagraph{A2 - Aprovats de segon d'Informàtica}
-Aquest perfil és semblant al perfil \textit{A1}, que són els alumnes que tenen notes entre 5 i 7. Són el 60.47\% del total d'alumnes que han cursat les assignatures de segon.
+Aquest perfil és semblant al perfil \textit{A1}, pertany als alumnes que tenen notes entre 5 i 7. Són el 60.47\% del total d'alumnes que han cursat les assignatures de segon.
 
 \subparagraph{PPIE2 - Problemes amb PIE i Empresa}
 Aquest és el perfil amb un percentatge més petit de població, un 4.65\%. És un perfil força dispers, ja que les desviacions estàndar són altes, i això es pot veure en assignatures com PIS o ICC. A més és curiós perquè és un grup que apareixen amb \textit{Empresa} (EMP) i \textit{Probabilitat i estadística} (PIE) suspeses, però no he trobat un perquè a aquest fenòmen.
+\\
+\\
+Ens podem fixar que la distribució de mitjes del perfil \textit{BN2} i \textit{A2}, és força semblant, només que \textit{BN2} té les mitjes més altes.
+\\
+\\
+Deixant enrere al grau d'Enginyeria Informàtica, em poso a analitzar als estudiants del grau en matemàtiques. Comencem amb els alumnes de primer, els quals els segmentem en 3 agrupacions ($k=3$).
+
+\newpage
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.9\linewidth]{img/perfils_primer_mates.png}
+\caption{Perfils d'alumnes de primer de Matemàtiques}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.4\linewidth]{img/perfils_primer_mates_pastilla.png}
+\caption{Percentatges de cada agrupació}
+\end{figure}
+
+\subparagraph{NE1 - No estables de primer de Matemàtiques}
+Podem veure que aquest cluster té les mostres molt distanciades, per les desviacions estàndards que presenta. Aquest perfil l'he clasificat com \textit{No estables de primer}, ja que són alumnes que amb prou feines poden aprovar certes assignatures. Conformen un 22.37\% del total d'alumnes.
+
+\subparagraph{A1 - Aprovats de primer de Matemàtiques}
+Aquest perfil pertany als estudiants que tenen totes les assignatures aprovades  de mitja i són els que formen la major part del total, amb un 50.13\%.
+
+\subparagraph{S1 - Suspesos de primer de Matemàtiques}
+Per últim, i sense faltar, tenim els alumnes que de mitja suspenen totes les assignatures. Conformen un 27.51\% del total d'estudiants.
+\\
+\\
+Els resultats són força esperats per aquest curs, tenim els que ho aproven tot i els que ho suspenen tot, i per un altre banda tenim la resta que no pertanyen ni a un ni a l'altre.
+\\
+\\
+Per últim tenim als alumnes de segon de Matemàtiques, on no s'observa res interessant com tenim als perfils de Informàtica.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.85\linewidth]{img/perfils_segon_mates.png}
+\caption{Perfils d'alumnes de segon de Matemàtiques}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.4\linewidth]{img/perfils_segon_mates_pastilla.png}
+\caption{Percentatges de cada agrupació}
+\end{figure}
+
+\newpage
+
+\subparagraph{BN2 - Bones notes de segon de Matemàtiques}
+Torna a aparèixer aquest tipus de perfils, alumnes amb mitjes de qualificacions altes. Tot i així, és sorprenent el percentatge d'alumnes que pertanyen a aquest cluster, un 34.86\%.
+
+\subparagraph{A2 - Aprovats de segon de Matemàtiques}
+Per un altre banda tornem a tenir els alumnes amb qualificacions en el rang d'aprovat, tot i que la majoria freguen la línea de l'aprovat, com és en tots els casos, aquest és el perfil més abundant, amb un 57.80\%.
+
+\subparagraph{NE2 - No estables de segon de Matemàtiques}
+Igual que a primer del grau de Matemàtiques tenim el perfil de \textit{No estables}, aquí el tornem a tenir, tot i que aquest perfil només té aprovada per mitja una assignatura, \textit{Mètodes numèrics I} (MNU1). Pertanyen al 7.34\% del total.
+\\
+\\
+En aquest curs tenim un efecte semblant a primer d'Enginyeria Informàtica amb l'assignatura de \textit{Càlcul}, hi ha una assignatura que en tots els perfils té la mitja més alta, \textit{Mètodes numèrics I} (MNU1).
+
+\newpage
 
 \paragraph{Quina es la tassa d'abandonament per cada tipus de perfil?}
+És cert que els que suspenen abandonen la carrera? Ara ho podrem demostrar amb dades. Ens centrarem en la tassa d'abandonament dels alumnes que cursen primer, tant d'Enginyeria Informàtica com el grau de Matemàtiques. Tornaré a mostrar els perfils per poder contrastar cada perfil amb la seva tassa d'abandonament.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{img/perfils_primer_info.png}
+\caption{Perfils d'alumnes de primer d'Enginyeria Informàtica}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{img/abandonaments_primer_info.png}
+\caption{Tassa d'abandonaments per perfil}
+\end{figure}
+
+Com era d'esperar, els alumnes que amb més probabilitat deixen la carrera són els que suspenen, seguits d'estudiants que no tenen unes notes massa estables. És a dir, que la majoria que passen a segon pertanyen al cluster \textit{BN1} i \textit{A1}. Però si ens fixem una mica en el gràfic d'abandonaments, els perfils d'aprovats i de bones notes, hi ha un petit percentatge indicat que diu que abandonen la carrera. Bé, en les dades que tenim, no tenim un camp que ens indiqui si un alumne ha abandonat la carrera o no, ja que no ho tenen registrat, suposo perquè potser pot tornar un altre any l'estudiant. Com ho hem fet llavors? Hem agafat per cada perfil tot el conjunt d'alumnes d'aquell perfil i s'ha comprovat per cadascún d'ell si té assignatures matriculades a l'any següent. Però clar, hi han alumnes del darrer any que s'han de matriculat per l'any vinent encara (i no apareixen matriculats a l'any següent), per això hi ha un petit marge d'error i els clusters \textit{BN1} i \textit{A1} aparèixen amb una mínima tassa d'abandonaments. 
+
+\begin{figure}[h]
+\centering
+\missingfigure{\Huge Imatge de diagrama de ben, demostrant un alumne d'abandoanet i l'altre no}
+\caption{Some caption}
+\end{figure}
+
+Ara, per altre banda tenim el curs de primer de Matemàtiques, on apliquem els mateix algoritme explicat en el paràgraf anterior. També trovem un petit marge d'error en els perfils que ho aproven tot.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{img/perfils_primer_mates.png}
+\caption{Perfils d'alumnes de primer d'Enginyeria Informàtica}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{img/abandonaments_primer_mates.png}
+\caption{Tassa d'abandonaments per perfil}
+\end{figure}
+
+Igual que en Enginyeria Informàtica, ens trobem que la major tassa d'abandonament es troba en els alumnes que suspenen per mitja totes les assignatures. Seguidament els hi segueixen els estudiants que no tenen unes notes massa regulars i com s'ha comentat anteriorment, els alumnes que estan classificats com \textit{Aprovats}, també surten amb una petita tassa d'abandonament.
+
+\newpage
 
 \paragraph{Cadascun d'aquests perfils amb quin perfil de provinença encaixa?}
+El que es vol mirar en aquesta pregunta és la conservació de clusters, per exemple, els estudiants que treuen bones notes a primer, segueixen treien bones notes a segon? O, de quina via d'accés solen provenir els estudiants de primer de matemàtiques? 
+\\
+\\
+Començarem, com hem fet anteriorment, amb els estudiants que han cursat primer d'Enginyeria Informàtica. Com s'ha explicat en la secció de preguntes plantejades, contrastem primer d'Enginyeria Informàtica amb les vies d'accés: Batxillerat i salt d'Universitat.
 
+\todo{Canviar els colors de la gràfica}
+\begin{figure}[h]
+\centering
+\includegraphics[width=.6\linewidth]{img/conservacio_clusters_primer_info.png}
+\caption{Conservació de clusters dels alumnes de primer d'Informàtica}
+\end{figure}
+
+\todo{Possar referència a la figura anterior}
+En l'interior del cercle, podem veure el mateix gràfic de pastilla que s'ha vist anteriorment dels perfils dels estudiants de primer d'Enginyeria Informàtica (AQUÍ). Per sobre de cada perfil es veu en quantitat d'on venen els alumnes del perfil. 
+\\
+\\
+\todo{Possar referencia a la figura anterior}
+Es pot veure com en tots els perfils, venen meitat de Batxillerat i meitat de Salt d'Universitat aproximadament. Es pot distingir que els estudiants classificats com \textit{Suspesos} solen venir més de Batxillerat que no pas d'una altre Universitat, tot i que la diferència és petita. Com s'ha vist en la gràfica d'abandonament (AQUÍ), els alumnes que passen amb més abundancia a segon són els classificats com \textit{A1} i \textit{BN1}, per tant procedim a eliminar a la resta, ja que són minoria, i així més llegible la següent gràfica.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.6\linewidth]{img/conservacio_clusters_segon_info.png}
+\caption{Conservació de clusters dels alumnes de primer d'Informàtica}
+\end{figure}
+
+Ara és veu amb més claredat el significat d'un gràfic com aquest, ja que podem veure com els que solen treure bones notes a primer dEnginyeria Informàtica, solen treure bones notes a segon també, i els que classificaven com \textit{Aprovats de primer}, solen parar a \textit{Aprovats de segon}. També podem veure com un petit percentatge d'alumnes que treuen notes a primer, passen a treure notes més baixes a segon, igual que alumnes etiquetats com \textit{Aprovats de primer} amb una petit quanitat paren a perfils inestables com \textit{ISF2} o \textit{PPIE2}.
+
+\newpage
+
+Per últim es veurà la provinença dels estudiants de primer del grau de Matemàtiques, on també es pot veure una tendencia.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.6\linewidth]{img/conservacio_clusters_primer_mates.png}
+\caption{Conservació de clusters dels alumnes de primer d'Informàtica}
+\end{figure}
+
+En aquesta gràfica es veu amb claredat que la major part d'estudiants que han cursat primer del grau de Matemàtiques, venen de Batxillerat. 
+
+Una de les raons per les quals vam plantejar aquesta pregunta, era per saber si podiem determinar un perfil d'estudiant al grau a partir de la via d'accés d'aquest. Malauradament no s'ha trobat cap correlació com aquesta, però s'han pogut veure resultats molt coherents i que no esperavem trobar.
+
+\newpage
 
 \paragraph{Predicció de notes per fer un ranking de dificultats}
 
 
-
+\todo{No fer cas a les taules encara}
 \begin{table}[h]
 \centering
 \begin{tabular}{@{}llll@{}}
