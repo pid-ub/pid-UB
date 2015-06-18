@@ -16,7 +16,7 @@
 
 
 %Definició de noms:
-\newcommand{\titleTFG}{Sistema intel·ligent de suport al tutor d'estudis}
+\newcommand{\titleTFG}{Ciència de les dades aplicada a resultats acadèmics}
 \newcommand{\myname}{Xavier Moreno Liceras}
 
 
@@ -154,20 +154,9 @@ Volem crear un sistema intel·ligent de suport al tutor d'estudis. Una eina que 
 
 \section{Descripció del problema}
 \todo{change title}
-\subsection{Explicar dades} 
-Les dades que hem pogut adquirir són molt enriquidores, tenen la informació necesaria per fer un estudi ampli tant per als estudiants com per a l'estudi d'assignatures. A més les dades estan venen anonimitzades i per tant no podem saber de forma directe tota la informació d'un alumne. Les dades les tenim separades en diferents fitxers, les quals estan relacionades entre si mitjantçant identificadors, com ara un identificador d'alumne o el codi d'una assignatura.
-
-\subparagraph{Registre d'alumnes}
-Aquest fitxer conté per cada registre informació sobre un alumne en termes de matriculació: l'any d'inici de carrera, grau que realitza, la via amb la qual va accedir a la carrera, la nota d'accés a la Universitat, entre altres.
-
-\subparagraph{Assignatures}
-Aquí podem trobar informació de cada assignatura que existeix en els graus d'Enginyeria Informàtica i Matemàtiques: l'identificador de l'assignatura, el nom de l'assignatura, els crèdits ECTS corresponents a aquesta i el grau a la que pertanyen. A més a més, vam obtenir mitjantçant una altre font d'informació, per cada assignatura de quin curs i semestre es tractava. Aquesta dada la vam creuar amb l'anterior per ampliar la informació per assignatura.
-
-\subparagraph{Qualificacions per alumne i per assignatura}
-Per últim i més important, el fitxer que conté les qualificacions de tots els alumnes per assignatura, és a dir, per cada registre tenim: l'identificador de l'alumne que realitze l'assignatura, l'identificador de l'assignatura realitzada, la qualificació d'aquella assignatura, l'ensenyament del qual es tracta, l'any en el que es va realitzar l'assignatura i el tipus d'apunt (ordinaria, reconeixement o convalidada).
-
-Per aquest projecte, majoritariament creuo les assignatures amb els alumnes, així quedant-me una taula on cada cel·la és la qualificació donat un alumne i una assignatura.
-
+\todo{Projecte d'innovació docent}
+\subsection{Projecte d'innovació docent}
+asdf
 \newpage
 
 \subsection{Ciència de les dades}
@@ -177,7 +166,7 @@ La ciència de les dades és el conjunt d'etapes per tal d'arribar a un resultat
 Un projecte de ciència de les dades es separa en diverses etapes:
 \begin{enumerate}
 	\item \textbf{Preguntes} Què és el que volem explorar? Té sentit el que ens estem plantejant?
-	\item \textbf{Adquisició de les dades} Com és la font d'obtenció de les dades? (Base de dades, \textit{Web Scraping})
+	\item \textbf{Adquisició de les dades} Com és la font d'obtenció de les dades? (Base de dades, \textit{Web Scraping}, fitxer .csv)
 	\item \textbf{Descripció} Aquesta fase abasta tres processos
 	\begin{enumerate}
 		\item \textbf{Neteja de dades} Com hem de netejar i separar les dades? (mostres atípiques, filtració, redució de dimensions, normalització, extracció de característiques)
@@ -195,61 +184,72 @@ Un projecte de ciència de les dades es separa en diverses etapes:
 \subsection{Etapes del projecte}
 
 \subsubsection{Preguntes}
-La primera etapa va ser el plantejament de les preguntes que voliem resoldre. A partir de la plataforma trello, entre els participants del projecte vam plantejar preguntes, les quals entre tots decidiem amb quines preguntes ens quedariem i respondriem. Moltes de les preguntes no podíem saber si les podíem respondre fins que ens arribessin les dades, ja que depeniem totalment de la informació que contenien les dades.
+La primera etapa és el plantejament de les preguntes que voliem resoldre. A partir de la plataforma trello (explicada en la secció d'eines), entre els participants del projecte vam plantejar preguntes, les quals entre tots decidiem amb quines preguntes ens quedariem i respondriem. Moltes de les preguntes no podíem saber si les podíem respondre fins que ens arribessin les dades, ja que depeniem totalment de la informació que contenien aquestes.
 
 \subsubsection{Adquisició}
-L'adquisició de les dades va ser a partir del Vicerectorat de Política Docent. Les dades ens van arribar a través d'una fulla de càlcul. Tot i que les dades vinguessin anonimitzades i tractades pel departament corresponent, vam haver de fer una neteja de dades.
+L'adquisició de les dades va ser a partir del Vicerectorat de Política Docent. Aquest ens va proporcionar les dades a través d'una fulla de càlcul. Tot i que les dades vinguessin anonimitzades i tractades pel departament corresponent, vam haver de fer una neteja de dades.
 
 \subsubsection{Neteja de dades}
-En aquesta etapa he hagut de netejar les dades per tal de poder treballar amb elles. Aquestes van ser les netejes que vaig fer:
+En aquesta etapa hem hagut de netejar les dades per tal de poder treballar amb elles. Aquestes van ser les netejes que es van fer:
 
 \subparagraph{Canvi de format}
-Com ja he explicat abans les dades ens van arribar en forma de fulla de càlcul, on en cada fulla havía una taula amb diferent informació. Per poder manipular-les millores des de Python, vaig haver de separar cada fulla en un fitxer amb format \textit{csv}, de tal manera que va quedar un fitxer \textit{csv} per taula.
+Com ja s'ha explicat anteriorment les dades van arribar en un full de càlcul, on en cada fulla havia una taula amb diferent informació. Per poder manipular-les millor des de Python, es va separar cada fulla en un fitxer amb format \textit{csv}, de tal manera que va quedar un fitxer \textit{csv} per taula. En la próxima secció s'explica amb detall les dades obtingudes.
 
 \subparagraph{Canvi de nom de les columnes}
 Per tal de poder creuar les diferents taules, els noms de les columnes havien de ser el mateix.
 
 \subparagraph{Enriquiment de les dades}
-A partir d'una font hem pogut adquirir el curs i semestre que es cursa cada assignatura, per tant el que faig és creuar aquestes dades amb les dades que tinc de cada assignatura per tal de tenir més informació per assignatura.
+A partir d'una font externa hem pogut adquirir el curs i semestre que es cursa cada assignatura, per tant el que fem és creuar aquestes dades amb les dades que tenim de cada assignatura per tal de tenir més informació per assignatura.
 
 \subparagraph{Unió de graus}
 L'any 2009 el grau en Enginyeria Informàtica de la UB tenia com a codi \textit{G1041}, però a partir de l'any 2010 el codi va passar a ser \textit{G1077}. Les assignatures eren les mateixes, tot i que tenien codis diferents també. Vam procedir a fer la unió dels \textit{G1041} amb \textit{G1077}, per tal de no perdre informació rellevant, ni considerar-la per separat.
 
 \subparagraph{Eliminació del curs 2014, segon semestre}
-Explorant les dades em vaig adonar que gent que s'havia matrículat aquest any 2014, però encara no havien acabat de cursar l'assignatura, en aquesta els hi apareixia un 0. Això feia que dintre de les notes dels alumnes haguéssin dades incoherents, per aquesta raó vam decidir eliminar totes les notes del segon semestre i de l'any 2014  que són un 10.91\% de les notes.
-
-\todo{Elimino o no al final?}
+Explorant les dades em vaig adonar que alumnes que s'havien matriculat l'any 2014, però encara no havien acabat de cursar l'assignatura, en aquesta els hi apareix un 0. Això fa que dintre de les notes dels alumnes hi hagin dades incoherents, per aquesta raó es va decidir eliminar totes les notes del segon semestre i de l'any 2014. El percentatge d'eliminació de dades és d'un 10.91\% del total de notes que tenim.
 
 \subparagraph{Normalitació de les notes}
-Per tal d'evitar els canvis de mitja i variança en cada assignatura cursada per any, ja sigui per un canvi de professor, canvi de pla docent, diferents promocions, \ldots vam decidir normalitzar les notes per any i per assignatura aplicat una normalització d'unitat tipificada en la qual s'aplica per cada dada la següent fórmula:
+Per tal d'evitar els canvis de mitja i variança en cada assignatura cursada per any, ja sigui per un canvi de professor, canvi de pla docent, diferents promocions, \ldots es va decidir normalitzar les notes per any i per assignatura aplicant una normalització d'unitat tipificada en la qual s'aplica per cada dada la següent fórmula:
 $$ z = \frac{x - \mu}{\sigma}, $$
 
 on $\mu$ és el promig per any i per assignatura, i $\sigma$ és la desviació estàndard per any i per assignatura. Amb això aconseguim mitja 0 i desviació estàndard 1.
 
 \subsubsection{Clusterització}
-Aquesta etapa era necessaria per poder respondre a una des les preguntes plantejades, i és: \textit{Hi ha diferents perfils d'alumnes?}. Per tal de  respondre a aquesta pregunta he aplicat mètodes de clusterització a partir de les notes dels alumnes diferenciats per cursos.
+Aquesta etapa era necessaria per poder respondre a una des les preguntes plantejades, i és: \textit{Hi ha diferents perfils d'alumnes?}. Per tal de  respondre a aquesta pregunta s'han aplicat mètodes de clusterització a partir de les notes dels alumnes diferenciats per cursos.
 
 \subsubsection{Predicció}
 La predicció, com s'ha explicat abans, és la predicció del futur a partir de les dades disponibles. En aquest cas hem volgut predir les notes que pot arribar a treure un alumne en base a les notes que ha tret en cursos anteriors.
 
 \subsubsection{Evaluació}
-Un cop construida la predicció, hem d'avaluar quant de bona és. Per això vaig agafar un 10\% de les meves dades per poder testejar i comprovar la tassa d'encerts de la predicció.
+Un cop construida la predicció, hem d'avaluar quant de bona és. S'ha d'evaluar de forma quantitativa (mitjançant mètriques) i qualitativament (amb la mostra de casos).
 
 \newpage
 
-\subsection{Preguntes plantejades} \todo{change title}
-% Hi ha diferents perfils d'alumnes?
-% Quina es la tassa d'abandonament per cada tipus de perfil?
-% Cadascun d'aquests perfils amb quin perfil de provinença encaixa?
-% Predicció de notes per fer un ranking de dificultats
+\subsection{Explicació de les dades obtingudes} 
+En aquest apartat s'explicarà la informació més rellevant que podem trobar en les nostres dades. Recordem que les dades ens havien arrivat en una fulla de càlcul, i aquesta l'hem separat per diversos fitxers amb format .csv.
+\\
+\\
+Les dades que hem pogut adquirir són molt enriquidores, tenen la informació necesaria per fer un estudi ampli tant per als estudiants com per a l'estudi d'assignatures. A més les dades venen anonimitzades, a priori no podem obtenir la informació d'un alumne que coneguem. Les dades les tenim separades en diferents fitxers, els quals estan relacionats entre si mitjantçant identificadors, com ara un identificador d'alumne o el codi d'una assignatura. Els fitxers són els següents:
+
+\subparagraph{Informació general de l'estudiant}
+Aquest fitxer conté per cada fila informació sobre un alumne en termes de matriculació: l'any d'inici de carrera, grau que realitza, la via amb la qual va accedir a la carrera, la nota d'accés a la Universitat, entre altres.
+
+\subparagraph{Informació d'assignatures}
+Aquí podem trobar informació de cada assignatura que existeix en els graus d'Enginyeria Informàtica i Matemàtiques. Per cada fila tenim la següent informació: l'identificador de l'assignatura, el nom de l'assignatura, els crèdits ECTS corresponents a aquesta i el grau a la que pertanyen. A més a més, vam obtenir mitjantçant una altre font d'informació, per cada assignatura de quin curs i semestre es tractava. Aquesta dada la vam creuar amb l'anterior per ampliar la informació per assignatura.
+
+\subparagraph{Qualificacions per alumne i per assignatura}
+Per últim i més important, el fitxer que conté les qualificacions de tots els alumnes per assignatura, és a dir, per cada fila tenim: l'identificador de l'alumne que realitze l'assignatura, l'identificador de l'assignatura realitzada, la qualificació d'aquella assignatura, l'ensenyament del qual es tracta, l'any en el que es va realitzar l'assignatura i el tipus d'apunt (ordinaria, reconeixement o convalidada).
+
+\newpage
+
+\subsection{Preguntes plantejades}
 \paragraph{Hi ha diferents perfils d'alumnes?}
-A partir de la distribució de les notes de cada alumne per cada assignatura que ha fet, podem determinar que hi ha diferents perfils d'estudiants? Això és el que ens estem preguntant. He agafat tots els alumnes que hagin cursat totes les assignatures de primer i després amb segon, tant al grau d'Enginyeria Informàtica com al grau de Matemàtiques. La experiència ens diu que hi han alumnes bons en programació i dolents en les assignatures de matemàtiques a primer del grau d'Enginyeria Informàtica. Però per a la resta de cursos, quins perfil podem trobar? Ara que tenim les dades això ho podem saber, convertirem les dades en coneixement.
+A partir de la distribució de les notes de cada alumne per cada assignatura que ha fet, podem determinar que hi ha diferents perfils d'estudiants? Això és el que ens estem preguntant. S'han agafat tots els alumnes que hagin cursat totes les assignatures de primer i després les de segon, tant al grau d'Enginyeria Informàtica com al grau de Matemàtiques. La experiència ens diu que hi han alumnes bons en programació i dolents en les assignatures de matemàtiques a primer del grau d'Enginyeria Informàtica. Però per a la resta de cursos, quins perfil podem trobar? Ara que tenim les dades això ho podem saber, convertirem les dades en coneixement.
 
 \paragraph{Quina es la tassa d'abandonament per cada tipus de perfil?}
-A partir dels perfils que han sigut determinats en la pregunta anterior, quin és el percentatge d'abandonament per cadascun d'aquests. Volem saber si és cert que els alumnes cauen al perfil d'alumnes que ho suspenen tot són els que solen abandonar la carrera. Fins ara això sembla força obvi, però ho podem demostrar amb dades i corroborar-ho.
+A partir dels perfils que han sigut determinats en la pregunta anterior, quin és el percentatge d'abandonament per cadascun d'aquests. Volem saber si és cert que els alumnes que van a parar al perfil d'alumnes que ho suspenen tot són els que solen abandonar la carrera. Fins ara això és el que podem saber a partir de l'experiència, però es pot demostrar amb dades i corroborar-ho.
 
 \paragraph{Cadascun d'aquests perfils amb quin perfil de provinença encaixa?}
-Al llarg dels anys s'ha pogut notar que els alumnes que venen d'un Cicle Formatiu de Grau Superior (CFGS) solen ser alumnes que els hi dóna malament les assignatures relacionades amb les matemàtiquies i són força bons en programació. Ara bé, això és cert? Per això ens plantegem aquesta pregunta, a partir de perfils d'origen, volem saber amb quin cluster destí van a parar. En aquest cas hem fet els següents creuaments per cada grau:
+Al llarg dels anys s'ha pogut notar que els alumnes que solen treure bones notes a primer d'Enginyeria Informàtica, acaben treien bones notes a segon la gran majoria. Ara bé, això és cert? Per això ens plantegem aquesta pregunta, a partir de perfils d'origen, volem saber amb quin perfil de destí solen anar. En aquest cas hem fet els següents creuaments per cada grau:
 
 \begin{table}[h]
 \centering
@@ -260,16 +260,17 @@ Via d'accés                & Perfil d'alumnes de primer \\
 Perfil d'alumnes de primer & Perfil d'alumnes de segon  \\ \bottomrule
 \end{tabular}
 \end{table}
+
 Els perfils d'alumnes de primer i segon són els perfils determinats a la primera pregunta, i els perfils de via d'accés que hem seleccionat han sigut els següents:
 \begin{enumerate}
 	\item Batxillerat (Batx)
 	\item Salt d'Universitat (Uni)
 \end{enumerate}
 
-Hem obviat els alumnes provinents de cicle o ja diplomants, per la seva baixa presència. Les vies d'accés només les comprovem amb els alumnes que hagin cursat totes les assignatures de primer, sense convalidar, el que fa que no apareguin masses alumnes de cicle, ja que la majoria de cicle tenen alguna assignatura convalidada de primer. I pel que fa als alumnes ja diplomats, no hi han masses en totes les dades que tenim.
+Hem obviat els alumnes provinents de cicle o ja diplomants, per la seva baixa presència. Les vies d'accés només les comprovem amb els alumnes que hagin cursat totes les assignatures de primer, sense convalidar, el que fa que no apareguin una gran quantitat d'alumnes de cicle, ja que la majoria d'aquests tenen alguna assignatura convalidada de primer. I pel que fa als alumnes ja diplomats, no hi han masses en totes les dades presents.
 
 \paragraph{Predicció de notes per fer un ranking de dificultats}
-A partir de les notes que ha tret un alumne en el seu passat, podem predir quines assignatures li aniran bé i malament en el futur? Bé, això és el que ens plantejem en aquesta última pregunta, volem recomanar a un alumne en quines assignatures anirà fluix per així pogui reforçar més el temari que es donarà en aquella assignatura. Recordem que la finalitat d'aquest projecte es que aquesta eina sigui un suport per al tutor, és a dir, la predicció no ens dirà el que ha de fer un alumne, aquesta decisió es delega al tutor que a partir d'aquesta eina en decidirà que fer.
+A partir de les notes que ha tret un alumne en el seu passat, podem predir quines assignatures li aniran bé i malament en el futur? Bé, això és el que ens plantejem en aquesta última pregunta, volem recomanar a un alumne en quines assignatures no li aniran gaire bé per a que així pogui reforçar més el temari que es donarà en aquella assignatura. Recordem que la finalitat del projecte d'innovació docent és que aquesta eina sigui un suport per al tutor, és a dir, la predicció no ens dirà el que ha de fer un alumne, aquesta decisió es delega al tutor que a partir de l'eina decidirà que fer.
 \newpage
 
 \section{Planificació}
@@ -288,7 +289,7 @@ Les tasques d'aquest projecte són semblants a les etapaes d'un projecte de ciè
 Les úniques etapes noves que trobem són: la de formació, és la etapa dedicada l'aprenentatge autònom de les eines utilitzades; la de documentació, és el període de temps per tal de desenvolupar aquesta memòria.
 
 \subsection{Diagrama de Gantt}
-He construït dos diagrames de Gantt, un a partir de la planificació inicial i l'altre amb la planificació real per tal de veure les diferències.
+S'ha construït dos diagrames de Gantt, un a partir de la planificació inicial i l'altre amb la planificació real per tal de veure les diferències.
 
 \newpage
 
@@ -354,7 +355,7 @@ El projecte sortiria per 8125 euros, en els quals s'inclou en la etapa de Evalua
 \section{Desenvolupament del projecte}
 \subsection{Eines}
 \subsubsection{Eines de suport}
-Aquestes són les eines de suport que m'han ajudat al llarg del treball per tal de fer més còmode la seva organització tant personal com per equip.
+Aquestes són les eines de suport que ens han ajudat al llarg del treball per tal de fer més còmode la seva organització tant personal com per equip.
 
 \paragraph{GitHub}
 GitHub és una plataforma online per desenvolupar projectes software de forma col·laborativa. Aquesta plataforma utilitza un control de versions anomenat Git. La finalitat de GitHub és l'emmagatzenament massiu de projectes amb codi font obert. Per això hem optat per la utilització de GitHub, ja que que volem que el nostre codi el pogui veure tothom i que qualsevol que el necessiti per fer la seva investigació, el pogui utilitzar.
@@ -363,20 +364,20 @@ GitHub és una plataforma online per desenvolupar projectes software de forma co
 Bitbucket és una plataforma semblant a GitHub, però amb el servei d'un altre control de versions com Mercurial a més de Git. Bitbucket té l'advantatge de permetre crear repositoris privats de forma gratuïta. Aquesta plataforma va bé per a l'inici d'un projecte on es fan molts canvis en el codi, ja que pots tenir el codi en privat, i un cop el codi ja agafa forma es pot migrar a GitHub. Això és el que hem fet nosaltres en el projecte, començar amb Bitbucket i després passar-nos a GitHub amb el codi font obert.
 
 \paragraph{Trello}
-Per últim com eina de suport, hem fet servir Trello, una plataforma online que permet una comunicació més clara entre els membres d'un projecte. Amb Trello pots crear projectes i cada projecte conté un conjunt de llistes que s'omplen de tasques. Nosaltres hem fet servir Trello, per comunicar-nos amb la tutora i tenir present una planificació per tal d'organitzar-nos millor.
+Per últim com eina de suport, hem fet servir Trello, una plataforma online que permet una comunicació més clara entre els membres d'un projecte. Amb Trello pots crear projectes i cada projecte conté un conjunt de llistes que s'omplen de tasques. Hem fet servir Trello per comunicar-nos amb la tutora i tenir present una planificació per tal d'organitzar-nos millor.
 
 \newpage
 \subsubsection{Eines de programació}
-En aquesta secció trobarem amb el llenguatge de programació i conjunt de llibreries que hem treballat.
+En aquesta secció trobarem amb el llenguatge de programació, i conjunt de llibreries, que hem treballat.
 
 \paragraph{Python}
-Python és un llenguatge d'alt nivell interpretat. Remarquen molt la fàcil lectura del seus codis, per això té una sintaxis molt semblant a un pseudocodi. Python és un llenguatge de codi obert i desenvolupat per \textit{Python Software Foundation}, una organització sense ànim de lucre. Vam escollir Python en el seu moment per dues simples raons; per ser un llenguatge de scripting i per la seves llibreries relacionades amb el tractament de dades (com \hyperlink{pandas}{Pandas}, \hyperlink{numpy}{NumPy} o \hyperlink{sklearn}{Scikit-learn}).
+Python és un llenguatge d'alt nivell interpretat. Remarquen molt la fàcil lectura del seus codis, per això té una sintaxis molt semblant a un pseudocodi. Python és un llenguatge de codi obert i desenvolupat per \textit{Python Software Foundation}, una organització sense ànim de lucre. Vam escollir Python per dues raons: per ser un llenguatge de scripting i per la seves llibreries relacionades amb el tractament de dades (com \hyperlink{pandas}{Pandas}, \hyperlink{numpy}{NumPy} o \hyperlink{sklearn}{Scikit-learn}).
 
 
 \hypertarget{pandas}{
 	\paragraph{Pandas}
 }
-Pandas és una biblioteca informàtica escrita en python per a la manipulació i anàlisi de dades. Especialment va bé per al tractament de taules alhora de fer consultes, o per a l'agrupació i agrecació d'informació.
+Pandas és una biblioteca informàtica escrita en Python per a la manipulació i anàlisi de dades. Especialment va bé per al tractament de taules alhora de fer consultes, o per a l'agrupació i agrecació d'informació.
 
 \hypertarget{numpy}{
 	\paragraph{NumPy}
@@ -386,7 +387,7 @@ Numpy és una biblioteca informàtica de Python per operar amb vectors i matrius
 \hypertarget{sklearn}{
 	\paragraph{Scikit-learn}
 }
-Scikit-learn és una biblioteca informàtica orientada a l'aprenentatge automàtic per a Python. Té suport per classificadors, regressors i clustering. Per aquest projecte hem fet servir clustering i regressors. En la secció de \hyperlink{tecniquesutilitzades}{Tècniques utilitzades} es detalla cada tècnica utilitzada d'aquesta biblioteca informàtica.
+Scikit-learn és una biblioteca informàtica orientada a l'aprenentatge automàtic per a Python. Té suport per classificadors, regressors i clusterització. Per aquest projecte hem fet servir clustering i regressors. En la secció de \hyperlink{tecniquesutilitzades}{Tècniques utilitzades} es detalla cada tècnica utilitzada d'aquesta biblioteca informàtica.
 
 \paragraph{Bokeh}
 Bokeh és una biblioteca informàtica per a la visualització interactiva de dades dirigida als navegadors per a la seva presentació a través d'HTML i JavaScript. Bokeh té el suport per a gràfiques específiques com diagrames de barra, box plots o time series, però a banda d'aquests gràfics pots dibuixar sobre un gràfic amb elements bàsics com cercles, línies, rectangles, entre altres.
@@ -420,18 +421,18 @@ sbn.palplot(palette)
 Ipython notebook és un editor per a l'entorn de Python. La filosofia \textit{notebook} s'emprea per tenir un codi molt més llegible i a més tenir explicacions d'allò que es programa, ja que es pot barrejar codi, la sortida del codi, markdown, HTML, entre altres. Hem optat per escollit aquest entorn d'edició ja que en un projecte de ciència de les dades s'han de veure resutats constants i poder-los comentar.
 
 \paragraph{Texmaker}
-Aquesta és una eina d'edició de \LaTeX, la qual permet poder generar informes, documents, llibres d'una forma més programàtica. A partir d'un etiquetatge estipulat podem generar documents amb un estil predefinit com el d'aquesta memòria.
+Aquesta és una eina d'edició de \LaTeX, la qual permet poder generar informes, documents, llibres d'una forma més programàtica. A partir d'un etiquetatge estipulat es poden generar documents amb un estil predefinit com el d'aquesta memòria.
 
 \newpage
 \hypertarget{tecniquesutilitzades}{
 	\subsection{Tècniques utilitzades}
 }
 \subsubsection{Clusterització (Agrupacions)}
-La clusterització és molt important en el món de les dades si el que volem es reconèixer diferents grups de ítems de les nostres dades, en el nostre cas d'alumnes. Per això, abans de veure els resultats i experiments explorats, cal entendre les diferències entre les diferents tècniques de clusterització. En aquest projecte hem fet servir dues tècniques, on l'objectiu d'elles és el mateix, desframentar les dades i trobar diferents grups d'alumnes. Aquestes dues tècniquies són K-means i MeanShift, ambdues implementades en la biblioteca informàtica de Scikit-learn. \todo{link}
+La clusterització és molt important en el món de les dades, permet reconèixer diferents grups de ítems de les nostres dades, en el nostre cas d'alumnes. Per això, abans de veure els resultats i experiments explorats, cal entendre les diferències entre les diferents tècniques de clusterització. En aquest projecte hem fet servir dues tècniques, on l'objectiu d'elles és el mateix, desframentar les dades i trobar diferents grups d'alumnes. Aquestes dues tècniquies són K-means i MeanShift, ambdues implementades en la biblioteca informàtica de Scikit-learn. \todo{link}
 
 \paragraph{\textit{K-means}}
 \todo{Referenciar al k-means de sklearn.}
-\textit{K-means} probablement és un dels algoritmes d'agrupació més conegut. Partint de $n$ elements, segmenta aquests $n$ elements en $k$ grups (entrada obligatòria de l'algoritme) on cada element pertany al grup més proper a la mitjana. L'algoritme de \textit{K-means} està descrit per la següent fórmula:
+\textit{K-means} probablement és un dels algoritmes d'agrupació més conegut. Partint de $n$ elements, divideix aquests $n$ elements en $k$ grups (argument obligatòri de l'algoritme) on cada element pertany al grup més proper a la mitjana. L'algoritme de \textit{K-means} està descrit per la següent fórmula:
 \\
 \\
 Tenint un conjunt d'elements $(x_1, x_2, \ldots, x_n)$ on cada elements és un vector $d$ dimensional, \textit{K-means} construeix una partició dels elements en $k$ grups, on $k \leq n$ quedant $S = \{S_1, S_2, \ldots, S_k\}$. Amb la finalitat de minimitzar la suma dels quadrats dintre de cada grup:
@@ -441,13 +442,7 @@ $$ \underset{S} {arg\,min} \sum_{i=1}^{k} \sum_{x_j \in S_i} \left\| x_j - \mu_i
 on $\mu_i$ és el centroide dels punts del conjunt $S_i$, és a dir, el punt mig.
 \\
 \\
-Com es veu en la fòrmula, aquest algoritme depén d'una $k$, per determinar agrupacions, per tant \textit{K-means} ha de rebre com paràmetre d'entrada quants grups busquem. També podem pensar que depén del centroide $\mu_i$, però no es necessari, ja que aquest convergeix si apliquem iteracions sobre aquesta fòrmula.
-
-\begin{figure}[h]
-\centering
-\missingfigure{\Huge Nice this triangle?}
-\caption{Some caption}
-\end{figure}
+Com es veu en la fòrmula, aquest algoritme depén d'una $k$, per determinar agrupacions, per tant \textit{K-means} ha de rebre com paràmetre d'entrada quants grups busquem. També podem pensar que depén del centroide $\mu_i$, però no es necessari, ja que aquest convergeix si s'apliquen $x$ iteracions sobre la fòrmula.
 
 \newpage
 
@@ -460,14 +455,16 @@ Aquest algoritme no necessita com a entrada el número de clusters que busquem, 
 
 \begin{figure}[h]
 \centering
-\missingfigure{\Huge Nice this triangle?}
-\caption{Some caption}
+\includegraphics[width=.4\linewidth]{img/kmeansVsMeanshift.png}
+\caption{Comparació de K-means amb Mean Shift}
 \end{figure}
+
+Com es veu en la figura d'adalt, en el tercer gràfic de cada tècnica, tenim que amb \textit{MeanShift}, com no hem de dir el número de divisions que volem, ell mateix ens diu que hi han tres grups. Però amb \textit{K-means} si possem dos clusters, per exemple, estariem unificant dos clusters en un.
 
 \newpage
 
 \paragraph{Mètriques utilitzades}
-Existeixen dos indicadors d'avaluació dels resultats de l'anàlisis de les agrupacions:
+Existeixen dos indicadors d'avaluació dels resultats de l'anàlisis:
 \begin{enumerate}
 	\item \textbf{Supervisat} Utilitza les agrupacions reals per comparar-les amb les agrupacions donades per l'algoritme de clusterització.
 	\item \textbf{No supervisat} És tot lo contrari, mesura la qualitat del propi model, basant-se en les característiques d'aquest.
@@ -490,10 +487,13 @@ on:
 
 Un cop tenim la \textit{silhouette} calculada per cada observació, per tenir la \textit{silhouette} del cluster, fem la mitja de totes elles.
 
+$$ \mathrm{silhouette_g} = \frac{1}{n} \sum_{j=1}^n silhouette_i $$
+
 \newpage
 
 \subsubsection{Predicció}
-La etapa de predicció és important en un projecte de data science, ja que ens permet predir el futur d'una forma estadística en base a les observacions que tenim. Però igual que la clusterització, hi han diverses tècniques, aquí explicaré quines tècniques he utilitzat per aquest projecte.
+La etapa de predicció és important en un projecte de data science, ja que ens permet predir el futur d'una forma estadística en base a les observacions que tenim. Però igual que la clusterització, hi han diverses tècniques, aquí explicaré quines tècniques hem utilitzat per aquest projecte.
+
 
 \todo{lincar la teoria de TNUI - recommenders}
 \paragraph{Recomanador}
@@ -514,20 +514,20 @@ on:
 \begin{itemize}[leftmargin=.5in]
 	\item [$e_i$] és un estudiant.
 	\item [$a_i$] és una assignatura.
-	\item [$c_{ij}$] és la nota d'un alumne en una assignatura.
-	\item [$?$] són notes no completes, perquè un alumne no ha cursat. l'assignatura.
+	\item [$c_{ij}$] és la nota d'un estudiant $i$ en una assignatura $j$.
+	\item [$?$] són notes no completes, perquè un alumne no ha cursat l'assignatura.
 \end{itemize}
 
 La finalitat del nostre recomanador, és omplir les notes que apareixen amb $?$ i possar la nota més adient. Abans d'explicar com funciona, introduiré els diferents tipus de recomanadors que podem tenir:
 
 \subparagraph{Recomanador col·laboratiu bassat en estudiant}
-Prediem la nota d'un alumne en base a la semblança de l'alumne amb la resta. És a dir, si n alumne $e_i$ té unes notes semblant a un alumne $e_j$, les assignatures que no ha cursat $e_i$ podrem dir que seran semblants a les notes que ha tret $e_j$ en aquelles assignatures.
+Prediem la nota d'un alumne en base a la semblança de l'alumne amb la resta. És a dir, si un alumne $e_i$ té unes notes semblants a un alumne $e_j$, les assignatures que no ha cursat $e_i$ podrem dir que seran semblants a les notes que ha tret $e_j$ en aquelles assignatures.
 
 \subparagraph{Recomanador col·laboratiu bassat en assignatures}
 Ara en comptes de bassar-nos en la semblança entre els estudiants, ens basem en la semblança entre una assignatura amb la resta. És a dir, si una assignatura $a_i$ segueix una distribució semblant a una assignatura $a_j$, llavors podem dir que un alumne $e_i$ treurà una nota semblant en ambdues assignatures.
 
 \subparagraph{Recomanador híbrid}
-Per últim tenim la barreja dels dos recomanadors esmentats. Aquest recomanador no s'ha fet servir en aquest projecte, però es podria fer servir si es pogués apendre quin pes assignar a cada tipus de recomanador.
+Per últim tenim la barreja dels dos recomanadors esmentats, aplicant un pes d'importancia a cadascun. Aquest recomanador no s'ha fet servir en aquest projecte, però es podria fer servir si es pogués apendre quin pes assignar a cada tipus de recomanador.
 \\
 \\
 Començaré explicant el recomanador col·laboratiu bassat en l'estudiant, el qual agafaré com a base per explicar el bassat en assignatures. Imaginem que tenim una matriu semblant a la d'abans:
@@ -554,7 +554,7 @@ on:
 	\item [$a_i$] és una assignatura.
 \end{itemize}
 
-Amb aquesta fórmula podem veure la funcionalitat d'aquest recomanador, si ens fixem, com més semblants siguin dos estudiants, més pes li donarem a la nota que ha tret un dels dos per recomanar-li a l'altre. Realment aquesta fórmula és la fórmula de mitja ponderada.
+Amb aquesta fórmula podem veure la funcionalitat d'aquest recomanador, si ens fixem, com més semblants siguin dos estudiants, més pes li donarem a la nota que ha tret un dels dos per recomanar-li a l'altre. Aquesta fórmula és la fórmula d'una mitja ponderada.
 
 \newpage
 
@@ -568,15 +568,13 @@ O bé, fer la transposada de la matriu anterior i aplicar la mateixa fórmula d'
 \paragraph{\textit{Random Forest Regressor}}
 Abans d'explicar la tècnica de \textit{Random Forest Regressor}, s'ha d'entendre el concepte d'un arbre de regressió. Un arbre de regressió és una tècnica utilitzada en aprenentatge automàtic, que es defineix com un model predictiu que mapeja observacions sobre una característica a conclusions sobre el valor objectiu d'aquesta característica. En aquestes estructures d'arbre, les fulles representen un valor real d'aquella característica i les branques les conjuccions de caracterítiques que han portat fins a la fulla.
 
-%incrustrar: http://es.wikipedia.org/wiki/Aprendizaje_basado_en_%C3%A1rboles_de_decisi%C3%B3n#/media/File:CART_tree_titanic_survivors.png
-
 \begin{figure}[h]
 \centering
-\missingfigure{\Huge Nice this triangle?}
-\caption{Some caption}
+\includegraphics[width=.5\linewidth]{img/randomforest.png}
+\caption{\textit{CART tree titanic survivors} de Stephen Milborrow}
 \end{figure}
 
-Bé doncs, \textit{Random Forest Regressor}, no és més que un conjunt d'arbres de regressió, on el resultat és la mitja de la sortida de cada arbre, a més per a cada arbre s'aplica un soroll aleatori a les dades sense variar en la seva distribució, això fa que es benificiï al fer la mitja. 
+\textit{Random Forest Regressor}, és un conjunt d'arbres de regressió, on el resultat és la mitja de la sortida de cada arbre, a més per a cada arbre s'aplica un soroll aleatori a les dades sense variar en la seva distribució, això fa que es benificiï al fer la mitja. 
 
 \newpage
 
@@ -589,16 +587,15 @@ $$
 
 on $\beta_i$ són termes constants i $n$ són els conjunts d'observacions que tenim. En el cas d'una sola variable depenent, tindriem un resultat com el de la figura següent:
 
-%http://ca.wikipedia.org/wiki/Regressi%C3%B3_lineal#/media/File:Normdist_regression.png
 \begin{figure}[h]
 \centering
-\missingfigure{\Huge Nice this triangle?}
-\caption{Some caption}
+\includegraphics[width=.5\linewidth]{img/linearregression.png}
+\caption{"Normdist regression" by Amatulic}
 \end{figure}
 
 \todo{link de sklearn}
 \paragraph{Mètriques utilitzades}
-Igual que en la secció de clusterització, per a la predicció de dades, també hem utilitzat mesures per validar les nostres prediccions. En aquest hem utilitzat tant mètriques supervisades com no supervisades.
+Igual que en la secció de clusterització, per a la predicció de dades, també hem utilitzat mesures per validar les nostres prediccions. Aquí hem utilitzat mesures supervisades. Anomenem $y_{pred}$ al conjunt de qualificacions que s'ha predit d'un alumne, i $y_{test}$ al conjunt de qualificacions real del estudiant.
 
 \subparagraph{Error promig absolut (MAE)}
 És una mesura supervisada que és basa en fer la mitja dels errors produïts pel predictor. Està definit per la següent fórmula:
@@ -609,14 +606,55 @@ Per un altre banda tenim una segona mètrica supervisada també, però aquesta m
 $$\mathrm{MSE}=\frac{1}{n}\sum_{i=1}^n(y_{pred_i}-y_{test_i})^2$$
 
 \subparagraph{Coeficient de pearson (PCC)}
-El coeficient de pearson, la utilitzem com una mètrica supervisada i la fem servir per diferencia la distribució de les notes predites amb les notes reals. El coeficient de pearson està definit per la següent fórmula:
+El coeficient de pearson, l'utilitzem com una mètrica supervisada i la fem servir per mesurar la diferencia de la distribució de les notes predites amb les notes reals. El coeficient de pearson està definit per la següent fórmula:
 $$\mathrm{PCC} =\left| \frac{\sum_{i=1}^n(y_{pred_i} - \bar{y}_{pred_i})(y_{test_i} - \bar{y}_{test_i})}{\sqrt{\sum_{i=1}^n(y_{pred_i} - \bar{y}_{pred_i})^2  \sum_{i=1}^n(y_{test_i} - \bar{y}_{test_i})^2}}\right|$$
 
 \subparagraph{Desviació estàndard (std)}
-Per últim també calculem la desviació estàndard per veure si els errors són més o menys dispersos. La fórmula utilitzada és la següent:
+També calculem la desviació estàndard per veure si els errors són més o menys dispersos. La fórmula utilitzada és la següent:
 
 $$ \sigma = \sqrt{ \frac{1}{n} \sum_{i=1}^n (\left| y_{pred_i}-y_{test_i}\right| - \mu)^2 } $$
 
+\subparagraph{\textit{Mean Rangking Score (MSR)}}
+Aquesta és una técnica desenvolupada per nosaltres, està basada en la mesura de \textit{Error promig absolut}, però amb valors discrets. És una mesura supervisada per tal de mesurar quant de bo és un ranking que s'hagi predit. Es tracta d'una mitja a partir de les distancies d'error en el ranking. La métrica presenta la següent fórmula:
+
+$$ \mathrm{MSR} = \frac{1}{n}\sum_{i=1}^n \left| \gamma(y_{pred_i}) -  \gamma(y_{test_i})\right| $$
+
+on:
+\begin{itemize}[leftmargin=.5in]
+	\item [$\gamma$] és una funció que ens retorn la posició de l'elemtn en el ranking
+\end{itemize}
+
+\newpage
+
+La millor manera d'entendre aquesta mètrica és mostrar un exemple a partir d'aquesta taula:
+
+\begin{table}[h]
+\centering
+\label{my-label}
+\begin{tabular}{@{}cc@{}}
+\toprule
+Ranking Real & Ranking Predit \\ \midrule
+A1           & A4             \\
+A2           & A2             \\
+A3           & A1             \\
+A4           & A3             \\ \bottomrule
+\end{tabular}
+\caption{Exemple de rankings}
+\end{table}
+
+Per aquest exemple, hauriem de recorrer els 4 elements:
+	$$\left|\gamma(A1_{notes_r}) - \gamma(A1_{notes_p})\right| = \left| 1 - 3 \right| = 2$$
+	$$\left|\gamma(A2_{notes_r}) - \gamma(A2_{notes_P})\right| = \left| 2 - 2 \right| = 0$$
+	$$\left|\gamma(A3_{notes_r}) - \gamma(A3_{notes_p})\right| = \left| 3 - 4 \right| = 1$$
+	$$\left|\gamma(A4_{notes_r}) - \gamma(A4_{notes_pr})\right| = \left| 4 - 1 \right| = 3$$
+
+Quedant:
+
+$$ \mathrm{MSR} = \frac{2 + 0 + 1 + 3}{4} = \frac{6}{4} = 1.5$$
+
+Ens podem fixar que si comparem dos rankings iguals, llavors $\mathrm{MSR} = 0$. Per tant, com més proper estigui a 0, millor s'aproparà la predicció del ranking real.
+\\
+\\
 Totes aquestes mètriques són necessaries per evaluar cada tècnica de predicció que utilitzo. Tot i així, les tècniques més importants i que tenen més pes són l'error promig absolut i quadràtic.
 
 \subsubsection{Reducció de dimensions}
@@ -624,7 +662,7 @@ Una de les últimes tècniques que utilitzo en aquest projecte d'innovació doce
 
 \todo{link de sklearn}
 \paragraph{PCA}
-L'anàlisis de components principals o PCA el que fa és escollir un nou sistema de coordenades a partir d'una transformació lineal on s'ordenen les variances per mida i la variança amb major mida s'escollirà com eix principal, la segona variança com a segon eix, així successivament fins obtenir la dimensionalitat escollida per argument.
+L'anàlisis de components principals o PCA el que fa és escollir un nou sistema de coordenades a partir d'una transformació lineal on s'ordenen les variances per mida. La variança amb major mida s'escollirà com eix principal, la segona variança com a segon eix, així successivament fins obtenir la dimensionalitat escollida per argument.
 
 \newpage
 
