@@ -107,18 +107,24 @@
 
 \pagenumbering{roman}
 
-\todo{Ha de ser redactat en primer persona del present}
+\todo{Ha de ser redactat en primer persona del plural del present}
 \todo{Revisió de les faltes d'ortografia}
 
 
 \section*{\textit{Abstract}}
-\textit{Fins ara a la Facultat de Matemàtiques de la Universitat de Barcelona, cada tutor d'estudis té assignat un grup d'estudiants. Com és obvi, el tutor no pot tenir un coneixement ampli de la situació de cada alumne i és per això que aplica una serie d'accions comunes per a cadascún. Amb aquest projecte d'innovació proposem una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza, amb el suport de dades estadístiques per perfil d'alumne i un recomanador que indica quant de difícil li pot arribar a costar una assignatura a un alumne.}
+
+
+\textit{Fins ara a la Facultat de Matemàtiques de la Universitat de Barcelona, un tutor d'estudis té assignat un grup d'estudiants. Aquest no pot tenir un coneixement ampli de la situació de cada alumne i és per això que aplica una serie d'accions comunes per a cadascún.}
+
+\textit{Aquest treball forma part d'un projecte d'innovació docent, en el que proposem una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza, amb el suport de dades estadístiques per perfil d'alumne i un recomanador per determinar la dificultat del curs que li pot costar un alumne.}
 
 \section*{\textit{Resum}}
-\textit{Fins ara a la Facultat de Matemàtiques de la Universitat de Barcelona, cada tutor d'estudis té assignat un grup d'estudiants. Com és obvi, el tutor no pot tenir un coneixement ampli de la situació de cada alumne i és per això que aplica una serie d'accions comunes per a cadascún. Amb aquest projecte d'innovació proposem una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza, amb el suport de dades estadístiques per perfil d'alumne i un recomanador que indica quant de difícil li pot arribar a costar una assignatura a un alumne.}
+\textit{Fins ara a la Facultat de Matemàtiques de la Universitat de Barcelona, un tutor d'estudis té assignat un grup d'estudiants. Aquest no pot tenir un coneixement ampli de la situació de cada alumne i és per això que aplica una serie d'accions comunes per a cadascún. Aquest treball forma part d'un projecte d'innovació docent, en el que proposem una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza, amb el suport de dades estadístiques per perfil d'alumne i un recomanador per determinar la dificultat del curs que li pot costar un alumne.}
+
 
 \section*{\textit{Resumen}}
-\textit{Hasta ahora cada tutor de estudios de la Facultad de Matemáticas de la Universidad de Barcelona tiene asignado un grupo de estudiantes. Como es obvio, el tutor no puede tener un conocimiento amplio de la situación de cada alumno y es por eso que aplica una serie de acciones comunes para cada uno. Con este proyecto de inovación docente proponemos una herramienta de soporte para al tutor de estudios, la cual permita ayudar al tutor a conocer mejor el perfil de cada alumno que tutoriza, con el soporte de datos estadísticos por cada perfil de alumno existente y un recomendador que indica lo difícil que le puede llegar a costar una asignatura a un alumno.}
+\textit{Fins ara a la Facultat de Matemàtiques de la Universitat de Barcelona, un tutor d'estudis té assignat un grup d'estudiants. Aquest no pot tenir un coneixement ampli de la situació de cada alumne i és per això que aplica una serie d'accions comunes per a cadascún. Aquest treball forma part d'un projecte d'innovació docent, en el que proposem una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza, amb el suport de dades estadístiques per perfil d'alumne i un recomanador per determinar la dificultat del curs que li pot costar un alumne.}
+
 
 \newpage 
 
@@ -139,25 +145,54 @@ Vull agrair a ...
 
 
 \section{Introducció}
-Un dels components bàsics de l'activitat docent és l'acció tutorial, la qual té com a finalitat guiar i aconsellar a l'estudiant durant la seva etapa d'estudis. Ajuda a l'estudiant a millorar el seu rendiment, a la seva orientació professional, i el més important, ajudar a prendre decissions que afavoreixin els seus estudis i la seva satisfacció. Per un altre banda tenim el pla d'acció tutorial (PAT) que tracta d'un document amb un conjunt ordenat d'accions sistemàtiques previament planificades. Una de les coses que impulsa el PAT és l'assignació d'un tutor d'estudis a un grup d'estudiants. Un tutor d'estudis, per tant té com a finalitat entre altres, acompanyar a l'alumnat durant el seu transcurs estudiantil des de l'inici del grau fins al final, aconsellant-lo per cara al món professional.
+Un dels components bàsics de l'activitat docent és l'acció tutorial, la qual té com a finalitat guiar i aconsellar a l'estudiant durant la seva etapa d'estudis. Ajuda a l'estudiant a millorar el seu rendiment, a la seva orientació professional, i el més important, ajudar a prendre decissions que afavoreixin els seus estudis i la seva satisfacció. Per un altre banda tenim el pla d'acció tutorial (PAT) que tracta d'un document amb un conjunt ordenat d'accions sistemàtiques previament planificades. Una de les coses que impulsa el PAT és l'assignació d'un tutor d'estudis a un grup d'estudiants. Un tutor d'estudis, per tant té com a finalitat entre altres, acompanyar a l'alumnat durant el seu transcurs estudiantil des de l'inici del grau fins al final, donant consell per cara al món professional.
 \\
 \\
-Ens hem trobat amb el problema que el tutor no pot tenir un control dedicat per cada alumne que tutoritza. Els pot guiar de forma genèrica, així seguint el pla d'acció tutorial. A partir de l'experiència s'ha pogut arribar a conclusions com ara que alumnes amb qualificacions moderades a primer i segon del grau d'Enginyeria Informàtica tenen problemes per afrontar certes assignatures de tercer. Ara bé, a aquest coneixement s'ha pogut obtenir a través de l'experiència, però i si estem evitant altres problemes que no s'han pogut obervar? Això ens ha fet veure que convé observar bé tots aquests successos i d'aquí ha nascut aquest projecte d'innovació docent.
+Ens hem trobat amb el problema que un tutor d'estudis com tutoritza a un grup d'alumnes no és capaç de contemplar detingudament cadascun dels seus alumnes. Els pot guiar de forma genèrica, així seguint el pla d'acció tutorial. S'ha pogut observar al llarg dels anys, per exemple, que alumnes amb qualificacions moderades a primer i segon del grau d'Enginyeria Informàtica tenen problemes per afrontar certes assignatures de tercer. Ara bé, això s'ha pogut observar al llarg dels anys, però i si estem evitant altres problemes o fets que no s'han pogut obervar fins ara? És això el que volem explorar i fer conclusions que no s'hagin pogut arribar. Arran de tot això, es va fer una petició al Vicerectorat de Política Docent per dur a terme un projecte que facilités el treball al tutor d'estudis. D'aquí va nèixer el projecte com un projecte d'innovació docent, amb el títol de: \textit{Sistema intel·ligent de suport per al tutor d'estudis}.
 \\
 \\
-Volem crear un sistema intel·ligent de suport al tutor d'estudis. Una eina que el tutor pogui consultar i li ajudi a prendre decissions cara a les seves tutories. Per tant de la mateixa manera que l'experiència ens ha donat coneixement al llarg del temps (com el cas explicat anteriorment), l'objectiu d'aquest projecte és obtenir coneixement a partir de les dades, i és per això que hem convertit aquest projecte en un projecte de ciència de les dades. Hem hagut de contactar amb el Vicerectorat de Política Docent, qui ens ha proporcionat les dades necessaries per realitzar aquest projecte d'innovació docent. A partir d'aquestes dades hem pogut donar perfils d'estudiants per cursos i per ensenyament, depenent de les seves notes en el grau. També hem fet un sistema de predicció que permet recomanar amb un ranking d'assignatures quines li aniran millor i quines pitjor en base a les seves notes actuals.
-
+La finalitat del projecte d'innovació docent és la creació d'una eina que el tutor pogui consultar i li ajudi a prendre decissions cara a les seves tutories. Aquesta eina ha de permetre al tutor visualitzar la trajectoria d'un alumne, fer recomanacions específiques per cadascun d'ells, entre altres. Un dels recursos principals d'aquest projecte són les dades, ja que són la que ens permetran arribar a conclusions i poder construïr l'eina per al tutor d'estudis. Les dades han sigut obtingudes a través del Vicerectorat de Política Docent.
+\\
+\\
+Aquest treball forma part del projecte d'innovació docent, i ens centrem en l'estudi estadístic dels resultats acadèmics de la Facultat de Matemàtiques de la UB. L'objectiu és montar una base per poder montar en la següent fase del projecte el sistema per al tutor d'estudis. En aquest treball ens hem centrat en l'exploració dels perfils d'estudiants dels primers cursos de cadascun dels graus impartits en la Facultat de Matemàtiques. També s'ha treballat en un sistema de predicció de notes d'un alumne cara a la seva próxima matriculació. A més s'ha desenvolupat un ranking de dificultat de notes no matriculades d'un alumne a partir del predictor de notes. L'objectiu general d'aquest treball és obtenir coneixement a partir de les dades, i és per això que hem convertit aquest projecte en un projecte de ciència de les dades.
 
 
 \newpage
 
 
 \section{Descripció del problema}
-\todo{change title}
-\todo{Projecte d'innovació docent}
 \subsection{Projecte d'innovació docent}
-asdf
-\newpage
+Aquest treball de fi de grau, ve arran d'un projecte d'innovació docent que va nèixer del Departament de Matemàtica Aplicada i Anàlisi (MAIA) i Departament de Metòdes de Investigació i Diagnòstic en Educació (MIDE). El participants del projecte són:
+\begin{itemize}[leftmargin=.5in]
+	\item Dra. Laura Igual Muñoz (MAIA)
+	\item Dr. Santiago Seguí Mesquida (MAIA)
+	\item Dr. Eloi Puertas Prats (MAIA)
+	\item Dr. Oriol Pujol (MAIA)
+	\item Dr. Jordi Vitrià Marca (MAIA)
+	\item Dra. Petia Radeva (MAIA)
+	\item Dr. Luís Garrido Ostermann (MAIA)
+	\item Dra. Maria  del Pilar Folgueiras Bertomeu (MIDE)
+\end{itemize}
+
+Com ja s'ha dit, la finalitat del projecte d'innovació docent és el desenvolupament d'un sistema intel·ligent de suport al tutor d'estudis, i per dur-lo a terme el projecte s'ha dividit en 5 fases.
+
+\subparagraph{Fase 1}
+Adquisició, ordenació, centralització i anonimització de les dades curriculars disponibles dels alumnes. La fase inicial on es deixen les dades preparades per poder treballar amb elles.
+
+\subparagraph{Fase 2}
+Anàlisi de les dades mitjançant tècniques de ciències de les dades. Fer un anàlisi estadístic de les dades que tenim i aplicar ciència de les dades per explorar la informació amagada darrere de les dades.
+
+\subparagraph{Fase 3}
+Anàlisi de les dades mitjançant tècniques d’aprenentatge automàtic. A partir de les dades aplicar algoritmes de predicció de dades per poder predir les notes d'un alumne en base a les seves notes i la de la resta.
+
+\subparagraph{Fase 4}
+Desenvolupament del sistema intel·ligent. En aquesta fase es busca el desenvolupament de la eina de suport per al tutor d'estudis.
+
+\subparagraph{Fase 5}
+Avaluació. S'avalua el sistema per tal de fer proves, i buscar mancances i errors del propi sistema.
+\\
+\\
+Aquest treball forma part de la fase 1, 2 i 3. Les fases 4 i 5 són l'altre part del projecte, i no s'en parlarà en aquest treball.
 
 \subsection{Ciència de les dades}
 La ciència de les dades és el conjunt d'etapes per tal d'arribar a un resultat, en forma de coneixement, a partir d'un conjunt de dades. Aquesta aplica un conjunt de tècniques de diferents àreas, ara com matemàtiques, estadística, teoria de la informació o tecnologia de l'extracció d'informació.
@@ -165,7 +200,7 @@ La ciència de les dades és el conjunt d'etapes per tal d'arribar a un resultat
 \\
 Un projecte de ciència de les dades es separa en diverses etapes:
 \begin{enumerate}
-	\item \textbf{Preguntes} Què és el que volem explorar? Té sentit el que ens estem plantejant?
+	\item \textbf{Plantejament de preguntes} Què és el que volem explorar? Té sentit el que ens estem plantejant?
 	\item \textbf{Adquisició de les dades} Com és la font d'obtenció de les dades? (Base de dades, \textit{Web Scraping}, fitxer .csv)
 	\item \textbf{Descripció} Aquesta fase abasta tres processos
 	\begin{enumerate}
@@ -179,11 +214,9 @@ Un projecte de ciència de les dades es separa en diverses etapes:
 	\item \textbf{Evaluació} Com de segur estem dels nostres resultats? (Proves estadístiques, rendiment del model)
 \end{enumerate}
 
-\newpage
-
 \subsection{Etapes del projecte}
 
-\subsubsection{Preguntes}
+\subsubsection{Plantejament de preguntes}
 La primera etapa és el plantejament de les preguntes que voliem resoldre. A partir de la plataforma trello (explicada en la secció d'eines), entre els participants del projecte vam plantejar preguntes, les quals entre tots decidiem amb quines preguntes ens quedariem i respondriem. Moltes de les preguntes no podíem saber si les podíem respondre fins que ens arribessin les dades, ja que depeniem totalment de la informació que contenien aquestes.
 
 \subsubsection{Adquisició}
@@ -234,7 +267,7 @@ Les dades que hem pogut adquirir són molt enriquidores, tenen la informació ne
 Aquest fitxer conté per cada fila informació sobre un alumne en termes de matriculació: l'any d'inici de carrera, grau que realitza, la via amb la qual va accedir a la carrera, la nota d'accés a la Universitat, entre altres.
 
 \subparagraph{Informació d'assignatures}
-Aquí podem trobar informació de cada assignatura que existeix en els graus d'Enginyeria Informàtica i Matemàtiques. Per cada fila tenim la següent informació: l'identificador de l'assignatura, el nom de l'assignatura, els crèdits ECTS corresponents a aquesta i el grau a la que pertanyen. A més a més, vam obtenir mitjantçant una altre font d'informació, per cada assignatura de quin curs i semestre es tractava. Aquesta dada la vam creuar amb l'anterior per ampliar la informació per assignatura.
+Aquí podem trobar la informació de cada assignatura que existeix en els graus d'Enginyeria Informàtica i Matemàtiques. Per cada fila tenim la següent informació: l'identificador de l'assignatura, el nom de l'assignatura, els crèdits ECTS corresponents a aquesta i el grau a la que pertanyen. A més a més, vam obtenir mitjantçant una altre font d'informació, per cada assignatura de quin curs i semestre es tractava. Aquesta dada la vam creuar amb l'anterior per ampliar la informació per assignatura.
 
 \subparagraph{Qualificacions per alumne i per assignatura}
 Per últim i més important, el fitxer que conté les qualificacions de tots els alumnes per assignatura, és a dir, per cada fila tenim: l'identificador de l'alumne que realitze l'assignatura, l'identificador de l'assignatura realitzada, la qualificació d'aquella assignatura, l'ensenyament del qual es tracta, l'any en el que es va realitzar l'assignatura i el tipus d'apunt (ordinaria, reconeixement o convalidada).
@@ -278,7 +311,7 @@ A partir de les notes que ha tret un alumne en el seu passat, podem predir quine
 Les tasques d'aquest projecte són semblants a les etapaes d'un projecte de ciència de les dades. Les tasques són:
 \begin{itemize}[leftmargin=.5in]
 	\item Formació
-	\item Preguntes
+	\item Plantejament de preguntes
 	\item Neteja de dades
 	\item Clusterització
 	\item Predicció
@@ -288,10 +321,10 @@ Les tasques d'aquest projecte són semblants a les etapaes d'un projecte de ciè
 
 Les úniques etapes noves que trobem són: la de formació, és la etapa dedicada l'aprenentatge autònom de les eines utilitzades; la de documentació, és el període de temps per tal de desenvolupar aquesta memòria.
 
+\newpage
+
 \subsection{Diagrama de Gantt}
 S'ha construït dos diagrames de Gantt, un a partir de la planificació inicial i l'altre amb la planificació real per tal de veure les diferències.
-
-\newpage
 
 \begin{figure}[h]
 \begin{center}
@@ -337,7 +370,7 @@ Hores & 25       & 25        & 50              & 75             & 75        & 12
 \toprule
                 & Hores & Preu per hora (Euro) & Preu total (Euro) \\ \midrule
 Formació        & 25    & 0                 & 0              \\
-Preguntes       & 25    & 10                & 250            \\
+Plantejament de preguntes       & 25    & 10                & 250            \\
 Neteja de dades & 50    & 20                & 1000           \\
 Clusterització  & 75    & 25                & 1875           \\
 Predicció       & 75    & 25                & 1875           \\
@@ -387,7 +420,7 @@ Numpy és una biblioteca informàtica de Python per operar amb vectors i matrius
 \hypertarget{sklearn}{
 	\paragraph{Scikit-learn}
 }
-Scikit-learn és una biblioteca informàtica orientada a l'aprenentatge automàtic per a Python. Té suport per classificadors, regressors i clusterització. Per aquest projecte hem fet servir clustering i regressors. En la secció de \hyperlink{tecniquesutilitzades}{Tècniques utilitzades} es detalla cada tècnica utilitzada d'aquesta biblioteca informàtica.
+Scikit-learn (o sklearn) és una biblioteca informàtica orientada a l'aprenentatge automàtic per a Python. Té suport per classificadors, regressors i clusterització. Per aquest projecte hem fet servir clustering i regressors. En la secció de \hyperlink{tecniquesutilitzades}{Tècniques utilitzades} es detalla cada tècnica utilitzada d'aquesta biblioteca informàtica.
 
 \paragraph{Bokeh}
 Bokeh és una biblioteca informàtica per a la visualització interactiva de dades dirigida als navegadors per a la seva presentació a través d'HTML i JavaScript. Bokeh té el suport per a gràfiques específiques com diagrames de barra, box plots o time series, però a banda d'aquests gràfics pots dibuixar sobre un gràfic amb elements bàsics com cercles, línies, rectangles, entre altres.
@@ -520,10 +553,10 @@ on:
 
 La finalitat del nostre recomanador, és omplir les notes que apareixen amb $?$ i possar la nota més adient. Abans d'explicar com funciona, introduiré els diferents tipus de recomanadors que podem tenir:
 
-\subparagraph{Recomanador col·laboratiu bassat en estudiant}
+\subparagraph{Recomanador col·laboratiu bassat en estudiant (RCxE)}
 Prediem la nota d'un alumne en base a la semblança de l'alumne amb la resta. És a dir, si un alumne $e_i$ té unes notes semblants a un alumne $e_j$, les assignatures que no ha cursat $e_i$ podrem dir que seran semblants a les notes que ha tret $e_j$ en aquelles assignatures.
 
-\subparagraph{Recomanador col·laboratiu bassat en assignatures}
+\subparagraph{Recomanador col·laboratiu bassat en assignatures (RCxA)}
 Ara en comptes de bassar-nos en la semblança entre els estudiants, ens basem en la semblança entre una assignatura amb la resta. És a dir, si una assignatura $a_i$ segueix una distribució semblant a una assignatura $a_j$, llavors podem dir que un alumne $e_i$ treurà una nota semblant en ambdues assignatures.
 
 \subparagraph{Recomanador híbrid}
@@ -565,7 +598,7 @@ $$
 O bé, fer la transposada de la matriu anterior i aplicar la mateixa fórmula d'abans.
 
 \todo{link de sklearn}
-\paragraph{\textit{Random Forest Regressor}}
+\paragraph{\textit{Random Forest Regressor} (RFR)}
 Abans d'explicar la tècnica de \textit{Random Forest Regressor}, s'ha d'entendre el concepte d'un arbre de regressió. Un arbre de regressió és una tècnica utilitzada en aprenentatge automàtic, que es defineix com un model predictiu que mapeja observacions sobre una característica a conclusions sobre el valor objectiu d'aquesta característica. En aquestes estructures d'arbre, les fulles representen un valor real d'aquella característica i les branques les conjuccions de caracterítiques que han portat fins a la fulla.
 
 \begin{figure}[h]
@@ -579,7 +612,7 @@ Abans d'explicar la tècnica de \textit{Random Forest Regressor}, s'ha d'entendr
 \newpage
 
 \todo{link de sklearn}
-\paragraph{Regressor lineal}
+\paragraph{Regressor lineal (LR)}
 Un regressor lineal modelitza una recta de regressió a partir d'un núvol de punts. La recta definida, és la recta més propera que passa per tots els punts. El que busca és definir una variable depenent a partir d'un conjunt de variables, és a dir:
 $$
 y =\beta_0+\beta_1 x_1+\beta_2 x_2+ \cdots + \beta_n x_n + \varepsilon
@@ -614,10 +647,10 @@ També calculem la desviació estàndard per veure si els errors són més o men
 
 $$ \sigma = \sqrt{ \frac{1}{n} \sum_{i=1}^n (\left| y_{pred_i}-y_{test_i}\right| - \mu)^2 } $$
 
-\subparagraph{\textit{Mean Rangking Score (MSR)}}
+\subparagraph{\textit{Mean Rangking Score (MRS)}}
 Aquesta és una técnica desenvolupada per nosaltres, està basada en la mesura de \textit{Error promig absolut}, però amb valors discrets. És una mesura supervisada per tal de mesurar quant de bo és un ranking que s'hagi predit. Es tracta d'una mitja a partir de les distancies d'error en el ranking. La métrica presenta la següent fórmula:
 
-$$ \mathrm{MSR} = \frac{1}{n}\sum_{i=1}^n \left| \gamma(y_{pred_i}) -  \gamma(y_{test_i})\right| $$
+$$ \mathrm{MRS} = \frac{1}{n}\sum_{i=1}^n \left| \gamma(y_{pred_i}) -  \gamma(y_{test_i})\right| $$
 
 on:
 \begin{itemize}[leftmargin=.5in]
@@ -650,9 +683,9 @@ Per aquest exemple, hauriem de recorrer els 4 elements:
 
 Quedant:
 
-$$ \mathrm{MSR} = \frac{2 + 0 + 1 + 3}{4} = \frac{6}{4} = 1.5$$
+$$ \mathrm{MRS} = \frac{2 + 0 + 1 + 3}{4} = \frac{6}{4} = 1.5$$
 
-Ens podem fixar que si comparem dos rankings iguals, llavors $\mathrm{MSR} = 0$. Per tant, com més proper estigui a 0, millor s'aproparà la predicció del ranking real.
+Ens podem fixar que si comparem dos rankings iguals, llavors $\mathrm{MRS} = 0$. Per tant, com més proper estigui a 0, millor s'aproparà la predicció del ranking real.
 \\
 \\
 Totes aquestes mètriques són necessaries per evaluar cada tècnica de predicció que utilitzo. Tot i així, les tècniques més importants i que tenen més pes són l'error promig absolut i quadràtic.
@@ -663,6 +696,8 @@ Una de les últimes tècniques que utilitzo en aquest projecte d'innovació doce
 \todo{link de sklearn}
 \paragraph{PCA}
 L'anàlisis de components principals o PCA el que fa és escollir un nou sistema de coordenades a partir d'una transformació lineal on s'ordenen les variances per mida. La variança amb major mida s'escollirà com eix principal, la segona variança com a segon eix, així successivament fins obtenir la dimensionalitat escollida per argument.
+
+\todo{imatge de pca}
 
 \newpage
 
@@ -694,7 +729,7 @@ El conjunt d'assignatures que apareixen en les columnes pot variar depenent de l
 
 \newpage
 
-\paragraph{Hi ha diferents perfils d'alumnes?}
+\subsection{Hi ha diferents perfils d'alumnes?}
 La resposta a aquesta pregunta és trobar diferents tipus d'estudiants en relació a la seva nota (alumnes amb notes molt bones en tot, alumnes amb males notes en certes assignatures, alumnes que suspenen, entre altres). Però volem que el nostre algoritme explori els grups que hi han.
 \\
 \\
@@ -900,7 +935,7 @@ En aquest curs tenim un efecte semblant a primer d'Enginyeria Informàtica amb l
 
 \newpage
 
-\paragraph{Quina es la tassa d'abandonament per cada tipus de perfil?}
+\subsection{Quina es la tassa d'abandonament per cada tipus de perfil?}
 És cert que els que suspenen abandonen la carrera? Ara ho podrem demostrar amb dades. Ens centrarem en la tassa d'abandonament dels alumnes que cursen primer, tant d'Enginyeria Informàtica com el grau de Matemàtiques. Tornaré a mostrar els perfils per poder contrastar cada perfil amb la seva tassa d'abandonament.
 
 \begin{figure}[h]
@@ -941,7 +976,7 @@ Igual que en Enginyeria Informàtica, ens trobem que la major tassa d'abandoname
 
 \newpage
 
-\paragraph{Cadascun d'aquests perfils amb quin perfil de provinença encaixa?}
+\subsection{Cadascun d'aquests perfils amb quin perfil de provinença encaixa?}
 El que es vol mirar en aquesta pregunta és la conservació de clusters, per exemple, els estudiants que treuen bones notes a primer, segueixen treien bones notes a segon? O, de quina via d'accés solen provenir els estudiants de primer de matemàtiques? 
 \\
 \\
@@ -985,7 +1020,103 @@ Una de les raons per les quals vam plantejar aquesta pregunta, era per saber si 
 
 \newpage
 
-\paragraph{Predicció de notes per fer un ranking de dificultats}
+\subsection{Predicció de notes per fer un ranking de dificultats}
+Per últim en aquest apartat s'explicará  les tècniques de predicció que hem fet servir i quins resultats, tant quantitatius com qualitatius, s'han obtingut. La resposta que busquem d'aquesta pregunta, és poder mostrar un ranking, personalitzat per cada alumne, d'assignatures ordenades per la dificultat que li pot arribar a costar a cadascún.
+\\
+\\
+Abans de construïr el ranking, necessitem saber quina és la tècnica de predicció que s'ajusta millor a les nostres dades. Les técniques utilitzades per aquest experiment han sigut les següents, ja anteriorment explicades:
+
+\begin{itemize}[leftmargin=.5in]
+	\item Recomanador col·laboratiu bassat en estudiant
+	\item Recomanador col·laboratiu bassat en assignatures
+	\item \textit{Random Forest Regressor}
+	\item Regressor lineal
+\end{itemize}
+
+El primer pas és la construcció d'un recomanador col·laboratiu, com l'explicat a la secció de Recomanadors, seguint l'interfaç dels predictors de la biblioteca informàtica de \textit{Scikit-learn}. Un predictor en \textit{sklearn} ha de tenir un mètode \textit{fit} i un altre que sigui \textit{predict}. En la següent figura es pot veure un petit trocet de codi de com es fan les crides a les funcions.
+
+\begin{figure}[h]
+\begin{minted}
+[
+framesep=5mm,
+baselinestretch=1.2,
+bgcolor=bgcode,
+fontsize=\footnotesize
+]
+{python}
+from sklearn.linear_model import LinearRegression
+# Definim les variables
+X = [(1,2,3), (5,3,2), (3,1,0), (123,433,452), (233,231,786)]
+# Fem el promig per cada Xi
+y = [2, 3.33, 1.33, 336, 416]
+# Definim una nova variable
+x = (45,34,65) # promig = 48
+# Creem un predictor
+predictor = LinearRegression()
+predictor.fit(X,y)
+print predictor.predict(x)
+# >> 47.9271056831
+\end{minted}
+\caption{Fluxe de crides de funcions d'un predictor d'sklearn}
+\end{figure}
+
+\newpage
+
+En la figura de sobre és pot veure el flux de les crides a les funcions d'un predictor d'sklearn. Primer s'ha de cridar al mètode \textit{fit} i seguidament ja podem cridar al mètode \textit{predict} tantes vegades com volguem per predir.
+
+\begin{figure}[h]
+\begin{minted}
+[
+framesep=5mm,
+baselinestretch=1.2,
+bgcolor=bgcode,
+fontsize=\footnotesize
+]
+{python}
+class Recomender(BaseEstimator):
+    def __init__(self, method=coefPearson, transpose=False):
+        self._m = None
+        self._method = method
+        self._transpose = transpose
+        
+    def fit(self, X, y):
+        # ...
+        return self
+    
+    def predict(self, X):
+        # ...
+        return predicted
+\end{minted}
+\caption{Estructura del recomanador col·laboratiu}
+\end{figure}
+
+Aquesta és la estructura del recomanador que s'ha construït. El constructor accepta per paràmetre la funció de similitud entre items, i un boleà que determina si és un Recomanador col·laboratiu basat en alumnes (\textit{transpose=False}) o un Recomanador col·laboratiu basat en assignatures (\textit{transpose=True}).
+\\
+\\
+Un cop ja tenim llest tots els predictors, anem a mesurar quantitativament quin dels 4 predictors s'adequa més a les nostres dades. Les mètriques que s'utilitzaran són les que ja s'han explicat en la secció de \textit{Mètriques de predictors}.
+
+\paragraph{Proves quantitatives}
+Totes les proves realitzades s'han fet a partir de les notes d'Enginyeria Informàtica. Les proves es basen en dividir les dades en \textit{training} i \textit{test}. \textit{Training} és el conjunt de dades que fem servir per entrenar el predictor (a través de la funció \textit{fit}). \textit{Test} és el conjunt de dades que utilitzem per predir (funció \textit{predict}) i així comprovar si el predictor és lo suficient bo o no. Les proves s'han realitzat a partir de dos conjunts diferents de dades:
+
+\begin{itemize}[leftmargin=.5in]
+	\item Una on s'aplica com a \textit{training} les notes de primer d'Enginyeria Informàtica i com a \textit{test} les notes de segon.
+	\item Per un altre banda apliquem un \textit{training} amb les notes de primer i segon, i un \textit{test} amb les notes de tercer d'Enginyeria Informàtica.
+\end{itemize}
+
+Per cada una de les proves s'han realitzat diferents proves, que són les següents:
+
+\begin{itemize}[leftmargin=.5in]
+	\item [Proves amb dades continues] Aquí 
+	\item [Proves amb dades discretes]
+	\item [Proves amb ranking d'assignatures]
+\end{itemize}
+
+%Explicar tots els test amb les gràfiques i/o dades
+%Concluïr
+
+%Passar a explicar les proves qualitatives
+%Millors i pitjors casos
+
 
 
 \todo{No fer cas a les taules encara}
@@ -1015,11 +1146,6 @@ Una de les raons per les quals vam plantejar aquesta pregunta, era per saber si 
 \caption{Dades normalitzades}
 \end{table}
 
-% Preguntes:
-%   - Hi ha perfils d'estudiants basats en les notes?
-%   - Un dels clusters correspon als alumnes que abandonen?
-%   - Quin perfil d'entrada té cada cluster?
-%   - Ranking de dificultat de les assignatures que ha de fer (que ha matriculat) un alumne
 \newpage
 \section{Conclusions i treball futur}
 \newpage
