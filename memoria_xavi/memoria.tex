@@ -11,6 +11,7 @@
 \usepackage{enumitem}
 \usepackage{amsfonts}
 \usepackage{subcaption}
+\usepackage[catalan]{babel}
 %\usepackage{caption}
 %\usepackage{siunitx}
 
@@ -133,6 +134,12 @@
 Vull agrair a ... 
 
 \newpage
+
+\addto\captionsenglish{% Replace "english" with the language you use
+  \renewcommand{\contentsname}%
+    {Índex}%
+}
+
 \thispagestyle{empty}
 {\hypersetup{linkcolor=black}
 	\tableofcontents
@@ -278,7 +285,7 @@ Per últim i més important, el fitxer que conté les qualificacions de tots els
 \paragraph{Hi ha diferents perfils d'alumnes?}
 A partir de la distribució de les notes de cada alumne per cada assignatura que ha fet, podem determinar que hi ha diferents perfils d'estudiants? Això és el que ens estem preguntant. S'han agafat tots els alumnes que hagin cursat totes les assignatures de primer i després les de segon, tant al grau d'Enginyeria Informàtica com al grau de Matemàtiques. La experiència ens diu que hi han alumnes bons en programació i dolents en les assignatures de matemàtiques a primer del grau d'Enginyeria Informàtica. Però per a la resta de cursos, quins perfil podem trobar? Ara que tenim les dades això ho podem saber, convertirem les dades en coneixement.
 
-\paragraph{Quina es la tassa d'abandonament per cada tipus de perfil?}
+\paragraph{Quina és la tassa d'abandonament per cada tipus de perfil?}
 A partir dels perfils que han sigut determinats en la pregunta anterior, quin és el percentatge d'abandonament per cadascun d'aquests. Volem saber si és cert que els alumnes que van a parar al perfil d'alumnes que ho suspenen tot són els que solen abandonar la carrera. Fins ara això és el que podem saber a partir de l'experiència, però es pot demostrar amb dades i corroborar-ho.
 
 \paragraph{Cadascun d'aquests perfils amb quin perfil de provinença encaixa?}
@@ -528,8 +535,7 @@ $$ \mathrm{silhouette_g} = \frac{1}{n} \sum_{j=1}^n silhouette_i $$
 La etapa de predicció és important en un projecte de data science, ja que ens permet predir el futur d'una forma estadística en base a les observacions que tenim. Però igual que la clusterització, hi han diverses tècniques, aquí explicaré quines tècniques hem utilitzat per aquest projecte.
 \\
 \\
-\todo{Explicar}
-Un predictor és...
+Un predictor és un algoritme que pasat un conjunt de dades d'entrenament, és capaç de poder predir dades del futur. En el nostre cas, per exemple entrenem als predictors amb les notes de primer i segon de carrera. Llavors si li pasem un alumne amb les notes de primer, el predictor ens podrà predir quines seran les seves notes de segon basant-se en les dades que li hem passat per entrenar.
 
 
 \todo{lincar la teoria de TNUI - recommenders}
@@ -701,7 +707,7 @@ Una de les últimes tècniques que utilitzo en aquest projecte d'innovació doce
 \paragraph{PCA}
 L'anàlisis de components principals o PCA el que fa és escollir un nou sistema de coordenades a partir d'una transformació lineal on s'ordenen les variances per mida. La variança amb major mida s'escollirà com eix principal, la segona variança com a segon eix, així successivament fins obtenir la dimensionalitat escollida per argument.
 
-\todo{imatge de pca}
+%http://web.media.mit.edu/~tristan/phd/dissertation/chapter5.html
 
 \newpage
 
@@ -827,6 +833,7 @@ Començarem comentant els resultats obtinguts amb el curs de primer d'Enginyeria
 \centering
 \includegraphics[width=.55\linewidth]{img/perfils_primer_info_pastilla.png}
 \caption{Percentatges de cada agrupació}
+\label{fig:pasprimerinfo}
 \end{figure}
 
 Primer explicaré que és el que veiem en aquests gràfics i així poder interpretar els demés. Cada gràfic són els diferents perfils d'estudiants que ha trobat la tècnica de \textit{K-means}. En cadascun d'ells trobem com a títol l'etiqueta assignada a aquell perfil i el color de cadascún depén de la categoria explicada abans. En l'eix d'abscisses es veuen les assignatures (en aquest cas les de primer d'Enginyeria Informàtica), i en l'eix d'ordenades tenim la mitja de cada assignatura (longitud de la barra). Per últim les línees negres determinen la desviació estàndard de la distribució de cada assignatura i la línea vermella és una marca per identificar l'alçada de l'aprovat.
@@ -939,8 +946,8 @@ En aquest curs tenim un efecte semblant a primer d'Enginyeria Informàtica amb l
 
 \newpage
 
-\subsection{Quina es la tassa d'abandonament per cada tipus de perfil?}
-És cert que els que suspenen abandonen la carrera? Ara ho podrem demostrar amb dades. Ens centrarem en la tassa d'abandonament dels alumnes que cursen primer, tant d'Enginyeria Informàtica com el grau de Matemàtiques. Tornaré a mostrar els perfils per poder contrastar cada perfil amb la seva tassa d'abandonament.
+\subsection{Quina és la tassa d'abandonament per cada tipus de perfil?}
+És cert que els que suspenen abandonen la carrera? Ara ho podrem demostrar amb gràfics estadístics. Ens centrarem en la tassa d'abandonament dels alumnes que cursen primer, tant d'Enginyeria Informàtica com el grau de Matemàtiques. Tornaré a mostrar els perfils per poder discutir cada perfil amb la seva tassa d'abandonament.
 
 \begin{figure}[h]
 \centering
@@ -952,17 +959,13 @@ En aquest curs tenim un efecte semblant a primer d'Enginyeria Informàtica amb l
 \centering
 \includegraphics[width=\linewidth]{img/abandonaments_primer_info.png}
 \caption{Tassa d'abandonaments per perfil}
+\label{fig:abandonamentprimer}
 \end{figure}
 
-Com era d'esperar, els alumnes que amb més probabilitat deixen la carrera són els que suspenen, seguits d'estudiants que no tenen unes notes massa estables. És a dir, que la majoria que passen a segon pertanyen al cluster \textit{BN1} i \textit{A1}. Però si ens fixem una mica en el gràfic d'abandonaments, els perfils d'aprovats i de bones notes, hi ha un petit percentatge indicat que diu que abandonen la carrera. Bé, en les dades que tenim, no tenim un camp que ens indiqui si un alumne ha abandonat la carrera o no, ja que no ho tenen registrat, suposo perquè potser pot tornar un altre any l'estudiant. Com ho hem fet llavors? Hem agafat per cada perfil tot el conjunt d'alumnes d'aquell perfil i s'ha comprovat per cadascún d'ell si té assignatures matriculades a l'any següent. Però clar, hi han alumnes del darrer any que s'han de matriculat per l'any vinent encara (i no apareixen matriculats a l'any següent), per això hi ha un petit marge d'error i els clusters \textit{BN1} i \textit{A1} aparèixen amb una mínima tassa d'abandonaments. 
-
-\begin{figure}[h]
-\centering
-\missingfigure{\Huge Imatge de diagrama de ben, demostrant un alumne d'abandoanet i l'altre no}
-\caption{Some caption}
-\end{figure}
-
-Ara, per altre banda tenim el curs de primer de Matemàtiques, on apliquem els mateix algoritme explicat en el paràgraf anterior. També trovem un petit marge d'error en els perfils que ho aproven tot.
+Els alumnes que amb més probabilitat deixen la carrera són els que suspenen, seguits d'estudiants que no tenen unes notes massa estables. És a dir, que la majoria que passen a segon pertanyen al cluster \textit{BN1} i \textit{A1}. Però si ens fixem una mica en el gràfic d'abandonaments, els perfils d'aprovats i de bones notes, hi ha un petit percentatge indicat que diu que abandonen la carrera. En les dades que tenim, no tenim un camp que ens indiqui si un alumne ha abandonat la carrera o no, ja que no ho tenen registrat. Hem hagut d'agafat per cada perfil tot el conjunt d'alumnes d'aquell perfil i s'ha comprovat per cadascún si té assignatures matriculades a l'any següent. Però clar, hi han alumnes del darrer any que s'han de matricular per l'any vinent encara (i no apareixen matriculats a l'any següent), per això hi ha un petit marge d'error i els clusters \textit{BN1} i \textit{A1} aparèixen amb una mínima tassa d'abandonaments. 
+\\
+\\
+Per altre banda tenim el curs de primer de Matemàtiques, on apliquem el mateix algoritme explicat en el paràgraf anterior. També trovem un petit marge d'error en els perfils que ho aproven tot.
 
 \begin{figure}[h]
 \centering
@@ -972,33 +975,30 @@ Ara, per altre banda tenim el curs de primer de Matemàtiques, on apliquem els m
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\linewidth]{img/abandonaments_primer_mates.png}
+\includegraphics[width=.9\linewidth]{img/abandonaments_primer_mates.png}
 \caption{Tassa d'abandonaments per perfil}
 \end{figure}
 
-Igual que en Enginyeria Informàtica, ens trobem que la major tassa d'abandonament es troba en els alumnes que suspenen per mitja totes les assignatures. Seguidament els hi segueixen els estudiants que no tenen unes notes massa regulars i com s'ha comentat anteriorment, els alumnes que estan classificats com \textit{Aprovats}, també surten amb una petita tassa d'abandonament.
+Igual que en Enginyeria Informàtica, ens trobem que la major tassa d'abandonament es troba en els alumnes que suspenen per mitja totes les assignatures. Seguidament els hi segueixen els estudiants que no tenen unes notes massa regulars i com s'ha comentat anteriorment, els alumnes que estan classificats com \textit{Aprovats}, també surten amb una tassa mínima d'abandonament.
 
-\newpage
 
 \subsection{Cadascun d'aquests perfils amb quin perfil de provinença encaixa?}
-El que es vol mirar en aquesta pregunta és la conservació de clusters, per exemple, els estudiants que treuen bones notes a primer, segueixen treien bones notes a segon? O, de quina via d'accés solen provenir els estudiants de primer de matemàtiques? 
+El que es vol mirar en aquesta pregunta és la conservació de clusters, per exemple, els estudiants que treuen bones notes a primer, segueixen treien bones notes a segon? O, de quina via d'accés solen provenir els estudiants de primer de matemàtiques? Preguntes com aquestes anem a resoldre en aquest apartat. 
 \\
 \\
 Començarem, com hem fet anteriorment, amb els estudiants que han cursat primer d'Enginyeria Informàtica. Com s'ha explicat en la secció de preguntes plantejades, contrastem primer d'Enginyeria Informàtica amb les vies d'accés: Batxillerat i salt d'Universitat.
 
-\todo{Canviar els colors de la gràfica}
+\todo{Canviar els colors de la gràfica si dóna temps}
 \begin{figure}[h]
 \centering
 \includegraphics[width=.6\linewidth]{img/conservacio_clusters_primer_info.png}
 \caption{Conservació de clusters dels alumnes de primer d'Informàtica}
 \end{figure}
 
-\todo{Possar referència a la figura anterior}
-En l'interior del cercle, podem veure el mateix gràfic de pastilla que s'ha vist anteriorment dels perfils dels estudiants de primer d'Enginyeria Informàtica (AQUÍ). Per sobre de cada perfil es veu en quantitat d'on venen els alumnes del perfil. 
+En l'interior del cercle, podem veure el mateix gràfic de pastilla que s'ha vist anteriorment dels perfils dels estudiants de primer d'Enginyeria Informàtica [fig:~\ref{fig:pasprimerinfo}]. Per fóra del cercle de cada perfil es veu quantitativament d'on venen els alumnes del perfil. 
 \\
 \\
-\todo{Possar referencia a la figura anterior}
-Es pot veure com en tots els perfils, venen meitat de Batxillerat i meitat de Salt d'Universitat aproximadament. Es pot distingir que els estudiants classificats com \textit{Suspesos} solen venir més de Batxillerat que no pas d'una altre Universitat, tot i que la diferència és petita. Com s'ha vist en la gràfica d'abandonament (AQUÍ), els alumnes que passen amb més abundancia a segon són els classificats com \textit{A1} i \textit{BN1}, per tant procedim a eliminar a la resta, ja que són minoria, i així més llegible la següent gràfica.
+Es pot veure com en tots els perfils, venen meitat de Batxillerat i meitat de Salt d'Universitat aproximadament. Es pot distingir que els estudiants classificats com \textit{Suspesos} solen venir més de Batxillerat que no pas d'una altre Universitat, tot i que la diferència és petita. Com s'ha vist en la gràfica d'abandonament [fig:~\ref{fig:abandonamentprimer}], els alumnes que passen amb més abundancia a segon són els classificats com \textit{A1} i \textit{BN1}, per tant procedim a eliminar a la resta, ja que són minoria, i així més llegible la següent gràfica.
 
 \begin{figure}[h]
 \centering
@@ -1006,7 +1006,7 @@ Es pot veure com en tots els perfils, venen meitat de Batxillerat i meitat de Sa
 \caption{Conservació de clusters dels alumnes de primer d'Informàtica}
 \end{figure}
 
-Ara és veu amb més claredat el significat d'un gràfic com aquest, ja que podem veure com els que solen treure bones notes a primer dEnginyeria Informàtica, solen treure bones notes a segon també, i els que classificaven com \textit{Aprovats de primer}, solen parar a \textit{Aprovats de segon}. També podem veure com un petit percentatge d'alumnes que treuen notes a primer, passen a treure notes més baixes a segon, igual que alumnes etiquetats com \textit{Aprovats de primer} amb una petit quanitat paren a perfils inestables com \textit{ISF2} o \textit{PPIE2}.
+Ara és veu amb més claredat el significat d'un gràfic com aquest, ja que podem veure com els que solen treure bones notes a primer d'Enginyeria Informàtica, solen treure bones notes a segon també, i els que es classificaven com \textit{Aprovats de primer}, solen parar a \textit{Aprovats de segon}. També podem veure com un petit percentatge d'alumnes que treuen notes a primer, passen a treure notes més baixes a segon, igual que alumnes etiquetats com \textit{Aprovats de primer} amb una petit quanitat paren a perfils inestables com \textit{ISF2} o \textit{PPIE2}.
 
 \newpage
 
@@ -1025,7 +1025,7 @@ Una de les raons per les quals vam plantejar aquesta pregunta, era per saber si 
 \newpage
 
 \subsection{Predicció de notes i ranking de dificultat d'assignatures}
-Per últim en aquest apartat s'explicará  les tècniques de predicció que hem fet servir i quins resultats, tant quantitatius com qualitatius, s'han obtingut. La resposta que busquem d'aquesta pregunta, és poder mostrar un ranking, personalitzat per cada alumne, d'assignatures ordenades per la dificultat (per notes) que li pot arribar a costar a cadascún.
+Per últim en aquest apartat s'explicará  les tècniques de predicció que hem fet servir i quins resultats, tant quantitatius com qualitatius, s'han obtingut. La resposta que busquem d'aquesta pregunta, és poder mostrar un ranking, personalitzat per cada alumne, d'assignatures ordenades per la dificultat (és a dir, per notes) que li pot arribar a costar a cada estudiant.
 \\
 \\
 Abans de construïr el ranking, necessitem saber quina és la tècnica de predicció que s'ajusta millor a les nostres dades. Les técniques utilitzades per aquest experiment han sigut les següents, ja anteriorment explicades:
@@ -1037,7 +1037,7 @@ Abans de construïr el ranking, necessitem saber quina és la tècnica de predic
 	\item Regressor lineal
 \end{itemize}
 
-El primer pas és la construcció d'un recomanador col·laboratiu, com l'explicat a la secció de Recomanadors, seguint l'interfaç dels predictors de la biblioteca informàtica de \textit{Scikit-learn}. Un predictor en \textit{sklearn} ha de tenir un mètode \textit{fit} i un altre que sigui \textit{predict}. En la següent figura es pot veure un petit trocet de codi de com es fan les crides a les funcions.
+El primer pas és la construcció d'un recomanador col·laboratiu, com l'explicat a la secció de Recomanadors, seguint l'interfaç dels predictors de la biblioteca informàtica de \textit{Scikit-learn}. Un predictor en \textit{sklearn} ha de tenir un mètode \textit{fit} i un altre que sigui \textit{predict}. En la següent figura es pot veure el fluxe de les crides a les funcions.
 
 \begin{figure}[h]
 \begin{minted}
@@ -1066,7 +1066,7 @@ print predictor.predict(x)
 
 \newpage
 
-En la figura de sobre és pot veure el flux de les crides a les funcions d'un predictor d'sklearn. Primer s'ha de cridar al mètode \textit{fit} i seguidament ja podem cridar al mètode \textit{predict} tantes vegades com volguem per predir.
+Primer s'ha de cridar al mètode \textit{fit} i seguidament ja podem cridar al mètode \textit{predict} tantes vegades com volguem per predir.
 
 \begin{figure}[h]
 \begin{minted}
@@ -1094,7 +1094,7 @@ class Recomender(BaseEstimator):
 \caption{Estructura del recomanador col·laboratiu}
 \end{figure}
 
-Aquesta és la estructura del recomanador que s'ha construït. El constructor accepta per paràmetre la funció de similitud entre items (per defecte el coeficient de pearson), i un boleà que determina si és un Recomanador col·laboratiu basat en alumnes (\textit{transpose=False}) o un Recomanador col·laboratiu basat en assignatures (\textit{transpose=True}).
+Aquesta és la estructura del recomanador col·laboratiu que s'ha construït seguint les fórmules explicades en la secció de Recomanadors. El constructor accepta per paràmetre la funció de similitud entre items (per defecte el coeficient de pearson), i un boleà que determina si és un Recomanador col·laboratiu basat en alumnes (\textit{transpose=False}) o un Recomanador col·laboratiu basat en assignatures (\textit{transpose=True}).
 \\
 \\
 Un cop ja tenim llest tots els predictors, anem a mesurar quantitativament quin dels 4 predictors s'adequa més a les nostres dades. Les mètriques que s'utilitzaran són les que ja s'han explicat en la secció de \textit{Mètriques de predictors}.
@@ -1104,13 +1104,13 @@ Totes les proves realitzades s'han fet a partir de les notes d'Enginyeria Inform
 
 \begin{itemize}[leftmargin=.5in]
 	\item Una on s'aplica com a \textit{training} les notes de primer d'Enginyeria Informàtica i com a \textit{test} les notes de segon.
-	\item Per un altre banda apliquem un \textit{training} amb les notes de primer i segon, i un \textit{test} amb les notes de tercer d'Enginyeria Informàtica.
+	\item Per un altre banda s'ha aplicat un \textit{training} amb les notes de primer i segon, i un \textit{test} amb les notes de tercer d'Enginyeria Informàtica.
 \end{itemize}
 
 Per cada una de les proves s'han realitzat diferents proves, que són les següents:
 
 \subparagraph{Proves amb dades continues}
-Provem els predictors mirant l'error produït amb les notes realsi les predites qualificades del 0 al 10. Les mesures utilitzades en aquesta prova són:
+Provem els predictors mirant l'error produït amb les notes real i les predites qualificades del 0 al 10. Les mesures utilitzades en aquesta prova són:
 
 \begin{itemize}[leftmargin=.5in]
 	\item \textbf{Error Promig Absolut} Per calcular la diferència mitja d'error produït.
@@ -1132,13 +1132,13 @@ Igual que comprovem l'error produïr amb valors continus, del 0 al 10, ara etiqu
 	\item \textbf{Excel·lent} Notes superiors a 9 ($nota \geq 9$)
 \end{itemize}
 
-Per poder visualitzar aquesta prova s'ha utilitzat una matriu de convulsió, on es representa amb un mapa de color. En la següent secció s'explicarà que és un mapa de color juntament amb els resultats obtinguts. Utilitzem un 50\% de \textit{training} i un 50\% de \textit{test}.
+Per poder visualitzar aquesta prova s'ha utilitzat una matriu de confusió, on es representa amb un mapa de color (o heatmap). En la següent secció s'explicarà que és un mapa de color juntament amb els resultats obtinguts. S'utilitza un 50\% de \textit{training} i un 50\% de \textit{test}.
 
 \subparagraph{Proves amb ranking d'assignatures}
 Per últim tenim les proves realitzades per mesurar el ranking que volem desenvolupar. La mètrica utilitzada ha sigut la \textit{Mean Ranking Score}, que com ja s'ha explicat anteriorment, és una mètrica que ens permet mesurar quant de bó és un ranking.
 
 \paragraph{Resultats de les proves quantitatives}
-Comançarem amb les proves amb dades continues amb els dos conjunt de dades que s'han explicat en l'apartat anterior.  Utilitzem un 90\% de \textit{training} i un 10\% de \textit{test}.
+Comançarem amb les proves fetes amb dades continues amb els dos conjunt de dades que s'han explicat en l'apartat anterior.  Utilitzem un 90\% de \textit{training} i un 10\% de \textit{test}.
 
 \begin{figure}[h]
 \centering
@@ -1146,10 +1146,10 @@ Comançarem amb les proves amb dades continues amb els dos conjunt de dades que 
 \caption{Prova amb dades continues. Traning: primer}
 \end{figure}
 
-En aquesta figura podem veure un diagrama de caixes, aquest tipus de diagrama representa visualment una distribució. Cada caixa té les mateixes característiques: la línea del centre representa la mediana de la distribució, la caixa es visualitza un 50\% de la mostra (des del primer quartil, fins al 3), les línes verticals determinen el límit de les distribucions i per últim tota mostra que etigui fóra de lo normal (mostra atípica) és visualitza per fóra dels límits amb un punt.
+En aquesta figura podem veure un diagrama de caixes, aquest tipus de diagrama representa visualment una distribució. Cada caixa té les mateixes característiques: la línea del centre representa la mediana de la distribució, la caixa es visualitza un 50\% de la mostra (des del primer quartil, fins al tercer), les línes verticals determinen el límit de les distribucions i per últim tota mostra que estigui fóra de lo normal (mostra atípica) és visualitza per fóra dels límits amb un punt.
 \\
 \\
-La distribució que podem veure a la figura són els errors que es presenten en cada predicció, és a dir, un predictor perfecte, mostrarà una distribució uniforme en el 0. En la figura es pot veure els quatre predictors utilitzats i quina distribució d'error segueix cadascún. Veiem que el predictor més estable i que concentra millor els errors són el recomanador col·laboratiu basat en estudiant i el \textit{random forest regressor}. Per un altre banda tenim el Regressor linear que presenta la mediana més baixa, tot i que el tercer quartil és massa alt. Els \textit{outlayers}  (mostres atípiques) que veiem tenen una explicació. Què passa si un alumne té un imprevist i no pot cursar una assignatura ja matrículada? Aquest factor no el contemplen els predictors. És per això que tenim observacións atípiques, perquè els predictors potser prediuen que un alumne treurà un 7, però l'alumne per qualsevol raó es desmatricula de l'assignatura, llavors en aquella assignatura li queda un 0. Més avall es mostra un exemple d'una mostra atípica amb una prova qualitativa.
+La distribució que podem veure a la figura són els errors que es presenten en cada predicció, pertant un predictor perfecte, mostrarà una distribució uniforme en el 0. En la figura es pot veure els quatre predictors utilitzats i quina distribució d'error segueix cadascún. Veiem que el predictor més estable i que concentra millor els errors són el recomanador col·laboratiu basat en estudiant i el \textit{random forest regressor}. Per un altre banda tenim el regressor lineal que presenta la mediana més baixa, tot i que el tercer quartil és massa elevat. Els \textit{outlayers}  (mostres atípiques) que veiem tenen una explicació. Què passa si un alumne té un imprevist i no pot cursar una assignatura ja matrículada? Aquest factor no el contemplen els predictors. És per això que tenim observacións atípiques, perquè els predictors potser prediuen que un alumne treurà un 7, però l'alumne per qualsevol raó es desmatricula de l'assignatura, llavors en aquella assignatura li queda un 0. Més avall es mostra un exemple d'una mostra atípica amb una prova qualitativa.
 
 Les mateixes conclusions podem extreure de les mètriques que utilitzem per fer aquesta prova:
 
@@ -1193,7 +1193,7 @@ En aquestes proves podem seguir veient com els millors predictors són el RCxE i
 
 \newpage
 
-Ara passem a veure els resultats que s'han obtingut amb les notes discretes (suspés, aprovat, notable i excel·lent). Com ja s'ha explicat, la representació d'aquestes proves es fa amb una matriu de convolució, seguidament paso a descriure que representa.
+Ara passem a veure els resultats que s'han obtingut amb les notes discretes (suspés, aprovat, notable i excel·lent). Com ja s'ha explicat, la representació d'aquestes proves es fa amb una matriu de confusió, seguidament paso a descriure que representa.
 
 \begin{figure}[h]
 \centering
@@ -1223,10 +1223,10 @@ Ara passem a veure els resultats que s'han obtingut amb les notes discretes (sus
 \caption{Matriu de convulsió. Training: primer}
 \end{figure}
 
-En cada matriu de colors podem veure 16 caselles, cada fila i columna posa: S, A, N i E, que significa: suspés, aprovat, notable i excel·lent. Cada casella significa el percentatge de vegades que la qualificació predita coincideix amb la qualificació real corresponent. Possem un exemple per acabar d'entendre, en la primera figura apareix en la correspondència de aprovats amb aprovats un 40,26\%, això significa que el 40,26\% de les proves diu el predictor que un alumne treurà una nota d'aprovat i la nota real era aprovat. Si ens fixem com més alt sigui el percentatge, més fosca és la casella. Per tant el que busquem és tenir fosca la diagonal, ja que vol dir que ha encertat tot. Ho representem amb aquest tipus de representació pk equivocar-se de suspés a aprovat és acceptable, però no de suspés a excel·lent, és per això que s'ha de veure una tendencia de color a les rodalies de la diagonal.
+En cada matriu de colors podem veure 16 caselles, cada fila i columna posa: S, A, N i E, que significa: suspés, aprovat, notable i excel·lent. Cada cel·la significa el percentatge de vegades que la qualificació predita coincideix amb la qualificació real corresponent. Possem un exemple per acabar d'entendre, en la primera figura apareix en la correspondència de aprovats amb aprovats un 40.26\%, això significa que el 40.26\% de les proves diu el predictor que un alumne treurà una nota d'aprovat i la nota real és aprovat. Si ens fixem com més alt sigui el percentatge, més fosca és la casella. Per tant el que busquem és tenir fosca la diagonal, ja que vol dir que ha encertat tot. Ho representem amb aquest tipus de representació perquè equivocar-se de suspés a aprovat és acceptable, però no de suspés a excel·lent, és per això que s'ha de veure una tendencia de color a les rodalies de la diagonal.
 \\
 \\
-Podem veure que els millors predictors són els recomanadors, ja que mantenen força alta la diagonal i el color fosc es manté força concentrat a la diagonal. Si ens fixem en el \textit{Random Forest Regressor} i en el \textit{Regressor lineal} confon més per les seves rodalies. En canvi trobem que tots els predictos confonen aprovats per excel·lents.
+Podem veure que els millors predictors són els recomanadors, ja que mantenen força alta la intensitat de color de la diagonal i el color fosc es manté força concentrat a la diagonal. Si ens fixem en el \textit{Random Forest Regressor} i en el \textit{Regressor lineal} confon més per les seves rodalies. En canvi trobem que tots els predictos confonen aprovats per excel·lents.
 \\
 \\
 Per un altre banda també s'ha provat amb \textit{training} les notes de primer juntament amb les de segon i com a \textit{test} les notes de tercer.
@@ -1282,12 +1282,12 @@ MRS & 2.375                   & 3.4                   & 2.375                  &
 \caption{Mean Ranking Score. Training: primer i segon}
 \end{table}
 
-Hem mostrat les dues proves, amb diferents \textit{training}, juntes per poder-les contrastar. Recordem que la mesura MRS és una mesura que com més propera a 0, millor. Si ens fixem els valors són més baixos amb la primera taula, i el millor predictor per aquesta és el recomanador col·laboratiu basat en l'estudiant. On el \textit{training} es fa amb les notes de primer i segon podem veure que els millors predictors són RCxE i RFR.
+Es poden veure els resultats de les dues proves (amb diferents \textit{training}) juntes per poder-les discutir. Recordem que la mesura MRS és una mesura que com més propera a 0, millor. Si ens fixem els valors són més baixos a la primera taula, i el millor predictor per aquesta és el recomanador col·laboratiu basat en l'estudiant. On el \textit{training} es fa amb les notes de primer i segon podem veure que els millors predictors són RCxE i RFR.
 
 \newpage
 
 \paragraph{Proves qualitatives}
-Un cop hem fet les proves quntitatives i s'ha obervat quin predictor és millor per cada cas, passem a utilitzar el millor predictor per veure un cas d'èxit i un de fracàs. En aquest apartat mostraré un cas d'èxit i de fracàs per fer una recomanació de notes, i seguidament un cas d'èxit i fracàs del ranking d'assignatures.
+Un cop hem fet les proves quntitatives i s'ha observat quin predictor és millor per cada cas, passem a utilitzar el millor predictor per veure un cas d'èxit i un de fracàs. En aquest apartat mostraré un cas d'èxit i de fracàs per fer una recomanació de notes, i seguidament un cas d'èxit i fracàs del ranking d'assignatures.
 \\
 \\
 En les proves quantitatives, hem pogut veure que el millor predictor per predir notes quantitatives (de 0 a 10) és el recomanador col·laboratiu basat en l'estudiant. És per això que utilitzarem aquest predictor per fer les proves qualitatives.
@@ -1295,19 +1295,150 @@ En les proves quantitatives, hem pogut veure que el millor predictor per predir 
 % cas d'èxit nota quantitativa
 % possar una taula com la de les hores de dedicació
 % possar una taula comparant les notes predites amb les reals
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}ccccccccccc@{}}
+      & \rotatebox{90}{P1} & \rotatebox{90}{DDB} & \rotatebox{90}{IO} & \rotatebox{90}{ALGE} & \rotatebox{90}{CAL} & \rotatebox{90}{MD} & \rotatebox{90}{FIS} & \rotatebox{90}{ALGO} \ & \rotatebox{90}{P2}& \rotatebox{90}{ED} \\ \midrule
+Notes & 7.40 & 8.00 & 6.80 & 6.80 & 6.80 & 7.90 & 6.80 & 7.60 & 7.30 & 9.00 \\ \bottomrule
+\end{tabular}
+\caption{Notes reals de primer del primer cas d'èxit}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lll@{}}
+\toprule
+     & Notes reals & Notes predites \\ \midrule
+ELEC & 8.80        & 7.29           \\
+AA   & 7.50        & 7.44           \\
+DS   & 7.00        & 6.80           \\
+EC   & 6.00        & 6.00           \\
+ICC  & 6.60        & 6.74           \\
+EMP  & 7.20        & 7.64           \\
+PIE  & 8.00        & 6.63           \\
+PAE  & 7.50        & 7.23           \\
+PIS  & 9.00        & 8.81           \\
+SO1  & 6.80        & 6.31           \\ \bottomrule
+\end{tabular}
+\caption{Resultat de predicció del primer cas d'èxit}
+\end{table}
+
+\newpage
+
+Aquests són els resultat d'un cas d'èxit. En la primera taula, podem veure les notes reals que ha tret l'alumne en primer, i en la segona les notes que ha tret en segon juntament amb les notes predites pel predictor. Les mètriques d'aquesta predicció són:
+\begin{itemize}[leftmargin=.5in]
+	\item \textbf{MAE} 0.47
+	\item \textbf{MSE} 0.48
+\end{itemize}
+
+Si mirem detingudament la comparació de les notes podem veure que la diferència és baixa, l'assignatura que manté una major distància és \textit{Probabilitat i Estadística}.
 
 % cas de fracàs nota quantitativa
 % possar una taula com la de les hores de dedicació
 % possar una taula comparant les notes predites amb les reals
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}ccccccccccc@{}}
+      & \rotatebox{90}{P1} & \rotatebox{90}{DDB} & \rotatebox{90}{IO} & \rotatebox{90}{ALGE} & \rotatebox{90}{CAL} & \rotatebox{90}{MD} & \rotatebox{90}{FIS} & \rotatebox{90}{ALGO} \ & \rotatebox{90}{P2}& \rotatebox{90}{ED} \\ \midrule
+Notes & 6.00 & 8.40 & 6.00 & 6.50 & 7.10 & 7.10 & 5.50 & 7.00 & 6.00 & 6.00 \\ \bottomrule
+\end{tabular}
+\caption{Notes reals de primer del primer cas de fracàs}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lll@{}}
+\toprule
+     & Notes reals & Notes predites \\ \midrule
+ELEC & 7.10        & 7.45           \\
+AA   & 5.10        & 6.06           \\
+DS   & 0.00        & 5.63           \\
+EC   & 6.30        & 6.02           \\
+ICC  & 5.30        & 6.38           \\
+EMP  & 6.40        & 7.38           \\
+PIE  & 7.30        & 6.60           \\
+PAE  & 8.30        & 7.51           \\
+PIS  & 0.00        & 6.89           \\
+SO1  & 7.60        & 5.85           \\ \bottomrule
+\end{tabular}
+\caption{Resultat de predicció del primer cas de fracàs}
+\end{table}
+
+En aquestes taules podem veure un cas de fracàs, on les mètriques han donat el següent resultat:
+\begin{itemize}[leftmargin=.5in]
+	\item \textbf{MAE} 1.94
+	\item \textbf{MSE} 8.66
+\end{itemize}
+
+Aquesta és una de les mostres atípiques que s'havien vist en els diagrames de caixa. Podem veure que realment el predictor ha encertat amb la majoria d'assignatures, llevat de PIS i DS. Resulta que l'alumne té un 0 en ambdues assignatures, això pot ser per un error, per que l'alumne hagi abandonat l'assignatura, entre altres. És per això que el predictor no pot contemplar casos com aquest i per això presenta \textit{outlayers}. En aquest cas a més podem veure com l'error promig absolut no és massa alt, però l'error promig quadràtic és elevat a conseqüència de les assignatures de \textit{Projecte integrat de Software} i \textit{Disseny de Software}.
 
 % cas d'èxit ranking
 % possar una taula com la de les hores de dedicació
 % possar una taula comparant les notes predites amb les reals
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}ccccccccccc@{}}
+      & \rotatebox{90}{P1} & \rotatebox{90}{DDB} & \rotatebox{90}{IO} & \rotatebox{90}{ALGE} & \rotatebox{90}{CAL} & \rotatebox{90}{MD} & \rotatebox{90}{FIS} & \rotatebox{90}{ALGO} \ & \rotatebox{90}{P2}& \rotatebox{90}{ED} \\ \midrule
+Notes & 6.00 & 6.30 & 6.00 & 6.00 & 6.50 & 6.00 & 5.50 & 6.80 & 6.00 & 6.00 \\ \bottomrule
+\end{tabular}
+\caption{Notes reals de primer del segon cas d'èxit}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lll@{}}
+\toprule
+     & Notes reals & Notes predites \\ \midrule
+1  & PAE         & PAE            \\
+2  & PIE         & ELEC           \\
+3  & EMP         & EMP            \\
+4  & ELEC        & PIE            \\
+5  & ICC         & AA             \\
+6  & EC          & ICC            \\
+7  & AA          & EC             \\
+8  & SO1         & PIS            \\
+9  & PIS         & SO1            \\
+10 & DS          & DS             \\ \bottomrule
+\end{tabular}
+\caption{Resultat de predicció del segon cas d'èxit}
+\end{table}
+
+Ara pasem a veure el cas d'èxit del ranking, on agafem el cas que ens dóna un \textit{Mean Ranking Score} més baix. En la primera taula, com els altres casos, veiem les notes que ha tret l'alumne en les assignatures de primer, però ara en la segona taula podem veure el ranking d'assignatures ordenades per dificultat. En aquest cas podem veure com el ranking predit és semblant al ranking real. La \textit{Mean Ranking Score} dóna 1.
 
 % cas de fracàs ranking
 % possar una taula com la de les hores de dedicació
 % possar una taula comparant les notes predites amb les reals
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}ccccccccccc@{}}
+      & \rotatebox{90}{P1} & \rotatebox{90}{DDB} & \rotatebox{90}{IO} & \rotatebox{90}{ALGE} & \rotatebox{90}{CAL} & \rotatebox{90}{MD} & \rotatebox{90}{FIS} & \rotatebox{90}{ALGO} \ & \rotatebox{90}{P2}& \rotatebox{90}{ED} \\ \midrule
+Notes & 8.80 & 5.80 & 6.60 & 7.30 & 8.50 & 8.00 & 5.30 & 6.50 & 9.20 & 7.40 \\ \bottomrule
+\end{tabular}
+\caption{Notes reals de primer del segon cas de fracàs}
+\end{table}
 
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lll@{}}
+\toprule
+     & Notes reals & Notes predites \\ \midrule
+1    & ICC    & PIS       \\
+2    & PIE    & PIE      \\
+3    & PAE    & EMP       \\
+4    & DS     & AA      \\
+5    & ELEC   & PAE       \\
+6    & SO1    & ELEC        \\
+7    & EMP    & SO1       \\
+8    & PIS    & EC      \\
+9    & AA     & DS       \\
+10   & EC     & ICC        \\ \bottomrule
+\end{tabular}
+\caption{Resultat de predicció del segon cas de fracàs}
+\end{table}
+
+\newpage
+
+Per últim podem veure aquest cas de fracàs, on els dos ranking no s'assemblen. La seva \textit{Mean Ranking Score} ens ha donat 3.8, una MRS alta, recordem que la MRS és la mitja d'error de diferència de posicions del ranking.
 
 \newpage
 \section{Conclusions i treball futur}
