@@ -115,34 +115,30 @@
 
 \section*{\textit{Abstract}}
 
-\textit{Aquest treball està dins del marc d'un projecte d'innovació docent, en el que es proposa una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza. Per poder arribar a fer aquest sistema intel·ligent per al tutor d'estudis, abans s'ha de fer un anàlisi estadístic sobre els resultats acadèmics de la Facultat de Matemàtiques. L'anàlisi es basa en l'exploració de perfils d'estudiants i en la predicció de notes. Dintre de l'anàlisi de perfils d'estudiants es mira la tassa d'abandonament per cada perfil i la relació que tenen els clusters respecte el curs anterior. Pel que fa a la predicció es construeix una taula de ranking de dificultats d'assignatures per a un alumne.}
+\textit{Aquest treball està dins del marc d'un projecte d'innovació docent, en el que es proposa una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza. Per poder arribar a fer aquest sistema intel·ligent per al tutor d'estudis, abans s'ha de fer un anàlisi estadístic sobre els resultats acadèmics de la Facultat de Matemàtiques. L'anàlisi es basa en l'exploració de perfils d'estudiants i en la predicció de notes. Dins de l'anàlisi de perfils d'estudiants es mira la tassa d'abandonament per cada perfil i la relació que té cadascun respecte els perfils del curs anterior. Pel que fa a la predicció es construeix una taula de ranking de dificultats d'assignatures per a un alumne.}
 
 \section*{\textit{Resum}}
-\textit{Aquest treball està dins del marc d'un projecte d'innovació docent, en el que es proposa una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza. Per poder arribar a fer aquest sistema intel·ligent per al tutor d'estudis, abans s'ha de fer un anàlisi estadístic sobre els resultats acadèmics de la Facultat de Matemàtiques. L'anàlisi es basa en l'exploració de perfils d'estudiants i en la predicció de notes. Dintre de l'anàlisi de perfils d'estudiants es mira la tassa d'abandonament per cada perfil i la relación que té casacun respecte els perfils del curs anterior. Pel que fa a la predicció es construeix una taula de ranking de dificultats d'assignatures per a un alumne.}
+\textit{Aquest treball està dins del marc d'un projecte d'innovació docent, en el que es proposa una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza. Per poder arribar a fer aquest sistema intel·ligent per al tutor d'estudis, abans s'ha de fer un anàlisi estadístic sobre els resultats acadèmics de la Facultat de Matemàtiques. L'anàlisi es basa en l'exploració de perfils d'estudiants i en la predicció de notes. Dins de l'anàlisi de perfils d'estudiants es mira la tassa d'abandonament per cada perfil i la relació que té cadascun respecte els perfils del curs anterior. Pel que fa a la predicció es construeix una taula de ranking de dificultats d'assignatures per a un alumne.}
 
 
 \section*{\textit{Resumen}}
-\textit{Este trabajo está dentro del marco de un proyecto de innovación docente, en el que se propone una herramienta de soporte para el tutor de estudios, la cual permita ayudar al tutor a conocer mejor el perfil de cada alumno que tutoriza. Para poder llegar a hacer este sistema inteligente para el tutor de estudios, antes hay que hacer un análisi estadístico sobre los resultados académicos de la Facultad de Matemáticas. El análisi se basa en la exploración de perfil de estudiantes i en la predicción de notas. Dentro del análisi de perfiles de estudiantes se mira la taxa de abandono para cada perfil i la relación que tiene cada uno respecto los perfiles del curso anterior. Respecto a la predicción se construye una tabla de ranking de dificultad de assignaturas para un alumno.}
+\textit{Este trabajo está dentro del marco de un proyecto de innovación docente, en el que se propone una herramienta de soporte para el tutor de estudios, la cual permita ayudar al tutor a conocer mejor el perfil de cada alumno que tutoriza. Para poder llegar a hacer este sistema inteligente para el tutor de estudios, antes hay que hacer un análisi estadístico sobre los resultados académicos de la Facultad de Matemáticas. El análisi se basa en la exploración de perfiles de estudiantes i en la predicción de cualificaciones. Dentro del análisi de perfiles de estudiantes se mira la tasa de abandono para cada perfil i la relación que tiene cada uno respecto los perfiles del curso anterior. Respecto a la predicción se construye una tabla de ranking de dificultad de assignaturas para un alumno.}
 
 
 \newpage 
-
-\section*{Agraïments}
-
-Vull agrair a ... 
-
-\newpage
 
 \addto\captionsenglish{
   \renewcommand{\contentsname}%
     {Índex}%
 }
 
-\thispagestyle{empty}
+
 {\hypersetup{linkcolor=black}
+	\thispagestyle{empty}
 	\tableofcontents
+	\thispagestyle{empty}
 }
-\thispagestyle{empty}
+
 \newpage
 
 \pagenumbering{arabic} 
@@ -150,16 +146,16 @@ Vull agrair a ...
 
 
 \section{Introducció}
-Un dels components bàsics de l'activitat docent és l'acció tutorial, la qual té com a finalitat guiar i aconsellar a l'estudiant durant la seva etapa d'estudis. Ajuda a l'estudiant a millorar el seu rendiment, a la seva orientació professional, i el més important, ajudar a prendre decissions que afavoreixin els seus estudis i la seva satisfacció. Per un altre banda tenim el pla d'acció tutorial (PAT) que tracta d'un document amb un conjunt ordenat d'accions sistemàtiques previament planificades. Una de les coses que impulsa el PAT és l'assignació d'un tutor d'estudis a un grup d'estudiants. Un tutor d'estudis, per tant té com a finalitat entre altres, acompanyar a l'alumnat durant el seu transcurs estudiantil des de l'inici del grau fins al final, donant consell per cara al món professional.
+Un dels components bàsics de l'activitat docent és l'acció tutorial, la qual té com a finalitat guiar i aconsellar a l'estudiant durant la seva etapa d'estudis. Ajuda a l'estudiant a millorar el seu rendiment, a la seva orientació professional, i el més important, ajuda a prendre decissions que afavoreixin els seus estudis i la seva satisfacció. Per un altre banda tenim el pla d'acció tutorial (PAT) que tracta d'un document amb un conjunt ordenat d'accions sistemàtiques previament planificades. Una de les coses que impulsa el PAT és l'assignació d'un tutor d'estudis a un grup d'estudiants. Un tutor d'estudis té com a finalitat, entre altres, acompanyar a l'alumnat durant el seu transcurs estudiantil des de l'inici del grau, fins al final, donant consell cara al món professional.
 \\
 \\
-Ens hem trobat amb el problema que un tutor d'estudis com tutoritza a un grup d'alumnes no és capaç de contemplar detingudament cadascun dels seus alumnes. Els pot guiar de forma genèrica, així seguint el pla d'acció tutorial. S'ha pogut observar al llarg dels anys, per exemple, que alumnes amb qualificacions moderades a primer i segon del grau d'Enginyeria Informàtica tenen problemes per afrontar certes assignatures de tercer. Ara bé, això s'ha pogut observar al llarg dels anys, però i si estem evitant altres problemes o fets que no s'han pogut obervar fins ara? És això el que volem explorar i fer conclusions que no s'hagin pogut arribar. Arran de tot això, es va fer una petició al Vicerectorat de Política Docent per dur a terme un projecte que facilités el treball al tutor d'estudis. D'aquí va nèixer el projecte com un projecte d'innovació docent, amb el títol de: \textit{Sistema intel·ligent de suport per al tutor d'estudis}.
+Ens hem trobat amb el problema que un tutor d'estudis al tutoritzar a un grup d'alumnes, no és capaç de contemplar detingudament cadascun d'aquests. Els pot guiar de forma genèrica, així seguint el pla d'acció tutorial. S'ha pogut observar al llarg dels anys, per exemple, que alumnes amb qualificacions moderades a primer i segon del grau d'Enginyeria Informàtica tenen problemes per afrontar certes assignatures de tercer. Això s'ha pogut observar al llarg dels anys, però i si estem evitant altres problemes o fets que no s'han pogut obervar fins ara? És això el que volem explorar i fer conclusions que no s'hagin pogut arribar. Arran de tot això, s'ha fet una petició al Vicerectorat de Política Docent per dur a terme un projecte que facilités el treball al tutor d'estudis. D'aquí neix el projecte com un projecte d'innovació docent, amb el títol de: \textit{Sistema intel·ligent de suport per al tutor d'estudis}.
 \\
 \\
-La finalitat del projecte d'innovació docent és la creació d'una eina que el tutor pogui consultar i li ajudi a prendre decissions cara a les seves tutories. Aquesta eina ha de permetre al tutor visualitzar la trajectoria d'un alumne, fer recomanacions específiques per cadascun d'ells, entre altres. Un dels recursos principals d'aquest projecte són les dades, ja que són la que ens permetran arribar a conclusions i poder construïr l'eina per al tutor d'estudis. Les dades han sigut obtingudes a través del Vicerectorat de Política Docent.
+La finalitat del projecte d'innovació docent és la creació d'una eina que el tutor pugui consultar i li ajudi a prendre decissions cara a les seves tutories. Aquesta eina ha de permetre al tutor visualitzar la trajectoria d'un alumne, fer recomanacions específiques per cadascun d'ells, entre altres. Un dels recursos principals d'aquest projecte són les dades, ja que són la que ens permetran arribar a conclusions i poder construïr l'eina per al tutor d'estudis. Les dades han sigut obtingudes a través del Vicerectorat de Política Docent.
 \\
 \\
-Aquest treball forma part del projecte d'innovació docent, i ens centrem en l'estudi estadístic dels resultats acadèmics de la Facultat de Matemàtiques de la UB. L'objectiu és montar una base per poder montar en la següent fase del projecte el sistema per al tutor d'estudis. En aquest treball ens hem centrat en l'exploració dels perfils d'estudiants dels primers cursos de cadascun dels graus impartits en la Facultat de Matemàtiques. També s'ha treballat en un sistema de predicció de notes d'un alumne cara a la seva próxima matriculació. A més s'ha desenvolupat un ranking de dificultat de notes no matriculades d'un alumne a partir del predictor de notes. L'objectiu general d'aquest treball és obtenir coneixement a partir de les dades, i és per això que hem convertit aquest projecte en un projecte de ciència de les dades.
+Aquest treball forma part del projecte d'innovació docent, i ens centrem en l'estudi estadístic dels resultats acadèmics de la Facultat de Matemàtiques de la UB. L'objectiu és montar una base per poder montar en la següent fase del projecte el sistema per al tutor d'estudis. En aquest treball ens hem centrat en l'exploració dels perfils d'estudiants dels primers cursos de cadascun dels graus impartits en la Facultat de Matemàtiques. També s'ha treballat en un sistema de predicció de notes d'un alumne cara a la seva próxima matriculació. A més s'ha desenvolupat un ranking de dificultat de notes no matriculades d'un alumne a partir d'un predictor de notes. L'objectiu general d'aquest treball és obtenir coneixement a partir de les dades, i és per això que hem convertit aquest projecte en un projecte de ciència de les dades.
 
 
 \newpage
@@ -308,7 +304,7 @@ Els perfils d'alumnes de primer i segon són els perfils determinats a la primer
 Hem obviat els alumnes provinents de cicle o ja diplomants, per la seva baixa presència. Les vies d'accés només les comprovem amb els alumnes que hagin cursat totes les assignatures de primer, sense convalidar, el que fa que no apareguin una gran quantitat d'alumnes de cicle, ja que la majoria d'aquests tenen alguna assignatura convalidada de primer. I pel que fa als alumnes ja diplomats, no hi han masses en totes les dades presents.
 
 \paragraph{Predicció de notes i ranking de dificultat d'assignatures}
-A partir de les notes que ha tret un alumne en el seu passat, podem predir quines assignatures li aniran bé i malament en el futur? Bé, això és el que ens plantejem en aquesta última pregunta, volem recomanar a un alumne en quines assignatures no li aniran gaire bé per a que així pogui reforçar més el temari que es donarà en aquella assignatura. Recordem que la finalitat del projecte d'innovació docent és que aquesta eina sigui un suport per al tutor, és a dir, la predicció no ens dirà el que ha de fer un alumne, aquesta decisió es delega al tutor que a partir de l'eina decidirà que fer.
+A partir de les notes que ha tret un alumne en el seu passat, podem predir quines assignatures li aniran bé i malament en el futur? Bé, això és el que ens plantejem en aquesta última pregunta, volem recomanar a un alumne en quines assignatures no li aniran gaire bé per a que així pugui reforçar més el temari que es donarà en aquella assignatura. Recordem que la finalitat del projecte d'innovació docent és que aquesta eina sigui un suport per al tutor, és a dir, la predicció no ens dirà el que ha de fer un alumne, aquesta decisió es delega al tutor que a partir de l'eina decidirà que fer.
 \newpage
 
 \section{Planificació}
@@ -396,7 +392,7 @@ El projecte sortiria per 8125 euros, en els quals s'inclou en la etapa de Evalua
 Aquestes són les eines de suport que ens han ajudat al llarg del treball per tal de fer més còmode la seva organització tant personal com per equip.
 
 \paragraph{GitHub}
-GitHub \cite{github} és una plataforma online per desenvolupar projectes software de forma col·laborativa. Aquesta plataforma utilitza un control de versions anomenat Git. La finalitat de GitHub és l'emmagatzenament massiu de projectes amb codi font obert. Per això hem optat per la utilització de GitHub, ja que que volem que el nostre codi el pogui veure tothom i que qualsevol que el necessiti per fer la seva investigació, el pogui utilitzar.
+GitHub \cite{github} és una plataforma online per desenvolupar projectes software de forma col·laborativa. Aquesta plataforma utilitza un control de versions anomenat Git. La finalitat de GitHub és l'emmagatzenament massiu de projectes amb codi font obert. Per això hem optat per la utilització de GitHub, ja que que volem que el nostre codi el pugui veure tothom i que qualsevol que el necessiti per fer la seva investigació, el pugui utilitzar.
 
 \paragraph{Bitbucket}
 Bitbucket \cite{bitbucket} és una plataforma semblant a GitHub, però amb el servei d'un altre control de versions com Mercurial a més de Git. Bitbucket té l'advantatge de permetre crear repositoris privats de forma gratuïta. Aquesta plataforma va bé per a l'inici d'un projecte on es fan molts canvis en el codi, ja que pots tenir el codi en privat, i un cop el codi ja agafa forma es pot migrar a GitHub. Això és el que hem fet nosaltres en el projecte, començar amb Bitbucket i després passar-nos a GitHub amb el codi font obert.
@@ -466,10 +462,9 @@ Texmaker \cite{texmaker} és una eina d'edició de \LaTeX, la qual permet poder 
 	\subsection{Tècniques utilitzades}
 }
 \subsubsection{Clusterització (Agrupacions)}
-La clusterització és molt important en el món de les dades, permet reconèixer diferents grups de ítems de les nostres dades, en el nostre cas d'alumnes. Per això, abans de veure els resultats i experiments explorats, cal entendre les diferències entre les diferents tècniques de clusterització. En aquest projecte hem fet servir dues tècniques, on l'objectiu d'elles és el mateix, desframentar les dades i trobar diferents grups d'alumnes. Aquestes dues tècniquies són K-means i MeanShift, ambdues implementades en la biblioteca informàtica de Scikit-learn. \todo{link}
+La clusterització és molt important en el món de les dades, permet reconèixer diferents grups de ítems de les nostres dades, en el nostre cas d'alumnes. Per això, abans de veure els resultats i experiments explorats, cal entendre les diferències entre les diferents tècniques de clusterització. En aquest projecte hem fet servir dues tècniques, on l'objectiu d'elles és el mateix, desframentar les dades i trobar diferents grups d'alumnes. Aquestes dues tècniquies són K-means i MeanShift, ambdues implementades en la biblioteca informàtica de Scikit-learn.
 
 \paragraph{\textit{K-means}}
-\todo{Referenciar al k-means de sklearn.}
 \textit{K-means} \cite{k-means} probablement és un dels algoritmes d'agrupació més conegut. Partint de $n$ elements, divideix aquests $n$ elements en $k$ grups (argument obligatòri de l'algoritme) on cada element pertany al grup més proper a la mitjana. L'algoritme de \textit{K-means} està descrit per la següent fórmula:
 \\
 \\
@@ -485,7 +480,6 @@ Com es veu en la fòrmula, aquest algoritme depén d'una $k$, per determinar agr
 \newpage
 
 \paragraph{\textit{Mean Shift}}
-\todo{Referenciar al mean shift de sklearn.}
 \textit{Mean Shift} \cite{mean-shift} és l'altre tècnica d'agrupació o clusterització que utilitzo en aquest projecte. L'objectiu d'aquesta tècnica és el mateix que \textit{K-means}, però el seu algoritme funciona de forma diferent, considerant l'espai de característiques com una funció de densitat de probabilitat.
 \\
 \\
@@ -510,7 +504,6 @@ Existeixen dos indicadors d'avaluació dels resultats de l'anàlisis:
 
 En el nostre cas, el que volem és explorar i averiguar quins perfils d'estudiants hi han, per tant hem d'utilitzar mètriques no supervisades, ja que no tenim una referència per comparar. La única mètrica no supervisada que utilitzem és la \textit{Silhouette}.
 
-\todo{Referenciar a Silhouette de sklearn.}
 \subparagraph{\textit{Silhouette}}
 Silhouette \cite{silhouette} és una mesura no supervisada, que valora la integrat de cada node dintre d'un cluster. Per cada punt (o observació) calculem la \textit{silhouette} amb la següent fórmula:
 
@@ -535,8 +528,6 @@ La etapa de predicció és important en un projecte de data science, ja que ens 
 \\
 Un predictor és un algoritme que pasat un conjunt de dades d'entrenament, és capaç de poder predir dades del futur. En el nostre cas, per exemple entrenem als predictors amb les notes de primer i segon de carrera. Llavors si li pasem un alumne amb les notes de primer, el predictor ens podrà predir quines seran les seves notes de segon basant-se en les dades que li hem passat per entrenar.
 
-
-\todo{lincar la teoria de TNUI - recommenders}
 \paragraph{Recomanador}
 Una de les tècniques per predir dades són els recomanadors. En aquest apartat explicaré com funciona el recomanador que he montat possant-nos en context del nostre projecte. Tenint en compte les notes d'un conjunt d'alumnes, el recomanador és capaç de predir de forma estadística les notes d'un alumne en base a la resta dels altres.
 \\
@@ -605,21 +596,19 @@ $$
 $$
 O bé, fer la transposada de la matriu anterior i aplicar la mateixa fórmula d'abans.
 
-\todo{link de sklearn}
 \paragraph{\textit{Random Forest Regressor} (RFR)}
 Abans d'explicar la tècnica de \textit{Random Forest Regressor}, s'ha d'entendre el concepte d'un arbre de regressió. Un arbre de regressió és una tècnica utilitzada en aprenentatge automàtic, que es defineix com un model predictiu que mapeja observacions sobre una característica a conclusions sobre el valor objectiu d'aquesta característica. En aquestes estructures d'arbre, les fulles representen un valor real d'aquella característica i les branques les conjuccions de caracterítiques que han portat fins a la fulla.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=.5\linewidth]{img/randomforest.png}
-\caption{\textit{CART tree titanic survivors} \cite{imgrandomforestregressor}}
+\caption{Exemple d'arbre de decissió \cite{imgrandomforestregressor}}
 \end{figure}
 
 \textit{Random Forest Regressor} \cite{randomforestregressor} és un conjunt d'arbres de regressió, on el resultat és la mitja de la sortida de cada arbre, a més per a cada arbre s'aplica un soroll aleatori a les dades sense variar en la seva distribució, això fa que es benificiï al fer la mitja. 
 
 \newpage
 
-\todo{link de sklearn}
 \paragraph{Regressor lineal (LR)}
 Un regressor lineal \cite{linearregressor} modelitza una recta de regressió a partir d'un núvol de punts. La recta definida, és la recta més propera que passa per tots els punts. El que busca és definir una variable depenent a partir d'un conjunt de variables, és a dir:
 $$
@@ -631,10 +620,9 @@ on $\beta_i$ són termes constants i $n$ són els conjunts d'observacions que te
 \begin{figure}[h]
 \centering
 \includegraphics[width=.5\linewidth]{img/linearregression.png}
-\caption{\textit{Normdist regression} \cite{imglinearregressor}}
+\caption{Regressió lineal \cite{imglinearregressor}}
 \end{figure}
 
-\todo{link de sklearn}
 \paragraph{Mètriques utilitzades}
 Igual que en la secció de clusterització, per a la predicció de dades, també hem utilitzat mesures per validar les nostres prediccions. Aquí hem utilitzat mesures supervisades. Anomenem $y_{pred}$ al conjunt de qualificacions que s'ha predit d'un alumne, i $y_{test}$ al conjunt de qualificacions real del estudiant.
 
@@ -701,7 +689,6 @@ Totes aquestes mètriques són necessaries per evaluar cada tècnica de predicci
 \subsubsection{Reducció de dimensions}
 Una de les últimes tècniques que utilitzo en aquest projecte d'innovació docent és la reducció de dimensions. És imprescindible per poder visualitzar les teves dades si tenen una dimensió major que 3. Aquestes tècniques a més permeten reduïr el cost computacional sense variar en el seu resultat. Una de les tècniques utilitzades en aquest projecte és l'anàlisis de components principals (PCA).
 
-\todo{link de sklearn}
 \paragraph{PCA}
 L'anàlisis de components principals o PCA \cite{pca} el que fa és escollir un nou sistema de coordenades a partir d'una transformació lineal on s'ordenen les variances per mida. La variança amb major mida s'escollirà com eix principal, la segona variança com a segon eix, així successivament fins obtenir la dimensionalitat escollida per argument.
 
@@ -786,7 +773,7 @@ Per a aquest curs ens separa als estudiants en 4 grups, i podem veure que els cl
 Per a primer del grau de Matemàtiques ens separa les observacions en 3 clusters. Com no es veu cap anomalia, a part de la petita separació dels petits punts verds, podem considerar els tres clusters.  $k=3$
 
 \subparagraph{Segon de Matemàtiques}
-Aquest és el curs que m'ha donat més problemes, perquè té els punts més distanciats entre ells i això fa que no es pogui interpretar el número de clusters per aplicar \textit{K-means}. Més endavant veurem que el número de clusters òptim és 3, ja que amb 4 ens dóna dos clusters molt semblants, els quals es poden unificar. $k=3$
+Aquest és el curs que m'ha donat més problemes, perquè té els punts més distanciats entre ells i això fa que no es pugui interpretar el número de clusters per aplicar \textit{K-means}. Més endavant veurem que el número de clusters òptim és 3, ja que amb 4 ens dóna dos clusters molt semblants, els quals es poden unificar. $k=3$
 \\
 \\
 Ara que ja tenim el valor de $k$ adeqüat per cada curs, podem aplicar la tècnica de \textit{K-means}. S'ha utilitzat una combinació de colors adequada per cada perfil.
@@ -1115,7 +1102,7 @@ Provem els predictors mirant l'error produït amb les notes real i les predites 
 	\item \textbf{Desviació estàndard} Utilitzada per veure si els errors es concentren o estan molt disgregats.
 \end{itemize}
 
-A més a partir dels errors produïts per cada predictor, es mostra un diagrama de caixes per representar la distribució dels errors. Més endavant amb un dels resultats s'explicarà l'interpretació del diagrama de caixes. Utilitzem un 90\% de \textit{training} i un 10\% de \textit{test}.
+A més a partir dels errors produïts per cada predictor, es mostra un diagrama de caixes \cite{boxplot} per representar la distribució dels errors. Més endavant amb un dels resultats s'explicarà l'interpretació del diagrama de caixes. Utilitzem un 90\% de \textit{training} i un 10\% de \textit{test}.
 
 
 \subparagraph{Proves amb dades discretes}
@@ -1142,7 +1129,7 @@ Comançarem amb les proves fetes amb dades continues amb els dos conjunt de dade
 \caption{Prova amb dades continues. Traning: primer}
 \end{figure}
 
-En aquesta figura podem veure un diagrama de caixes \cite{boxplot}, aquest tipus de diagrama representa visualment una distribució. Cada caixa té les mateixes característiques: la línea del centre representa la mediana de la distribució, la caixa es visualitza un 50\% de la mostra (des del primer quartil, fins al tercer), les línes verticals determinen el límit de les distribucions i per últim tota mostra que estigui fóra de lo normal (mostra atípica) és visualitza per fóra dels límits amb un punt.
+En aquesta figura podem veure un diagrama de caixes, aquest tipus de diagrama representa visualment una distribució. Cada caixa té les mateixes característiques: la línea del centre representa la mediana de la distribució, la caixa es visualitza un 50\% de la mostra (des del primer quartil, fins al tercer), les línes verticals determinen el límit de les distribucions i per últim tota mostra que estigui fóra de lo normal (mostra atípica) és visualitza per fóra dels límits amb un punt.
 \\
 \\
 La distribució que podem veure a la figura són els errors que es presenten en cada predicció, pertant un predictor perfecte, mostrarà una distribució uniforme en el 0. En la figura es pot veure els quatre predictors utilitzats i quina distribució d'error segueix cadascún. Veiem que el predictor més estable i que concentra millor els errors són el recomanador col·laboratiu basat en estudiant i el \textit{random forest regressor}. Per un altre banda tenim el regressor lineal que presenta la mediana més baixa, tot i que el tercer quartil és massa elevat. Els \textit{outlayers}  (mostres atípiques) que veiem tenen una explicació. Què passa si un alumne té un imprevist i no pot cursar una assignatura ja matrículada? Aquest factor no el contemplen els predictors. És per això que tenim observacións atípiques, perquè els predictors potser prediuen que un alumne treurà un 7, però l'alumne per qualsevol raó es desmatricula de l'assignatura, llavors en aquella assignatura li queda un 0. Més avall es mostra un exemple d'una mostra atípica amb una prova qualitativa.
@@ -1438,7 +1425,7 @@ Per últim podem veure aquest cas de fracàs, on els dos ranking no s'assemblen.
 
 \newpage
 \section{Conclusions}
-Com resultat de la investigació estadística dins del marc del projecte d'innovació docent, és possible concluir resultats com l'alta conservació de perfils quan un estudiant passa de primer a segon d'Engineria Informàtica, o una alta tassa d'abandonament per part d'alumnes que suspenen les assignatures de primer. A més, tot i que en alguns resultats no hem obtingut el que volíem, s'han explorat nous resultats i conclusions que no havíem arribat a tenir en compte.
+Com resultat de la investigació estadística dins del marc del projecte d'innovació docent, és possible concloure resultats com l'alta conservació de perfils quan un estudiant passa de primer a segon d'Engineria Informàtica, o una alta tassa d'abandonament per part d'alumnes que suspenen les assignatures de primer. A més, tot i que en alguns resultats no s'ha obtingut el que es volia, s'han explorat nous resultats i conclusions que no s'havien arribat a tenir en compte.
 \\
 \\
 Per dur a terme aquest treball era necessari seguir les etapes d'un projecte de ciència de les dades. Hem pogut transformar les dades en coneixement, que era un dels objectius plantejats d'aquest treball. Fer un anàlisi estadístic sobre dades acadèmiques ens serveix com a base per al projecte d'innovació docent.
@@ -1447,13 +1434,13 @@ Per dur a terme aquest treball era necessari seguir les etapes d'un projecte de 
 Amb els resultats obtinguts, aquest treball pot ajudar a prendre decisions al cap d'estudis, tutors i professors.
 
 \subsection{Treball futur}
-Com s'ha explicat des del principi, aquest treball entre dins del marc d'un projecte d'innovació docent, i és la part d'anàlisis estadístic de les dades acadèmiques. Forma part del principi del projecte d'innovació docent, el treball futur a implementar  en aquest projecte són els següents punts:
+Com s'ha explicat des del principi, aquest treball entre dins del marc d'un projecte d'innovació docent, i forma part de l'anàlisi estadístic de les dades acadèmiques. El treball futur a implementar en aquest projecte són els següents punts:
 
 \subparagraph{Desenvolupament d'un sistema intel·ligent} 
-Construcció d'una eina de suport per al tutor d'estudi que li permeti explorar amb més profunditat l'expedient acadèmic d'un alumne o d'una assignatura. Una de les eines a incorporar seria un sistema de recomanació de matrícula i gràfics estadístics que poguin ajudar a la informació que presenten les dades.
+Construcció d'una eina de suport per al tutor d'estudis que li permeti explorar amb més profunditat l'expedient acadèmic d'un alumne o d'una assignatura. Una de les eines a incorporar seria un sistema de recomanació de matrícula i gràfics estadístics que puguin ajudar a visualitzar la informació que presenten les dades.
 
 \subparagraph{Avaluació}
-Un cop construit l'eina per al tutor, hauria de passar en fase de prova, per a que els tutors d'estudis la provin i poguin identificar problemes o limitacions del sistema.
+Un cop construït l'eina per al tutor, hauria de passar en fase de prova, per a que els tutors d'estudis la provin i puguin identificar problemes o limitacions del sistema.
 
 \newpage
 
