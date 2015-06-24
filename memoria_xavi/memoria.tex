@@ -12,6 +12,7 @@
 \usepackage{amsfonts}
 \usepackage{subcaption}
 \usepackage[catalan]{babel}
+\usepackage{cite}
 %\usepackage{caption}
 %\usepackage{siunitx}
 
@@ -114,17 +115,14 @@
 
 \section*{\textit{Abstract}}
 
-
-\textit{Fins ara a la Facultat de Matemàtiques de la Universitat de Barcelona, un tutor d'estudis té assignat un grup d'estudiants. Aquest no pot tenir un coneixement ampli de la situació de cada alumne i és per això que aplica una serie d'accions comunes per a cadascún.}
-
-\textit{Aquest treball forma part d'un projecte d'innovació docent, en el que proposem una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza, amb el suport de dades estadístiques per perfil d'alumne i un recomanador per determinar la dificultat del curs que li pot costar un alumne.}
+\textit{Aquest treball està dins del marc d'un projecte d'innovació docent, en el que es proposa una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza. Per poder arribar a fer aquest sistema intel·ligent per al tutor d'estudis, abans s'ha de fer un anàlisi estadístic sobre els resultats acadèmics de la Facultat de Matemàtiques. L'anàlisi es basa en l'exploració de perfils d'estudiants i en la predicció de notes. Dintre de l'anàlisi de perfils d'estudiants es mira la tassa d'abandonament per cada perfil i la relació que tenen els clusters respecte el curs anterior. Pel que fa a la predicció es construeix una taula de ranking de dificultats d'assignatures per a un alumne.}
 
 \section*{\textit{Resum}}
-\textit{Fins ara a la Facultat de Matemàtiques de la Universitat de Barcelona, un tutor d'estudis té assignat un grup d'estudiants. Aquest no pot tenir un coneixement ampli de la situació de cada alumne i és per això que aplica una serie d'accions comunes per a cadascún. Aquest treball forma part d'un projecte d'innovació docent, en el que proposem una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza, amb el suport de dades estadístiques per perfil d'alumne i un recomanador per determinar la dificultat del curs que li pot costar un alumne.}
+\textit{Aquest treball està dins del marc d'un projecte d'innovació docent, en el que es proposa una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza. Per poder arribar a fer aquest sistema intel·ligent per al tutor d'estudis, abans s'ha de fer un anàlisi estadístic sobre els resultats acadèmics de la Facultat de Matemàtiques. L'anàlisi es basa en l'exploració de perfils d'estudiants i en la predicció de notes. Dintre de l'anàlisi de perfils d'estudiants es mira la tassa d'abandonament per cada perfil i la relación que té casacun respecte els perfils del curs anterior. Pel que fa a la predicció es construeix una taula de ranking de dificultats d'assignatures per a un alumne.}
 
 
 \section*{\textit{Resumen}}
-\textit{Fins ara a la Facultat de Matemàtiques de la Universitat de Barcelona, un tutor d'estudis té assignat un grup d'estudiants. Aquest no pot tenir un coneixement ampli de la situació de cada alumne i és per això que aplica una serie d'accions comunes per a cadascún. Aquest treball forma part d'un projecte d'innovació docent, en el que proposem una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza, amb el suport de dades estadístiques per perfil d'alumne i un recomanador per determinar la dificultat del curs que li pot costar un alumne.}
+\textit{Este trabajo está dentro del marco de un proyecto de innovación docente, en el que se propone una herramienta de soporte para el tutor de estudios, la cual permita ayudar al tutor a conocer mejor el perfil de cada alumno que tutoriza. Para poder llegar a hacer este sistema inteligente para el tutor de estudios, antes hay que hacer un análisi estadístico sobre los resultados académicos de la Facultad de Matemáticas. El análisi se basa en la exploración de perfil de estudiantes i en la predicción de notas. Dentro del análisi de perfiles de estudiantes se mira la taxa de abandono para cada perfil i la relación que tiene cada uno respecto los perfiles del curso anterior. Respecto a la predicción se construye una tabla de ranking de dificultad de assignaturas para un alumno.}
 
 
 \newpage 
@@ -135,7 +133,7 @@ Vull agrair a ...
 
 \newpage
 
-\addto\captionsenglish{% Replace "english" with the language you use
+\addto\captionsenglish{
   \renewcommand{\contentsname}%
     {Índex}%
 }
@@ -169,7 +167,7 @@ Aquest treball forma part del projecte d'innovació docent, i ens centrem en l'e
 
 \section{Descripció del problema}
 \subsection{Projecte d'innovació docent}
-Aquest treball de fi de grau, ve arran d'un projecte d'innovació docent que va nèixer del Departament de Matemàtica Aplicada i Anàlisi (MAIA) i Departament de Metòdes de Investigació i Diagnòstic en Educació (MIDE). El participants del projecte són:
+Aquest treball de fi de grau, ve arran d'un projecte d'innovació docent \cite{pid} que va nèixer del Departament de Matemàtica Aplicada i Anàlisi (MAIA) i Departament de Metòdes de Investigació i Diagnòstic en Educació (MIDE). El participants del projecte són:
 \begin{itemize}[leftmargin=.5in]
 	\item Dra. Laura Igual Muñoz (MAIA)
 	\item Dr. Santiago Seguí Mesquida (MAIA)
@@ -217,7 +215,7 @@ Un projecte de ciència de les dades es separa en diverses etapes:
 	\end{enumerate}
 	\item \textbf{Descobriment} Podem segmentar les nostres dades per trobar grups naturals i disgregats? (Clusterització, visualització)
 	\item \textbf{Anàlisis} Com hem de modelar les nostres dades? (Com estan de relacionades cada variable?, Com podem determinar quines són les variables importants?)
-	\item \textbf{Predicció} A partir de les dades que tenim, que podem predir del futur? (Regresions, clasificadors, recomanadors)
+	\item \textbf{Predicció} A partir de les dades que tenim, que podem predir del futur? (Regresions, classificadors, recomanadors)
 	\item \textbf{Evaluació} Com de segur estem dels nostres resultats? (Proves estadístiques, rendiment del model)
 \end{enumerate}
 
@@ -248,7 +246,7 @@ L'any 2009 el grau en Enginyeria Informàtica de la UB tenia com a codi \textit{
 Explorant les dades em vaig adonar que alumnes que s'havien matriculat l'any 2014, però encara no havien acabat de cursar l'assignatura, en aquesta els hi apareix un 0. Això fa que dintre de les notes dels alumnes hi hagin dades incoherents, per aquesta raó es va decidir eliminar totes les notes del segon semestre i de l'any 2014. El percentatge d'eliminació de dades és d'un 10.91\% del total de notes que tenim.
 
 \subparagraph{Normalitació de les notes}
-Per tal d'evitar els canvis de mitja i variança en cada assignatura cursada per any, ja sigui per un canvi de professor, canvi de pla docent, diferents promocions, \ldots es va decidir normalitzar les notes per any i per assignatura aplicant una normalització d'unitat tipificada en la qual s'aplica per cada dada la següent fórmula:
+Per tal d'evitar els canvis de mitja i variança en cada assignatura cursada per any, ja sigui per un canvi de professor, canvi de pla docent, diferents promocions, \ldots es va decidir normalitzar les notes per any i per assignatura aplicant una normalització d'unitat tipificada \cite{normtipificada} en la qual s'aplica per cada dada la següent fórmula:
 $$ z = \frac{x - \mu}{\sigma}, $$
 
 on $\mu$ és el promig per any i per assignatura, i $\sigma$ és la desviació estàndard per any i per assignatura. Amb això aconseguim mitja 0 i desviació estàndard 1.
@@ -274,7 +272,7 @@ Les dades que hem pogut adquirir són molt enriquidores, tenen la informació ne
 Aquest fitxer conté per cada fila informació sobre un alumne en termes de matriculació: l'any d'inici de carrera, grau que realitza, la via amb la qual va accedir a la carrera, la nota d'accés a la Universitat, entre altres.
 
 \subparagraph{Informació d'assignatures}
-Aquí podem trobar la informació de cada assignatura que existeix en els graus d'Enginyeria Informàtica i Matemàtiques. Per cada fila tenim la següent informació: l'identificador de l'assignatura, el nom de l'assignatura, els crèdits ECTS corresponents a aquesta i el grau a la que pertanyen. A més a més, vam obtenir mitjantçant una altre font d'informació, per cada assignatura de quin curs i semestre es tractava. Aquesta dada la vam creuar amb l'anterior per ampliar la informació per assignatura.
+Aquí podem trobar la informació de cada assignatura que existeix en els graus d'Enginyeria Informàtica i matemàtiques. Per cada fila tenim la següent informació: l'identificador de l'assignatura, el nom de l'assignatura, els crèdits ECTS corresponents a aquesta i el grau a la que pertanyen. A més a més, vam obtenir mitjantçant una altre font d'informació, per cada assignatura de quin curs i semestre es tractava. Aquesta dada la vam creuar amb l'anterior per ampliar la informació per assignatura.
 
 \subparagraph{Qualificacions per alumne i per assignatura}
 Per últim i més important, el fitxer que conté les qualificacions de tots els alumnes per assignatura, és a dir, per cada fila tenim: l'identificador de l'alumne que realitze l'assignatura, l'identificador de l'assignatura realitzada, la qualificació d'aquella assignatura, l'ensenyament del qual es tracta, l'any en el que es va realitzar l'assignatura i el tipus d'apunt (ordinaria, reconeixement o convalidada).
@@ -283,12 +281,12 @@ Per últim i més important, el fitxer que conté les qualificacions de tots els
 
 \subsection{Preguntes plantejades}
 \paragraph{Hi ha diferents perfils d'alumnes?}
-A partir de la distribució de les notes de cada alumne per cada assignatura que ha fet, podem determinar que hi ha diferents perfils d'estudiants? Això és el que ens estem preguntant. S'han agafat tots els alumnes que hagin cursat totes les assignatures de primer i després les de segon, tant al grau d'Enginyeria Informàtica com al grau de Matemàtiques. La experiència ens diu que hi han alumnes bons en programació i dolents en les assignatures de matemàtiques a primer del grau d'Enginyeria Informàtica. Però per a la resta de cursos, quins perfil podem trobar? Ara que tenim les dades això ho podem saber, convertirem les dades en coneixement.
+A partir de la distribució de les notes de cada alumne per cada assignatura que ha fet, podem determinar que hi ha diferents perfils d'estudiants? Això és el que ens estem preguntant. S'han agafat tots els alumnes que hagin cursat totes les assignatures de primer i després les de segon, tant al grau d'Enginyeria Informàtica com al grau de matemàtiques. La experiència ens diu que hi han alumnes bons en programació i dolents en les assignatures de matemàtiques a primer del grau d'Enginyeria Informàtica. Però per a la resta de cursos, quins perfil podem trobar? Ara que tenim les dades això ho podem saber, convertirem les dades en coneixement.
 
 \paragraph{Quina és la tassa d'abandonament per cada tipus de perfil?}
 A partir dels perfils que han sigut determinats en la pregunta anterior, quin és el percentatge d'abandonament per cadascun d'aquests. Volem saber si és cert que els alumnes que van a parar al perfil d'alumnes que ho suspenen tot són els que solen abandonar la carrera. Fins ara això és el que podem saber a partir de l'experiència, però es pot demostrar amb dades i corroborar-ho.
 
-\paragraph{Cadascun d'aquests perfils amb quin perfil de provinença encaixa?}
+\paragraph{Amb quin perfil de provinença encaixa cadascun d'aquests perfils?}
 Al llarg dels anys s'ha pogut notar que els alumnes que solen treure bones notes a primer d'Enginyeria Informàtica, acaben treien bones notes a segon la gran majoria. Ara bé, això és cert? Per això ens plantegem aquesta pregunta, a partir de perfils d'origen, volem saber amb quin perfil de destí solen anar. En aquest cas hem fet els següents creuaments per cada grau:
 
 \begin{table}[h]
@@ -398,42 +396,42 @@ El projecte sortiria per 8125 euros, en els quals s'inclou en la etapa de Evalua
 Aquestes són les eines de suport que ens han ajudat al llarg del treball per tal de fer més còmode la seva organització tant personal com per equip.
 
 \paragraph{GitHub}
-GitHub és una plataforma online per desenvolupar projectes software de forma col·laborativa. Aquesta plataforma utilitza un control de versions anomenat Git. La finalitat de GitHub és l'emmagatzenament massiu de projectes amb codi font obert. Per això hem optat per la utilització de GitHub, ja que que volem que el nostre codi el pogui veure tothom i que qualsevol que el necessiti per fer la seva investigació, el pogui utilitzar.
+GitHub \cite{github} és una plataforma online per desenvolupar projectes software de forma col·laborativa. Aquesta plataforma utilitza un control de versions anomenat Git. La finalitat de GitHub és l'emmagatzenament massiu de projectes amb codi font obert. Per això hem optat per la utilització de GitHub, ja que que volem que el nostre codi el pogui veure tothom i que qualsevol que el necessiti per fer la seva investigació, el pogui utilitzar.
 
 \paragraph{Bitbucket}
-Bitbucket és una plataforma semblant a GitHub, però amb el servei d'un altre control de versions com Mercurial a més de Git. Bitbucket té l'advantatge de permetre crear repositoris privats de forma gratuïta. Aquesta plataforma va bé per a l'inici d'un projecte on es fan molts canvis en el codi, ja que pots tenir el codi en privat, i un cop el codi ja agafa forma es pot migrar a GitHub. Això és el que hem fet nosaltres en el projecte, començar amb Bitbucket i després passar-nos a GitHub amb el codi font obert.
+Bitbucket \cite{bitbucket} és una plataforma semblant a GitHub, però amb el servei d'un altre control de versions com Mercurial a més de Git. Bitbucket té l'advantatge de permetre crear repositoris privats de forma gratuïta. Aquesta plataforma va bé per a l'inici d'un projecte on es fan molts canvis en el codi, ja que pots tenir el codi en privat, i un cop el codi ja agafa forma es pot migrar a GitHub. Això és el que hem fet nosaltres en el projecte, començar amb Bitbucket i després passar-nos a GitHub amb el codi font obert.
 
 \paragraph{Trello}
-Per últim com eina de suport, hem fet servir Trello, una plataforma online que permet una comunicació més clara entre els membres d'un projecte. Amb Trello pots crear projectes i cada projecte conté un conjunt de llistes que s'omplen de tasques. Hem fet servir Trello per comunicar-nos amb la tutora i tenir present una planificació per tal d'organitzar-nos millor.
+Per últim com eina de suport, hem fet servir Trello \cite{trello}, una plataforma online que permet una comunicació més clara entre els membres d'un projecte. Amb Trello pots crear projectes i cada projecte conté un conjunt de llistes que s'omplen de tasques. Hem fet servir Trello per comunicar-nos amb la tutora i tenir present una planificació per tal d'organitzar-nos millor.
 
 \newpage
 \subsubsection{Eines de programació}
 En aquesta secció trobarem amb el llenguatge de programació, i conjunt de llibreries, que hem treballat.
 
 \paragraph{Python}
-Python és un llenguatge d'alt nivell interpretat. Remarquen molt la fàcil lectura del seus codis, per això té una sintaxis molt semblant a un pseudocodi. Python és un llenguatge de codi obert i desenvolupat per \textit{Python Software Foundation}, una organització sense ànim de lucre. Vam escollir Python per dues raons: per ser un llenguatge de scripting i per la seves llibreries relacionades amb el tractament de dades (com \hyperlink{pandas}{Pandas}, \hyperlink{numpy}{NumPy} o \hyperlink{sklearn}{Scikit-learn}).
+Python \cite{python} és un llenguatge d'alt nivell interpretat. Remarquen molt la fàcil lectura del seus codis, per això té una sintaxis molt semblant a un pseudocodi. Python és un llenguatge de codi obert i desenvolupat per \textit{Python Software Foundation}, una organització sense ànim de lucre. Vam escollir Python per dues raons: per ser un llenguatge de scripting i per la seves llibreries relacionades amb el tractament de dades (com \hyperlink{pandas}{Pandas}, \hyperlink{numpy}{NumPy} o \hyperlink{sklearn}{Scikit-learn}).
 
 
 \hypertarget{pandas}{
 	\paragraph{Pandas}
 }
-Pandas és una biblioteca informàtica escrita en Python per a la manipulació i anàlisi de dades. Especialment va bé per al tractament de taules alhora de fer consultes, o per a l'agrupació i agrecació d'informació.
+Pandas \cite{pandas} és una biblioteca informàtica escrita en Python per a la manipulació i anàlisi de dades. Especialment va bé per al tractament de taules alhora de fer consultes, o per a l'agrupació i agrecació d'informació.
 
 \hypertarget{numpy}{
 	\paragraph{NumPy}
 }
-Numpy és una biblioteca informàtica de Python per operar amb vectors i matrius d'una forma més extensa a la que et permet el mateix llenguatge Python, la qual conté tot un conjunt de funcions matemàtiques d'alt nivell per treballar amb aquests vectors i matrius.
+Numpy \cite{numpy} és una biblioteca informàtica de Python per operar amb vectors i matrius d'una forma més extensa a la que et permet el mateix llenguatge Python, la qual conté tot un conjunt de funcions matemàtiques d'alt nivell per treballar amb aquests vectors i matrius.
 
 \hypertarget{sklearn}{
 	\paragraph{Scikit-learn}
 }
-Scikit-learn (o sklearn) és una biblioteca informàtica orientada a l'aprenentatge automàtic per a Python. Té suport per classificadors, regressors i clusterització. Per aquest projecte hem fet servir clustering i regressors. En la secció de \hyperlink{tecniquesutilitzades}{Tècniques utilitzades} es detalla cada tècnica utilitzada d'aquesta biblioteca informàtica.
+Scikit-learn \cite{sklearn} (o sklearn) és una biblioteca informàtica orientada a l'aprenentatge automàtic per a Python. Té suport per classificadors, regressors i clusterització. Per aquest projecte hem fet servir clustering i regressors. En la secció de \hyperlink{tecniquesutilitzades}{Tècniques utilitzades} es detalla cada tècnica utilitzada d'aquesta biblioteca informàtica.
 
 \paragraph{Bokeh}
-Bokeh és una biblioteca informàtica per a la visualització interactiva de dades dirigida als navegadors per a la seva presentació a través d'HTML i JavaScript. Bokeh té el suport per a gràfiques específiques com diagrames de barra, box plots o time series, però a banda d'aquests gràfics pots dibuixar sobre un gràfic amb elements bàsics com cercles, línies, rectangles, entre altres.
+Bokeh \cite{bokeh} és una biblioteca informàtica per a la visualització interactiva de dades dirigida als navegadors per a la seva presentació a través d'HTML i JavaScript. Bokeh té el suport per a gràfiques específiques com diagrames de barra, box plots o time series, però a banda d'aquests gràfics pots dibuixar sobre un gràfic amb elements bàsics com cercles, línies, rectangles, entre altres.
 
 \paragraph{Seaborn}
-Per últim tenim Seaborn que també és una biblioteca informàtica per a visualitazció de dades com Bokeh, amb gràfiques molt més específiques. A més té una part de la biblioteca informàtica dedicada a les paletes de colors i la qual permet escollir un conjunt de colors afavorits per mostrar les dades.
+Per últim tenim Seaborn \cite{seaborn} que també és una biblioteca informàtica per a visualitazció de dades com Bokeh, amb gràfiques específiques per a la visualització de resultats estadístics. A més té una part dedicada a les paletes de colors i la qual permet escollir un conjunt de colors afavorits per mostrar les dades.
 
 \begin{figure}[h]
 \begin{minted}
@@ -458,10 +456,10 @@ sbn.palplot(palette)
 
 \subsubsection{Eines d'edició}
 \paragraph{IPython notebook}
-Ipython notebook és un editor per a l'entorn de Python. La filosofia \textit{notebook} s'emprea per tenir un codi molt més llegible i a més tenir explicacions d'allò que es programa, ja que es pot barrejar codi, la sortida del codi, markdown, HTML, entre altres. Hem optat per escollit aquest entorn d'edició ja que en un projecte de ciència de les dades s'han de veure resutats constants i poder-los comentar.
+Ipython notebook \cite{ipythonnotebook} és un editor per a l'entorn de Python. La filosofia \textit{notebook} s'emprea per tenir un codi molt més llegible i a més tenir explicacions d'allò que es programa, ja que es pot barrejar codi, la sortida del codi, markdown, HTML, entre altres. Hem optat per escollit aquest entorn d'edició ja que en un projecte de ciència de les dades s'han de veure resutats constants i poder-los comentar.
 
 \paragraph{Texmaker}
-Aquesta és una eina d'edició de \LaTeX, la qual permet poder generar informes, documents, llibres d'una forma més programàtica. A partir d'un etiquetatge estipulat es poden generar documents amb un estil predefinit com el d'aquesta memòria.
+Texmaker \cite{texmaker} és una eina d'edició de \LaTeX, la qual permet poder generar informes, documents, llibres d'una forma més programàtica. A partir d'un etiquetatge estipulat es poden generar documents amb un estil predefinit com el d'aquesta memòria.
 
 \newpage
 \hypertarget{tecniquesutilitzades}{
@@ -472,7 +470,7 @@ La clusterització és molt important en el món de les dades, permet reconèixe
 
 \paragraph{\textit{K-means}}
 \todo{Referenciar al k-means de sklearn.}
-\textit{K-means} probablement és un dels algoritmes d'agrupació més conegut. Partint de $n$ elements, divideix aquests $n$ elements en $k$ grups (argument obligatòri de l'algoritme) on cada element pertany al grup més proper a la mitjana. L'algoritme de \textit{K-means} està descrit per la següent fórmula:
+\textit{K-means} \cite{k-means} probablement és un dels algoritmes d'agrupació més conegut. Partint de $n$ elements, divideix aquests $n$ elements en $k$ grups (argument obligatòri de l'algoritme) on cada element pertany al grup més proper a la mitjana. L'algoritme de \textit{K-means} està descrit per la següent fórmula:
 \\
 \\
 Tenint un conjunt d'elements $(x_1, x_2, \ldots, x_n)$ on cada elements és un vector $d$ dimensional, \textit{K-means} construeix una partició dels elements en $k$ grups, on $k \leq n$ quedant $S = \{S_1, S_2, \ldots, S_k\}$. Amb la finalitat de minimitzar la suma dels quadrats dintre de cada grup:
@@ -488,7 +486,7 @@ Com es veu en la fòrmula, aquest algoritme depén d'una $k$, per determinar agr
 
 \paragraph{\textit{Mean Shift}}
 \todo{Referenciar al mean shift de sklearn.}
-\textit{Mean Shift} és l'altre tècnica d'agrupació o clusterització que utilitzo en aquest projecte. L'objectiu d'aquesta tècnica és el mateix que \textit{K-means}, però el seu algoritme funciona de forma diferent, considerant l'espai de característiques com una funció de densitat de probabilitat.
+\textit{Mean Shift} \cite{mean-shift} és l'altre tècnica d'agrupació o clusterització que utilitzo en aquest projecte. L'objectiu d'aquesta tècnica és el mateix que \textit{K-means}, però el seu algoritme funciona de forma diferent, considerant l'espai de característiques com una funció de densitat de probabilitat.
 \\
 \\
 Aquest algoritme no necessita com a entrada el número de clusters que busquem, com \textit{K-means}. Té altres paràmetres d'entrada, però són opcionals. En aquesta imatge podem veure la diferència entre \textit{K-means} i \textit{Mean Shift}.
@@ -496,7 +494,7 @@ Aquest algoritme no necessita com a entrada el número de clusters que busquem, 
 \begin{figure}[h]
 \centering
 \includegraphics[width=.4\linewidth]{img/kmeansVsMeanshift.png}
-\caption{Comparació de K-means amb Mean Shift}
+\caption{Comparació de K-means amb Mean Shift \cite{comp-meanshift-kmeans}}
 \end{figure}
 
 Com es veu en la figura d'adalt, en el tercer gràfic de cada tècnica, tenim que amb \textit{MeanShift}, com no hem de dir el número de divisions que volem, ell mateix ens diu que hi han tres grups. Però amb \textit{K-means} si possem dos clusters, per exemple, estariem unificant dos clusters en un.
@@ -514,7 +512,7 @@ En el nostre cas, el que volem és explorar i averiguar quins perfils d'estudian
 
 \todo{Referenciar a Silhouette de sklearn.}
 \subparagraph{\textit{Silhouette}}
-És una mesura no supervisada, que valora la integrat de cada node dintre d'un cluster. Per cada punt (o observació) calculem la \textit{silhouette} amb la següent fórmula:
+Silhouette \cite{silhouette} és una mesura no supervisada, que valora la integrat de cada node dintre d'un cluster. Per cada punt (o observació) calculem la \textit{silhouette} amb la següent fórmula:
 
 $$ s(i) = \frac{b(i) - a(i)}{\max\{a(i),b(i)\}} $$
 
@@ -614,16 +612,16 @@ Abans d'explicar la tècnica de \textit{Random Forest Regressor}, s'ha d'entendr
 \begin{figure}[h]
 \centering
 \includegraphics[width=.5\linewidth]{img/randomforest.png}
-\caption{\textit{CART tree titanic survivors} de Stephen Milborrow}
+\caption{\textit{CART tree titanic survivors} \cite{imgrandomforestregressor}}
 \end{figure}
 
-\textit{Random Forest Regressor}, és un conjunt d'arbres de regressió, on el resultat és la mitja de la sortida de cada arbre, a més per a cada arbre s'aplica un soroll aleatori a les dades sense variar en la seva distribució, això fa que es benificiï al fer la mitja. 
+\textit{Random Forest Regressor} \cite{randomforestregressor} és un conjunt d'arbres de regressió, on el resultat és la mitja de la sortida de cada arbre, a més per a cada arbre s'aplica un soroll aleatori a les dades sense variar en la seva distribució, això fa que es benificiï al fer la mitja. 
 
 \newpage
 
 \todo{link de sklearn}
 \paragraph{Regressor lineal (LR)}
-Un regressor lineal modelitza una recta de regressió a partir d'un núvol de punts. La recta definida, és la recta més propera que passa per tots els punts. El que busca és definir una variable depenent a partir d'un conjunt de variables, és a dir:
+Un regressor lineal \cite{linearregressor} modelitza una recta de regressió a partir d'un núvol de punts. La recta definida, és la recta més propera que passa per tots els punts. El que busca és definir una variable depenent a partir d'un conjunt de variables, és a dir:
 $$
 y =\beta_0+\beta_1 x_1+\beta_2 x_2+ \cdots + \beta_n x_n + \varepsilon
 $$
@@ -633,7 +631,7 @@ on $\beta_i$ són termes constants i $n$ són els conjunts d'observacions que te
 \begin{figure}[h]
 \centering
 \includegraphics[width=.5\linewidth]{img/linearregression.png}
-\caption{"Normdist regression" by Amatulic}
+\caption{\textit{Normdist regression} \cite{imglinearregressor}}
 \end{figure}
 
 \todo{link de sklearn}
@@ -641,11 +639,11 @@ on $\beta_i$ són termes constants i $n$ són els conjunts d'observacions que te
 Igual que en la secció de clusterització, per a la predicció de dades, també hem utilitzat mesures per validar les nostres prediccions. Aquí hem utilitzat mesures supervisades. Anomenem $y_{pred}$ al conjunt de qualificacions que s'ha predit d'un alumne, i $y_{test}$ al conjunt de qualificacions real del estudiant.
 
 \subparagraph{Error promig absolut (MAE)}
-És una mesura supervisada que és basa en fer la mitja dels errors produïts pel predictor. Està definit per la següent fórmula:
+L'error promig absolut \cite{mae} una mesura supervisada que és basa en fer la mitja dels errors produïts pel predictor. Està definit per la següent fórmula:
 $$ \mathrm{MAE} = \frac{1}{n}\sum_{i=1}^n \left| y_{pred_i}-y_{test_i}\right| $$
 
 \subparagraph{Error promig quadràtic (MSE)}
-Per un altre banda tenim una segona mètrica supervisada també, però aquesta mètrica penalitza els error alts, ja que la diferència es elavada al quadrat, quedaria la següent fórmula:
+Per un altre banda tenim una segona mètrica, l'error promig quadràtic \cite{mse}, supervisada també. Aquesta mètrica penalitza els error alts, ja que la diferència es elavada al quadrat, quedaria la següent fórmula:
 $$\mathrm{MSE}=\frac{1}{n}\sum_{i=1}^n(y_{pred_i}-y_{test_i})^2$$
 
 \subparagraph{Coeficient de pearson (PCC)}
@@ -705,7 +703,7 @@ Una de les últimes tècniques que utilitzo en aquest projecte d'innovació doce
 
 \todo{link de sklearn}
 \paragraph{PCA}
-L'anàlisis de components principals o PCA el que fa és escollir un nou sistema de coordenades a partir d'una transformació lineal on s'ordenen les variances per mida. La variança amb major mida s'escollirà com eix principal, la segona variança com a segon eix, així successivament fins obtenir la dimensionalitat escollida per argument.
+L'anàlisis de components principals o PCA \cite{pca} el que fa és escollir un nou sistema de coordenades a partir d'una transformació lineal on s'ordenen les variances per mida. La variança amb major mida s'escollirà com eix principal, la segona variança com a segon eix, així successivament fins obtenir la dimensionalitat escollida per argument.
 
 %http://web.media.mit.edu/~tristan/phd/dissertation/chapter5.html
 
@@ -778,7 +776,7 @@ L'altre solució proposada és reduïr la dimensionalitat de les dades per tal d
 
 Ara es poden distingir millor el número de clusters o agrupacions que trobem per cada curs.
 
-\subparagraph{Primer d'enginyeria Informàtica}
+\subparagraph{Primer d'Enginyeria Informàtica}
 Ens separa tot el conjunt de punts en 6 agrupacions (\textit{vermell, beix, blau claret, verd, lila i blau fosc}), però el grup \textit{blau fosc i lila} són un grup tan reduït i separat de la resta que el podriem comptar com un sol cluster. $k=5$
 
 \subparagraph{Segon d'Enginyeria Informàtica}
@@ -822,7 +820,6 @@ Ara que ja tenim el valor de $k$ adeqüat per cada curs, podem aplicar la tècni
 
 Començarem comentant els resultats obtinguts amb el curs de primer d'Enginyeria Informàtica on hem dit que aplicariem \textit{K-means} amb $k=5$.
 
-\todo{retocar la imatge, per treure el quadrat gris}
 \begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth]{img/perfils_primer_info.png}
@@ -839,7 +836,7 @@ Començarem comentant els resultats obtinguts amb el curs de primer d'Enginyeria
 Primer explicaré que és el que veiem en aquests gràfics i així poder interpretar els demés. Cada gràfic són els diferents perfils d'estudiants que ha trobat la tècnica de \textit{K-means}. En cadascun d'ells trobem com a títol l'etiqueta assignada a aquell perfil i el color de cadascún depén de la categoria explicada abans. En l'eix d'abscisses es veuen les assignatures (en aquest cas les de primer d'Enginyeria Informàtica), i en l'eix d'ordenades tenim la mitja de cada assignatura (longitud de la barra). Per últim les línees negres determinen la desviació estàndard de la distribució de cada assignatura i la línea vermella és una marca per identificar l'alçada de l'aprovat.
 
 \subparagraph{MP1 - Millors en programació de primer d'Informàtica} 
-Aquest perfil encaixa amb els alumnes que tenen millores notes en les assignatures de programació que en les de matemàtiques. La distribució d'aquest és molt dispersa, això ho podem veure per la llargada de la barra negra (desviació estàndard). També és, perquè la mostra és petita, representa el 5.36\% de la mostra total.
+Aquest perfil encaixa amb els alumnes que tenen millores notes en les assignatures de programació que en les de Matemàtiques. La distribució d'aquest és molt dispersa, això ho podem veure per la llargada de la barra negra (desviació estàndard). També és, perquè la mostra és petita, representa el 5.36\% de la mostra total.
 
 \subparagraph{BN1 - Bones notes de primer d'Informàtica}
 Aquest perfil correspon als alumnes que tenen bones notes en totes les assignatures de primer i com podem veure en el gràfic de pastilla, representen un 23.37\% del total, sent el segon perfil més abundant. Podem veure ara que la mostra és més gran, la desviació estàndard és menor, és a dir, aquest perfil és força estable, tots els estudiants que hi pertanyent es distancien amb una qualificació promig d'1.5 aproximadament.
@@ -850,7 +847,7 @@ Com podem veure, aquest perfil són els estudiants que suspenen la majoria d'ass
 \subparagraph{A1 - Aprovats de primer d'Informàtica}
 Són la major part dels alumnes, amb un 38.31\% del total, i són els alumnes que de mitja treuen entre 5 i 7. Igual que passa amb el cluster \textit{BN1}, la desviació estàndard de cada assignatura és força baixa, i això fa que el cluster sigui consistent.
 
-\subparagraph{MM1 - Millors en matemàtiques de primer d'Informàtica}
+\subparagraph{MM1 - Millors en Matemàtiques de primer d'Informàtica}
 Aquest perfil igual que \textit{MP1}, és bastant inestable, ja que tenen una desviació estàndard alta, és a dir, hi ha una diversitat de notes elavada, no es concentren tots els alumnes a tenir la mateixa nota. Tot i que siguin dispersos, són un 15.71 \% del total, un percentatge forç alt.
 \\
 \\
@@ -872,7 +869,7 @@ Seguint amb l'anàlisis podem veure també els perfils de tots els alumnes que h
 \end{figure}
 
 \subparagraph{BN2 - Bones notes de segon d'Informàtica}
-Aquest és un perfil força semblant a \textit{BN1}, és per això que ens plantejem la pregunta: \textit{Cadascun d'aquests perfils amb quin perfil de provinença encaixa?}, és a dir, és cert que els que tenen bones notes a primer, solen ser els que treuen bones notes a segon, el que anomenem conservació de clusters. De tots els alumnes que han cursat segon un 28.68\% pertanyen a aquest cluster, més d'un quart de la mostra.
+Aquest és un perfil força semblant a \textit{BN1}, és per això que ens plantejem la pregunta: \textit{Amb quin perfil de provinença encaixa cadascun d'aquests perfils?}, és a dir, és cert que els que tenen bones notes a primer, solen ser els que treuen bones notes a segon, el que anomenem conservació de clusters. De tots els alumnes que han cursat segon un 28.68\% pertanyen a aquest cluster, més d'un quart de la mostra.
 
 \subparagraph{ISF2 - ICC i SO1 fluixes}
 Aquest perfil encara que sigui minoritari, amb un 6.2\% del total, és força curiós, ja que són alumnes que tenen \textit{Introducció a la Computació Científica} (ICC) i \textit{Sistemes operatius I} (SO1) amb notes més baixes que la resta. També s'ha de dir que tot i que les mitjes siguin més petites, les desviacions estàndards són molt altes, el que fa que les notes dels alumnes siguin més diverses i no segueixin exactament la distribució de mitjes de cada perfil.
@@ -887,7 +884,7 @@ Aquest és el perfil amb un percentatge més petit de població, un 4.65\%. És 
 Ens podem fixar que la distribució de mitjes del perfil \textit{BN2} i \textit{A2}, és força semblant, només que \textit{BN2} té les mitjes més altes.
 \\
 \\
-Deixant enrere al grau d'Enginyeria Informàtica, em poso a analitzar als estudiants del grau en matemàtiques. Comencem amb els alumnes de primer, els quals els segmentem en 3 agrupacions ($k=3$).
+Deixant enrere al grau d'Enginyeria Informàtica, em poso a analitzar als estudiants del grau en Matemàtiques. Comencem amb els alumnes de primer, els quals els segmentem en 3 agrupacions ($k=3$).
 
 \newpage
 
@@ -904,7 +901,7 @@ Deixant enrere al grau d'Enginyeria Informàtica, em poso a analitzar als estudi
 \end{figure}
 
 \subparagraph{NE1 - No estables de primer de Matemàtiques}
-Podem veure que aquest cluster té les mostres molt distanciades, per les desviacions estàndards que presenta. Aquest perfil l'he clasificat com \textit{No estables de primer}, ja que són alumnes que amb prou feines poden aprovar certes assignatures. Conformen un 22.37\% del total d'alumnes.
+Podem veure que aquest cluster té les mostres molt distanciades, per les desviacions estàndards que presenta. Aquest perfil l'he classificat com \textit{No estables de primer}, ja que són alumnes que amb prou feines poden aprovar certes assignatures. Conformen un 22.37\% del total d'alumnes.
 
 \subparagraph{A1 - Aprovats de primer de Matemàtiques}
 Aquest perfil pertany als estudiants que tenen totes les assignatures aprovades  de mitja i són els que formen la major part del total, amb un 50.13\%.
@@ -981,9 +978,8 @@ Per altre banda tenim el curs de primer de Matemàtiques, on apliquem el mateix 
 
 Igual que en Enginyeria Informàtica, ens trobem que la major tassa d'abandonament es troba en els alumnes que suspenen per mitja totes les assignatures. Seguidament els hi segueixen els estudiants que no tenen unes notes massa regulars i com s'ha comentat anteriorment, els alumnes que estan classificats com \textit{Aprovats}, també surten amb una tassa mínima d'abandonament.
 
-
-\subsection{Cadascun d'aquests perfils amb quin perfil de provinença encaixa?}
-El que es vol mirar en aquesta pregunta és la conservació de clusters, per exemple, els estudiants que treuen bones notes a primer, segueixen treien bones notes a segon? O, de quina via d'accés solen provenir els estudiants de primer de matemàtiques? Preguntes com aquestes anem a resoldre en aquest apartat. 
+\subsection{Amb quin perfil de provinença encaixa cadascun d'aquests perfils?}
+El que es vol mirar en aquesta pregunta és la conservació de clusters, per exemple, els estudiants que treuen bones notes a primer, segueixen treien bones notes a segon? O, de quina via d'accés solen provenir els estudiants de primer de Matemàtiques? Preguntes com aquestes anem a resoldre en aquest apartat. 
 \\
 \\
 Començarem, com hem fet anteriorment, amb els estudiants que han cursat primer d'Enginyeria Informàtica. Com s'ha explicat en la secció de preguntes plantejades, contrastem primer d'Enginyeria Informàtica amb les vies d'accés: Batxillerat i salt d'Universitat.
@@ -1132,7 +1128,7 @@ Igual que comprovem l'error produïr amb valors continus, del 0 al 10, ara etiqu
 	\item \textbf{Excel·lent} Notes superiors a 9 ($nota \geq 9$)
 \end{itemize}
 
-Per poder visualitzar aquesta prova s'ha utilitzat una matriu de confusió, on es representa amb un mapa de color (o heatmap). En la següent secció s'explicarà que és un mapa de color juntament amb els resultats obtinguts. S'utilitza un 50\% de \textit{training} i un 50\% de \textit{test}.
+Per poder visualitzar aquesta prova s'ha utilitzat una matriu de confusió \cite{confusionmatrix}, on es representa amb un mapa de color (o heatmap). En la següent secció s'explicarà que és un mapa de color juntament amb els resultats obtinguts. S'utilitza un 50\% de \textit{training} i un 50\% de \textit{test}.
 
 \subparagraph{Proves amb ranking d'assignatures}
 Per últim tenim les proves realitzades per mesurar el ranking que volem desenvolupar. La mètrica utilitzada ha sigut la \textit{Mean Ranking Score}, que com ja s'ha explicat anteriorment, és una mètrica que ens permet mesurar quant de bó és un ranking.
@@ -1146,7 +1142,7 @@ Comançarem amb les proves fetes amb dades continues amb els dos conjunt de dade
 \caption{Prova amb dades continues. Traning: primer}
 \end{figure}
 
-En aquesta figura podem veure un diagrama de caixes, aquest tipus de diagrama representa visualment una distribució. Cada caixa té les mateixes característiques: la línea del centre representa la mediana de la distribució, la caixa es visualitza un 50\% de la mostra (des del primer quartil, fins al tercer), les línes verticals determinen el límit de les distribucions i per últim tota mostra que estigui fóra de lo normal (mostra atípica) és visualitza per fóra dels límits amb un punt.
+En aquesta figura podem veure un diagrama de caixes \cite{boxplot}, aquest tipus de diagrama representa visualment una distribució. Cada caixa té les mateixes característiques: la línea del centre representa la mediana de la distribució, la caixa es visualitza un 50\% de la mostra (des del primer quartil, fins al tercer), les línes verticals determinen el límit de les distribucions i per últim tota mostra que estigui fóra de lo normal (mostra atípica) és visualitza per fóra dels límits amb un punt.
 \\
 \\
 La distribució que podem veure a la figura són els errors que es presenten en cada predicció, pertant un predictor perfecte, mostrarà una distribució uniforme en el 0. En la figura es pot veure els quatre predictors utilitzats i quina distribució d'error segueix cadascún. Veiem que el predictor més estable i que concentra millor els errors són el recomanador col·laboratiu basat en estudiant i el \textit{random forest regressor}. Per un altre banda tenim el regressor lineal que presenta la mediana més baixa, tot i que el tercer quartil és massa elevat. Els \textit{outlayers}  (mostres atípiques) que veiem tenen una explicació. Què passa si un alumne té un imprevist i no pot cursar una assignatura ja matrículada? Aquest factor no el contemplen els predictors. És per això que tenim observacións atípiques, perquè els predictors potser prediuen que un alumne treurà un 7, però l'alumne per qualsevol raó es desmatricula de l'assignatura, llavors en aquella assignatura li queda un 0. Més avall es mostra un exemple d'una mostra atípica amb una prova qualitativa.
@@ -1220,7 +1216,7 @@ Ara passem a veure els resultats que s'han obtingut amb les notes discretes (sus
   \includegraphics[width=\linewidth]{img/heatmap_lr_primer_segon.png}
   \caption{LR}
 \end{subfigure}
-\caption{Matriu de convulsió. Training: primer}
+\caption{Matriu de confusió. Training: primer}
 \end{figure}
 
 En cada matriu de colors podem veure 16 caselles, cada fila i columna posa: S, A, N i E, que significa: suspés, aprovat, notable i excel·lent. Cada cel·la significa el percentatge de vegades que la qualificació predita coincideix amb la qualificació real corresponent. Possem un exemple per acabar d'entendre, en la primera figura apareix en la correspondència de aprovats amb aprovats un 40.26\%, això significa que el 40.26\% de les proves diu el predictor que un alumne treurà una nota d'aprovat i la nota real és aprovat. Si ens fixem com més alt sigui el percentatge, més fosca és la casella. Per tant el que busquem és tenir fosca la diagonal, ja que vol dir que ha encertat tot. Ho representem amb aquest tipus de representació perquè equivocar-se de suspés a aprovat és acceptable, però no de suspés a excel·lent, és per això que s'ha de veure una tendencia de color a les rodalies de la diagonal.
@@ -1441,7 +1437,183 @@ Notes & 8.80 & 5.80 & 6.60 & 7.30 & 8.50 & 8.00 & 5.30 & 6.50 & 9.20 & 7.40 \\ \
 Per últim podem veure aquest cas de fracàs, on els dos ranking no s'assemblen. La seva \textit{Mean Ranking Score} ens ha donat 3.8, una MRS alta, recordem que la MRS és la mitja d'error de diferència de posicions del ranking.
 
 \newpage
-\section{Conclusions i treball futur}
+\section{Conclusions}
+Com resultat de la investigació estadística dins del marc del projecte d'innovació docent, és possible concluir resultats com l'alta conservació de perfils quan un estudiant passa de primer a segon d'Engineria Informàtica, o una alta tassa d'abandonament per part d'alumnes que suspenen les assignatures de primer. A més, tot i que en alguns resultats no hem obtingut el que volíem, s'han explorat nous resultats i conclusions que no havíem arribat a tenir en compte.
+\\
+\\
+Per dur a terme aquest treball era necessari seguir les etapes d'un projecte de ciència de les dades. Hem pogut transformar les dades en coneixement, que era un dels objectius plantejats d'aquest treball. Fer un anàlisi estadístic sobre dades acadèmiques ens serveix com a base per al projecte d'innovació docent.
+\\
+\\
+Amb els resultats obtinguts, aquest treball pot ajudar a prendre decisions al cap d'estudis, tutors i professors.
+
+\subsection{Treball futur}
+Com s'ha explicat des del principi, aquest treball entre dins del marc d'un projecte d'innovació docent, i és la part d'anàlisis estadístic de les dades acadèmiques. Forma part del principi del projecte d'innovació docent, el treball futur a implementar  en aquest projecte són els següents punts:
+
+\subparagraph{Desenvolupament d'un sistema intel·ligent} 
+Construcció d'una eina de suport per al tutor d'estudi que li permeti explorar amb més profunditat l'expedient acadèmic d'un alumne o d'una assignatura. Una de les eines a incorporar seria un sistema de recomanació de matrícula i gràfics estadístics que poguin ajudar a la informació que presenten les dades.
+
+\subparagraph{Avaluació}
+Un cop construit l'eina per al tutor, hauria de passar en fase de prova, per a que els tutors d'estudis la provin i poguin identificar problemes o limitacions del sistema.
+
 \newpage
-\section{Bibliografia}
+
+\begin{thebibliography}{9}
+\bibitem{pid}
+``Presentació del projecte d'innovació docent" [Online]. 
+
+Disponible: \url{http://mid.ub.edu/webpmid/content/sistema-intel\%E2\%80\%A2ligent-de-suport-al-tutor-d\%E2\%80\%99estudis}
+
+
+\bibitem{normtipificada}
+Normalització d'unitat tipificada - Wikipedia [Online].
+
+Disponible: \url{https://en.wikipedia.org/wiki/Standard_score}
+
+
+\bibitem{github}
+Plana web de Github [Online].
+
+Disponible: \url{https://github.com}
+
+
+\bibitem{bitbucket}
+Plana web de Bitbucket [Online].
+
+Disponible: \url{https://bitbucket.org}
+
+
+\bibitem{trello}
+Plana web de la plataforma Trello [Online].
+
+Disponible: \url {https://trello.com}
+
+
+\bibitem{python}
+Llenguatge de programació Python [Online].
+
+Disponible: \url{https://www.python.org}
+
+
+\bibitem{pandas}
+Biblioteca informàtica de Python: Pandas [Online].
+
+Disponible \url{http://pandas.pydata.org}
+
+
+\bibitem{numpy}
+Biblioteca informàtica de Python: Numpy [Online].
+
+Disponible: \url{http://www.numpy.org}
+
+
+\bibitem{sklearn}
+Biblioteca informàtica de Python: Scikit-learn [Online].
+
+Disponible: \url{http://scikit-learn.org}
+
+
+\bibitem{bokeh}
+Biblioteca informàtica de Python: Bokeh [Online].
+
+Disponible: \url{http://bokeh.pydata.org}
+
+
+\bibitem{seaborn}
+Biblioteca informàtica de Python: Seaborn [Online].
+
+Disponible: \url{http://stanford.edu/~mwaskom/software/seaborn}
+
+
+\bibitem{ipythonnotebook}
+Entorn de programació de Python: Ipython Notebook [Online].
+
+Disponible: \url{http://ipython.org/notebook.html}
+
+\bibitem{texmaker}
+Editor de \LaTeX [Online].
+
+Disponible: \url{http://www.xm1math.net/texmaker}
+
+
+\bibitem{k-means}
+K-means d'Scikit-learn [Online].
+
+Disponible: \url{http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html}
+
+
+\bibitem{mean-shift}
+Mean Shift d'Scikit-learn [Online].
+
+Disponible: \url{http://scikit-learn.org/stable/modules/generated/sklearn.cluster.MeanShift.html}
+
+
+\bibitem{comp-meanshift-kmeans}
+Imatge retocada de la plana web d'Scikit-learn [Online].
+
+Disponible: \url{http://scikit-learn.org/stable/_images/plot_cluster_comparison_001.png}
+
+
+\bibitem{silhouette}
+Mesura \textit{Silhouette} d'Scikit-learn [Online].
+
+Disponible: \url{http://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html}
+
+
+\bibitem{imgrandomforestregressor}
+``CART tree titanic survivors" by Stephen Milborrow - Own work. Licensed under CC BY-SA 3.0 via Wikimedia Commons [Online].
+
+Disponible: \url{https://commons.wikimedia.org/wiki/File:CART_tree_titanic_survivors.png#/media/File:CART_tree_titanic_survivors.png}
+
+
+\bibitem{randomforestregressor}
+\textit{Random Forest Regressor} d'Scikit-learn [Online].
+
+Disponible: \url{http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html}
+
+
+\bibitem{linearregressor}
+Regressor lineal d'Scikit-learn [Online].
+
+Disponible: \url{http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html}
+
+
+\bibitem{imglinearregressor}
+``Normdist regression" by Amatulic de la Viquipèdia en anglès (same as Anachronist on Wikimedia) - Transferred from en.wikipedia to Commons. Transfer was stated to be made by User:anachronist.. Licensed under Domini públic via Wikimedia Commons
+
+Disponible: \url{https://commons.wikimedia.org/wiki/File:Normdist_regression.png#/media/File:Normdist_regression.png}
+
+
+\bibitem{mae}
+Mesura del error promig absolut d'Scikit-learn [Online].
+
+Disponible: \url{http://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html}
+
+
+\bibitem{mse}
+Mesura del error promig quadràtic d'Scikit-learn [Online].
+
+Disponible: \url{http://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html}
+
+
+\bibitem{pca}
+PCA d'Scikit-learn [Online].
+
+Disponible: \url{http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html}
+
+
+\bibitem{boxplot}
+Diagrama de caixes - Wikipedia [Online].
+
+Disponible: \url{https://en.wikipedia.org/wiki/Box_plot}
+
+
+\bibitem{confusionmatrix}
+Matriu de confusió - Wikipedia [Online].
+
+Disponible: \url{https://en.wikipedia.org/wiki/Confusion_matrix}
+
+
+\end{thebibliography}
+
 \end{document}
+
