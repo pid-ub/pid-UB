@@ -13,6 +13,7 @@
 \usepackage{subcaption}
 \usepackage[catalan]{babel}
 \usepackage{cite}
+\usepackage{fancyref}
 %\usepackage{caption}
 %\usepackage{siunitx}
 
@@ -28,8 +29,8 @@
 %Definició de colors:
 \definecolor{bgcode}{rgb}{0.93, 0.93, 0.93}
 
-%\setcounter{secnumdepth}{4}
-%\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
 \titleformat{\paragraph}
 {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
 \titlespacing*{\paragraph}
@@ -115,12 +116,13 @@
 
 \section*{\textit{Abstract}}
 
-\textit{Aquest treball està dins del marc d'un projecte d'innovació docent, en el que es proposa una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza. Per poder arribar a fer aquest sistema intel·ligent per al tutor d'estudis, abans s'ha de fer un anàlisi estadístic sobre els resultats acadèmics de la Facultat de Matemàtiques. L'anàlisi es basa en l'exploració de perfils d'estudiants i en la predicció de notes. Dins de l'anàlisi de perfils d'estudiants es mira la tassa d'abandonament per cada perfil i la relació que té cadascun respecte els perfils del curs anterior. Pel que fa a la predicció es construeix una taula de ranking de dificultats d'assignatures per a un alumne.}
+\textit{Aquest treball està dins del marc d'un projecte d'innovació docent, en el que es proposa una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza, realitzar el seguiment i aconsellar-lo. Per poder arribar a fer aquest sistema intel·ligent per al tutor d'estudis, s'ha realitzat un anàlisi basat en ciència de les dades sobre els resultats acadèmics de la Facultat de Matemàtiques. L'anàlisi es centra en l'exploració de perfils d'estudiants i en la predicció de notes. Dins de l'anàlisi de perfils d'estudiants es mira la tassa d'abandonament per cada perfil i la relació que té cadascun respecte els perfils del curs anterior. Pel que fa a la predicció es realitza un sistema de predicció de notes i un ranking de dificultats d'assignatures per a l'alumne.}
 
+\todo{canviar}
 \section*{\textit{Resum}}
 \textit{Aquest treball està dins del marc d'un projecte d'innovació docent, en el que es proposa una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza. Per poder arribar a fer aquest sistema intel·ligent per al tutor d'estudis, abans s'ha de fer un anàlisi estadístic sobre els resultats acadèmics de la Facultat de Matemàtiques. L'anàlisi es basa en l'exploració de perfils d'estudiants i en la predicció de notes. Dins de l'anàlisi de perfils d'estudiants es mira la tassa d'abandonament per cada perfil i la relació que té cadascun respecte els perfils del curs anterior. Pel que fa a la predicció es construeix una taula de ranking de dificultats d'assignatures per a un alumne.}
 
-
+\todo{canviar}
 \section*{\textit{Resumen}}
 \textit{Este trabajo está dentro del marco de un proyecto de innovación docente, en el que se propone una herramienta de soporte para el tutor de estudios, la cual permita ayudar al tutor a conocer mejor el perfil de cada alumno que tutoriza. Para poder llegar a hacer este sistema inteligente para el tutor de estudios, antes hay que hacer un análisi estadístico sobre los resultados académicos de la Facultad de Matemáticas. El análisi se basa en la exploración de perfiles de estudiantes i en la predicción de cualificaciones. Dentro del análisi de perfiles de estudiantes se mira la tasa de abandono para cada perfil i la relación que tiene cada uno respecto los perfiles del curso anterior. Respecto a la predicción se construye una tabla de ranking de dificultad de assignaturas para un alumno.}
 
@@ -146,16 +148,16 @@
 
 
 \section{Introducció}
-Un dels components bàsics de l'activitat docent és l'acció tutorial, la qual té com a finalitat guiar i aconsellar a l'estudiant durant la seva etapa d'estudis. Ajuda a l'estudiant a millorar el seu rendiment, a la seva orientació professional, i el més important, ajuda a prendre decissions que afavoreixin els seus estudis i la seva satisfacció. Per un altre banda tenim el pla d'acció tutorial (PAT) que tracta d'un document amb un conjunt ordenat d'accions sistemàtiques previament planificades. Una de les coses que impulsa el PAT és l'assignació d'un tutor d'estudis a un grup d'estudiants. Un tutor d'estudis té com a finalitat, entre altres, acompanyar a l'alumnat durant el seu transcurs estudiantil des de l'inici del grau, fins al final, donant consell cara al món professional.
+Un dels components bàsics de l'activitat docent a la Universitat de Barcelona és l'acció tutorial, la qual té com a finalitat guiar i aconsellar a l'estudiant durant la seva etapa d'estudis. Ajuda a l'estudiant a millorar el seu rendiment, la seva orientació professional, i el més important, ajuda a prendre decissions que afavoreixin els seus resultats acadèmics i la seva satisfacció. El pla d'acció tutorial (PAT) en els graus de Matemàtiques i d'Enginyeria Informàtica a la Facultat de Matemàtiques realitza conjunt ordenat d'accions sistemàtiques previament planificades. Una de les coses que impulsa el PAT és l'assignació d'un tutor d'estudis a un grup d'estudiants. Un tutor d'estudis té com a finalitat, entre altres, acompanyar a l'alumnat durant el seu transcurs a la universitat des de l'inici del grau, fins al final, donant consell cara al món professional.
 \\
 \\
-Ens hem trobat amb el problema que un tutor d'estudis al tutoritzar a un grup d'alumnes, no és capaç de contemplar detingudament cadascun d'aquests. Els pot guiar de forma genèrica, així seguint el pla d'acció tutorial. S'ha pogut observar al llarg dels anys, per exemple, que alumnes amb qualificacions moderades a primer i segon del grau d'Enginyeria Informàtica tenen problemes per afrontar certes assignatures de tercer. Això s'ha pogut observar al llarg dels anys, però i si estem evitant altres problemes o fets que no s'han pogut obervar fins ara? És això el que volem explorar i fer conclusions que no s'hagin pogut arribar. Arran de tot això, s'ha fet una petició al Vicerectorat de Política Docent per dur a terme un projecte que facilités el treball al tutor d'estudis. D'aquí neix el projecte com un projecte d'innovació docent, amb el títol de: \textit{Sistema intel·ligent de suport per al tutor d'estudis}.
+Ens hem trobat amb el problema que un tutor d'estudis al tutoritzar a un grup d'alumnes, no és capaç de contemplar detingudament cadascun d'aquests. Els pot guiar de forma genèrica, així seguint el pla d'acció tutorial. S'ha pogut observar al llarg dels anys, per exemple, que alumnes amb qualificacions moderades a primer i segon del grau d'Enginyeria Informàtica tenen problemes per afrontar certes assignatures de tercer. Això s'ha pogut observar al llarg dels anys, però i si estem perdent altres problemes o fets importants que no s'han pogut obervar fins ara? És això el que volem explorar i fer conclusions que no s'hagin pogut arribar. Arran d'això, s'ha fet una petició al Vicerectorat de Política Docent per dur a terme un projecte que facilités el treball al tutor d'estudis. D'aquí neix un projecte d'innovació docent amb el títol de: \textit{Sistema intel·ligent de suport per al tutor d'estudis}.
 \\
 \\
 La finalitat del projecte d'innovació docent és la creació d'una eina que el tutor pugui consultar i li ajudi a prendre decissions cara a les seves tutories. Aquesta eina ha de permetre al tutor visualitzar la trajectoria d'un alumne, fer recomanacions específiques per cadascun d'ells, entre altres. Un dels recursos principals d'aquest projecte són les dades, ja que són la que ens permetran arribar a conclusions i poder construïr l'eina per al tutor d'estudis. Les dades han sigut obtingudes a través del Vicerectorat de Política Docent.
 \\
 \\
-Aquest treball forma part del projecte d'innovació docent, i ens centrem en l'estudi estadístic dels resultats acadèmics de la Facultat de Matemàtiques de la UB. L'objectiu és montar una base per poder montar en la següent fase del projecte el sistema per al tutor d'estudis. En aquest treball ens hem centrat en l'exploració dels perfils d'estudiants dels primers cursos de cadascun dels graus impartits en la Facultat de Matemàtiques. També s'ha treballat en un sistema de predicció de notes d'un alumne cara a la seva próxima matriculació. A més s'ha desenvolupat un ranking de dificultat de notes no matriculades d'un alumne a partir d'un predictor de notes. L'objectiu general d'aquest treball és obtenir coneixement a partir de les dades, i és per això que hem convertit aquest projecte en un projecte de ciència de les dades.
+Aquest treball final de grau forma part del projecte d'innovació docent, i es centra en l'estudi estadístic de les dades dels resultats acadèmics de la Facultat de Matemàtiques de la UB. L'objectiu és desenvolupar la base per poder ampliar, en la següent fase del projecte, el sistema per al tutor d'estudis. En aquest treball ens hem centrat en l'exploració dels perfils d'estudiants dels primers cursos de cadascun dels graus impartits en la Facultat de Matemàtiques. També s'ha treballat en un sistema de predicció de notes d'un alumne cara a la seva próxima matriculació. A més s'ha desenvolupat un ranking de dificultat de notes no matriculades d'un alumne a partir d'un predictor de notes. L'objectiu general d'aquest treball és obtenir coneixement a partir de les dades, i és per això que hem enfocat aquest projecte en un projecte de ciència de les dades.
 
 
 \newpage
@@ -163,18 +165,9 @@ Aquest treball forma part del projecte d'innovació docent, i ens centrem en l'e
 
 \section{Descripció del problema}
 \subsection{Projecte d'innovació docent}
-Aquest treball de fi de grau, ve arran d'un projecte d'innovació docent \cite{pid} que va nèixer del Departament de Matemàtica Aplicada i Anàlisi (MAIA) i Departament de Metòdes de Investigació i Diagnòstic en Educació (MIDE). El participants del projecte són:
-\begin{itemize}[leftmargin=.5in]
-	\item Dra. Laura Igual Muñoz (MAIA)
-	\item Dr. Santiago Seguí Mesquida (MAIA)
-	\item Dr. Eloi Puertas Prats (MAIA)
-	\item Dr. Oriol Pujol (MAIA)
-	\item Dr. Jordi Vitrià Marca (MAIA)
-	\item Dra. Petia Radeva (MAIA)
-	\item Dr. Luís Garrido Ostermann (MAIA)
-	\item Dra. Maria del Pilar Folgueiras Bertomeu (MIDE)
-\end{itemize}
-
+Aquest treball de fi de grau, s'enmarca d'un projecte d'innovació docent \cite{pid} que va nèixer al Departament de Matemàtica Aplicada i Anàlisi (MAIA) i el Departament de Metòdes de Investigació i Diagnòstic en Educació (MIDE).
+\\
+\\
 Com ja s'ha dit, la finalitat del projecte d'innovació docent és el desenvolupament d'un sistema intel·ligent de suport al tutor d'estudis, i per dur-lo a terme el projecte s'ha dividit en 5 fases.
 
 \subparagraph{Fase 1}
@@ -276,14 +269,14 @@ Per últim i més important, el fitxer que conté les qualificacions de tots els
 \newpage
 
 \subsection{Preguntes plantejades}
-\paragraph{Hi ha diferents perfils d'alumnes?}
-A partir de la distribució de les notes de cada alumne per cada assignatura que ha fet, podem determinar que hi ha diferents perfils d'estudiants? Això és el que ens estem preguntant. S'han agafat tots els alumnes que hagin cursat totes les assignatures de primer i després les de segon, tant al grau d'Enginyeria Informàtica com al grau de matemàtiques. La experiència ens diu que hi han alumnes bons en programació i dolents en les assignatures de matemàtiques a primer del grau d'Enginyeria Informàtica. Però per a la resta de cursos, quins perfil podem trobar? Ara que tenim les dades això ho podem saber, convertirem les dades en coneixement.
+\subsubsection{Perfils d'estudiants}
+La primera pregunta plantejada és: \textit{Hi ha diferents perfils d'alumnes?} A partir de la distribució de les notes de cada alumne per cada assignatura que ha fet, podem determinar que hi ha diferents perfils d'estudiants? Això és el que ens estem preguntant. S'han agafat tots els alumnes que hagin cursat totes les assignatures de primer i després les de segon, tant al grau d'Enginyeria Informàtica com al grau de matemàtiques. La experiència ens diu que hi han alumnes bons en programació i dolents en les assignatures de matemàtiques a primer del grau d'Enginyeria Informàtica. Però per a la resta de cursos, quins perfil podem trobar? Ara que tenim les dades això ho podem saber, convertirem les dades en coneixement.
 
-\paragraph{Quina és la tassa d'abandonament per cada tipus de perfil?}
-A partir dels perfils que han sigut determinats en la pregunta anterior, quin és el percentatge d'abandonament per cadascun d'aquests. Volem saber si és cert que els alumnes que van a parar al perfil d'alumnes que ho suspenen tot són els que solen abandonar la carrera. Fins ara això és el que podem saber a partir de l'experiència, però es pot demostrar amb dades i corroborar-ho.
+\subsubsection{Tassa d'abandonament per perfil}
+La pregunta proposada és: \textit{Quina és la tassa d'abandonament per cada tipus de perfil?} A partir dels perfils que han sigut determinats en la pregunta anterior, quin és el percentatge d'abandonament per cadascun d'aquests. Volem saber si és cert que els alumnes que van a parar al perfil d'alumnes que ho suspenen tot són els que solen abandonar la carrera. Fins ara això és el que podem saber a partir de l'experiència, però es pot demostrar amb dades i corroborar-ho.
 
-\paragraph{Amb quin perfil de provinença encaixa cadascun d'aquests perfils?}
-Al llarg dels anys s'ha pogut notar que els alumnes que solen treure bones notes a primer d'Enginyeria Informàtica, acaben treien bones notes a segon la gran majoria. Ara bé, això és cert? Per això ens plantegem aquesta pregunta, a partir de perfils d'origen, volem saber amb quin perfil de destí solen anar. En aquest cas hem fet els següents creuaments per cada grau:
+\subsubsection{Conservació de clusters}
+Al llarg dels anys s'ha pogut notar que els alumnes que solen treure bones notes a primer d'Enginyeria Informàtica, acaben treien bones notes a segon la gran majoria. Per això ens vam plantejar la següent pregunta: \textit{Amb quin perfil de provinença encaixa cadascun d'aquests perfils?} Ara bé, això és cert? Per això ens plantegem aquesta pregunta, a partir de perfils d'origen, volem saber amb quin perfil de destí solen anar. En aquest cas hem fet els següents creuaments per cada grau:
 
 \begin{table}[h]
 \centering
@@ -303,7 +296,7 @@ Els perfils d'alumnes de primer i segon són els perfils determinats a la primer
 
 Hem obviat els alumnes provinents de cicle o ja diplomants, per la seva baixa presència. Les vies d'accés només les comprovem amb els alumnes que hagin cursat totes les assignatures de primer, sense convalidar, el que fa que no apareguin una gran quantitat d'alumnes de cicle, ja que la majoria d'aquests tenen alguna assignatura convalidada de primer. I pel que fa als alumnes ja diplomats, no hi han masses en totes les dades presents.
 
-\paragraph{Predicció de notes i ranking de dificultat d'assignatures}
+\subsubsection{Predicció de notes i ranking de dificultat d'assignatures}
 A partir de les notes que ha tret un alumne en el seu passat, podem predir quines assignatures li aniran bé i malament en el futur? Bé, això és el que ens plantejem en aquesta última pregunta, volem recomanar a un alumne en quines assignatures no li aniran gaire bé per a que així pugui reforçar més el temari que es donarà en aquella assignatura. Recordem que la finalitat del projecte d'innovació docent és que aquesta eina sigui un suport per al tutor, és a dir, la predicció no ens dirà el que ha de fer un alumne, aquesta decisió es delega al tutor que a partir de l'eina decidirà que fer.
 \newpage
 
@@ -522,7 +515,9 @@ $$ \mathrm{silhouette_g} = \frac{1}{n} \sum_{j=1}^n silhouette_i $$
 
 \newpage
 
+
 \subsubsection{Predicció}
+\label{subsec:predictors}
 La etapa de predicció és important en un projecte de data science, ja que ens permet predir el futur d'una forma estadística en base a les observacions que tenim. Però igual que la clusterització, hi han diverses tècniques, aquí explicaré quines tècniques hem utilitzat per aquest projecte.
 \\
 \\
@@ -595,10 +590,73 @@ $$
 	c_{pq} = \sum_{j=1}^n{\alpha_{a_qa_j}c_{pj}}
 $$
 O bé, fer la transposada de la matriu anterior i aplicar la mateixa fórmula d'abans.
+\\
+\\
+Per construït aquest recomanador s'ha de modelar seguint l'interfaç dels predictors de la biblioteca informàtica de \textit{Scikit-learn}. Un predictor en \textit{sklearn} ha de tenir un mètode \textit{fit} i un altre que sigui \textit{predict}. En la figura \ref{fig:codiexemple} es pot veure el fluxe de les crides a les funcions.
+
+\begin{figure}[h]
+\begin{minted}
+[
+framesep=5mm,
+baselinestretch=1.2,
+bgcolor=bgcode,
+fontsize=\footnotesize
+]
+{python}
+from sklearn.linear_model import LinearRegression
+# Definim les variables
+X = [(1,2,3), (5,3,2), (3,1,0), (123,433,452), (233,231,786)]
+# Fem el promig per cada Xi
+y = [2, 3.33, 1.33, 336, 416]
+# Definim una nova variable
+x = (45,34,65) # promig = 48
+# Creem un predictor
+predictor = LinearRegression()
+predictor.fit(X,y)
+print predictor.predict(x)
+# >> 47.9271056831
+\end{minted}
+\caption{Fluxe de crides de funcions d'un predictor d'sklearn}
+\label{fig:codiexemple}
+\end{figure}
+
+\newpage
+
+Primer s'ha de cridar al mètode \textit{fit} i seguidament ja podem cridar al mètode \textit{predict} tantes vegades com volguem per predir.
+
+\begin{figure}[h]
+\begin{minted}
+[
+framesep=5mm,
+baselinestretch=1.2,
+bgcolor=bgcode,
+fontsize=\footnotesize
+]
+{python}
+class Recomender(BaseEstimator):
+    def __init__(self, method=coefPearson, transpose=False):
+        self._m = None
+        self._method = method
+        self._transpose = transpose
+        
+    def fit(self, X, y):
+        # ...
+        return self
+    
+    def predict(self, X):
+        # ...
+        return predicted
+\end{minted}
+\caption{Estructura del recomanador col·laboratiu}
+\label{fig:recomenderstructure}
+\end{figure}
+
+En la figura \ref{fig:recomenderstructure} trobem l'estructura del recomanador col·laboratiu que s'ha construït seguint les fórmules explicades en la secció de Recomanadors. El constructor accepta per paràmetre la funció de similitud entre items (per defecte el coeficient de pearson), i un boleà que determina si és un Recomanador col·laboratiu basat en alumnes (\textit{transpose=False}) o un Recomanador col·laboratiu basat en assignatures (\textit{transpose=True}).
 
 \paragraph{\textit{Random Forest Regressor} (RFR)}
 Abans d'explicar la tècnica de \textit{Random Forest Regressor}, s'ha d'entendre el concepte d'un arbre de regressió. Un arbre de regressió és una tècnica utilitzada en aprenentatge automàtic, que es defineix com un model predictiu que mapeja observacions sobre una característica a conclusions sobre el valor objectiu d'aquesta característica. En aquestes estructures d'arbre, les fulles representen un valor real d'aquella característica i les branques les conjuccions de caracterítiques que han portat fins a la fulla.
-
+\\
+\\
 \begin{figure}[h]
 \centering
 \includegraphics[width=.5\linewidth]{img/randomforest.png}
@@ -615,15 +673,17 @@ $$
 y =\beta_0+\beta_1 x_1+\beta_2 x_2+ \cdots + \beta_n x_n + \varepsilon
 $$
 
-on $\beta_i$ són termes constants i $n$ són els conjunts d'observacions que tenim. En el cas d'una sola variable depenent, tindriem un resultat com el de la figura següent:
+on $\beta_i$ són termes constants i $n$ són els conjunts d'observacions que tenim. En el cas d'una sola variable depenent, tindriem un resultat semblant al de la figura \ref{fig:linearregressor}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=.5\linewidth]{img/linearregression.png}
 \caption{Regressió lineal \cite{imglinearregressor}}
+\label{fig:linearregressor}
 \end{figure}
 
 \paragraph{Mètriques utilitzades}
+\label{par:metriquespredictors}
 Igual que en la secció de clusterització, per a la predicció de dades, també hem utilitzat mesures per validar les nostres prediccions. Aquí hem utilitzat mesures supervisades. Anomenem $y_{pred}$ al conjunt de qualificacions que s'ha predit d'un alumne, i $y_{test}$ al conjunt de qualificacions real del estudiant.
 
 \subparagraph{Error promig absolut (MAE)}
@@ -659,7 +719,6 @@ La millor manera d'entendre aquesta mètrica és mostrar un exemple a partir d'a
 
 \begin{table}[h]
 \centering
-\label{my-label}
 \begin{tabular}{@{}cc@{}}
 \toprule
 Ranking Real & Ranking Predit \\ \midrule
@@ -724,8 +783,8 @@ El conjunt d'assignatures que apareixen en les columnes pot variar depenent de l
 
 \newpage
 
-\subsection{Hi ha diferents perfils d'alumnes?}
-La resposta a aquesta pregunta és trobar diferents tipus d'estudiants en relació a la seva nota (alumnes amb notes molt bones en tot, alumnes amb males notes en certes assignatures, alumnes que suspenen, entre altres). Però volem que el nostre algoritme explori els grups que hi han.
+\subsection{Perfils d'estudiants}
+La resposta a la pregunta: \textit{Hi ha diferents perfils d'alumnes?} és trobar diferents tipus d'estudiants en relació a la seva nota. Aalumnes amb notes molt bones en tot, alumnes amb males notes en certes assignatures, alumnes que suspenen, entre altres. Però volem que el nostre algoritme explori els grups que poden haver-hi.
 \\
 \\
 Com el que busquem són alumnes amb qualificacions semblants, utilitzarem la tècnica de \textit{K-means}, ja que pot agrupar alumnes en relació a la distància de les seves notes. Però clar, \textit{K-means} té una limitació, necessita com argument el número de clusters que volem segmentar. Hem de trobar una forma de poder trobar la millor $k$.
@@ -930,43 +989,49 @@ En aquest curs tenim un efecte semblant a primer d'Enginyeria Informàtica amb l
 
 \newpage
 
-\subsection{Quina és la tassa d'abandonament per cada tipus de perfil?}
-És cert que els que suspenen abandonen la carrera? Ara ho podrem demostrar amb gràfics estadístics. Ens centrarem en la tassa d'abandonament dels alumnes que cursen primer, tant d'Enginyeria Informàtica com el grau de Matemàtiques. Tornaré a mostrar els perfils per poder discutir cada perfil amb la seva tassa d'abandonament.
+\subsection{Tassa d'abandonament per perfil}
+La primera pregunta que ens plantegem és: \textit{Quina és la tassa d'abandonament per cada tipus de perfil?} És cert que els que suspenen abandonen la carrera? Ara ho podrem demostrar amb gràfics estadístics. Ens centrarem en la tassa d'abandonament dels alumnes que cursen primer, tant d'Enginyeria Informàtica com el grau de Matemàtiques. Mostrarem els perfils, figura \ref{fig:tap}, per poder discutir cada perfil amb la seva tassa d'abandonament, mostrada a la figura \ref{fig:abandonamentprimer}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth]{img/perfils_primer_info.png}
 \caption{Perfils d'alumnes de primer d'Enginyeria Informàtica}
+\label{fig:tap}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth]{img/abandonaments_primer_info.png}
-\caption{Tassa d'abandonaments per perfil}
+\caption{Tassa d'abandonaments per perfil de primer d'Enginyeria Informàtica}
 \label{fig:abandonamentprimer}
 \end{figure}
 
-Els alumnes que amb més probabilitat deixen la carrera són els que suspenen, seguits d'estudiants que no tenen unes notes massa estables. És a dir, que la majoria que passen a segon pertanyen al cluster \textit{BN1} i \textit{A1}. Però si ens fixem una mica en el gràfic d'abandonaments, els perfils d'aprovats i de bones notes, hi ha un petit percentatge indicat que diu que abandonen la carrera. En les dades que tenim, no tenim un camp que ens indiqui si un alumne ha abandonat la carrera o no, ja que no ho tenen registrat. Hem hagut d'agafat per cada perfil tot el conjunt d'alumnes d'aquell perfil i s'ha comprovat per cadascún si té assignatures matriculades a l'any següent. Però clar, hi han alumnes del darrer any que s'han de matricular per l'any vinent encara (i no apareixen matriculats a l'any següent), per això hi ha un petit marge d'error i els clusters \textit{BN1} i \textit{A1} aparèixen amb una mínima tassa d'abandonaments. 
+Els alumnes que amb més probabilitat deixen la carrera són els que suspenen (S1), seguits d'estudiants que no tenen unes notes massa estables (MP1 i MM1). És a dir, que la majoria que passen a segon pertanyen al cluster \textit{BN1} i \textit{A1}. Però si ens fixem una mica en el gràfic d'abandonaments, els perfils d'aprovats (A1) i de bones notes (BN1), hi ha un petit percentatge indicat que diu que abandonen la carrera. En les dades que tenim, no tenim un camp que ens indiqui si un alumne ha abandonat la carrera o no, ja que no ho tenen registrat. Hem hagut d'agafat per cada perfil tot el conjunt d'alumnes d'aquell perfil i s'ha comprovat per cadascún si té assignatures matriculades a l'any següent. Però clar, hi han alumnes del darrer any que s'han de matricular per l'any vinent encara (i no apareixen matriculats a l'any següent), per això hi ha un petit marge d'error i els clusters \textit{BN1} i \textit{A1} aparèixen amb una mínima tassa d'abandonaments degut a aquest error.
 \\
 \\
-Per altre banda tenim el curs de primer de Matemàtiques, on apliquem el mateix algoritme explicat en el paràgraf anterior. També trovem un petit marge d'error en els perfils que ho aproven tot.
+\todo{buscar tots els "Per altra banda" i possar ','}
+Per altra banda, tenim el curs de primer de Matemàtiques, on apliquem el mateix algoritme explicat en el paràgraf anterior. També trovem un petit marge d'error en els perfils que ho aproven tot.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth]{img/perfils_primer_mates.png}
-\caption{Perfils d'alumnes de primer d'Enginyeria Informàtica}
+\caption{Perfils d'alumnes de primer de Matemàtiques}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=.9\linewidth]{img/abandonaments_primer_mates.png}
-\caption{Tassa d'abandonaments per perfil}
+\caption{Tassa d'abandonaments per perfil de primer de Matemàtiques}
+\label{fig:tappm}
 \end{figure}
 
-Igual que en Enginyeria Informàtica, ens trobem que la major tassa d'abandonament es troba en els alumnes que suspenen per mitja totes les assignatures. Seguidament els hi segueixen els estudiants que no tenen unes notes massa regulars i com s'ha comentat anteriorment, els alumnes que estan classificats com \textit{Aprovats}, també surten amb una tassa mínima d'abandonament.
+A la figura \ref{fig:tappm} presentem la tassa d'abandonament dels alumnes de primer del grau de Matemàtiques. Igual que en Enginyeria Informàtica, ens trobem que la major tassa d'abandonament es troba en els alumnes que suspenen per mitja totes les assignatures (S1). Seguidament els hi segueixen els estudiants que no tenen unes notes massa regulars i com s'ha comentat anteriorment, els alumnes que estan classificats com \textit{Aprovats}, també surten amb una tassa mínima d'abandonament.
+\\
+\\
+Tant al grau d'Enginyeria Informàtica com al grau de Matemàtiques podriem definir una acció per al tutor. Després del primer curs, podem incidir (enviar correus electrònics, aconsellar) als alumnes dels perfils amb baixes notes com són els grups S1, MM1 i MP1 per al grau d'Enginyeria Informàtica i S1 i NE1 per al grau de Matemàtiques.
 
-\subsection{Amb quin perfil de provinença encaixa cadascun d'aquests perfils?}
-El que es vol mirar en aquesta pregunta és la conservació de clusters, per exemple, els estudiants que treuen bones notes a primer, segueixen treien bones notes a segon? O, de quina via d'accés solen provenir els estudiants de primer de Matemàtiques? Preguntes com aquestes anem a resoldre en aquest apartat. 
+\subsection{Conservació de clusters}
+La pregunta que ens plantegem és: \textit{Amb quin perfil de provinença encaixa cadascun d'aquests perfils?} El que es vol mirar en aquesta pregunta és la conservació de clusters, per exemple, els estudiants que treuen bones notes a primer, segueixen treien bones notes a segon? O, de quina via d'accés solen provenir els estudiants de primer de Matemàtiques? Preguntes com aquestes anem a resoldre en aquest apartat. 
 \\
 \\
 Començarem, com hem fet anteriorment, amb els estudiants que han cursat primer d'Enginyeria Informàtica. Com s'ha explicat en la secció de preguntes plantejades, contrastem primer d'Enginyeria Informàtica amb les vies d'accés: Batxillerat i salt d'Universitat.
@@ -975,111 +1040,55 @@ Començarem, com hem fet anteriorment, amb els estudiants que han cursat primer 
 \centering
 \includegraphics[width=.6\linewidth]{img/conservacio_clusters_primer_info.png}
 \caption{Conservació de clusters dels alumnes de primer d'Informàtica}
+\label{fig:ccei1}
 \end{figure}
 
-En l'interior del cercle, podem veure el mateix gràfic de pastilla que s'ha vist anteriorment dels perfils dels estudiants de primer d'Enginyeria Informàtica [fig:~\ref{fig:pasprimerinfo}]. Per fóra del cercle de cada perfil es veu quantitativament d'on venen els alumnes del perfil. 
+En la figura [\ref{fig:ccei1}] podem veure que a l'interior del cercle, tenim el mateix gràfic de pastilla que s'ha vist anteriorment dels perfils dels estudiants de primer d'Enginyeria Informàtica [fig:~\ref{fig:pasprimerinfo}]. Per fóra del cercle de cada perfil es veu quantitativament d'on venen els alumnes del perfil. 
 \\
 \\
-Es pot veure com en tots els perfils, venen meitat de Batxillerat i meitat de Salt d'Universitat aproximadament. Es pot distingir que els estudiants classificats com \textit{Suspesos} solen venir més de Batxillerat que no pas d'una altre Universitat, tot i que la diferència és petita. Com s'ha vist en la gràfica d'abandonament [fig:~\ref{fig:abandonamentprimer}], els alumnes que passen amb més abundancia a segon són els classificats com \textit{A1} i \textit{BN1}, per tant procedim a eliminar a la resta, ja que són minoria, i així més llegible la següent gràfica.
+Es pot veure com en tots els perfils, venen meitat de Batxillerat i meitat de Salt d'Universitat aproximadament. Es pot distingir que els estudiants classificats com \textit{Suspesos} solen venir més de Batxillerat que no pas d'una altre Universitat, tot i que la diferència és petita. Com s'ha vist en la gràfica d'abandonament [fig:~\ref{fig:abandonamentprimer}], els alumnes que passen amb més abundancia a segon són els classificats com \textit{A1} i \textit{BN1}, per tant procedim a eliminar a la resta, ja que són minoria, i queda més llegible en la figura \ref{fig:ccei2}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=.6\linewidth]{img/conservacio_clusters_segon_info.png}
-\caption{Conservació de clusters dels alumnes de primer d'Informàtica}
+\caption{Conservació de clusters dels alumnes de segon d'Informàtica}
+\label{fig:ccei2}
 \end{figure}
 
 Ara és veu amb més claredat el significat d'un gràfic com aquest, ja que podem veure com els que solen treure bones notes a primer d'Enginyeria Informàtica, solen treure bones notes a segon també, i els que es classificaven com \textit{Aprovats de primer}, solen parar a \textit{Aprovats de segon}. També podem veure com un petit percentatge d'alumnes que treuen notes a primer, passen a treure notes més baixes a segon, igual que alumnes etiquetats com \textit{Aprovats de primer} amb una petit quanitat paren a perfils inestables com \textit{ISF2} o \textit{PPIE2}.
 
 \newpage
 
-Per últim es veurà la provinença dels estudiants de primer del grau de Matemàtiques, on també es pot veure una tendencia.
+Per últim es veurà la provinença dels estudiants de primer del grau de Matemàtiques, on també es pot veure una tendencia [fig:~\ref{fig:ccm1}].
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=.6\linewidth]{img/conservacio_clusters_primer_mates.png}
-\caption{Conservació de clusters dels alumnes de primer d'Informàtica}
+\caption{Conservació de clusters dels alumnes de primer de Matemàtiques}
+\label{fig:ccm1}
 \end{figure}
 
-En aquesta gràfica es veu amb claredat que la major part d'estudiants que han cursat primer del grau de Matemàtiques, venen de Batxillerat. 
-
-Una de les raons per les quals vam plantejar aquesta pregunta, era per saber si podiem determinar un perfil d'estudiant al grau a partir de la via d'accés d'aquest. Malauradament no s'ha trobat cap correlació com aquesta, però s'han pogut veure resultats molt coherents i que no esperavem trobar.
+En la gràfica de la figura \ref{fig:ccm1} es veu amb claredat que la major part d'estudiants que han cursat primer del grau de Matemàtiques, venen de Batxillerat. 
+\\
+\\
+Una de les raons per les quals vam plantejar aquesta pregunta, era per saber si podiem determinar un perfil d'estudiant al grau a partir de la via d'accés d'aquest. Malauradament no s'ha trobat cap correlació com aquesta, però s'han pogut veure resultats molt coherents i que no esperavem trobar.  L'anàlisi de les dades ens ha permès extreure informació útil per als tutors d'estudis. Depenent del perfil actual de l'alumne se li podrà recomanar un material de suport a l'estudi adicional.
 
 \newpage
 
 \subsection{Predicció de notes i ranking de dificultat d'assignatures}
-Per últim en aquest apartat s'explicará  les tècniques de predicció que hem fet servir i quins resultats, tant quantitatius com qualitatius, s'han obtingut. La resposta que busquem d'aquesta pregunta, és poder mostrar un ranking, personalitzat per cada alumne, d'assignatures ordenades per la dificultat (és a dir, per notes) que li pot arribar a costar a cada estudiant.
+Een aquest apartat s'expliquen  les tècniques de predicció que hem fet servir i quins resultats, tant quantitatius com qualitatius, s'han obtingut. El que busquem és poder mostrar un ranking, personalitzat per cada alumne, d'assignatures ordenades per la dificultat (és a dir, per notes) que li costarà a cada estudiant.
 \\
 \\
-Abans de construïr el ranking, necessitem saber quina és la tècnica de predicció que s'ajusta millor a les nostres dades. Les técniques utilitzades per aquest experiment han sigut les següents, ja anteriorment explicades:
+Abans de construïr el ranking, necessitem saber quina és la tècnica de predicció que s'ajusta millor a les nostres dades. Les técniques utilitzades per aquest experiment han sigut les següents, anteriorment explicades [secció:~\ref{subsec:predictors}]:
 
 \begin{itemize}[leftmargin=.5in]
-	\item Recomanador col·laboratiu bassat en estudiant
-	\item Recomanador col·laboratiu bassat en assignatures
-	\item \textit{Random Forest Regressor}
-	\item Regressor lineal
+	\item Recomanador col·laboratiu bassat en estudiant (RCxE)
+	\item Recomanador col·laboratiu bassat en assignatures (RCxA)
+	\item \textit{Random Forest Regressor} (RFR)
+	\item Regressor lineal (LR)
 \end{itemize}
 
-El primer pas és la construcció d'un recomanador col·laboratiu, com l'explicat a la secció de Recomanadors, seguint l'interfaç dels predictors de la biblioteca informàtica de \textit{Scikit-learn}. Un predictor en \textit{sklearn} ha de tenir un mètode \textit{fit} i un altre que sigui \textit{predict}. En la següent figura es pot veure el fluxe de les crides a les funcions.
-
-\begin{figure}[h]
-\begin{minted}
-[
-framesep=5mm,
-baselinestretch=1.2,
-bgcolor=bgcode,
-fontsize=\footnotesize
-]
-{python}
-from sklearn.linear_model import LinearRegression
-# Definim les variables
-X = [(1,2,3), (5,3,2), (3,1,0), (123,433,452), (233,231,786)]
-# Fem el promig per cada Xi
-y = [2, 3.33, 1.33, 336, 416]
-# Definim una nova variable
-x = (45,34,65) # promig = 48
-# Creem un predictor
-predictor = LinearRegression()
-predictor.fit(X,y)
-print predictor.predict(x)
-# >> 47.9271056831
-\end{minted}
-\caption{Fluxe de crides de funcions d'un predictor d'sklearn}
-\end{figure}
-
-\newpage
-
-Primer s'ha de cridar al mètode \textit{fit} i seguidament ja podem cridar al mètode \textit{predict} tantes vegades com volguem per predir.
-
-\begin{figure}[h]
-\begin{minted}
-[
-framesep=5mm,
-baselinestretch=1.2,
-bgcolor=bgcode,
-fontsize=\footnotesize
-]
-{python}
-class Recomender(BaseEstimator):
-    def __init__(self, method=coefPearson, transpose=False):
-        self._m = None
-        self._method = method
-        self._transpose = transpose
-        
-    def fit(self, X, y):
-        # ...
-        return self
-    
-    def predict(self, X):
-        # ...
-        return predicted
-\end{minted}
-\caption{Estructura del recomanador col·laboratiu}
-\end{figure}
-
-Aquesta és la estructura del recomanador col·laboratiu que s'ha construït seguint les fórmules explicades en la secció de Recomanadors. El constructor accepta per paràmetre la funció de similitud entre items (per defecte el coeficient de pearson), i un boleà que determina si és un Recomanador col·laboratiu basat en alumnes (\textit{transpose=False}) o un Recomanador col·laboratiu basat en assignatures (\textit{transpose=True}).
-\\
-\\
-Un cop ja tenim llest tots els predictors, anem a mesurar quantitativament quin dels 4 predictors s'adequa més a les nostres dades. Les mètriques que s'utilitzaran són les que ja s'han explicat en la secció de \textit{Mètriques de predictors}.
+Anem a mesurar quantitativament quin dels 4 predictors s'adequa més a les nostres dades. Les mètriques que s'utilitzaran són les que ja s'han explicat en la secció de \textit{Mètriques de predictors} [secció:~\ref{par:metriquespredictors}].
 
 \paragraph{Proves quantitatives}
 Totes les proves realitzades s'han fet a partir de les notes d'Enginyeria Informàtica. Les proves es basen en dividir les dades en \textit{training} i \textit{test}. \textit{Training} és el conjunt de dades que fem servir per entrenar el predictor (a través de la funció \textit{fit}). \textit{Test} és el conjunt de dades que utilitzem per predir (funció \textit{predict}) i així comprovar si el predictor és lo suficient bo o no. Les proves s'han realitzat a partir de dos conjunts diferents de dades:
@@ -1121,17 +1130,18 @@ Per últim tenim les proves realitzades per mesurar el ranking que volem desenvo
 
 \paragraph{Resultats de les proves quantitatives}
 Comançarem amb les proves fetes amb dades continues amb els dos conjunt de dades que s'han explicat en l'apartat anterior.  Utilitzem un 90\% de \textit{training} i un 10\% de \textit{test}.
-
+\\
 \begin{figure}[h]
 \centering
 \includegraphics[width=.7\linewidth]{img/boxplot_primer_segon.png}
 \caption{Prova amb dades continues. Traning: primer}
+\label{fig:boxplotdctp}
 \end{figure}
 
-En aquesta figura podem veure un diagrama de caixes, aquest tipus de diagrama representa visualment una distribució. Cada caixa té les mateixes característiques: la línea del centre representa la mediana de la distribució, la caixa es visualitza un 50\% de la mostra (des del primer quartil, fins al tercer), les línes verticals determinen el límit de les distribucions i per últim tota mostra que estigui fóra de lo normal (mostra atípica) és visualitza per fóra dels límits amb un punt.
+En la figura \ref{fig:boxplotdctp} podem veure un diagrama de caixes, aquest tipus de diagrama representa visualment una distribució. Cada caixa té les mateixes característiques: la línea del centre representa la mediana de la distribució, la caixa es visualitza un 50\% de la mostra (des del primer quartil, fins al tercer), les línes verticals determinen el límit de les distribucions i per últim tota mostra que estigui fóra de lo normal (mostra atípica) és visualitza per fóra dels límits amb un punt.
 \\
 \\
-La distribució que podem veure a la figura són els errors que es presenten en cada predicció, pertant un predictor perfecte, mostrarà una distribució uniforme en el 0. En la figura es pot veure els quatre predictors utilitzats i quina distribució d'error segueix cadascún. Veiem que el predictor més estable i que concentra millor els errors són el recomanador col·laboratiu basat en estudiant i el \textit{random forest regressor}. Per un altre banda tenim el regressor lineal que presenta la mediana més baixa, tot i que el tercer quartil és massa elevat. Els \textit{outlayers}  (mostres atípiques) que veiem tenen una explicació. Què passa si un alumne té un imprevist i no pot cursar una assignatura ja matrículada? Aquest factor no el contemplen els predictors. És per això que tenim observacións atípiques, perquè els predictors potser prediuen que un alumne treurà un 7, però l'alumne per qualsevol raó es desmatricula de l'assignatura, llavors en aquella assignatura li queda un 0. Més avall es mostra un exemple d'una mostra atípica amb una prova qualitativa.
+La distribució que podem veure a la figura \ref{fig:boxplotdctp} són els errors que es presenten en cada predicció, pertant un predictor perfecte, mostrarà una distribució uniforme en el 0. En la figura es pot veure els quatre predictors utilitzats i quina distribució d'error segueix cadascún. Veiem que el predictor més estable i que concentra millor els errors són el recomanador col·laboratiu basat en estudiant i el \textit{random forest regressor}. Per un altre banda tenim el regressor lineal que presenta la mediana més baixa, tot i que el tercer quartil és massa elevat. Els \textit{outlayers}  (mostres atípiques) que veiem tenen una explicació. Què passa si un alumne té un imprevist i no pot cursar una assignatura ja matrículada? Aquest factor no el contemplen els predictors. És per això que tenim observacións atípiques, perquè els predictors potser prediuen que un alumne treurà un 7, però l'alumne per qualsevol raó es desmatricula de l'assignatura, llavors en aquella assignatura li queda un 0. Més avall es mostra un exemple d'una mostra atípica amb una prova qualitativa.
 
 Les mateixes conclusions podem extreure de les mètriques que utilitzem per fer aquesta prova:
 
@@ -1424,22 +1434,22 @@ Per últim podem veure aquest cas de fracàs, on els dos ranking no s'assemblen.
 
 \newpage
 \section{Conclusions}
-Com resultat de la investigació estadística dins del marc del projecte d'innovació docent, és possible concloure resultats com l'alta conservació de perfils quan un estudiant passa de primer a segon d'Engineria Informàtica, o una alta tassa d'abandonament per part d'alumnes que suspenen les assignatures de primer. A més, tot i que en alguns resultats no s'ha obtingut el que es volia, s'han explorat nous resultats i conclusions que no s'havien arribat a tenir en compte.
+Per dur a terme aquest treball era necessari seguir les etapes d'un projecte de ciència de les dades. Hem pogut transformar les dades en coneixement, que era un dels objectius plantejats en aquest treball de fi de grau. Fer un anàlisi estadístic sobre dades acadèmiques ens serveix com a base per al projecte d'innovació docent.
 \\
 \\
-Per dur a terme aquest treball era necessari seguir les etapes d'un projecte de ciència de les dades. Hem pogut transformar les dades en coneixement, que era un dels objectius plantejats d'aquest treball. Fer un anàlisi estadístic sobre dades acadèmiques ens serveix com a base per al projecte d'innovació docent.
+Com resultat de la investigació dins del marc del projecte d'innovació docent, és possible concloure resultats com l'alta conservació de perfils quan un estudiant passa de primer a segon d'Engineria Informàtica, o una alta tassa d'abandonament per part d'alumnes que suspenen les assignatures de primer. A més, tot i que en alguns resultats no s'ha obtingut el que s'esperava, s'han explorat nous resultats i conclusions que no s'havien arribat a tenir en compte.
 \\
 \\
-Amb els resultats obtinguts, aquest treball pot ajudar a prendre decisions al cap d'estudis, tutors i professors.
+Amb els resultats obtinguts, aquest treball pot ajudar a prendre decisions al cap d'estudis, tutors i professors dels estudis de la Facultat de Matemàtiques.
 
 \subsection{Treball futur}
-Com s'ha explicat des del principi, aquest treball entre dins del marc d'un projecte d'innovació docent, i forma part de l'anàlisi estadístic de les dades acadèmiques. El treball futur a implementar en aquest projecte són els següents punts:
+Com s'ha explicat des del principi, aquest treball entra dins del marc d'un projecte d'innovació docent, i forma part de l'anàlisi estadístic de les dades acadèmiques. El treball futur a implementar en aquest projecte són els següents punts:
 
 \subparagraph{Desenvolupament d'un sistema intel·ligent} 
-Construcció d'una eina de suport per al tutor d'estudis que li permeti explorar amb més profunditat l'expedient acadèmic d'un alumne o d'una assignatura. Una de les eines a incorporar seria un sistema de recomanació de matrícula i gràfics estadístics que puguin ajudar a visualitzar la informació que presenten les dades.
+Construcció d'una eina de suport per al tutor d'estudis que li permeti explorar amb més profunditat les dades acadèmiques d'un alumne o d'una assignatura. Una de les eines a incorporar seria un sistema de visualització de les recomanacions de matrícula i gràfics estadístics que puguin ajudar a visualitzar la informació que presenten les dades.
 
 \subparagraph{Avaluació}
-Un cop construït l'eina per al tutor, hauria de passar en fase de prova, per a que els tutors d'estudis la provin i puguin identificar problemes o limitacions del sistema.
+Un cop construïda l'eina per al tutor, hauria de passar a fase de prova, per a que els tutors d'estudis la provin i puguin identificar problemes o limitacions del sistema.
 
 \newpage
 
