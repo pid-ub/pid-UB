@@ -704,6 +704,7 @@ També calculem la desviació estàndard per veure si els errors són més o men
 $$ \sigma = \sqrt{ \frac{1}{n} \sum_{i=1}^n (\left| y_{pred_i}-y_{test_i}\right| - \mu)^2 } $$
 
 \subparagraph{\textit{Mean Rangking Score (MRS)}}
+\label{subpar:mrs}
 Aquesta és una técnica desenvolupada per nosaltres, està basada en la mesura de \textit{Error promig absolut}, però amb valors discrets. És una mesura supervisada per tal de mesurar quant de bo és un ranking que s'hagi predit. Es tracta d'una mitja a partir de les distancies d'error en el ranking. La métrica presenta la següent fórmula:
 
 $$ \mathrm{MRS} = \frac{1}{n}\sum_{i=1}^n \left| \gamma(y_{pred_i}) -  \gamma(y_{test_i})\right| $$
@@ -1090,17 +1091,17 @@ Abans de construïr el ranking, necessitem saber quina és la tècnica de predic
 
 Anem a mesurar quantitativament quin dels 4 predictors s'adequa més a les nostres dades. Les mètriques que s'utilitzaran són les que ja s'han explicat en la secció de \textit{Mètriques de predictors} [secció:~\ref{par:metriquespredictors}].
 
-\paragraph{Proves quantitatives}
-Totes les proves realitzades s'han fet a partir de les notes d'Enginyeria Informàtica. Les proves es basen en dividir les dades en \textit{training} i \textit{test}. \textit{Training} és el conjunt de dades que fem servir per entrenar el predictor (a través de la funció \textit{fit}). \textit{Test} és el conjunt de dades que utilitzem per predir (funció \textit{predict}) i així comprovar si el predictor és lo suficient bo o no. Les proves s'han realitzat a partir de dos conjunts diferents de dades:
+\subsubsection{Estratègia de validació}
+Totes les proves realitzades s'han fet a partir de les notes d'Enginyeria Informàtica. Per fer aquestes proves s'ha utilitzat la tècnica de \textit{cross-validation}, que  consisteix en la partició del conjunt de les dades en \textit{training} i \textit{test} de tal manera que s'entrena amb el subconjunt de \textit{training} i s'avalua amb el subconjunt de \textit{test}. Fent aquestes proves podrem comprovar quin dels predictors és el més adequat. Les proves s'han realitzat a partir de dos conjunts diferents de dades:
 
 \begin{itemize}[leftmargin=.5in]
-	\item Una on s'aplica com a \textit{training} les notes de primer d'Enginyeria Informàtica i com a \textit{test} les notes de segon.
-	\item Per un altre banda s'ha aplicat un \textit{training} amb les notes de primer i segon, i un \textit{test} amb les notes de tercer d'Enginyeria Informàtica.
+	\item Una on s'aplica com a \textit{training} les notes de primer d'Enginyeria Informàtica i com a \textit{test} les notes de segon. A partir d'ara l'anomenarem conjunt nº1.
+	\item Per un altre banda s'ha aplicat un \textit{training} amb les notes de primer i segon, i un \textit{test} amb les notes de tercer d'Enginyeria Informàtica. A partir d'ara l'anomenarem conjunt nº2.
 \end{itemize}
 
-Per cada una de les proves s'han realitzat diferents proves, que són les següents:
+Per cadascun dels conjunts s'han realitzat diferents proves, detallades a continuació:
 
-\subparagraph{Proves amb dades continues}
+\paragraph{Proves amb dades continues}
 Provem els predictors mirant l'error produït amb les notes real i les predites qualificades del 0 al 10. Les mesures utilitzades en aquesta prova són:
 
 \begin{itemize}[leftmargin=.5in]
@@ -1110,10 +1111,10 @@ Provem els predictors mirant l'error produït amb les notes real i les predites 
 	\item \textbf{Desviació estàndard} Utilitzada per veure si els errors es concentren o estan molt disgregats.
 \end{itemize}
 
-A més a partir dels errors produïts per cada predictor, es mostra un diagrama de caixes \cite{boxplot} per representar la distribució dels errors. Més endavant amb un dels resultats s'explicarà l'interpretació del diagrama de caixes. Utilitzem un 90\% de \textit{training} i un 10\% de \textit{test}.
+A més a partir dels errors produïts per cada predictor, es mostra un diagrama de caixes \cite{boxplot} per representar la distribució dels errors. Més endavant amb un dels resultats s'explicarà l'interpretació del diagrama de caixes. S'utilitza un 90\% de \textit{training} i un 10\% de \textit{test}.
 
 
-\subparagraph{Proves amb dades discretes}
+\paragraph{Proves amb dades discretes}
 Igual que comprovem l'error produïr amb valors continus, del 0 al 10, ara etiquetem les notes segons el seu rang. El rang que s'ha utilitzat és el següent:
 
 \begin{itemize}[leftmargin=.5in]
@@ -1125,23 +1126,23 @@ Igual que comprovem l'error produïr amb valors continus, del 0 al 10, ara etiqu
 
 Per poder visualitzar aquesta prova s'ha utilitzat una matriu de confusió \cite{confusionmatrix}, on es representa amb un mapa de color (o heatmap). En la següent secció s'explicarà que és un mapa de color juntament amb els resultats obtinguts. S'utilitza un 50\% de \textit{training} i un 50\% de \textit{test}.
 
-\subparagraph{Proves amb ranking d'assignatures}
-Per últim tenim les proves realitzades per mesurar el ranking que volem desenvolupar. La mètrica utilitzada ha sigut la \textit{Mean Ranking Score}, que com ja s'ha explicat anteriorment, és una mètrica que ens permet mesurar quant de bó és un ranking.
+\paragraph{Proves amb ranking d'assignatures}
+Per últim tenim les proves realitzades per mesurar el ranking que volem desenvolupar. La mètrica utilitzada ha sigut la \textit{Mean Ranking Score}, que com ja s'ha explicat anteriorment [secció:~\ref{subpar:mrs}], és una mètrica que ens permet mesurar quant de bó és un ranking. S'utilitza un 90\% de \textit{training} i un 10\% de \textit{test}.
 
-\paragraph{Resultats de les proves quantitatives}
-Comançarem amb les proves fetes amb dades continues amb els dos conjunt de dades que s'han explicat en l'apartat anterior.  Utilitzem un 90\% de \textit{training} i un 10\% de \textit{test}.
+\subsubsection{Resultats de les proves amb dades continues}
+Comançarem amb les proves fetes amb dades continues amb els dos conjunt de dades que s'han explicat en l'apartat anterior.
 \\
 \begin{figure}[h]
 \centering
 \includegraphics[width=.7\linewidth]{img/boxplot_primer_segon.png}
-\caption{Prova amb dades continues. Traning: primer}
+\caption{Prova amb dades continues del conjunt nº1}
 \label{fig:boxplotdctp}
 \end{figure}
 
-En la figura \ref{fig:boxplotdctp} podem veure un diagrama de caixes, aquest tipus de diagrama representa visualment una distribució. Cada caixa té les mateixes característiques: la línea del centre representa la mediana de la distribució, la caixa es visualitza un 50\% de la mostra (des del primer quartil, fins al tercer), les línes verticals determinen el límit de les distribucions i per últim tota mostra que estigui fóra de lo normal (mostra atípica) és visualitza per fóra dels límits amb un punt.
+En la figura \ref{fig:boxplotdctp} podem veure un diagrama de caixes de l'error de predicció dels diferents predictors. Aquest tipus de diagrama representa visualment una distribució. Cada caixa té les mateixes característiques: la línea del centre representa la mediana de la distribució, la caixa visualitza un 50\% de la mostra (des del primer quartil, fins al tercer), les línes verticals determinen el límit de les distribucions i per últim tota mostra que estigui fóra de lo normal (mostra atípica) es visualitza per fóra dels límits amb un punt.
 \\
 \\
-La distribució que podem veure a la figura \ref{fig:boxplotdctp} són els errors que es presenten en cada predicció, pertant un predictor perfecte, mostrarà una distribució uniforme en el 0. En la figura es pot veure els quatre predictors utilitzats i quina distribució d'error segueix cadascún. Veiem que el predictor més estable i que concentra millor els errors són el recomanador col·laboratiu basat en estudiant i el \textit{random forest regressor}. Per un altre banda tenim el regressor lineal que presenta la mediana més baixa, tot i que el tercer quartil és massa elevat. Els \textit{outlayers}  (mostres atípiques) que veiem tenen una explicació. Què passa si un alumne té un imprevist i no pot cursar una assignatura ja matrículada? Aquest factor no el contemplen els predictors. És per això que tenim observacións atípiques, perquè els predictors potser prediuen que un alumne treurà un 7, però l'alumne per qualsevol raó es desmatricula de l'assignatura, llavors en aquella assignatura li queda un 0. Més avall es mostra un exemple d'una mostra atípica amb una prova qualitativa.
+La distribució que podem veure a la figura \ref{fig:boxplotdctp} són els errors que es presenten en cada predicció, pertant un predictor perfecte, mostrarà una distribució uniforme en el 0. En la figura es pot veure els quatre predictors utilitzats i quina distribució d'error segueix cadascún. Veiem que el predictor més estable i que concentra millor els errors són el recomanador col·laboratiu basat en estudiant (RCxE) i el \textit{random forest regressor} (RFR). Per un altra banda, tenim el regressor lineal que presenta la mediana més baixa, tot i que el tercer quartil és massa elevat. Els \textit{outliers} (mostres atípiques) que veiem tenen una explicació. Què passa si un alumne té un imprevist i no pot cursar una assignatura ja matrículada? Aquest factor no el contemplen els predictors. És per això que tenim observacións atípiques, perquè els predictors potser prediuen que un alumne treurà un 7, però l'alumne per qualsevol raó es desmatricula de l'assignatura, llavors en aquella assignatura li queda un 0. En la taula \ref{tab:rppcf} es mostra un exemple d'una mostra atípica amb una prova qualitativa.
 
 Les mateixes conclusions podem extreure de les mètriques que utilitzem per fer aquesta prova:
 
@@ -1155,17 +1156,20 @@ Les mateixes conclusions podem extreure de les mètriques que utilitzem per fer 
 \textbf{RFR}           & 0.868          & 1.152          & 0.505          & 0.632          \\
 \textbf{LR}            & 0.809          & 1.071          & 0.575          & 0.646          \\ \hline
 \end{tabular}
-\caption{Mètriques per a proves quantitatives amb dades continues. Traning: primer}
+\caption{Mètriques per a proves quantitatives amb dades continues del conjunt nº1}
+\label{tab:mpqdctp}
 \end{table}
 
-Observem amb les mètriques que els millors predictors són RCxE, RFR i LR, tot i el que presenta menys errors és RCxE ja que té el l'error promig quadràtic més baix.
-
-Igual que hem fet proves amb les notes de primer com a \textit{training} i les de segon com a \textit{test}, ara visualitzarem els mateixos resultats, però com a \textit{training} tenim les notes de primer juntament amb les de segon i com a \textit{test} les notes de tercer.
+Observem amb les mètriques que els millors predictors són RCxE, RFR i LR, tot que el presenta menys errors és RCxE ja que té el l'error promig quadràtic més baix.
+\\
+\\
+Igual que hem fet proves amb el conjunt nº1, procedim a visualitzar en la figura \ref{fig:pdctps} i a la taula \ref{tab:mpqdcc2} les proves amb el conjunt nº2.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=.7\linewidth]{img/boxplot_primersegon_tercer.png}
-\caption{Prova amb dades continues. Traning: primer i segon}
+\caption{Prova amb dades continues del conjunt nº2}
+\label{fig:pdctps}
 \end{figure}
 
 \begin{table}[h]
@@ -1178,12 +1182,15 @@ Igual que hem fet proves amb les notes de primer com a \textit{training} i les d
 \textbf{RFR}           & 0.786          & 1.522          & 0.339          & 0.951          \\
 \textbf{LR}            & 0.932          & 1.890          & 0.283          & 1.011          \\ \hline
 \end{tabular}
-\caption{Mètriques per a proves quantitatives amb dades continues. Traning: primer i segon}
+\caption{Mètriques per a proves quantitatives amb dades continues del conjunt nº2}
+\label{tab:mpqdcc2}
 \end{table}
 
-En aquestes proves podem seguir veient com els millors predictors són el RCxE i el RFR, tot i que ara ambdós presenten més mostres atípiques. Les distribucions i els resultats són semblants als resultats provats amb les dades anteriors. L'únic predictor que marca més diferència és el Random Forest Regressor, ja que disminueix força  la mediana de la distribució, i l'error promig absolut.
+En la figura \ref{fig:pdctps} s'observa com els millors predictors són el RCxE i el RFR, tot i que ara ambdós presenten més mostres atípiques. Les distribucions i els resultats són semblants als resultats provats amb les dades anteriors. L'únic predictor que marca més diferència és el Random Forest Regressor, ja que disminueix força  la mediana de la distribució, i l'error promig absolut.
 
 \newpage
+
+\subsubsection{Resultats de les proves amb dades discretes}
 
 Ara passem a veure els resultats que s'han obtingut amb les notes discretes (suspés, aprovat, notable i excel·lent). Com ja s'ha explicat, la representació d'aquestes proves es fa amb una matriu de confusió, seguidament paso a descriure que representa.
 
@@ -1212,16 +1219,17 @@ Ara passem a veure els resultats que s'han obtingut amb les notes discretes (sus
   \includegraphics[width=\linewidth]{img/heatmap_lr_primer_segon.png}
   \caption{LR}
 \end{subfigure}
-\caption{Matriu de confusió. Training: primer}
+\caption{Matriu de confusió del conjunt nº1}
+\label{fig:mctp}
 \end{figure}
 
-En cada matriu de colors podem veure 16 caselles, cada fila i columna posa: S, A, N i E, que significa: suspés, aprovat, notable i excel·lent. Cada cel·la significa el percentatge de vegades que la qualificació predita coincideix amb la qualificació real corresponent. Possem un exemple per acabar d'entendre, en la primera figura apareix en la correspondència de aprovats amb aprovats un 40.26\%, això significa que el 40.26\% de les proves diu el predictor que un alumne treurà una nota d'aprovat i la nota real és aprovat. Si ens fixem com més alt sigui el percentatge, més fosca és la casella. Per tant el que busquem és tenir fosca la diagonal, ja que vol dir que ha encertat tot. Ho representem amb aquest tipus de representació perquè equivocar-se de suspés a aprovat és acceptable, però no de suspés a excel·lent, és per això que s'ha de veure una tendencia de color a les rodalies de la diagonal.
+En cada matriu de colors de la figura \ref{fig:mctp} podem veure 16 caselles, cada fila i columna posa: S, A, N i E, que significa: suspés, aprovat, notable i excel·lent. Cada cel·la significa el percentatge de vegades que la qualificació predita coincideix amb la qualificació real corresponent. Possem un exemple, per acabar d'entendre, en la primera figura apareix en la correspondència de aprovats amb aprovats un 40.26\%, això significa que el 40.26\% de les proves diu el predictor que un alumne treurà una nota d'aprovat i la nota real és aprovat. Si ens fixem com més alt sigui el percentatge, més fosca és la casella. Per tant el que busquem és tenir fosca la diagonal, ja que vol dir que ha encertat tot. Ho representem amb aquest tipus de representació perquè equivocar-se de suspés a aprovat és acceptable, però no de suspés a excel·lent, és per això que s'ha de veure una tendencia de color a les rodalies de la diagonal.
 \\
 \\
 Podem veure que els millors predictors són els recomanadors, ja que mantenen força alta la intensitat de color de la diagonal i el color fosc es manté força concentrat a la diagonal. Si ens fixem en el \textit{Random Forest Regressor} i en el \textit{Regressor lineal} confon més per les seves rodalies. En canvi trobem que tots els predictos confonen aprovats per excel·lents.
 \\
 \\
-Per un altre banda també s'ha provat amb \textit{training} les notes de primer juntament amb les de segon i com a \textit{test} les notes de tercer.
+Ara procedim a fer les proves amb el conjunt nº2. Els resultats són els presentats a la figura \ref{fig:mctps}.
 
 \begin{figure}[h]
 \centering
@@ -1249,12 +1257,13 @@ Per un altre banda també s'ha provat amb \textit{training} les notes de primer 
   \caption{LR}
 \end{subfigure}
 \caption{Matriu de convulsió. Training: primer i  segon}
+\label{fig:mctps}
 \end{figure}
 
-En aquesta figura es pot veure com RCxE, RCxA i RFR tenen resultats semblants, però en canvi veiem que el regressor lineal es dispersa molt i sol fer fallos amb un salt de dos categories, com per exemple confondre notables amb suspesos. Tot i així, tots ells concentren força bé els resultats a la diagonal.
-\\
-\\
-Per finalitzar la part de proves quantitatives, ens queda fer les proves per al ranking d'assignatures. Per això s'ha utilitzat, com ja s'ha explicat, la mesura de \textit{Mean Ranking Score} per avaluar la qualitat de cada predictor i veure quin predictor és més bo per fer un ranking. Els resultats obtinguts són purament numèrics i venen representats en la següent taula:
+En la figura \ref{fig:mctps} es pot veure com RCxE, RCxA i RFR tenen resultats semblants, però en canvi veiem que el regressor lineal es dispersa molt i sol fer fallos amb un salt de dos categories, com per exemple confondre notables amb suspesos. Tot i així, tots ells concentren força bé els resultats a la diagonal.
+
+\subsubsection{Resultats de les proves amb ranking d'assignatures}
+Per finalitzar la part de proves quantitatives, fem les proves per al ranking d'assignatures. Per això s'ha utilitzat, com ja s'ha explicat, la mesura de \textit{Mean Ranking Score} per avaluar la qualitat de cada predictor i veure quin predictor és més bo per fer un ranking. Els resultats obtinguts són purament numèrics i venen representats en la següent taula:
 
 \begin{table}[h]
 \centering
@@ -1263,6 +1272,7 @@ Per finalitzar la part de proves quantitatives, ens queda fer les proves per al 
 MRS & 2.05                   & 2.975                   & 2.2                  & 1.975                 \\ \bottomrule
 \end{tabular}
 \caption{Mean Ranking Score. Training: primer}
+\label{tab:mrstp}
 \end{table}
 
 \begin{table}[h]
@@ -1272,17 +1282,24 @@ MRS & 2.05                   & 2.975                   & 2.2                  & 
 MRS & 2.375                   & 3.4                   & 2.375                  & 2.525                 \\ \bottomrule
 \end{tabular}
 \caption{Mean Ranking Score. Training: primer i segon}
+\label{tab:mrstps}
 \end{table}
 
-Es poden veure els resultats de les dues proves (amb diferents \textit{training}) juntes per poder-les discutir. Recordem que la mesura MRS és una mesura que com més propera a 0, millor. Si ens fixem els valors són més baixos a la primera taula, i el millor predictor per aquesta és el recomanador col·laboratiu basat en l'estudiant. On el \textit{training} es fa amb les notes de primer i segon podem veure que els millors predictors són RCxE i RFR.
-
+En les taules \ref{tab:mrstp} i \ref{tab:mrstps} es poden veure els resultats de les dues proves (amb diferents \textit{training}) juntes per poder-les discutir. Recordem que la mesura MRS és una mesura que com més propera a 0, millor. Si ens fixem els valors són més baixos a la primera taula, i el millor predictor per aquesta és el recomanador col·laboratiu basat en l'estudiant. Amb el conjunt nº2 podem veure que els millors predictors són RCxE i RFR.
+\\
+\\
+Podem concloure que el predictors més adequat per a les nostres dades són el RCxE i el RFR, tot i que el RCxE dóna resultats més positius. Ara procedim a fer les proves qualitatives amb el conjunt nº1 amb el RCxE, és a dir, entrenem el recomanador amb les notes de primer i avaluem amb les notes de segon.
 \newpage
 
-\paragraph{Proves qualitatives}
-Un cop hem fet les proves quntitatives i s'ha observat quin predictor és millor per cada cas, passem a utilitzar el millor predictor per veure un cas d'èxit i un de fracàs. En aquest apartat mostraré un cas d'èxit i de fracàs per fer una recomanació de notes, i seguidament un cas d'èxit i fracàs del ranking d'assignatures.
+\subsubsection{Proves qualitatives}
+En aquest apartat mostra un cas d'èxit i un de fracàs per fer una recomanació de notes, i seguidament un cas d'èxit i un de fracàs del ranking d'assignatures.
 \\
 \\
-En les proves quantitatives, hem pogut veure que el millor predictor per predir notes quantitatives (de 0 a 10) és el recomanador col·laboratiu basat en l'estudiant. És per això que utilitzarem aquest predictor per fer les proves qualitatives.
+En les proves quantitatives, hem pogut veure que el millor predictor per predir notes quantitatives (de 0 a 10) és el recomanador col·laboratiu basat en l'estudiant (RCxE). És per això que utilitzarem aquest predictor per fer les proves qualitatives.
+
+\paragraph{Resultats de les proves amb dades continues}
+Primer procedirem a mostrar un dos casos amb dades continues, és a dir, agafarem les notes de primer d'Enginyeria Informàtica de dos alumnes i discutirem els resultats de la predicció amb les notes reals de l'alumne.
+
 
 % cas d'èxit nota quantitativa
 % possar una taula com la de les hores de dedicació
@@ -1293,7 +1310,8 @@ En les proves quantitatives, hem pogut veure que el millor predictor per predir 
       & \rotatebox{90}{P1} & \rotatebox{90}{DDB} & \rotatebox{90}{IO} & \rotatebox{90}{ALGE} & \rotatebox{90}{CAL} & \rotatebox{90}{MD} & \rotatebox{90}{FIS} & \rotatebox{90}{ALGO} \ & \rotatebox{90}{P2}& \rotatebox{90}{ED} \\ \midrule
 Notes & 7.40 & 8.00 & 6.80 & 6.80 & 6.80 & 7.90 & 6.80 & 7.60 & 7.30 & 9.00 \\ \bottomrule
 \end{tabular}
-\caption{Notes reals de primer del primer cas d'èxit}
+\caption{Cas d'èxit: Notes reals d'un alumne primer}
+\label{tab:nrapcedc}
 \end{table}
 
 \begin{table}[h]
@@ -1312,18 +1330,19 @@ PAE  & 7.50        & 7.23           \\
 PIS  & 9.00        & 8.81           \\
 SO1  & 6.80        & 6.31           \\ \bottomrule
 \end{tabular}
-\caption{Resultat de predicció del primer cas d'èxit}
+\caption{Cas d'èxit: Resultats de la predicció}
+\label{tab:rpce}
 \end{table}
 
 \newpage
 
-Aquests són els resultat d'un cas d'èxit. En la primera taula, podem veure les notes reals que ha tret l'alumne en primer, i en la segona les notes que ha tret en segon juntament amb les notes predites pel predictor. Les mètriques d'aquesta predicció són:
+En la taula \ref{tab:nrapcedc} es poden veure les notes reals que ha tret l'alumne en primer, i en la taula \ref{tab:rpce} les notes que ha tret en segon juntament amb les notes predites pel predictor. Les mètriques d'aquesta predicció són:
 \begin{itemize}[leftmargin=.5in]
 	\item \textbf{MAE} 0.47
 	\item \textbf{MSE} 0.48
 \end{itemize}
 
-Si mirem detingudament la comparació de les notes podem veure que la diferència és baixa, l'assignatura que manté una major distància és \textit{Probabilitat i Estadística}.
+Si mirem detingudament la comparació de les notes podem veure que la diferència és baixa, l'assignatura que manté una major distància és \textit{Probabilitat i Estadística} (PIE).
 
 % cas de fracàs nota quantitativa
 % possar una taula com la de les hores de dedicació
@@ -1334,7 +1353,8 @@ Si mirem detingudament la comparació de les notes podem veure que la diferènci
       & \rotatebox{90}{P1} & \rotatebox{90}{DDB} & \rotatebox{90}{IO} & \rotatebox{90}{ALGE} & \rotatebox{90}{CAL} & \rotatebox{90}{MD} & \rotatebox{90}{FIS} & \rotatebox{90}{ALGO} \ & \rotatebox{90}{P2}& \rotatebox{90}{ED} \\ \midrule
 Notes & 6.00 & 8.40 & 6.00 & 6.50 & 7.10 & 7.10 & 5.50 & 7.00 & 6.00 & 6.00 \\ \bottomrule
 \end{tabular}
-\caption{Notes reals de primer del primer cas de fracàs}
+\caption{Cas de fracàs: Notes reals d'un alumne de primer}
+\label{tab:nrppcf}
 \end{table}
 
 \begin{table}[h]
@@ -1353,16 +1373,20 @@ PAE  & 8.30        & 7.51           \\
 PIS  & 0.00        & 6.89           \\
 SO1  & 7.60        & 5.85           \\ \bottomrule
 \end{tabular}
-\caption{Resultat de predicció del primer cas de fracàs}
+\caption{Cas de fracàs: Resultats de la predicció}
+\label{tab:rppcf}
 \end{table}
 
-En aquestes taules podem veure un cas de fracàs, on les mètriques han donat el següent resultat:
+En les taules \ref{tab:nrppcf} i \ref{tab:rppcf} podem veure un cas de fracàs, on les mètriques han donat el següent resultat:
 \begin{itemize}[leftmargin=.5in]
 	\item \textbf{MAE} 1.94
 	\item \textbf{MSE} 8.66
 \end{itemize}
 
-Aquesta és una de les mostres atípiques que s'havien vist en els diagrames de caixa. Podem veure que realment el predictor ha encertat amb la majoria d'assignatures, llevat de PIS i DS. Resulta que l'alumne té un 0 en ambdues assignatures, això pot ser per un error, per que l'alumne hagi abandonat l'assignatura, entre altres. És per això que el predictor no pot contemplar casos com aquest i per això presenta \textit{outlayers}. En aquest cas a més podem veure com l'error promig absolut no és massa alt, però l'error promig quadràtic és elevat a conseqüència de les assignatures de \textit{Projecte integrat de Software} i \textit{Disseny de Software}.
+Aquesta és una de les mostres atípiques que s'havien vist en els diagrames de caixa. Podem veure que realment el predictor ha encertat amb la majoria d'assignatures, llevat de PIS i DS. Resulta que l'alumne té un 0 en ambdues assignatures, això pot ser per un error o per que l'alumne hagi abandonat l'assignatura, entre altres. És per això que el predictor no pot contemplar casos com aquest i per això presenta \textit{outliers}. En aquest cas a més podem veure com l'error promig absolut no és massa alt, però l'error promig quadràtic és elevat a conseqüència de les assignatures de \textit{Projecte integrat de Software} (PIS) i \textit{Disseny de Software} (DS).
+
+\paragraph{Resultats de les proves amb ranking d'assginatures}
+En aquest apartat es veuen dos casos del ranking d'assignatures, un d'èxit i l'altre de fracàs. Comencem amb el cas d'èxit presentat a les taules \ref{tab:nrpscedc} i \ref{tab:rpscedc}.
 
 % cas d'èxit ranking
 % possar una taula com la de les hores de dedicació
@@ -1374,6 +1398,7 @@ Aquesta és una de les mostres atípiques que s'havien vist en els diagrames de 
 Notes & 6.00 & 6.30 & 6.00 & 6.00 & 6.50 & 6.00 & 5.50 & 6.80 & 6.00 & 6.00 \\ \bottomrule
 \end{tabular}
 \caption{Notes reals de primer del segon cas d'èxit}
+\label{tab:nrpscedc}
 \end{table}
 
 \begin{table}[h]
@@ -1393,9 +1418,10 @@ Notes & 6.00 & 6.30 & 6.00 & 6.00 & 6.50 & 6.00 & 5.50 & 6.80 & 6.00 & 6.00 \\ \
 10 & DS          & DS             \\ \bottomrule
 \end{tabular}
 \caption{Resultat de predicció del segon cas d'èxit}
+\label{tab:rpscedc}
 \end{table}
 
-Ara pasem a veure el cas d'èxit del ranking, on agafem el cas que ens dóna un \textit{Mean Ranking Score} més baix. En la primera taula, com els altres casos, veiem les notes que ha tret l'alumne en les assignatures de primer, però ara en la segona taula podem veure el ranking d'assignatures ordenades per dificultat. En aquest cas podem veure com el ranking predit és semblant al ranking real. La \textit{Mean Ranking Score} dóna 1.
+Per determinar el millor i el pitjor cas hem hagut d'escollir els alumnes que tenien millor i pitjor mesura de \textit{Mean Ranking Score}. En la taula \ref{tab:nrpscedc}, com els altres casos, veiem les notes que ha tret l'alumne en les assignatures de primer, però ara en la taula \ref{tab:rpscedc} podem veure el ranking d'assignatures ordenades per dificultat. En aquest cas s'aprecia com el ranking predit és semblant al ranking real. La \textit{Mean Ranking Score} dóna 1.
 
 % cas de fracàs ranking
 % possar una taula com la de les hores de dedicació
@@ -1407,6 +1433,7 @@ Ara pasem a veure el cas d'èxit del ranking, on agafem el cas que ens dóna un 
 Notes & 8.80 & 5.80 & 6.60 & 7.30 & 8.50 & 8.00 & 5.30 & 6.50 & 9.20 & 7.40 \\ \bottomrule
 \end{tabular}
 \caption{Notes reals de primer del segon cas de fracàs}
+\label{tab:nrpscfr}
 \end{table}
 
 \begin{table}[h]
@@ -1426,11 +1453,15 @@ Notes & 8.80 & 5.80 & 6.60 & 7.30 & 8.50 & 8.00 & 5.30 & 6.50 & 9.20 & 7.40 \\ \
 10   & EC     & ICC        \\ \bottomrule
 \end{tabular}
 \caption{Resultat de predicció del segon cas de fracàs}
+\label{tab:rpscfr}
 \end{table}
 
 \newpage
 
-Per últim podem veure aquest cas de fracàs, on els dos ranking no s'assemblen. La seva \textit{Mean Ranking Score} ens ha donat 3.8, una MRS alta, recordem que la MRS és la mitja d'error de diferència de posicions del ranking.
+Per últim podem veure aquest cas de fracàs en les taules \ref{tab:nrpscfr} i \ref{tab:rpscfr}, on els dos ranking no s'assemblen. La seva \textit{Mean Ranking Score} ens ha donat 3.8, una MRS alta i recordem que la MRS és la mitja d'error de diferència de posicions del ranking.
+\\
+\\
+Amb els resultats que hem arribat en aquest apartat de predicció pot ser útil per al tutor d'estudis. Pot determinar quines assignatures anirà malament un alumne i així aplicar una acció corresponent, com ara recomanar suport adicional o repàs de les matèries relacionades amb l'assignatura en qüestió.
 
 \newpage
 \section{Conclusions}
