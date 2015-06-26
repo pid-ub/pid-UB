@@ -75,6 +75,8 @@
 \end{center}
 \end{figure}
 
+\todo{Canviar el títol}
+
 \textbf{\LARGE Treball final de grau} \\
 \vspace*{.5cm}
 \textbf{\LARGE GRAU D'ENGINYERIA INFORMÀTICA } \\
@@ -110,21 +112,19 @@
 
 \pagenumbering{roman}
 
-\todo{Ha de ser redactat en primer persona del plural del present}
-\todo{Revisió de les faltes d'ortografia}
+%\todo{Ha de ser redactat en primer persona del plural del present}
+%\todo{Revisió de les faltes d'ortografia}
 
 
 \section*{\textit{Abstract}}
 
-\textit{Aquest treball està dins del marc d'un projecte d'innovació docent, en el que es proposa una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza, realitzar el seguiment i aconsellar-lo. Per poder arribar a fer aquest sistema intel·ligent per al tutor d'estudis, s'ha realitzat un anàlisi basat en ciència de les dades sobre els resultats acadèmics de la Facultat de Matemàtiques. L'anàlisi es centra en l'exploració de perfils d'estudiants i en la predicció de notes. Dins de l'anàlisi de perfils d'estudiants es mira la tassa d'abandonament per cada perfil i la relació que té cadascun respecte els perfils del curs anterior. Pel que fa a la predicció es realitza un sistema de predicció de notes i un ranking de dificultats d'assignatures per a l'alumne.}
+\textit{This paper is part of an innovative educational project. Its main aim is to provide a support system for teachers, designed to help them when creating any student's profile. In order to create this intelligent system for teachers, data from Mathematics Faculty has been retrieved and analysed. This analysis focuses on student's profiles and score predictions. The profile analysis is bases on previous years' grades as well as an average of how many students abandon their studies. On a side note, it develops also a score and grade prediction as well as a ranking of subjects, listed by level of difficulty depending on the student.}
 
-\todo{canviar}
 \section*{\textit{Resum}}
-\textit{Aquest treball està dins del marc d'un projecte d'innovació docent, en el que es proposa una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza. Per poder arribar a fer aquest sistema intel·ligent per al tutor d'estudis, abans s'ha de fer un anàlisi estadístic sobre els resultats acadèmics de la Facultat de Matemàtiques. L'anàlisi es basa en l'exploració de perfils d'estudiants i en la predicció de notes. Dins de l'anàlisi de perfils d'estudiants es mira la tassa d'abandonament per cada perfil i la relació que té cadascun respecte els perfils del curs anterior. Pel que fa a la predicció es construeix una taula de ranking de dificultats d'assignatures per a un alumne.}
+\textit{Aquest treball està dins del marc d'un projecte d'innovació docent, en el que es proposa una eina de suport per al tutor d'estudis, la qual permeti ajudar al tutor a conèixer millor el perfil de cada alumne que tutoritza, realitzar el seguiment i aconsellar-lo. Per poder arribar a fer aquest sistema intel·ligent per al tutor d'estudis, s'ha realitzat un anàlisi basat en ciència de les dades sobre els resultats acadèmics de la Facultat de Matemàtiques. L'anàlisi es centra en l'exploració de perfils d'estudiants i en la predicció de notes. Dins de l'anàlisi de perfils d'estudiants es mira la tassa d'abandonament per cada perfil i la relació que té cadascun respecte els perfils del curs anterior. Per altra banda, es realitza un sistema de predicció de notes i un ranking d'assignatures ordenades per dificultat enfocat a l'alumne.}
 
-\todo{canviar}
 \section*{\textit{Resumen}}
-\textit{Este trabajo está dentro del marco de un proyecto de innovación docente, en el que se propone una herramienta de soporte para el tutor de estudios, la cual permita ayudar al tutor a conocer mejor el perfil de cada alumno que tutoriza. Para poder llegar a hacer este sistema inteligente para el tutor de estudios, antes hay que hacer un análisi estadístico sobre los resultados académicos de la Facultad de Matemáticas. El análisi se basa en la exploración de perfiles de estudiantes i en la predicción de cualificaciones. Dentro del análisi de perfiles de estudiantes se mira la tasa de abandono para cada perfil i la relación que tiene cada uno respecto los perfiles del curso anterior. Respecto a la predicción se construye una tabla de ranking de dificultad de assignaturas para un alumno.}
+\textit{Este trabajo está dentro del marco de un proyecto de innovación docente, en el que se propone una herramienta de soporte para el tutor de estudios, la cual permita ayudar al tutor a conocer mejor el perfil de cada alumno que tutoriza. Para poder llegar a hacer este sistema inteligente para el tutor de estudios, se ha realizado un análisi basado en ciència de los datos sobre los resultados académicos de la Facultad de Matemáticas. El análisi se centra en la exploración de perfiles de estudiantes i en la predicción de cualificaciones. Dentro del análisi de perfiles de estudiantes se mira la tasa de abandono para cada perfil i la relación que tiene cadauno respecto los perfiles del curso anterior. Por otro lado, se realiza un sistema de predicción de cualificaciones y un ranking de asignaturas ordenadas por dificultad enfocada al alumno.}
 
 
 \newpage 
@@ -189,7 +189,8 @@ Avaluació. S'avalua el sistema per tal de fer proves, i buscar mancances i erro
 Aquest treball forma part de la fase 1, 2 i 3. Les fases 4 i 5 són l'altre part del projecte, i no s'en parlarà en aquest treball.
 
 \subsection{Ciència de les dades}
-La ciència de les dades és el conjunt d'etapes per tal d'arribar a un resultat, en forma de coneixement, a partir d'un conjunt de dades. Aquesta aplica un conjunt de tècniques de diferents àreas, ara com matemàtiques, estadística, teoria de la informació o tecnologia de l'extracció d'informació.
+\label{subsec:cienciadelesdades}
+La ciència de les dades és el conjunt d'etapes per tal d'arribar a un resultat, en forma de coneixement, a partir d'un conjunt de dades. Aquesta aplica un conjunt de tècniques de diferents àreas, com ara matemàtiques, estadística, teoria de la informació o tecnologia de l'extracció d'informació.
 \\
 \\
 Un projecte de ciència de les dades es separa en diverses etapes:
@@ -205,54 +206,56 @@ Un projecte de ciència de les dades es separa en diverses etapes:
 	\item \textbf{Descobriment} Podem segmentar les nostres dades per trobar grups naturals i disgregats? (Clusterització, visualització)
 	\item \textbf{Anàlisis} Com hem de modelar les nostres dades? (Com estan de relacionades cada variable?, Com podem determinar quines són les variables importants?)
 	\item \textbf{Predicció} A partir de les dades que tenim, que podem predir del futur? (Regresions, classificadors, recomanadors)
-	\item \textbf{Evaluació} Com de segur estem dels nostres resultats? (Proves estadístiques, rendiment del model)
+	\item \textbf{Evaluació} Com de segurs estem dels nostres resultats? (Proves estadístiques, rendiment del model)
 \end{enumerate}
 
 \subsection{Etapes del projecte}
+A la secció anterior [secció:~\ref{subsec:cienciadelesdades}], s'han vist les etapes d'un projecte complet de ciència de les dades. Per aquest projecte s'han seguit les mateixes etapes, excepte la etapa d'anàlisis. En cada etapa es detalla que s'ha realitzat dins del context del projecte.
 
 \subsubsection{Plantejament de preguntes}
 La primera etapa és el plantejament de les preguntes que voliem resoldre. A partir de la plataforma trello (explicada en la secció d'eines), entre els participants del projecte vam plantejar preguntes, les quals entre tots decidiem amb quines preguntes ens quedariem i respondriem. Moltes de les preguntes no podíem saber si les podíem respondre fins que ens arribessin les dades, ja que depeniem totalment de la informació que contenien aquestes.
 
 \subsubsection{Adquisició}
-L'adquisició de les dades va ser a partir del Vicerectorat de Política Docent. Aquest ens va proporcionar les dades a través d'una fulla de càlcul. Tot i que les dades vinguessin anonimitzades i tractades pel departament corresponent, vam haver de fer una neteja de dades.
+L'adquisició de les dades s'ha fet a partir del Vicerectorat de Política Docent. Aquest ens ha proporcionat les dades a través d'una fulla de càlcul. Tot i que les dades estan anonimitzades i tractades pel departament corresponent, s'ha hagut de fer una neteja de les dades.
 
 \subsubsection{Neteja de dades}
-En aquesta etapa hem hagut de netejar les dades per tal de poder treballar amb elles. Aquestes van ser les netejes que es van fer:
+En aquesta etapa hem hagut de netejar les dades per tal de poder treballar amb elles. Aquestes són les netejes realitzades:
 
 \subparagraph{Canvi de format}
-Com ja s'ha explicat anteriorment les dades van arribar en un full de càlcul, on en cada fulla havia una taula amb diferent informació. Per poder manipular-les millor des de Python, es va separar cada fulla en un fitxer amb format \textit{csv}, de tal manera que va quedar un fitxer \textit{csv} per taula. En la próxima secció s'explica amb detall les dades obtingudes.
+Per poder manipular les dades amb més comoditat, es separara cada fulla de càlcul en un fitxer amb format \textit{csv}, quedant un fitxer \textit{csv} per taula. En la secció \ref{subsec:explicaciodadesobtingudes} s'explica amb detall l'obtenció de les dades.
 
 \subparagraph{Canvi de nom de les columnes}
-Per tal de poder creuar les diferents taules, els noms de les columnes havien de ser el mateix.
+Per poder creuar les diferents taules, els noms de les columnes han de ser el mateix.
 
 \subparagraph{Enriquiment de les dades}
-A partir d'una font externa hem pogut adquirir el curs i semestre que es cursa cada assignatura, per tant el que fem és creuar aquestes dades amb les dades que tenim de cada assignatura per tal de tenir més informació per assignatura.
+A partir d'una font externa hem pogut adquirir el curs i semestre en que es cursa cada assignatura. Creuem aquestes dades amb les dades que tenim per tal de tenir més informació per assignatura.
 
 \subparagraph{Unió de graus}
-L'any 2009 el grau en Enginyeria Informàtica de la UB tenia com a codi \textit{G1041}, però a partir de l'any 2010 el codi va passar a ser \textit{G1077}. Les assignatures eren les mateixes, tot i que tenien codis diferents també. Vam procedir a fer la unió dels \textit{G1041} amb \textit{G1077}, per tal de no perdre informació rellevant, ni considerar-la per separat.
+L'any 2009 el grau en Enginyeria Informàtica de la UB té el codi \textit{G1041}, però a partir de l'any 2010 el codi passa a ser \textit{G1077}. Les assignatures són les mateixes, tot i que tenen codis diferents. S'ha fet la unió dels \textit{G1041} amb \textit{G1077}, per tal de no perdre informació rellevant, ni considerar-la per separat.
 
 \subparagraph{Eliminació del curs 2014, segon semestre}
-Explorant les dades em vaig adonar que alumnes que s'havien matriculat l'any 2014, però encara no havien acabat de cursar l'assignatura, en aquesta els hi apareix un 0. Això fa que dintre de les notes dels alumnes hi hagin dades incoherents, per aquesta raó es va decidir eliminar totes les notes del segon semestre i de l'any 2014. El percentatge d'eliminació de dades és d'un 10.91\% del total de notes que tenim.
+Explorant les dades es pot veure que alumnes que s'han matriculat l'any 2014, però encara no han acabat de cursar l'assignatura, en aquesta els hi apareix un 0. Això fa que dintre de les notes dels alumnes hi hagin dades incoherents, per aquesta raó s'ha procedit a eliminar totes les notes del segon semestre i de l'any 2014. El percentatge d'eliminació de dades és d'un 10.91\% del total de notes.
 
 \subparagraph{Normalitació de les notes}
-Per tal d'evitar els canvis de mitja i variança en cada assignatura cursada per any, ja sigui per un canvi de professor, canvi de pla docent, diferents promocions, \ldots es va decidir normalitzar les notes per any i per assignatura aplicant una normalització d'unitat tipificada \cite{normtipificada} en la qual s'aplica per cada dada la següent fórmula:
+Per tal d'evitar els canvis de mitja i variança en cada assignatura cursada per any, ja sigui per un canvi de professor, canvi de pla docent, diferents promocions, \ldots s'ha procedit a normalitzar les notes per any i per assignatura aplicant una normalització d'unitat tipificada \cite{normtipificada} en la qual s'aplica per cada dada la següent fórmula:
 $$ z = \frac{x - \mu}{\sigma}, $$
 
 on $\mu$ és el promig per any i per assignatura, i $\sigma$ és la desviació estàndard per any i per assignatura. Amb això aconseguim mitja 0 i desviació estàndard 1.
 
 \subsubsection{Clusterització}
-Aquesta etapa era necessaria per poder respondre a una des les preguntes plantejades, i és: \textit{Hi ha diferents perfils d'alumnes?}. Per tal de  respondre a aquesta pregunta s'han aplicat mètodes de clusterització a partir de les notes dels alumnes diferenciats per cursos.
+Aquesta etapa és necessaria per poder respondre a una des les preguntes plantejades, i és: \textit{Hi ha diferents perfils d'alumnes?} [secció:~\ref{subsec:perfilsestudiants}]. Per tal de  respondre a aquesta pregunta s'han aplicat mètodes de clusterització a partir de les notes dels alumnes diferenciats per cursos.
 
 \subsubsection{Predicció}
-La predicció, com s'ha explicat abans, és la predicció del futur a partir de les dades disponibles. En aquest cas hem volgut predir les notes que pot arribar a treure un alumne en base a les notes que ha tret en cursos anteriors.
+Es realitza la predicció on s'ha volgut predir les notes que pot arribar a treure un alumne en base a les notes que ha tret en cursos anteriors.
 
 \subsubsection{Evaluació}
-Un cop construida la predicció, hem d'avaluar quant de bona és. S'ha d'evaluar de forma quantitativa (mitjançant mètriques) i qualitativament (amb la mostra de casos).
+Un cop construïda la predicció, hem d'avaluar quant de bona és. S'ha evaluat de forma quantitativa (mitjançant mètriques) i qualitativament (amb la mostra de casos).
 
 \newpage
 
-\subsection{Explicació de les dades obtingudes} 
-En aquest apartat s'explicarà la informació més rellevant que podem trobar en les nostres dades. Recordem que les dades ens havien arrivat en una fulla de càlcul, i aquesta l'hem separat per diversos fitxers amb format .csv.
+\subsection{Explicació de les dades obtingudes}
+\label{subsec:explicaciodadesobtingudes} 
+En aquest apartat s'explicarà la informació més rellevant que podem trobar en les nostres dades. Recordem que les dades les tenim en forma de fulla de càlcul, i aquesta l'hem separat per diversos fitxers, amb format .csv.
 \\
 \\
 Les dades que hem pogut adquirir són molt enriquidores, tenen la informació necesaria per fer un estudi ampli tant per als estudiants com per a l'estudi d'assignatures. A més les dades venen anonimitzades, a priori no podem obtenir la informació d'un alumne que coneguem. Les dades les tenim separades en diferents fitxers, els quals estan relacionats entre si mitjantçant identificadors, com ara un identificador d'alumne o el codi d'una assignatura. Els fitxers són els següents:
@@ -261,22 +264,23 @@ Les dades que hem pogut adquirir són molt enriquidores, tenen la informació ne
 Aquest fitxer conté per cada fila informació sobre un alumne en termes de matriculació: l'any d'inici de carrera, grau que realitza, la via amb la qual va accedir a la carrera, la nota d'accés a la Universitat, entre altres.
 
 \subparagraph{Informació d'assignatures}
-Aquí podem trobar la informació de cada assignatura que existeix en els graus d'Enginyeria Informàtica i matemàtiques. Per cada fila tenim la següent informació: l'identificador de l'assignatura, el nom de l'assignatura, els crèdits ECTS corresponents a aquesta i el grau a la que pertanyen. A més a més, vam obtenir mitjantçant una altre font d'informació, per cada assignatura de quin curs i semestre es tractava. Aquesta dada la vam creuar amb l'anterior per ampliar la informació per assignatura.
+Aquí trobem la informació de cada assignatura que existeix en els graus d'Enginyeria Informàtica i matemàtiques. Cada fila presenta la següent informació: l'identificador de l'assignatura, el nom de l'assignatura, els crèdits ECTS corresponents a aquesta i el grau a la que pertanyen. A banda d'aquestes dades, s'ha obtingut altra font d'informació d'assignatures, on per cada assignatura detalla de quin curs i semestre es tracta. Aquesta dada s'ha creuat amb l'anterior per ampliar la informació per assignatura.
 
 \subparagraph{Qualificacions per alumne i per assignatura}
-Per últim i més important, el fitxer que conté les qualificacions de tots els alumnes per assignatura, és a dir, per cada fila tenim: l'identificador de l'alumne que realitze l'assignatura, l'identificador de l'assignatura realitzada, la qualificació d'aquella assignatura, l'ensenyament del qual es tracta, l'any en el que es va realitzar l'assignatura i el tipus d'apunt (ordinaria, reconeixement o convalidada).
+Per últim i més important, tenim el fitxer que conté les qualificacions de tots els alumnes per assignatura, és a dir, per cada fila podem observar: l'identificador de l'alumne que realitza l'assignatura, l'identificador de l'assignatura realitzada, la qualificació d'aquella assignatura, l'ensenyament del qual es tracta, l'any en el que es va realitzar l'assignatura i el tipus d'apunt (ordinaria, reconeixement o convalidada).
 
 \newpage
 
 \subsection{Preguntes plantejades}
+\label{subsec:preguntesplantejades}
 \subsubsection{Perfils d'estudiants}
-La primera pregunta plantejada és: \textit{Hi ha diferents perfils d'alumnes?} A partir de la distribució de les notes de cada alumne per cada assignatura que ha fet, podem determinar que hi ha diferents perfils d'estudiants? Això és el que ens estem preguntant. S'han agafat tots els alumnes que hagin cursat totes les assignatures de primer i després les de segon, tant al grau d'Enginyeria Informàtica com al grau de matemàtiques. La experiència ens diu que hi han alumnes bons en programació i dolents en les assignatures de matemàtiques a primer del grau d'Enginyeria Informàtica. Però per a la resta de cursos, quins perfil podem trobar? Ara que tenim les dades això ho podem saber, convertirem les dades en coneixement.
+La primera pregunta plantejada és: \textit{Hi ha diferents perfils d'alumnes?} A partir de la distribució de les notes de cada alumne per cada assignatura que ha fet, podem determinar que hi ha diferents perfils d'estudiants? Això és el que ens estem preguntant. S'han agafat tots els alumnes que hagin cursat totes les assignatures de primer i després les de segon, tant al grau d'Enginyeria Informàtica com al grau de Matemàtiques. La experiència ens diu que hi han alumnes bons en programació i dolents en les assignatures de matemàtiques a primer del grau d'Enginyeria Informàtica. Però per a la resta de cursos, quins perfil podem trobar? Ara que tenim les dades això ho podem saber, convertirem les dades en coneixement.
 
 \subsubsection{Tassa d'abandonament per perfil}
-La pregunta proposada és: \textit{Quina és la tassa d'abandonament per cada tipus de perfil?} A partir dels perfils que han sigut determinats en la pregunta anterior, quin és el percentatge d'abandonament per cadascun d'aquests. Volem saber si és cert que els alumnes que van a parar al perfil d'alumnes que ho suspenen tot són els que solen abandonar la carrera. Fins ara això és el que podem saber a partir de l'experiència, però es pot demostrar amb dades i corroborar-ho.
+La pregunta proposada és: \textit{Quina és la tassa d'abandonament per cada tipus de perfil?} A partir dels perfils que han sigut determinats en la pregunta anterior, quin és el percentatge d'abandonament per cadascun d'aquests? Volem saber si és cert que els alumnes que van a parar al perfil d'alumnes que ho suspenen tot són els que solen abandonar la carrera. Fins ara això és el que podem saber a partir de l'experiència, però es pot demostrar amb dades i corroborar-ho.
 
 \subsubsection{Conservació de clusters}
-Al llarg dels anys s'ha pogut notar que els alumnes que solen treure bones notes a primer d'Enginyeria Informàtica, acaben treien bones notes a segon la gran majoria. Per això ens vam plantejar la següent pregunta: \textit{Amb quin perfil de provinença encaixa cadascun d'aquests perfils?} Ara bé, això és cert? Per això ens plantegem aquesta pregunta, a partir de perfils d'origen, volem saber amb quin perfil de destí solen anar. En aquest cas hem fet els següents creuaments per cada grau:
+Al llarg dels anys s'ha pogut notar que els alumnes que solen treure bones notes a primer d'Enginyeria Informàtica, acaben treien bones notes a segon la gran majoria. Per això ens vam plantejar la següent pregunta: \textit{Amb quin perfil de provinença encaixa cadascun d'aquests perfils?} Ara bé, això és cert? Per això ens plantegem aquesta pregunta, a partir de perfils d'origen, volem saber amb quin perfil de destí solen dirigir-se. En aquest cas hem fet els següents creuaments per cada grau:
 
 \begin{table}[h]
 \centering
@@ -294,10 +298,10 @@ Els perfils d'alumnes de primer i segon són els perfils determinats a la primer
 	\item Salt d'Universitat (Uni)
 \end{enumerate}
 
-Hem obviat els alumnes provinents de cicle o ja diplomants, per la seva baixa presència. Les vies d'accés només les comprovem amb els alumnes que hagin cursat totes les assignatures de primer, sense convalidar, el que fa que no apareguin una gran quantitat d'alumnes de cicle, ja que la majoria d'aquests tenen alguna assignatura convalidada de primer. I pel que fa als alumnes ja diplomats, no hi han masses en totes les dades presents.
+S'ha obviat als alumnes provinents de cicle o ja diplomants, per la seva baixa presència. Les vies d'accés només les comprovem amb els alumnes que hagin cursat totes les assignatures de primer, sense convalidar, el que fa que no aparegui una gran quantitat d'alumnes de cicle formatiu, ja que la majoria d'aquests tenen alguna assignatura convalidada a primer. Pel que fa als alumnes ja diplomats, no hi han masses en les dades presents.
 
 \subsubsection{Predicció de notes i ranking de dificultat d'assignatures}
-A partir de les notes que ha tret un alumne en el seu passat, podem predir quines assignatures li aniran bé i malament en el futur? Bé, això és el que ens plantejem en aquesta última pregunta, volem recomanar a un alumne en quines assignatures no li aniran gaire bé per a que així pugui reforçar més el temari que es donarà en aquella assignatura. Recordem que la finalitat del projecte d'innovació docent és que aquesta eina sigui un suport per al tutor, és a dir, la predicció no ens dirà el que ha de fer un alumne, aquesta decisió es delega al tutor que a partir de l'eina decidirà que fer.
+A partir de les notes que ha tret un alumne en el seu passat, podem predir quines assignatures li aniran bé i malament en el futur? Bé, això és el que ens plantejem en aquesta última pregunta, volem recomanar a un alumne en quines assignatures no li aniran gaire bé per a que així el tutor d'estudis recomani a l'alumne reforçar més el temari que es donarà en aquella assignatura. A més, es realitza un ranking d'assginatures per cada alumne, que determina la dificultat d'aquestes. D'aquesta manera el tutor podrà donar uns consells o uns altres, depenent de l'ordre present de les assignatures en el ranking.
 \newpage
 
 \section{Planificació}
@@ -318,12 +322,13 @@ Les úniques etapes noves que trobem són: la de formació, és la etapa dedicad
 \newpage
 
 \subsection{Diagrama de Gantt}
-S'ha construït dos diagrames de Gantt, un a partir de la planificació inicial i l'altre amb la planificació real per tal de veure les diferències.
+S'ha construït dos diagrames de Gantt, un a partir de la planificació inicial [Figura:~\ref{fig:planificacioinicial}] i l'altre amb la planificació real [Figura~\ref{fig:planificacioreal}] per tal de veure les diferències.
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=\linewidth]{img/initialplanification.png}
 \caption{Planificació inicial}
+\label{fig:planificacioinicial}
 \end{center}
 \end{figure}
 
@@ -332,14 +337,18 @@ S'ha construït dos diagrames de Gantt, un a partir de la planificació inicial 
 \begin{center}
 \includegraphics[width=\linewidth]{img/realplanification.png}
 \caption{Planificació real}
+\label{fig:planificacioreal}
 \end{center}
 \end{figure}
 
+S'observa que s'ha pogut seguir la planificació inicial, tot i que en el cas de la neteja de dades s'ha allargat el temps. Això és degut a la espera de noves revisions de dades a través del Vicerectorat de Política Docent.
+\\
+\\
 El Treball de fi de Grau equival a 18 crèdits ECTS, si cada crèdit equival a 25 hores, llavors tenim:
 
 $$18\,cr\grave{e}dits \cdot \frac{25\,hores}{1\,cr\grave{e}dits} = 450\,hores$$
 
-Per tant totes les tasques s'han de dividir en 450 hores, les hores dedicades han sigut les següents:
+Per tant totes les tasques s'han de realitzar en 450 hores, les hores dedicades han sigut les següents:
 
 \begin{table}[h]
 \centering
@@ -422,26 +431,6 @@ Bokeh \cite{bokeh} és una biblioteca informàtica per a la visualització inter
 \paragraph{Seaborn}
 Per últim tenim Seaborn \cite{seaborn} que també és una biblioteca informàtica per a visualitazció de dades com Bokeh, amb gràfiques específiques per a la visualització de resultats estadístics. A més té una part dedicada a les paletes de colors i la qual permet escollir un conjunt de colors afavorits per mostrar les dades.
 
-\begin{figure}[h]
-\begin{minted}
-[
-framesep=5mm,
-baselinestretch=1.2,
-bgcolor=bgcode,
-fontsize=\footnotesize
-]
-{python}
-%matplotlib inline
-import seaborn as sbn
-palette = sbn.color_palette("hls", 5)
-sbn.palplot(palette)
-\end{minted}
-\begin{center}
-\includegraphics[width=8cm]{img/palplot_seaborn.png}
-\end{center}
-\caption{Elecció d'una paleta de 5 colors}
-\end{figure}
-
 
 \subsubsection{Eines d'edició}
 \paragraph{IPython notebook}
@@ -454,6 +443,9 @@ Texmaker \cite{texmaker} és una eina d'edició de \LaTeX, la qual permet poder 
 \hypertarget{tecniquesutilitzades}{
 	\subsection{Tècniques utilitzades}
 }
+
+A continuació es presenten les tècniques i mètriques de clusterització i predicció de dades utilitzades en aquest projecte. La finalitat és proporcionar un coneixement per poder passar a la secció de \textit{Experiments i resultats} [secció:~\ref{sec:experimentsiresultats}].
+
 \subsubsection{Clusterització (Agrupacions)}
 La clusterització és molt important en el món de les dades, permet reconèixer diferents grups de ítems de les nostres dades, en el nostre cas d'alumnes. Per això, abans de veure els resultats i experiments explorats, cal entendre les diferències entre les diferents tècniques de clusterització. En aquest projecte hem fet servir dues tècniques, on l'objectiu d'elles és el mateix, desframentar les dades i trobar diferents grups d'alumnes. Aquestes dues tècniquies són K-means i MeanShift, ambdues implementades en la biblioteca informàtica de Scikit-learn.
 
@@ -461,9 +453,9 @@ La clusterització és molt important en el món de les dades, permet reconèixe
 \textit{K-means} \cite{k-means} probablement és un dels algoritmes d'agrupació més conegut. Partint de $n$ elements, divideix aquests $n$ elements en $k$ grups (argument obligatòri de l'algoritme) on cada element pertany al grup més proper a la mitjana. L'algoritme de \textit{K-means} està descrit per la següent fórmula:
 \\
 \\
-Tenint un conjunt d'elements $(x_1, x_2, \ldots, x_n)$ on cada elements és un vector $d$ dimensional, \textit{K-means} construeix una partició dels elements en $k$ grups, on $k \leq n$ quedant $S = \{S_1, S_2, \ldots, S_k\}$. Amb la finalitat de minimitzar la suma dels quadrats dintre de cada grup:
+Tenint un conjunt d'elements $\mathbf{(x_1, x_2, \ldots, x_n)}$ on cada elements és un vector $d$ dimensional, \textit{K-means} construeix una partició dels elements en $k$ grups, on $k \leq n$ quedant $\mathbf{S} = \{S_1, S_2, \ldots, S_k\}$. Amb la finalitat de minimitzar la suma dels quadrats dintre de cada grup:
 
-$$ \underset{S} {arg\,min} \sum_{i=1}^{k} \sum_{x_j \in S_i} \left\| x_j - \mu_i \right\|^2 $$
+$$ \underset{\mathbf{S}} {arg\,min} \sum_{i=1}^{k} \sum_{\mathbf{x} \in S_i} \left\| \mathbf{x} - \mu_i \right\|^2 $$
 
 on $\mu_i$ és el centroide dels punts del conjunt $S_i$, és a dir, el punt mig.
 \\
@@ -757,13 +749,14 @@ L'anàlisis de components principals o PCA \cite{pca} el que fa és escollir un 
 \newpage
 
 \section{Experiments i resultats}
-En aquest apartat s'explicarà pas per pas els resultats obtinguts per cada pregunta plantejada. Fins ara s'han llegit tots els conceptes necessaris per poder entendre aquesta secció de la documentació. Començaré amb les preguntes relacionades amb la clusterització i acabaré amb els resultats obtinguts amb la predicció de notes.
-\\
-\\
+\label{sec:experimentsiresultats}
+En aquest apartat s'explicarà pas per pas els experiments realitzats i els resultats obtinguts per cada pregunta plantejada a la secció [sec:\ref{subsec:preguntesplantejades}]. Fins ara s'han presentat tots els conceptes necessaris per poder entendre aquesta secció. Primer es mostren les preguntes relacionades amb la clusterització i es finalitza amb els resultats obtinguts amb la predicció de notes.
+
+\subsection{Preparació previa als experiments}
 Abans de començar a comentar els resultats, explicaré de quines dades parteixo per respondre cada pregunta. D'inicial tenim tota una taula on cada fila és la qualificació d'un alumne donada un assignatura, per tant en cada fila tenim informació com \textit{l'identificador d'alumne, assignatura, tipus d'apunt (convalidada, ordinaria o de reconeixement), qualificació de l'assignatura,} \ldots És a partir d'aquesta taula que fem una conversió de tal manera que en cada fila ens quedi un alumne i cada columna sigui una assignatura, construint una matriu tal que així:
 
 $$
-\bordermatrix{C &         a_1   &    a_2   &   \cdots    &    a_m  \cr
+\mathrm{C} = \bordermatrix{ &         a_1   &    a_2   &   \cdots    &    a_m  \cr
                   e_1    &  c_{11}  &  c_{12}  &   \cdots    &  c_{1m} \cr
                   e_2    &  c_{21}  &  c_{22}  &   \cdots    &  c_{2m}    \cr
                   \vdots &  \vdots  &  \vdots  &   \ddots    &  \vdots \cr
@@ -773,25 +766,28 @@ $$
 on:
 \begin{itemize}[leftmargin=.5in]
 	\item [$e_i$] és un estudiant.
-	\item [$a_i$] és una assignatura.
-	\item [$c_{ij}$] és la nota d'un alumne donada una assignatura.
+	\item [$a_j$] és una assignatura.
+	\item [$c_{ij}$] és la nota de l'alumne $i$ donada una assignatura $j$.
 \end{itemize}
 
-$C$ és una matriu amb coeficients reals, $C\in M_{nxn} (\mathbb{R})$ on $0 \leq c_{ij} \leq 10$, és a dir aquesta matriu no conté cap nombre desconegut i que cada alumne $e_i$ ha cursat tot el conjunt d'assignatures $\{a_1, a_2, a_3, \ldots, a_m\}$.
+$C\in \mathbb{R}^{n \times n}$ on $0 \leq c_{ij} \leq 10$, la matriu no conté cap nombre desconegut i que cada alumne $e_i$ ha cursat tot el conjunt d'assignatures $\{a_1, a_2, a_3, \ldots, a_m\}$.
 \\
 \\
 El conjunt d'assignatures que apareixen en les columnes pot variar depenent de la pregunta que volem respondre, pot ser el conjunt d'assignatures de primer, com el conjunt de les de primer més les de segon. Però a partir d'una matriu $C$ com aquesta em basaré algunes qüestions.
 
 \newpage
-
+\todo{buscar: 'técnica' i 'Però clar' -> 'tanmateix' i 'pk'}
 \subsection{Perfils d'estudiants}
-La resposta a la pregunta: \textit{Hi ha diferents perfils d'alumnes?} és trobar diferents tipus d'estudiants en relació a la seva nota. Aalumnes amb notes molt bones en tot, alumnes amb males notes en certes assignatures, alumnes que suspenen, entre altres. Però volem que el nostre algoritme explori els grups que poden haver-hi.
+\label{subsec:perfilsestudiants}
+La resposta a la pregunta: \textit{Hi ha diferents perfils d'alumnes?} és trobar diferents tipus d'estudiants en relació a la seva nota. Alumnes amb notes molt bones en tot, alumnes amb males notes en certes assignatures, alumnes que suspenen, entre altres. Però volem que el nostre algoritme explori els grups que poden haver-hi de forma no supervisada, és a dir, sense indicar-li quins són els grups a priori.
 \\
 \\
-Com el que busquem són alumnes amb qualificacions semblants, utilitzarem la tècnica de \textit{K-means}, ja que pot agrupar alumnes en relació a la distància de les seves notes. Però clar, \textit{K-means} té una limitació, necessita com argument el número de clusters que volem segmentar. Hem de trobar una forma de poder trobar la millor $k$.
+Com el que busquem són grups d'alumnes amb qualificacions semblants, utilitzarem la tècnica de \textit{K-means}.Aquesta tècnica és capaç d'agrupar alumnes en relació a la distància de les seves notes. \textit{K-means} té una limitació, necessita com argument el número de clusters que volem trobar. Hem de buscar una forma de poder trobar la millor $k$.
 \\
 \\
-La primera opció que vam pensar és aplicar \textit{K-means} amb diferents \textit{k} i per cada prova, calcular la mesura de \textit{Silhouette}. L'algoritme de \textit{K-means} rep com a paràmetre una matriu com la matriu $C$ amb els alumnes que hagin cursat totes les assignatures de primer de cada grau implantat en la Facultat de Matemàtiques de la Universitat de Barcelona. 
+La primera opció és aplicar \textit{K-means} amb diferents \textit{k} i per cada prova, calcular la mesura de \textit{Silhouette}. Es calcula la \textit{silhouette} perquè volem saber com de disgregats està cada perfil i determinar si els perfils són robustos. L'algoritme de \textit{K-means} rep com a paràmetre una matriu com la matriu $C$ amb els alumnes que hagin cursat totes les assignatures de primer de cada grau implantat en la Facultat de Matemàtiques de la Universitat de Barcelona. 
+
+\todo{possar creuetes al gràfic de sota}
 
 \begin{figure}[h]
 \centering
@@ -806,37 +802,39 @@ La primera opció que vam pensar és aplicar \textit{K-means} amb diferents \tex
   \caption{Matemàtiques}
 \end{subfigure}
 \caption{Càlcul de la mesura \textit{Silhouette}}
+\label{fig:silhouettekmeans}
 \end{figure}
 
-Aquest gràfic ens diu que la millor $k$ en ambdós casos és $k=2$ i la mesura de silhouette descendeix conforme augmenta el paràmetre $k$. Però clar aquest resultat no ens interesa, perquè busquem un número de clusters major que 2, encara que els clusters estiguin menys disgregats. Per tant com aquesta tècnica no ens serveix hem de buscar una altre forma per determinar quina és la millor $k$.
+Els gràfics de la Figura \ref{fig:silhouettekmeans} ens diuen que la millor $k$ en ambdós casos és $k=2$ i la mesura de silhouette descendeix conforme augmenta el paràmetre $k$. Tanmateix, aquest resultat amb $k=2$ no és interessant per al nostre anàlisi perquè busquem un número de clusters major que 2, encara que els clusters siguin menys disgregats. Podem opinar que la mesura \textit{silhouette} és major amb $k=2$ perquè les notes es separen molt bé en aprobats i en suspesos, sobretot al primer curs de cada grau. Però nosaltres volem explorar més perfils, per tant hem de buscar una altre forma per determinar quina és la millor $k$.
 \\
 \\
-L'altre solució proposada és reduïr la dimensionalitat de les dades per tal de poder visualitzar-les en un pla dos-dimensional. Per poder fer això podem aplicar la tècnica de PCA per reduïr de 10 dimensions a 2. Un cop visualitzem cada estudiant en un espai 2D, podem aplicar un algoritme d'agrupació com \textit{Mean Shift} per veure quants clusters hi han i poder determinar una $k$ per cada curs.
+L'altre solució proposada és reduïr la dimensionalitat de les dades per tal de poder visualitzar-les en un pla dos-dimensional. D'aquesta manera podrem veure visualment els grups que tenim per cada curs. Apliquem la tècnica de PCA per reduïr de 10 dimensions a 2. Com a suport visual, podem aplicar un algoritme de clusterització, així com \textit{Mean Shift}, per tal de diferenciar millor els perfils. 
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth]{img/pca_info_mates.png}
-\caption{Mean Shift després d'aplicar PCA}
+\caption{Visualització dels alumnes en un espai dos-dimensional}
+\label{fig:pca-meanshift}
 \end{figure}
 
 \newpage
 
-Ara es poden distingir millor el número de clusters o agrupacions que trobem per cada curs.
+Com es pot veure a la Figura \ref{fig:pca-meanshift}, tenim diferents perfils per cada gràfica. Passem a discutir quina és la millor $k$ per cada curs.
 
 \subparagraph{Primer d'Enginyeria Informàtica}
-Ens separa tot el conjunt de punts en 6 agrupacions (\textit{vermell, beix, blau claret, verd, lila i blau fosc}), però el grup \textit{blau fosc i lila} són un grup tan reduït i separat de la resta que el podriem comptar com un sol cluster. $k=5$
+Ens separa tot el conjunt de punts en 6 agrupacions (\textit{vermell, beix, blau claret, verd, lila i blau fosc}), però el grup \textit{blau fosc i lila} són un grup tan reduït i separat de la resta que el podriem comptar com un sol cluster: $k=5$
 
 \subparagraph{Segon d'Enginyeria Informàtica}
-Per a aquest curs ens separa als estudiants en 4 grups, i podem veure que els clusters estan força disgregats entre ells i no fa falta unificar cap.  $k=4$
+Per a aquest curs ens separa als estudiants en 4 grups, i podem veure que els clusters estan força disgregats entre ells i no fa falta unificar cap:  $k=4$
 
 \subparagraph{Primer de Matemàtiques} 
-Per a primer del grau de Matemàtiques ens separa les observacions en 3 clusters. Com no es veu cap anomalia, a part de la petita separació dels petits punts verds, podem considerar els tres clusters.  $k=3$
+Per a primer del grau de Matemàtiques ens separa les observacions en 3 clusters. Com no es veu cap anomalia, a part de la petita separació dels petits punts verds, podem considerar els tres clusters:  $k=3$
 
 \subparagraph{Segon de Matemàtiques}
-Aquest és el curs que m'ha donat més problemes, perquè té els punts més distanciats entre ells i això fa que no es pugui interpretar el número de clusters per aplicar \textit{K-means}. Més endavant veurem que el número de clusters òptim és 3, ja que amb 4 ens dóna dos clusters molt semblants, els quals es poden unificar. $k=3$
+Aquest és el curs que m'ha donat més problemes, perquè té els punts més distanciats entre ells i això fa que no es pugui interpretar el número de clusters per aplicar \textit{K-means}. Més endavant veurem que el número de clusters òptim és 3, ja que amb 4 ens dóna dos clusters molt semblants, els quals es poden unificar: $k=3$
 \\
 \\
-Ara que ja tenim el valor de $k$ adeqüat per cada curs, podem aplicar la tècnica de \textit{K-means}. S'ha utilitzat una combinació de colors adequada per cada perfil.
+Ara que ja tenim el valor de $k$ adeqüat per cada curs, podem aplicar la tècnica de \textit{K-means}. S'ha utilitzat una combinació de colors adequada per cada perfil, veure Figura \ref{fig:colorsperfils}
 
 \begin{figure}[h]
 \centering
@@ -861,18 +859,21 @@ Ara que ja tenim el valor de $k$ adeqüat per cada curs, podem aplicar la tècni
   \caption{Altres}
 \end{subfigure}
 \caption{Categoria de colors utilitzada per representar els perfils d'estudiants}
+\label{fig:colorsperfils}
 \end{figure}
 
 \newpage
 
-Començarem comentant els resultats obtinguts amb el curs de primer d'Enginyeria Informàtica on hem dit que aplicariem \textit{K-means} amb $k=5$.
+Comentem els resultats obtinguts amb el curs de primer d'Enginyeria Informàtica on hem aplicat \textit{K-means} amb $k=5$.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth]{img/perfils_primer_info.png}
 \caption{Perfils d'alumnes de primer d'Enginyeria Informàtica}
+\label{fig:perfilsprimerinfo}
 \end{figure}
 
+\todo{Possar la etiqueta del perfil en la llegenda si es pot}
 \begin{figure}[h]
 \centering
 \includegraphics[width=.55\linewidth]{img/perfils_primer_info_pastilla.png}
@@ -880,33 +881,39 @@ Començarem comentant els resultats obtinguts amb el curs de primer d'Enginyeria
 \label{fig:pasprimerinfo}
 \end{figure}
 
-Primer explicaré que és el que veiem en aquests gràfics i així poder interpretar els demés. Cada gràfic són els diferents perfils d'estudiants que ha trobat la tècnica de \textit{K-means}. En cadascun d'ells trobem com a títol l'etiqueta assignada a aquell perfil i el color de cadascún depén de la categoria explicada abans. En l'eix d'abscisses es veuen les assignatures (en aquest cas les de primer d'Enginyeria Informàtica), i en l'eix d'ordenades tenim la mitja de cada assignatura (longitud de la barra). Per últim les línees negres determinen la desviació estàndard de la distribució de cada assignatura i la línea vermella és una marca per identificar l'alçada de l'aprovat.
+Cada gràfic de la Figura \ref{fig:perfilsprimerinfo} correspon als diferents perfils d'estudiants que ha trobat la tècnica de \textit{K-means}. En cadascun d'ells trobem com a títol l'etiqueta assignada a aquell perfil i el color de cadascún depén de la categoria (Figura \ref{fig:colorsperfils}). En l'eix d'abscisses es veuen les assignatures (en aquest cas les de primer d'Enginyeria Informàtica), i en l'eix d'ordenades la mitja de les notes dels alumnes de cada assignatura (longitud de la barra). Per últim les línees negres determinen la desviació estàndard de la distribució de cada assignatura i la línea vermella és una marca per identificar l'alçada de l'aprovat. En la Figura \ref{fig:pasprimerinfo} es mostra el percentatge d'alumnes que pertanyen a cada agrupació.
+\\
+\\
+Els perfils explorats del primer curs d'Enginyeria Informàtica es descriuen de la següent manera:
 
-\subparagraph{MP1 - Millors en programació de primer d'Informàtica} 
-Aquest perfil encaixa amb els alumnes que tenen millores notes en les assignatures de programació que en les de Matemàtiques. La distribució d'aquest és molt dispersa, això ho podem veure per la llargada de la barra negra (desviació estàndard). També és, perquè la mostra és petita, representa el 5.36\% de la mostra total.
 
-\subparagraph{BN1 - Bones notes de primer d'Informàtica}
+
+\subparagraph{1 - BN1: Bones notes de primer d'Informàtica}
 Aquest perfil correspon als alumnes que tenen bones notes en totes les assignatures de primer i com podem veure en el gràfic de pastilla, representen un 23.37\% del total, sent el segon perfil més abundant. Podem veure ara que la mostra és més gran, la desviació estàndard és menor, és a dir, aquest perfil és força estable, tots els estudiants que hi pertanyent es distancien amb una qualificació promig d'1.5 aproximadament.
 
-\subparagraph{S1 - Suspesos de primer d'Informàtica}
+\subparagraph{2 - S1: Suspesos de primer d'Informàtica}
 Com podem veure, aquest perfil són els estudiants que suspenen la majoria d'assignatures. A primeres podem pensar que són els que solen deixar la carrera i és això el que anem a respondre en la següent pregunta plantejada. També podem veure que són un 17.2 \% del total d'alumnes que han cursat les assignatures de primer, no són un percentatge baix.
 
-\subparagraph{A1 - Aprovats de primer d'Informàtica}
+\subparagraph{3 - A1: Aprovats de primer d'Informàtica}
 Són la major part dels alumnes, amb un 38.31\% del total, i són els alumnes que de mitja treuen entre 5 i 7. Igual que passa amb el cluster \textit{BN1}, la desviació estàndard de cada assignatura és força baixa, i això fa que el cluster sigui consistent.
 
-\subparagraph{MM1 - Millors en Matemàtiques de primer d'Informàtica}
+\subparagraph{4 - MP1: Millors en programació de primer d'Informàtica} 
+Aquest perfil encaixa amb els alumnes que tenen millores notes en les assignatures de programació que en les de Matemàtiques. La distribució d'aquest és molt dispersa, això ho podem veure per la llargada de la barra negra (desviació estàndard). També és, perquè la mostra és petita, representa el 5.36\% de la mostra total.
+
+\subparagraph{5 - MM1: Millors en Matemàtiques de primer d'Informàtica}
 Aquest perfil igual que \textit{MP1}, és bastant inestable, ja que tenen una desviació estàndard alta, és a dir, hi ha una diversitat de notes elavada, no es concentren tots els alumnes a tenir la mateixa nota. Tot i que siguin dispersos, són un 15.71 \% del total, un percentatge forç alt.
 \\
 \\
-Fent un anàlisis general de les gràfiques, podem veure que en l'assignatura \textit{Estructura de Dades} (ED) presenta sempre una desviació més petita que la resta d'assignatures en cada perfil, és a dir, que les notes en concentren més en la mitja marcada. Per un altre banda també es pot veure que en tots els perfil, sense mirar la qualificació corresponent, la nota més alta en els 6 perfils és de l'assignatura de \textit{Càlcul} (CAL).
+Si mirem el resultats en general de les gràfiques de la Figura \ref{fig:perfilsprimerinfo}, podem veure que en l'assignatura \textit{Estructura de Dades} (ED) presenta sempre una desviació més petita que la resta d'assignatures en cada perfil, és a dir, que les notes es concentren més en la mitja marcada. També es veu en tots els perfil, sense mirar la qualificació corresponent, la nota més alta correspon a l'assignatura de \textit{Càlcul} (CAL).
 \\
 \\
-Seguint amb l'anàlisis podem veure també els perfils de tots els alumnes que hagin cursat totes les assignatures de segon, on he aplicat \textit{K-means} amb $k=4$.
+Seguint amb l'anàlisi, a la Figura \ref{fig:perfilssegoninfo} podem veure els perfils de tots els alumnes que hagin cursat totes les assignatures de segon. S'ha aplicat \textit{K-means} amb $k=4$.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=.9\linewidth]{img/perfils_segon_info.png}
 \caption{Perfils d'alumnes de segon d'Enginyeria Informàtica}
+\label{fig:perfilssegoninfo}
 \end{figure}
 
 \begin{figure}[h]
@@ -915,78 +922,92 @@ Seguint amb l'anàlisis podem veure també els perfils de tots els alumnes que h
 \caption{Percentatges de cada agrupació}
 \end{figure}
 
-\subparagraph{BN2 - Bones notes de segon d'Informàtica}
-Aquest és un perfil força semblant a \textit{BN1}, és per això que ens plantejem la pregunta: \textit{Amb quin perfil de provinença encaixa cadascun d'aquests perfils?}, és a dir, és cert que els que tenen bones notes a primer, solen ser els que treuen bones notes a segon, el que anomenem conservació de clusters. De tots els alumnes que han cursat segon un 28.68\% pertanyen a aquest cluster, més d'un quart de la mostra.
 
-\subparagraph{ISF2 - ICC i SO1 fluixes}
-Aquest perfil encara que sigui minoritari, amb un 6.2\% del total, és força curiós, ja que són alumnes que tenen \textit{Introducció a la Computació Científica} (ICC) i \textit{Sistemes operatius I} (SO1) amb notes més baixes que la resta. També s'ha de dir que tot i que les mitjes siguin més petites, les desviacions estàndards són molt altes, el que fa que les notes dels alumnes siguin més diverses i no segueixin exactament la distribució de mitjes de cada perfil.
+Els perfils explorats del segon curs d'Enginyeria Informàtica es descriuen de la següent manera:
 
-\subparagraph{A2 - Aprovats de segon d'Informàtica}
-Aquest perfil és semblant al perfil \textit{A1}, pertany als alumnes que tenen notes entre 5 i 7. Són el 60.47\% del total d'alumnes que han cursat les assignatures de segon.
+\subparagraph{1 - BN2: Bones notes de segon d'Informàtica}
+Aquest és un perfil força semblant a \textit{BN1}, és per això que ens plantejem, a la secció \ref{subsec:conservacioclusters}, la pregunta: \textit{Amb quin perfil de provinença encaixa cadascun d'aquests perfils?} És cert que els que tenen bones notes a primer, solen ser els que treuen bones notes a segon? Això ho anomenem conservació de clusters. De tots els alumnes que han cursat segon un 28.68\% pertanyen a aquest cluster, més d'un quart de la mostra.
 
-\subparagraph{PPIE2 - Problemes amb PIE i Empresa}
-Aquest és el perfil amb un percentatge més petit de població, un 4.65\%. És un perfil força dispers, ja que les desviacions estàndar són altes, i això es pot veure en assignatures com PIS o ICC. A més és curiós perquè és un grup que apareixen amb \textit{Empresa} (EMP) i \textit{Probabilitat i estadística} (PIE) suspeses, però no he trobat un perquè a aquest fenòmen.
+\subparagraph{2 - A2: Aprovats de segon d'Informàtica}
+Aquest perfil és semblant al perfil \textit{A1}, pertany als alumnes que tenen notes entre 5 i 7 en totes les assignatures. Són el 60.47\% del total d'alumnes que han cursat les assignatures de segon.
+
+\subparagraph{3 - ISF2: ICC i SO1 fluixes}
+Aquest perfil encara que sigui minoritari, amb un 6.2\% del total, és força curiós, ja que són alumnes que tenen \textit{Introducció a la Computació Científica} (ICC) i \textit{Sistemes operatius I} (SO1) amb notes més baixes que la resta. S'ha de dir que tot i que les mitjes siguin més petites, les desviacions estàndards són molt altes, el que fa que les notes dels alumnes siguin més diverses i no segueixin exactament la distribució de mitjes del perfil.
+
+\subparagraph{4 - PPIE2: Problemes amb PIE i Empresa}
+Aquest és el perfil amb un percentatge més petit de població, un 4.65\%. És un perfil força dispers, ja que les desviacions estàndar són altes, i això es pot veure en assignatures com PIS o ICC. A més és curiós perquè és un grup que apareix amb \textit{Empresa} (EMP) i \textit{Probabilitat i estadística} (PIE) suspeses.
 \\
 \\
 Ens podem fixar que la distribució de mitjes del perfil \textit{BN2} i \textit{A2}, és força semblant, només que \textit{BN2} té les mitjes més altes.
 \\
 \\
-Deixant enrere al grau d'Enginyeria Informàtica, em poso a analitzar als estudiants del grau en Matemàtiques. Comencem amb els alumnes de primer, els quals els segmentem en 3 agrupacions ($k=3$).
+Deixant enrere al grau d'Enginyeria Informàtica, passem a analitzar els estudiants del grau en Matemàtiques. Comencem amb els alumnes de primer, els quals els segmentem en 3 agrupacions ($k=3$).
 
 \newpage
+
+En la figura \ref{fig:perfilsprimermates} i ref{fig:pasprimermates}, presentem els perfils i els percentatges de les agrupacions, respectivament.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=.9\linewidth]{img/perfils_primer_mates.png}
 \caption{Perfils d'alumnes de primer de Matemàtiques}
+\label{fig:perfilsprimermates}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=.4\linewidth]{img/perfils_primer_mates_pastilla.png}
 \caption{Percentatges de cada agrupació}
+\label{fig:pasprimermates}
 \end{figure}
 
-\subparagraph{NE1 - No estables de primer de Matemàtiques}
-Podem veure que aquest cluster té les mostres molt distanciades, per les desviacions estàndards que presenta. Aquest perfil l'he classificat com \textit{No estables de primer}, ja que són alumnes que amb prou feines poden aprovar certes assignatures. Conformen un 22.37\% del total d'alumnes.
+Els perfils explorats de primer curs de Matemàtiques es descriuen de la següent manera:
 
-\subparagraph{A1 - Aprovats de primer de Matemàtiques}
+\subparagraph{1 - A1: Aprovats de primer de Matemàtiques}
 Aquest perfil pertany als estudiants que tenen totes les assignatures aprovades  de mitja i són els que formen la major part del total, amb un 50.13\%.
 
-\subparagraph{S1 - Suspesos de primer de Matemàtiques}
+\subparagraph{2 - S1: Suspesos de primer de Matemàtiques}
 Per últim, i sense faltar, tenim els alumnes que de mitja suspenen totes les assignatures. Conformen un 27.51\% del total d'estudiants.
+
+\subparagraph{3 - NE1: No estables de primer de Matemàtiques}
+Podem veure que aquest cluster té les mostres molt distanciades, per les desviacions estàndards que presenta. Aquest perfil l'he classificat com \textit{No estables de primer}, ja que són alumnes que amb prou feines poden aprovar certes assignatures. Conformen un 22.37\% del total d'alumnes.
 \\
 \\
-Els resultats són força esperats per aquest curs, tenim els que ho aproven tot i els que ho suspenen tot, i per un altre banda tenim la resta que no pertanyen ni a un ni a l'altre.
-\\
-\\
-Per últim tenim als alumnes de segon de Matemàtiques, on no s'observa res interessant com tenim als perfils de Informàtica.
+Per últim s'observa als alumnes de segon de Matemàtiques a la Figura \ref{fig:perfilssegonmates} i ref{fig:passegonmates}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=.85\linewidth]{img/perfils_segon_mates.png}
 \caption{Perfils d'alumnes de segon de Matemàtiques}
+\label{fig:perfilssegonmates}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=.4\linewidth]{img/perfils_segon_mates_pastilla.png}
 \caption{Percentatges de cada agrupació}
+\label{fig:passegonmates}
 \end{figure}
 
 \newpage
 
-\subparagraph{BN2 - Bones notes de segon de Matemàtiques}
-Torna a aparèixer aquest tipus de perfils, alumnes amb mitjes de qualificacions altes. Tot i així, és sorprenent el percentatge d'alumnes que pertanyen a aquest cluster, un 34.86\%.
+Els perfils explorats de segon curs de Matemàtiques es descriuen de la següent manera:
 
-\subparagraph{A2 - Aprovats de segon de Matemàtiques}
-Per un altre banda tornem a tenir els alumnes amb qualificacions en el rang d'aprovat, tot i que la majoria freguen la línea de l'aprovat, com és en tots els casos, aquest és el perfil més abundant, amb un 57.80\%.
+\subparagraph{1 - BN2: Bones notes de segon de Matemàtiques}
+Torna a aparèixer aquest tipus de perfils corresponent a alumnes amb mitjes de qualificacions altes. Tot i així, el percentatge d'alumnes que pertanyen a aquest cluster és elevat, un 34.86\%. Aquest fet fa pensar que totes les assignatures suposen la mateixa dificultat per aquests alumnes.
 
-\subparagraph{NE2 - No estables de segon de Matemàtiques}
+\subparagraph{2 - A2: Aprovats de segon de Matemàtiques}
+Novament tenim als alumnes amb qualificacions en el rang d'aprovat, tot i que la majoria freguen la línea de l'aprovat. Com és en tots els cursos, aquest és el perfil més abundant, amb un 57.80\%.
+
+\subparagraph{3 - NE2: No estables de segon de Matemàtiques}
 Igual que a primer del grau de Matemàtiques tenim el perfil de \textit{No estables}, aquí el tornem a tenir, tot i que aquest perfil només té aprovada per mitja una assignatura, \textit{Mètodes numèrics I} (MNU1). Pertanyen al 7.34\% del total.
 \\
 \\
-En aquest curs tenim un efecte semblant a primer d'Enginyeria Informàtica amb l'assignatura de \textit{Càlcul}, hi ha una assignatura que en tots els perfils té la mitja més alta, \textit{Mètodes numèrics I} (MNU1).
+En aquest curs tenim un efecte semblant a primer d'Enginyeria Informàtica amb l'assignatura de \textit{Càlcul}, hi ha una assignatura que en tots els perfils correspon a la mitja més alta, \textit{Mètodes numèrics I} (MNU1).
+\\
+\\
+\todo{buscar: 'tutor d'estudi'}
+Arran d'aquests resultats, el tutor d'estudis pot aplicar l'acció de reforçar l'aprenentatge i el seguiment de tots aquells alumnes que s'agrupen en perfils on la majoria d'assignatures no passin de la línea vermella de l'aprovat.
 
 \newpage
 
@@ -1032,6 +1053,7 @@ A la figura \ref{fig:tappm} presentem la tassa d'abandonament dels alumnes de pr
 Tant al grau d'Enginyeria Informàtica com al grau de Matemàtiques podriem definir una acció per al tutor. Després del primer curs, podem incidir (enviar correus electrònics, aconsellar) als alumnes dels perfils amb baixes notes com són els grups S1, MM1 i MP1 per al grau d'Enginyeria Informàtica i S1 i NE1 per al grau de Matemàtiques.
 
 \subsection{Conservació de clusters}
+\label{subsec:conservacioclusters}
 La pregunta que ens plantegem és: \textit{Amb quin perfil de provinença encaixa cadascun d'aquests perfils?} El que es vol mirar en aquesta pregunta és la conservació de clusters, per exemple, els estudiants que treuen bones notes a primer, segueixen treien bones notes a segon? O, de quina via d'accés solen provenir els estudiants de primer de Matemàtiques? Preguntes com aquestes anem a resoldre en aquest apartat. 
 \\
 \\
