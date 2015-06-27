@@ -19,7 +19,8 @@
 
 
 %Definició de noms:
-\newcommand{\titleTFG}{Ciència de les dades aplicada a resultats acadèmics}
+\newcommand{\titleTFG}{Ciència de les dades aplicada a resultats acadèmics: perfil d'estudiants i predicció de notes}
+\newcommand{\littletitleTFG}{Ciència de les dades aplicada a resultats acadèmics}
 \newcommand{\myname}{Xavier Moreno Liceras}
 
 
@@ -45,7 +46,7 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{\titleTFG}
+\rhead{\littletitleTFG}
 \cfoot{\thepage}
  
 \hypersetup{
@@ -75,8 +76,6 @@
 \end{center}
 \end{figure}
 
-\todo{Canviar el títol}
-
 \textbf{\LARGE Treball final de grau} \\
 \vspace*{.5cm}
 \textbf{\LARGE GRAU D'ENGINYERIA INFORMÀTICA } \\
@@ -84,9 +83,9 @@
 \textbf{\LARGE Facultat de Matemàtiques \\ Universitat de Barcelona} \\
 \vspace*{1.5cm}
 \rule{\textwidth}{0.1mm}\\
-\begin{Huge}
+\begin{LARGE}
 \textbf{\titleTFG} \\
-\end{Huge}
+\end{LARGE}
 \rule{\textwidth}{0.1mm}\\
 
 \vspace{1cm}
@@ -111,10 +110,6 @@
 \end{titlepage}
 
 \pagenumbering{roman}
-
-%\todo{Ha de ser redactat en primer persona del plural del present}
-%\todo{Revisió de les faltes d'ortografia}
-
 
 \section*{\textit{Abstract}}
 
@@ -165,7 +160,7 @@ Aquest treball final de grau forma part del projecte d'innovació docent, i es c
 
 \section{Descripció del problema}
 \subsection{Projecte d'innovació docent}
-Aquest treball de fi de grau, s'enmarca d'un projecte d'innovació docent \cite{pid} que va nèixer al Departament de Matemàtica Aplicada i Anàlisi (MAIA) i el Departament de Metòdes de Investigació i Diagnòstic en Educació (MIDE).
+Aquest Treball de Fi de Grau, s'enmarca d'un projecte d'innovació docent \cite{pid} que va nèixer al Departament de Matemàtica Aplicada i Anàlisi (MAIA) i el Departament de Metòdes de Investigació i Diagnòstic en Educació (MIDE).
 \\
 \\
 Com ja s'ha dit, la finalitat del projecte d'innovació docent és el desenvolupament d'un sistema intel·ligent de suport al tutor d'estudis, i per dur-lo a terme el projecte s'ha dividit en 5 fases.
@@ -232,6 +227,8 @@ A partir d'una font externa hem pogut adquirir el curs i semestre en que es curs
 
 \subparagraph{Unió de graus}
 L'any 2009 el grau en Enginyeria Informàtica de la UB té el codi \textit{G1041}, però a partir de l'any 2010 el codi passa a ser \textit{G1077}. Les assignatures són les mateixes, tot i que tenen codis diferents. S'ha fet la unió dels \textit{G1041} amb \textit{G1077}, per tal de no perdre informació rellevant, ni considerar-la per separat.
+
+\newpage
 
 \subparagraph{Eliminació del curs 2014, segon semestre}
 Explorant les dades es pot veure que alumnes que s'han matriculat l'any 2014, però encara no han acabat de cursar l'assignatura, en aquesta els hi apareix un 0. Això fa que dintre de les notes dels alumnes hi hagin dades incoherents, per aquesta raó s'ha procedit a eliminar totes les notes del segon semestre i de l'any 2014. El percentatge d'eliminació de dades és d'un 10.91\% del total de notes.
@@ -344,7 +341,7 @@ S'ha construït dos diagrames de Gantt, un a partir de la planificació inicial 
 S'observa que s'ha pogut seguir la planificació inicial, tot i que en el cas de la neteja de dades s'ha allargat el temps. Això és degut a la espera de noves revisions de dades a través del Vicerectorat de Política Docent.
 \\
 \\
-El Treball de fi de Grau equival a 18 crèdits ECTS, si cada crèdit equival a 25 hores, llavors tenim:
+El Treball de Fi de Grau equival a 18 crèdits ECTS, si cada crèdit equival a 25 hores, llavors tenim:
 
 $$18\,cr\grave{e}dits \cdot \frac{25\,hores}{1\,cr\grave{e}dits} = 450\,hores$$
 
@@ -477,11 +474,7 @@ Aquest algoritme no necessita com a entrada el número de clusters que busquem, 
 \label{fig:meanshiftvskmeans}
 \end{figure}
 
-\todo{buscar: 'possem' i derivats}
-
 Com es veu en la Figura \ref{fig:meanshiftvskmeans}, tercera fila, al no fer falta especificar el número d'agrupacions que volem a \textit{MeanShift}, ell mateix ens diu que hi han tres grups. Però en canvi, amb \textit{K-means} si posem $k=2$, per exemple, estaríem unificant dos clusters reals en un.
-
-\todo{buscar: '??'}
 
 \newpage
 
@@ -649,6 +642,8 @@ class Recomender(BaseEstimator):
 
 En la figura \ref{fig:recomenderstructure} podem veure l'estructura del recomanador col·laboratiu que s'ha construït seguint la fórmula explicada anteriorment. El constructor accepta per paràmetre la funció de similitud entre items (per defecte el coeficient de pearson), i un boleà que determina si és un Recomanador col·laboratiu basat en alumnes (\textit{transpose=False}) o un Recomanador col·laboratiu basat en assignatures (\textit{transpose=True}).
 
+\newpage
+
 \paragraph{\textit{Random Forest Regressor} (RFR)}
 Abans d'explicar la tècnica de \textit{Random Forest Regressor}, s'ha d'entendre el concepte d'un arbre de regressió. Un arbre de regressió és una tècnica utilitzada en aprenentatge automàtic, que es defineix com un model predictiu que mapeja observacions sobre una característica a conclusions sobre el valor objectiu d'aquesta característica. En aquestes estructures d'arbre, les fulles representen un valor real d'aquella característica i les branques les conjuccions de caracterítiques que han portat fins a la fulla.
 \\
@@ -719,10 +714,8 @@ $$ \mathrm{MRS} = \frac{1}{n}\sum_{i=1}^n \left| p(y_{pred_i}) -  p(y_{test_i})\
 
 on:
 \begin{itemize}[leftmargin=.5in]
-	\item [$p$] és una funció que ens retorn la posició de l'elemtn en el ranking
+	\item [$p$] és una funció que ens retorn la posició de l'element en el ranking
 \end{itemize}
-
-\newpage
 
 La millor manera d'entendre aquesta mètrica és mostrar un exemple a partir d'aquesta taula:
 
@@ -751,9 +744,7 @@ $$ \mathrm{MRS} = \frac{2 + 0 + 1 + 3}{4} = \frac{6}{4} = 1.5$$
 
 Ens podem fixar que si comparem dos rankings iguals, llavors $\mathrm{MRS} = 0$. Per tant, com més proper estigui a 0, millor s'aproparà la predicció del ranking real.
 
-
-\todo{buscar: 'fi de grau'}
-\subsubsection{Tècnica de reducció de dimensions}
+\subsubsection{Tècniques de reducció de dimensions}
 Una de les últimes tècniques que utilitzo en aquest Treball de Fi de Grau és la reducció de dimensions. Aquest tipus de tècnica són útils per poder visualitzar les teves dades si tenen una dimensió major que 3. Aquestes tècniques a més permeten reduïr el cost computacional dels algoritmes basats en les dades sense variar significativament en el seu resultat en molts casos. Una de les tècniques utilitzades en aquest projecte és l'anàlisis de components principals (PCA).
 
 \paragraph{PCA}
@@ -791,7 +782,6 @@ $C\in \mathbb{R}^{n \times n}$ on $0 \leq c_{ij} \leq 10$, la matriu no conté c
 El conjunt d'assignatures que apareixen en les columnes pot variar depenent de la pregunta que volem respondre, pot ser el conjunt d'assignatures de primer, com el conjunt de les de primer més les de segon. Però a partir d'una matriu $C$ com aquesta em basaré algunes qüestions.
 
 \newpage
-\todo{buscar: 'técnica' i 'Però clar' -> 'tanmateix' i 'pk'}
 \subsection{Perfils d'estudiants}
 \label{subsec:perfilsestudiants}
 La resposta a la pregunta: \textit{Hi ha diferents perfils d'alumnes?} és trobar diferents tipus d'estudiants en relació a la seva nota. Alumnes amb notes molt bones en tot, alumnes amb males notes en certes assignatures, alumnes que suspenen, entre altres. Però volem que el nostre algoritme explori els grups que poden haver-hi de forma no supervisada, és a dir, sense indicar-li quins són els grups a priori.
@@ -825,7 +815,7 @@ L'altre solució proposada és reduïr la dimensionalitat de les dades per tal d
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\linewidth]{img/pca_info_mates.png}
+\includegraphics[width=.9\linewidth]{img/pca_info_mates.png}
 \caption{Visualització dels alumnes en un espai dos-dimensional}
 \label{fig:pca-meanshift}
 \end{figure}
@@ -923,7 +913,7 @@ Seguint amb l'anàlisi, a la Figura \ref{fig:perfilssegoninfo} podem veure els p
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=.9\linewidth]{img/perfils_segon_info.png}
+\includegraphics[width=.8\linewidth]{img/perfils_segon_info.png}
 \caption{Perfils d'alumnes de segon d'Enginyeria Informàtica}
 \label{fig:perfilssegoninfo}
 \end{figure}
@@ -957,7 +947,7 @@ Deixant enrere al grau d'Enginyeria Informàtica, passem a analitzar els estudia
 
 \newpage
 
-En la figura \ref{fig:perfilsprimermates} i ref{fig:pasprimermates}, presentem els perfils i els percentatges de les agrupacions, respectivament.
+En la figura \ref{fig:perfilsprimermates} i \ref{fig:pasprimermates}, presentem els perfils i els percentatges de les agrupacions, respectivament.
 
 \begin{figure}[h]
 \centering
@@ -972,6 +962,8 @@ En la figura \ref{fig:perfilsprimermates} i ref{fig:pasprimermates}, presentem e
 \caption{Percentatges de cada agrupació}
 \label{fig:pasprimermates}
 \end{figure}
+
+\newpage
 
 Els perfils explorats de primer curs de Matemàtiques es descriuen de la següent manera:
 
@@ -1018,7 +1010,6 @@ Igual que a primer del grau de Matemàtiques tenim el perfil de \textit{No estab
 En aquest curs tenim un efecte semblant a primer d'Enginyeria Informàtica amb l'assignatura de \textit{Càlcul}, hi ha una assignatura que en tots els perfils correspon a la mitja més alta, \textit{Mètodes numèrics I} (MNU1).
 \\
 \\
-\todo{buscar: 'tutor d'estudi'}
 Arran d'aquests resultats, el tutor d'estudis pot aplicar l'acció de reforçar l'aprenentatge i el seguiment de tots aquells alumnes que s'agrupen en perfils on la majoria d'assignatures no passin de la línea vermella de l'aprovat.
 
 \newpage
@@ -1043,12 +1034,11 @@ La primera pregunta que ens plantegem és: \textit{Quina és la tassa d'abandona
 Els alumnes que amb més probabilitat deixen la carrera són els que suspenen (S1), seguits d'estudiants que no tenen unes notes massa estables (MP1 i MM1). És a dir, que la majoria que passen a segon pertanyen al cluster \textit{BN1} i \textit{A1}. Però si ens fixem una mica en el gràfic d'abandonaments, els perfils d'aprovats (A1) i de bones notes (BN1), hi ha un petit percentatge indicat que diu que abandonen la carrera. En les dades que tenim, no tenim un camp que ens indiqui si un alumne ha abandonat la carrera o no, ja que no ho tenen registrat. Hem hagut d'agafat per cada perfil tot el conjunt d'alumnes d'aquell perfil i s'ha comprovat per cadascún si té assignatures matriculades a l'any següent. Però clar, hi han alumnes del darrer any que s'han de matricular per l'any vinent encara (i no apareixen matriculats a l'any següent), per això hi ha un petit marge d'error i els clusters \textit{BN1} i \textit{A1} aparèixen amb una mínima tassa d'abandonaments degut a aquest error.
 \\
 \\
-\todo{buscar tots els "Per altra banda" i possar ','}
 Per altra banda, tenim el curs de primer de Matemàtiques, on apliquem el mateix algoritme explicat en el paràgraf anterior. També trovem un petit marge d'error en els perfils que ho aproven tot.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\linewidth]{img/perfils_primer_mates.png}
+\includegraphics[width=0.9\linewidth]{img/perfils_primer_mates.png}
 \caption{Perfils d'alumnes de primer de Matemàtiques}
 \end{figure}
 
@@ -1063,6 +1053,8 @@ A la figura \ref{fig:tappm} presentem la tassa d'abandonament dels alumnes de pr
 \\
 \\
 Tant al grau d'Enginyeria Informàtica com al grau de Matemàtiques podriem definir una acció per al tutor. Després del primer curs, podem incidir (enviar correus electrònics, aconsellar) als alumnes dels perfils amb baixes notes com són els grups S1, MM1 i MP1 per al grau d'Enginyeria Informàtica i S1 i NE1 per al grau de Matemàtiques.
+
+\newpage
 
 \subsection{Conservació de clusters}
 \label{subsec:conservacioclusters}
@@ -1091,10 +1083,11 @@ Es pot veure com en tots els perfils, venen meitat de Batxillerat i meitat de Sa
 \end{figure}
 
 Ara és veu amb més claredat el significat d'un gràfic com aquest, ja que podem veure com els que solen treure bones notes a primer d'Enginyeria Informàtica, solen treure bones notes a segon també, i els que es classificaven com \textit{Aprovats de primer}, solen parar a \textit{Aprovats de segon}. També podem veure com un petit percentatge d'alumnes que treuen notes a primer, passen a treure notes més baixes a segon, igual que alumnes etiquetats com \textit{Aprovats de primer} amb una petit quanitat paren a perfils inestables com \textit{ISF2} o \textit{PPIE2}.
+\\
+\\
+Per últim es veurà la provinença dels estudiants de primer del grau de Matemàtiques, on també es pot veure una tendencia [fig:~\ref{fig:ccm1}].
 
 \newpage
-
-Per últim es veurà la provinença dels estudiants de primer del grau de Matemàtiques, on també es pot veure una tendencia [fig:~\ref{fig:ccm1}].
 
 \begin{figure}[h]
 \centering
@@ -1114,7 +1107,7 @@ Una de les raons per les quals vam plantejar aquesta pregunta, era per saber si 
 Een aquest apartat s'expliquen  les tècniques de predicció que hem fet servir i quins resultats, tant quantitatius com qualitatius, s'han obtingut. El que busquem és poder mostrar un ranking, personalitzat per cada alumne, d'assignatures ordenades per la dificultat que li costarà a cada estudiant.
 \\
 \\
-Abans de construïr el ranking, necessitem saber quina és la tècnica de predicció que s'ajusta millor a les nostres dades. Les técniques utilitzades per aquest experiment han sigut les següents, anteriorment explicades [secció:~\ref{subsec:predictors}]:
+Abans de construïr el ranking, necessitem saber quina és la tècnica de predicció que s'ajusta millor a les nostres dades. Les tècniques utilitzades per aquest experiment han sigut les següents, anteriorment explicades [secció:~\ref{subsec:predictors}]:
 
 \begin{itemize}[leftmargin=.5in]
 	\item Recomanador col·laboratiu bassat en estudiant (RCxE)
@@ -1220,6 +1213,8 @@ Igual que hem fet proves amb el conjunt nº1, procedim a visualitzar en la figur
 \label{tab:mpqdcc2}
 \end{table}
 
+\newpage
+
 En la figura \ref{fig:pdctps} s'observa com els millors predictors són el RCxE i el RFR, tot i que ara ambdós presenten més mostres atípiques. Les distribucions i els resultats són semblants als resultats provats amb les dades anteriors. L'únic predictor que marca més diferència és el Random Forest Regressor, ja que disminueix força  la mediana de la distribució, i l'error promig absolut.
 
 \newpage
@@ -1257,7 +1252,7 @@ Ara passem a veure els resultats que s'han obtingut amb les notes discretes (sus
 \label{fig:mctp}
 \end{figure}
 
-En cada matriu de colors de la figura \ref{fig:mctp} podem veure 16 caselles, cada fila i columna posa: S, A, N i E, que significa: suspés, aprovat, notable i excel·lent. Cada cel·la significa el percentatge de vegades que la qualificació predita coincideix amb la qualificació real corresponent. Possem un exemple, per acabar d'entendre, en la primera figura apareix en la correspondència de aprovats amb aprovats un 40.26\%, això significa que el 40.26\% de les proves diu el predictor que un alumne treurà una nota d'aprovat i la nota real és aprovat. Si ens fixem com més alt sigui el percentatge, més fosca és la casella. Per tant el que busquem és tenir fosca la diagonal, ja que vol dir que ha encertat tot. Ho representem amb aquest tipus de representació perquè equivocar-se de suspés a aprovat és acceptable, però no de suspés a excel·lent, és per això que s'ha de veure una tendencia de color a les rodalies de la diagonal.
+En cada matriu de colors de la figura \ref{fig:mctp} podem veure 16 caselles, cada fila i columna posa: S, A, N i E, que significa: suspés, aprovat, notable i excel·lent. Cada cel·la significa el percentatge de vegades que la qualificació predita coincideix amb la qualificació real corresponent. Posem un exemple, per acabar d'entendre, en la primera figura apareix en la correspondència de aprovats amb aprovats un 40.26\%, això significa que el 40.26\% de les proves diu el predictor que un alumne treurà una nota d'aprovat i la nota real és aprovat. Si ens fixem com més alt sigui el percentatge, més fosca és la casella. Per tant el que busquem és tenir fosca la diagonal, ja que vol dir que ha encertat tot. Ho representem amb aquest tipus de representació perquè equivocar-se de suspés a aprovat és acceptable, però no de suspés a excel·lent, és per això que s'ha de veure una tendencia de color a les rodalies de la diagonal.
 \\
 \\
 Podem veure que els millors predictors són els recomanadors, ja que mantenen força alta la intensitat de color de la diagonal i el color fosc es manté força concentrat a la diagonal. Si ens fixem en el \textit{Random Forest Regressor} i en el \textit{Regressor lineal} confon més per les seves rodalies. En canvi trobem que tots els predictos confonen aprovats per excel·lents.
@@ -1336,8 +1331,8 @@ Primer procedirem a mostrar un dos casos amb dades continues, és a dir, agafare
 
 
 % cas d'èxit nota quantitativa
-% possar una taula com la de les hores de dedicació
-% possar una taula comparant les notes predites amb les reals
+% posar una taula com la de les hores de dedicació
+% posar una taula comparant les notes predites amb les reals
 \begin{table}[h]
 \centering
 \begin{tabular}{@{}ccccccccccc@{}}
@@ -1379,8 +1374,8 @@ En la taula \ref{tab:nrapcedc} es poden veure les notes reals que ha tret l'alum
 Si mirem detingudament la comparació de les notes podem veure que la diferència és baixa, l'assignatura que manté una major distància és \textit{Probabilitat i Estadística} (PIE).
 
 % cas de fracàs nota quantitativa
-% possar una taula com la de les hores de dedicació
-% possar una taula comparant les notes predites amb les reals
+% posar una taula com la de les hores de dedicació
+% posar una taula comparant les notes predites amb les reals
 \begin{table}[h]
 \centering
 \begin{tabular}{@{}ccccccccccc@{}}
@@ -1423,8 +1418,8 @@ Aquesta és una de les mostres atípiques que s'havien vist en els diagrames de 
 En aquest apartat es veuen dos casos del ranking d'assignatures, un d'èxit i l'altre de fracàs. Comencem amb el cas d'èxit presentat a les taules \ref{tab:nrpscedc} i \ref{tab:rpscedc}.
 
 % cas d'èxit ranking
-% possar una taula com la de les hores de dedicació
-% possar una taula comparant les notes predites amb les reals
+% posar una taula com la de les hores de dedicació
+% posar una taula comparant les notes predites amb les reals
 \begin{table}[h]
 \centering
 \begin{tabular}{@{}ccccccccccc@{}}
@@ -1458,8 +1453,8 @@ Notes & 6.00 & 6.30 & 6.00 & 6.00 & 6.50 & 6.00 & 5.50 & 6.80 & 6.00 & 6.00 \\ \
 Per determinar el millor i el pitjor cas hem hagut d'escollir els alumnes que tenien millor i pitjor mesura de \textit{Mean Ranking Score}. En la taula \ref{tab:nrpscedc}, com els altres casos, veiem les notes que ha tret l'alumne en les assignatures de primer, però ara en la taula \ref{tab:rpscedc} podem veure el ranking d'assignatures ordenades per dificultat. En aquest cas s'aprecia com el ranking predit és semblant al ranking real. La \textit{Mean Ranking Score} dóna 1.
 
 % cas de fracàs ranking
-% possar una taula com la de les hores de dedicació
-% possar una taula comparant les notes predites amb les reals
+% posar una taula com la de les hores de dedicació
+% posar una taula comparant les notes predites amb les reals
 \begin{table}[h]
 \centering
 \begin{tabular}{@{}ccccccccccc@{}}
@@ -1490,8 +1485,6 @@ Notes & 8.80 & 5.80 & 6.60 & 7.30 & 8.50 & 8.00 & 5.30 & 6.50 & 9.20 & 7.40 \\ \
 \label{tab:rpscfr}
 \end{table}
 
-\newpage
-
 Per últim podem veure aquest cas de fracàs en les taules \ref{tab:nrpscfr} i \ref{tab:rpscfr}, on els dos ranking no s'assemblen. La seva \textit{Mean Ranking Score} ens ha donat 3.8, una MRS alta i recordem que la MRS és la mitja d'error de diferència de posicions del ranking.
 \\
 \\
@@ -1499,7 +1492,7 @@ Amb els resultats que hem arribat en aquest apartat de predicció pot ser útil 
 
 \newpage
 \section{Conclusions}
-Per dur a terme aquest treball era necessari seguir les etapes d'un projecte de ciència de les dades. Hem pogut transformar les dades en coneixement, que era un dels objectius plantejats en aquest treball de fi de grau. Fer un anàlisi estadístic sobre dades acadèmiques ens serveix com a base per al projecte d'innovació docent.
+Per dur a terme aquest treball era necessari seguir les etapes d'un projecte de ciència de les dades. Hem pogut transformar les dades en coneixement, que era un dels objectius plantejats en aquest Treball de Fi de Grau. Fer un anàlisi estadístic sobre dades acadèmiques ens serveix com a base per al projecte d'innovació docent.
 \\
 \\
 Com resultat de la investigació dins del marc del projecte d'innovació docent, és possible concloure resultats com l'alta conservació de perfils quan un estudiant passa de primer a segon d'Engineria Informàtica, o una alta tassa d'abandonament per part d'alumnes que suspenen les assignatures de primer. A més, tot i que en alguns resultats no s'ha obtingut el que s'esperava, s'han explorat nous resultats i conclusions que no s'havien arribat a tenir en compte.
