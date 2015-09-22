@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
-     {{the_script|safe}}
+     {{script | safe}}
 {% endblock header %}
 
 {% block page_title %}
@@ -10,8 +10,8 @@
 
 {% block content %}
     <div class="row">
-        <div id="{{ the_id }}" class="col-sm-6">
-            {{the_div|safe}}
+        <div id="{{ plots.myPlot.plot_id | safe}}" class="col-sm-6">
+            {{plots.myPlot.div | safe}}
         </div>
     </div>
 {% endblock content %}
@@ -23,7 +23,7 @@
 
     Bokeh.$(function() {
         //for(var i=0; i<Bokeh.Collections('Plot').models.length; i++) {
-            Bokeh.Collections('Plot').get("{{ the_id }}").set("plot_width", $("#{{ the_id }}").width());
+            Bokeh.Collections('Plot').get("{{ plots.myPlot.plot_id | safe }}").set("plot_width", $("#{{ plots.myPlot.plot_id | safe }}").width());
             //Bokeh.Collections('Plot').get("{{ the_id }}").set("plot_height", $("#{{ the_id }}").height());
         //}
     });
