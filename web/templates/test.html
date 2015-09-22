@@ -13,19 +13,17 @@
         <div id="{{ plots.myPlot.plot_id | safe}}" class="col-sm-6">
             {{plots.myPlot.div | safe}}
         </div>
+        <div id="{{ plots.myOtherPlot.plot_id | safe}}" class="col-sm-6">
+            {{plots.myOtherPlot.div | safe}}
+        </div>
     </div>
 {% endblock content %}
 
-
-
 {% block extra_js %}
-
-
     Bokeh.$(function() {
-        //for(var i=0; i<Bokeh.Collections('Plot').models.length; i++) {
-            Bokeh.Collections('Plot').get("{{ plots.myPlot.plot_id | safe }}").set("plot_width", $("#{{ plots.myPlot.plot_id | safe }}").width());
-            //Bokeh.Collections('Plot').get("{{ the_id }}").set("plot_height", $("#{{ the_id }}").height());
-        //}
+        for(var i=0; i<Bokeh.Collections('Plot').models.length; i++) {
+            var plot = Bokeh.Collections('Plot').at(i);
+            plot.set("plot_width", $("#" + plot.id).width());
+        }
     });
-
 {% endblock extra_js %}
