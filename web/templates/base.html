@@ -2,11 +2,13 @@
 <!DOCTYPE html>
 <html lang="en">
   {% include "header.html" %}
+  {% block header %}
+  {% endblock header %}
   <body>
 
-    {% include "navigation.html" %}
-
     <div class="container">
+
+      {% include "navigation.html" %}
 
       <h1>{% block page_title %}{% endblock page_title %}</h1>
 
@@ -20,7 +22,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
-    {% block extra_js %}{% endblock extra_js %}
+    <script>
+        {% block extra_js %}{% endblock extra_js %}
+    </script>
   </body>
 </html>

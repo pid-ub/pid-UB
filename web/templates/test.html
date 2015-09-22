@@ -1,9 +1,31 @@
 {% extends 'base.html' %}
+
+{% block header %}
+     {{the_script|safe}}
+{% endblock header %}
+
 {% block page_title %}
-    Example Title
+    Dashboard
 {% endblock page_title %}
+
 {% block content %}
-
-    <p>Use this document as a way to quick start any new project.2</p>
-
+    <div class="row">
+        <div id="{{ the_id }}" class="col-sm-6">
+            {{the_div|safe}}
+        </div>
+    </div>
 {% endblock content %}
+
+
+
+{% block extra_js %}
+
+
+    Bokeh.$(function() {
+        //for(var i=0; i<Bokeh.Collections('Plot').models.length; i++) {
+            Bokeh.Collections('Plot').get("{{ the_id }}").set("plot_width", $("#{{ the_id }}").width());
+            //Bokeh.Collections('Plot').get("{{ the_id }}").set("plot_height", $("#{{ the_id }}").height());
+        //}
+    });
+
+{% endblock extra_js %}
