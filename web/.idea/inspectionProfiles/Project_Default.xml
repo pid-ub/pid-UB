@@ -15,5 +15,14 @@
         </value>
       </option>
     </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="settings.utils" />
+          <option value="settings.table_students" />
+          <option value="settings.select_rows_by_columns" />
+        </list>
+      </option>
+    </inspection_tool>
   </profile>
 </component>
