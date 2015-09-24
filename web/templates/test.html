@@ -4,6 +4,10 @@
      {{script | safe}}
 {% endblock header %}
 
+{% block body_attr %}
+    onresize="bokeh_function()"
+{% endblock body_attr %}
+
 {% block page_title %}
     Dashboard
 {% endblock page_title %}
@@ -20,10 +24,11 @@
 {% endblock content %}
 
 {% block extra_js %}
-    Bokeh.$(function() {
-        for(var i=0; i<Bokeh.Collections('Plot').models.length; i++) {
+    var bokeh_function = function() {
+    for(var i=0; i<Bokeh.Collections('Plot').models.length; i++) {
             var plot = Bokeh.Collections('Plot').at(i);
             plot.set("plot_width", $("#" + plot.id).width());
         }
-    });
+    }
+    Bokeh.$(bokeh_function);
 {% endblock extra_js %}

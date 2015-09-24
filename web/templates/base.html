@@ -4,7 +4,8 @@
   {% include "header.html" %}
   {% block header %}
   {% endblock header %}
-  <body>
+  <body {% block body_attr %}
+      {% endblock body_attr %}>
 
     <div class="container">
 
