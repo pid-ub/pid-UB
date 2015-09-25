@@ -14,12 +14,32 @@
 
 {% block content %}
     <div class="row">
-        <div id="{{ plots.myPlot.plot_id | safe}}" class="col-sm-6">
-            {{plots.myPlot.div | safe}}
+        <!-- Assignatures -->
+        <div class="col-sm-6">
+
+
+
+
         </div>
-        <div id="{{ plots.myOtherPlot.plot_id | safe}}" class="col-sm-6">
-            {{plots.myOtherPlot.div | safe}}
+
+
+
+
+        <!-- Alumnes -->
+        <div class="col-sm-6">
+            <div id="{{ plots.myPlot.plot_id | safe}}" class="col-sm-6 col-xs-12">
+                {{plots.myPlot.div | safe}}
+            </div>
+            <div id="{{ plots.myOtherPlot.plot_id | safe}}" class="col-sm-6 col-xs-12">
+                {{plots.myOtherPlot.div | safe}}
+            </div>
+
+            <div id="{{ plots.asdf.plot_id | safe}}" class="col-sm-6">
+                {{plots.asdf.div | safe}}
+            </div>
         </div>
+
+
     </div>
 {% endblock content %}
 
