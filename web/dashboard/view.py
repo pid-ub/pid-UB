@@ -1,22 +1,48 @@
+# coding=utf-8
 from django.shortcuts import render
 from bokeh.plotting import figure
 from bokeh.resources import CDN
 from bokeh.embed import components
 from model.PlotModel import PlotModel
+from service.clustering import clustering, estimate, renounce
+from settings import *
 
 
-def simple_chart(request):
-    # Mocked plot
-    f = figure()
-    f.circle([1, 2, 3, 4, 5], [2, 5, 8, 2, 7], size=10)
-    f2 = figure()
-    f2.circle([2, 5, 8, 2, 7], [1, 2, 3, 4, 5], size=5)
-    f3 = figure()
-    f3.circle([2, 5, 8, 2, 7], [1, 2, 3, 4, 5], size=8)
+def dashboard_view(request):
     # Insert in figures the plots given from service
-    figures = [f, f2, f3]
+    figures = []
+    figures_lbl = []
 
-    script, plots = plot(["myPlot", "myOtherPlot", "asdf"], figures)
+    tmp = estimate(primer_info_qual, 5)
+    lbl_clusters = ["MP1", # Milors en programació de primer
+                            "BN1", # Bones notes en totes les assignatures de primer
+                            "S1", # Suspesos de primer
+                            "A1", # Aprovats de primer
+                            "MM1"] # Millors en matemátiques de primer
+    colors = ['#fffea3', '#97f0aa', '#ff9f9a', '#92c6ff', '#FAC864']
+    cluster_figures, donut = clustering(tmp, lbl_clusters, colors)
+    figures += cluster_figures
+    figures_lbl += lbl_clusters
+    figures.append(donut)
+    figures_lbl.append("donut1")
+    figures.append(renounce(tmp, colors, df_info, s2_info, lbl_clusters))
+    figures_lbl.append("renounce1")
+
+    tmp = estimate(segon_info_qual, 4)
+    lbl_clusters = ["BN2", # Bones notes de segon
+                               "ISF2", #ICC i SO1 fluixes
+                               "A2", # Aprovats de segon
+                               "PPIE2"] #problemes amb pie
+    colors = ['#97f0aa', '#fffea3', '#92c6ff', '#FAC864']
+    cluster_figures, donut = clustering(tmp, lbl_clusters, colors)
+    figures += cluster_figures
+    figures_lbl += lbl_clusters
+    figures.append(donut)
+    figures_lbl.append("donut2")
+    figures.append(renounce(tmp, colors, df_info, s3_info, lbl_clusters))
+    figures_lbl.append("renounce2")
+
+    script, plots = plot(figures_lbl, figures)
     return render(request, "test.html", {"script": script, "plots": plots})
 
 

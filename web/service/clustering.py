@@ -1,3 +1,4 @@
+# coding=utf-8
 import numpy as np
 import math
 from bokeh.plotting import figure, ColumnDataSource
@@ -5,16 +6,11 @@ from bokeh.models import HoverTool
 from sklearn.cluster import KMeans
 
 
-def clustering(df, k):
+def estimate(df, k):
     estimator = KMeans(n_clusters=k, init='k-means++', max_iter=100, n_init=5, random_state=42)
-    lbl_clusters = ["MP1", # Milors en programació de primer
-                            "BN1", # Bones notes en totes les assignatures de primer
-                            "S1", # Suspesos de primer
-                            "A1", # Aprovats de primer
-                            "MM1"] # Millors en matemátiques de primer
-    colors = ['#fffea3', '#97f0aa', '#ff9f9a', '#92c6ff', '#FAC864']
+
     tmp = df.copy()
-    aprobat = [5 for i in range(10)]
+
 
     estimator.fit(tmp.values)
     if -1 in estimator.labels_:
@@ -22,6 +18,12 @@ def clustering(df, k):
         return None
     tmp['label'] = estimator.labels_
     k = len(set(estimator.labels_))
+    return tmp
+
+
+def clustering(tmp, lbl_clusters, colors):
+    aprobat = [5 for i in range(10)]
+
 
     data_qual = tmp.groupby('label').mean()
     describe_qual = tmp.groupby('label').describe()
@@ -44,15 +46,15 @@ def clustering(df, k):
             )
 
         f = figure(title=lbl_clusters[i],
-                x_range=df.columns.tolist(), y_range=[0, 10], plot_width=425, plot_height=250,
+                x_range=tmp.columns[:-1].tolist(), y_range=[0, 10], plot_width=425, plot_height=250,
                 tools="pan,wheel_zoom,box_zoom,reset,hover",
                 x_axis_label = "Assignatures",
                 y_axis_label = "Nota"
         )
         f.xgrid.grid_line_color = None
-        f.rect(x=df.columns, y=d/2, width=0.8, height=d, color=colors[i], alpha=0.8, source=source_mark) #colors[k]
-        f.rect(x=df.columns, y=d, width=0.025, height=std*2, color='black', alpha=0.5)
-        f.line(x=df.columns, y=aprobat, line_color='red')
+        f.rect(x=tmp.columns[:-1], y=d/2, width=0.8, height=d, color=colors[i], alpha=0.8, source=source_mark) #colors[k]
+        f.rect(x=tmp.columns[:-1], y=d, width=0.025, height=std*2, color='black', alpha=0.5)
+        f.line(x=tmp.columns[:-1], y=aprobat, line_color='red')
         hover = f.select(dict(type=HoverTool))
         hover.tooltips = [
             ("mean", " @mean"),
@@ -81,3 +83,38 @@ def clustering(df, k):
         donut.wedge(x=0, y=0, radius=1, start_angle=starts[i], end_angle=ends[i], color=colors[i], line_color = 'black', legend=legend[i])
 
     return (figures, donut)
+
+
+def renounce(df, colors, register, subjects1, lbl):
+    groups = []
+    subjects1 = set(subjects1)
+    for c in set(df['label']):
+        d = df[df['label'] == c]
+        count = 0.0
+        for i in d.index:
+            alumne = register[register['id_alumne'] == i]
+            assig_alumne = set(alumne['id_assig'])
+            #if
+            if len(assig_alumne.intersection(subjects1)) == 0:
+                count+=1
+        groups.append((count/len(d.index))*100)
+    groups = np.array(groups)
+
+    source = ColumnDataSource(
+        data=dict(
+            percent=groups
+            )
+        )
+    f = figure(title="Taxa d'abandonaments per cluster",
+                x_range=lbl, y_range=[0,100], plot_width=900, plot_height=300,
+                tools="pan,wheel_zoom,box_zoom,reset,previewsave,hover",
+                x_axis_label = "Assignatures",
+                y_axis_label = "% d'abandonament"
+              )
+    f.xgrid.grid_line_color = None
+    f.rect(x=lbl, y=groups/2, width=0.3, height=groups, color=colors, alpha=0.8, source=source)
+    hover = f.select(dict(type=HoverTool))
+    hover.tooltips = [
+        ("percert", " @percent")
+    ]
+    return f
