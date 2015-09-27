@@ -18,7 +18,17 @@
         <div class="col-lg-6 col-sm-12 col-md-12 col-xs-12 row">
             <h2 class="plottitle">Assignatures</h2>
 
+            <div id="{{ plots.regresion.plot_id | safe}}" class="col-sm-12">
+                {{plots.regresion.div | safe}}
+            </div>
 
+            <div id="{{ plots.evolucion.plot_id | safe}}" class="col-sm-12">
+                {{plots.evolucion.div | safe}}
+            </div>
+
+            <div id="{{ plots.convalidacion.plot_id | safe}}" class="col-sm-12">
+                {{plots.convalidacion.div | safe}}
+            </div>
 
         </div>
 
