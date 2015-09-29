@@ -4,13 +4,6 @@
 {% url 'other' as other %}
 {% url 'about' as about %}
 
-
-<div id="navigation">
-    <a class="{% active request home %}" href="{{ home }}">Home</a>
-    <a class="{% active request services %}" href="{{ services }}">Services</a>
-    <a class="{% active request contact %}" href="{{ contact }}">Contact</a>
-</div>
-
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
