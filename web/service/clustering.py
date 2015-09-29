@@ -47,7 +47,7 @@ def clustering(tmp, lbl_clusters, colors):
 
         f = figure(title=lbl_clusters[i],
                 x_range=tmp.columns[:-1].tolist(), y_range=[0, 10], plot_width=425, plot_height=250,
-                tools="pan,wheel_zoom,box_zoom,reset,hover",
+                tools="hover,previewsave",
                 x_axis_label = "Assignatures",
                 y_axis_label = "Nota"
         )
@@ -72,7 +72,7 @@ def clustering(tmp, lbl_clusters, colors):
     ends = [p*2*math.pi for p in percent[1:]]
 
 
-    donut = figure(x_range=(-1.2,1.2), y_range=(-1.2,1.2), plot_width=450, plot_height=450, title="Distribució dels clusters")
+    donut = figure(x_range=(-1.2,1.2), y_range=(-1.2,1.2), plot_width=450, plot_height=450, title="Distribució dels clusters", tools="previewsave")
     donut.xgrid.grid_line_color = None
     donut.ygrid.grid_line_color = None
     legend = []
@@ -107,7 +107,7 @@ def renounce(df, colors, register, subjects1, lbl):
         )
     f = figure(title="Taxa d'abandonaments per cluster",
                 x_range=lbl, y_range=[0,100], plot_width=900, plot_height=300,
-                tools="pan,wheel_zoom,box_zoom,reset,previewsave,hover",
+                tools="previewsave,hover",
                 x_axis_label = "Assignatures",
                 y_axis_label = "% d'abandonament"
               )

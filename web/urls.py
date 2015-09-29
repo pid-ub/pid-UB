@@ -10,7 +10,7 @@ urlpatterns = patterns(
     '',
     url(r'^dashboard/$', dashboard_view, name="dashboard"),
     url(r'^other/$', dashboard_view, name="other"),
-    url(r'^about/$', dashboard_view, name="about"),
+    url(r'^about/$', TemplateView.as_view(template_name='about.html'), name="about"),
     url(r'^$', RedirectView.as_view(pattern_name='dashboard', permanent=False))
     # Examples:
     # url(r'^$', 'dashboard.views.home', name='home'),

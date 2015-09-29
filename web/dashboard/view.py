@@ -43,7 +43,7 @@ def dashboard_view(request):
     figures_lbl.append("renounce2")
 
     script, plots = plot(figures_lbl, figures)
-    return render(request, "test.html", {"script": script, "plots": plots})
+    return render(request, "dashboard.html", {"script": script, "plots": plots})
 
 
 def plot(keys, f):

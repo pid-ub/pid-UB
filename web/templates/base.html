@@ -1,30 +1,31 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
-  {% include "header.html" %}
-  {% block header %}
-  {% endblock header %}
-  <body {% block body_attr %}
-      {% endblock body_attr %}>
+{% include "header.html" %}
+{% block header %}
+{% endblock header %}
+<body {% block body_attr %}
+{% endblock body_attr %}>
 
-    <div class="container">
+<div class="container">
 
-      {% include "navigation.html" %}
+    {% include "navigation.html" %}
 
-      <h1>{% block page_title %}{% endblock page_title %}</h1>
+    <h1>{% block page_title %}{% endblock page_title %}</h1>
+    <hr class="hr">
 
-      {% block content %}
-      {% endblock content %}
+    {% block content %}
+    {% endblock content %}
 
-    </div> <!-- /container -->
+</div> <!-- /container -->
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script>
-        {% block extra_js %}{% endblock extra_js %}
-    </script>
-  </body>
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script>
+    {% block extra_js %}{% endblock extra_js %}
+</script>
+</body>
 </html>
