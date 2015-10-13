@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 from bokeh.plotting import figure
+import json
 
 
 def select_rows(df, group, col):
@@ -15,8 +16,26 @@ def select_rows(df, group, col):
     return out
 
 
+# Función que permite selecionar las notas de sus alumnos es función de unas asignaturas dadas
+def table_students(df, group_subjects):
+    # Con select_rows_by_subjects , nos quedamos con sólo las calificaciones de las asignaturas de primer curso
+    grp = select_rows(df, group_subjects, 'id_assig')
+    grp = grp[grp["tipus_apunt"] != "Convalidat"]
+    # Agrupamos las asignaturas por el NIUB
+    students_by_niub = grp.groupby('id_alumne').size()
+    # De esta agrupación nos quedamos con los NIUBS que aparecen len(group_subjects) veces.
+    students_by_niub = students_by_niub.index[students_by_niub >= len(group_subjects)]
+    # Creamos una tabla tal que: alumnos-assignaturas y a cada celula la nota correspondiente
+    grp_qual = grp.pivot_table('nota_primera_conv', index='id_alumne',columns='id_assig', aggfunc='max')
+    # Ahora que sabemos los alumnso que han cursado  asignatueas deseadas, los selecionamos.
+    grp_qual = grp_qual.ix[students_by_niub]
+    grp_qual.dropna(inplace=True, axis=0)
+    return grp_qual
+
+
 def asignaturas(registers, qualifications, assig):
     qualifications2 = qualifications
+    assig2 = assig
 
     primero = [364291, 364292, 364289, 364288, 364298, 364297, 364300, 364303, 364305, 364302, 364314, 364308, 364322, 364315, 364309]
     primero_label = ['ALGE', 'CAL', 'DDB', 'P1', 'ALGO', 'ELEC', 'AA', 'DS', 'EC', 'ICC', 'IA', 'SO2', 'TNUI','VA','XAR']
@@ -250,7 +269,82 @@ def asignaturas(registers, qualifications, assig):
     p3.xaxis.major_label_text_font_size="12pt"
     p3.title = "Notas de Proyecto Integrado de Software"
 
+    qualifications = qualifications2
+    assig = assig2
 
 
 
+    # Nos quedamos con las asignaturas del grado de Ingeniería Informática del primer, segundo y tercer curso
+    # Eliminamos las asignaturas que no sean del grado de Ingeniería Informática
+    assig2 =assig[assig['id_enseny_assig']  == 'G1077']
+    # Selecionamos las asignaturas del primer, segundo y tercer curso
+    assig_ter = select_rows(assig2, [1,2,3], 'curs_assig')['id_assig']
+    # Pasamos los identificadores de las asignaturas a una lista
+    list_assig = assig_ter.values
+
+
+    # Selecionamos las asignaturas del cursto curso y las mostramos
+    assig_cuart = select_rows(assig2, [4], 'curs_assig')[['id_assig', 'desc_assig']]
+
+
+    # Añadimos a la lista de asignaturas, las 3 asignaturas obligatorias del cursto curso: Ètica i Legislació, Enginyeria del Software y Treball de Fi de Grau
+    list_assig = list(list_assig)
+
+    list_assig.append(364313)
+    list_assig.append(364316)
+    list_assig.append(364317)
+
+
+    # Nos quedamos con las notas de las asignaturas mas arriba selecionadas. Tendremos en cada fila, el identificador del alumno junto con las notas de este alumno en cada uno de las asignaturas
+    # Obtenemos una tabla con las calificaciones de los alumnos por cada asignatura
+    tt = table_students(qualifications, list_assig)
+    # Hacemos la traspuesta de la matriz
+    ttt = tt.T
+
+
+    # Pasamos la matriz con las calificaciones a un DataFrame y obtenemos la matriz de correlación de Spearman entre las calificaciones de cada asignatura
+    coll = []
+    coll.append(list_assig[0])
+    # Creamos un nuevo DataFrame para guardar los datos
+    df1 = pd.DataFrame(ttt.ix[list_assig[0]], columns=coll)
+    # Añadimos las calificaciones de cada asignatura al DataFrame
+    for i in range(1,len(list_assig)):
+        df1[list_assig[i]] = pd.Series(ttt.ix[list_assig[i]], index=df1.index)
+    # Obtenemos la matriz de correlación
+    corr= df1.corr()
+
+
+    # A continuaciñon creamos un JSON tal que por cada asignatura se selecionan las 4 asignaturas mas correlacionadas. En el caso de que todos los coeficientes de correlación de una asignaturas son menores que 0.5, esta asignaturas se queda sin relaciones, es decir outlier.
+    jsonn = []
+
+    # Recorremos la lista de las asignaturas
+    for asi in list_assig:
+        # Obtenemos la lista de correlaciones de la asignatura ascual
+        yy = corr.ix[asi]
+        # Ordenamos las asignaturas en función de sus correlaciones
+        yy_sort = yy.order(ascending=False)[1:5]
+        indx_values =  yy_sort.values
+        indx = yy_sort.index.values
+        leg = []
+        # Recorremos la lista de las asignaturas correlacionadas y nos quedamos con las mejores 4
+        k = 0
+        for ind in indx:
+            # Verificamos si el indice de correlación supero el limite de 0.5
+            if indx_values[0] > 0.5:
+                # Creamos el string del JSON
+                assig_s = "a." + assig[assig['id_assig'] == ind]['desc_assig'].values[0]
+                leg.append(assig_s)
+            k+=1
+
+        assig_p = "a." + assig[assig['id_assig'] == asi]['desc_assig'].values[0]
+        d = {}
+        # Añadimos los nuevos elementos al JSON
+        d["name"] = assig_p
+        d["size"] = 5000
+        d["imports"] = leg
+        jsonn.append(d)
+
+    # Guardamos el JSON en un archivo al disco
+    with open('static/jsonD3/readme-flare-imports.json', 'w') as outfile:
+        json.dump(jsonn, outfile)
     return p, p2, p3
