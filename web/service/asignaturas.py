@@ -285,6 +285,7 @@ def asignaturas(registers, qualifications, assig):
 
     # Selecionamos las asignaturas del cursto curso y las mostramos
     assig_cuart = select_rows(assig2, [4], 'curs_assig')[['id_assig', 'desc_assig']]
+    print assig_cuart
 
 
     # Añadimos a la lista de asignaturas, las 3 asignaturas obligatorias del cursto curso: Ètica i Legislació, Enginyeria del Software y Treball de Fi de Grau
@@ -344,7 +345,14 @@ def asignaturas(registers, qualifications, assig):
         d["imports"] = leg
         jsonn.append(d)
 
+
     # Guardamos el JSON en un archivo al disco
     with open('static/jsonD3/readme-flare-imports.json', 'w') as outfile:
         json.dump(jsonn, outfile)
+
+
+
+
+
+
     return p, p2, p3

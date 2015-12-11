@@ -9,6 +9,7 @@ admin.autodiscover()
 urlpatterns = patterns(
     '',
     url(r'^dashboard/$', dashboard_view, name="dashboard"),
+    url(r'^dashboard_asignaturas/$', dashboard_view, name="dashboard_asignaturas"),
     url(r'^other/$', dashboard_view, name="other"),
     url(r'^about/$', TemplateView.as_view(template_name='about.html'), name="about"),
     url(r'^$', RedirectView.as_view(pattern_name='dashboard', permanent=False))

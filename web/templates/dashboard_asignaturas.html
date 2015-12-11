@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block header %}
+     {{script | safe}}
+{% endblock header %}
+
+{% block body_attr %}
+    onresize="bokeh_function()"
+{% endblock body_attr %}
+
+{% block page_title %}
+    Dashboard
+{% endblock page_title %}
+
+{% block content %}
+    <div class="row">
+        <!-- Assignatures -->
+        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 row">
+            <h2>Assignatures</h2>
+
+            <div id="{{ plots.regresion.plot_id | safe}}" class="col-sm-12">
+                {{plots.regresion.div | safe}}
+            </div>
+
+            <div id="{{ plots.evolucion.plot_id | safe}}" class="col-sm-12">
+                {{plots.evolucion.div | safe}}
+            </div>
+
+            <div id="{{ plots.convalidacion.plot_id | safe}}" class="col-sm-12">
+                {{plots.convalidacion.div | safe}}
+            </div>
+            <p></p>
+            <p><aside><a style="position:relative;top:6px;" href="../static/html/grafica.html" target="_blank">Abrir grafico en una nueva ventana</a></aside>
+
+        </div>
+
+{% endblock content %}
+
+{% block extra_js %}
+    var bokeh_function = function() {
+    for(var i=0; i<Bokeh.Collections('Plot').models.length; i++) {
+            var plot = Bokeh.Collections('Plot').at(i);
+            plot.set("plot_width", $("#" + plot.id).width());
+        }
+    }
+    Bokeh.$(bokeh_function);
+
+    $('#perfilsPrimer').on('shown.bs.modal', bokeh_function)
+    $('#perfilsSegon').on('shown.bs.modal', bokeh_function)
+{% endblock extra_js %}

@@ -1,6 +1,7 @@
 {% load tags %}
 
 {% url 'dashboard' as dashboard %}
+{% url 'dashboard_asignaturas' as dashboard_asignaturas %}
 {% url 'other' as other %}
 {% url 'about' as about %}
 
@@ -17,7 +18,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="{% active request dashboard %}"><a href="{{ dashboard }}">Dashboard</a></li>
+                <li class="{% active request dashboard %}"><a href="{{ dashboard }}">Dashboard Alumnos</a></li>
+                <li class="{% active request dashboard_asignaturas %}"><a href="{{ dashboard_asignaturas }}">Dashboard Asignaturas</a></li>
                 <li class="{% active request other %}"><a href="{{ other }}">Other</a></li>
                 <li class="{% active request about %}"><a href="{{ about }}">About</a></li>
             </ul>
