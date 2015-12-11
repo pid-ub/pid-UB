@@ -90,14 +90,15 @@
 </div>
 
 <script>
-    var bokeh_function = function() {
-        for(var i=0; i<Bokeh.Collections('Plot').models.length; i++) {
+    $(function() {
+        var bokeh_function = function () {
+            for (var i = 0; i < Bokeh.Collections('Plot').models.length; i++) {
                 var plot = Bokeh.Collections('Plot').at(i);
                 plot.set("plot_width", $("#" + plot.id).width());
             }
-    };
-    Bokeh.$(bokeh_function);
-
-    $('#perfilsPrimer').on('shown.bs.modal', bokeh_function);
-    $('#perfilsSegon').on('shown.bs.modal', bokeh_function);
+        };
+        Bokeh.$(bokeh_function);
+        $('#perfilsPrimer').on('shown.bs.modal', bokeh_function);
+        $('#perfilsSegon').on('shown.bs.modal', bokeh_function);
+    });
 </script>
