@@ -1,116 +1,103 @@
-{% extends 'base.html' %}
+ {{script | safe}}
 
-{% block header %}
-     {{script | safe}}
-{% endblock header %}
 
-{% block body_attr %}
-    onresize="bokeh_function()"
-{% endblock body_attr %}
-
-{% block page_title %}
-    Dashboard
-{% endblock page_title %}
-
-{% block content %}
-    <div class="row">
-        <!-- Alumnes -->
-        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 row">
-            <h2>Alumnes</h2>
-            <a data-toggle="modal" data-target="#perfilsPrimer" href="" class="col-sm-12">Perfils d'estudiants de primer d'Enginyeria Informàtica</a>
-            <div id="{{ plots.donut1.plot_id | safe}}" class="col-sm-5 col-xs-5">
-                {{plots.donut1.div | safe}}
-            </div>
-            <a data-toggle="modal" data-target="#perfilsSegon" href="" class="col-sm-12">Perfils d'estudiants de segon d'Enginyeria Informàtica</a>
-            <div id="{{ plots.donut2.plot_id | safe}}" class="col-sm-5 col-xs-5">
-                {{plots.donut2.div | safe}}
-            </div>
-
-            <div id="{{ plots.renounce1.plot_id | safe}}" class="col-sm-10 col-xs-10">
-                {{plots.renounce1.div | safe}}
-            </div>
-
-            <div id="{{ plots.renounce2.plot_id | safe}}" class="col-sm-10 col-xs-10">
-                {{plots.renounce2.div | safe}}
-            </div>
+<div class="row">
+    <!-- Alumnes -->
+    <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 row">
+        <h2>Alumnes</h2>
+        <a data-toggle="modal" data-target="#perfilsPrimer" href="" class="col-sm-12">Perfils d'estudiants de primer d'Enginyeria Informàtica</a>
+        <div id="{{ plots.donut1.plot_id | safe}}" class="col-sm-5 col-xs-5">
+            {{plots.donut1.div | safe}}
+        </div>
+        <a data-toggle="modal" data-target="#perfilsSegon" href="" class="col-sm-12">Perfils d'estudiants de segon d'Enginyeria Informàtica</a>
+        <div id="{{ plots.donut2.plot_id | safe}}" class="col-sm-5 col-xs-5">
+            {{plots.donut2.div | safe}}
         </div>
 
+        <div id="{{ plots.renounce1.plot_id | safe}}" class="col-sm-10 col-xs-10">
+            {{plots.renounce1.div | safe}}
+        </div>
 
-    </div>
-
-
-    <!-- Modal -->
-    <div id="perfilsPrimer" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Perfils de primer d'Enginyeria Informàtica</h4>
-                </div>
-                <div class="modal-body row">
-                    <div id="{{ plots.MP1.plot_id | safe}}" class="col-sm-12 col-xs-12">
-                        {{plots.MP1.div | safe}}
-                    </div>
-                    <div id="{{ plots.BN1.plot_id | safe}}" class="col-sm-12 col-xs-12">
-                        {{plots.BN1.div | safe}}
-                    </div>
-                    <div id="{{ plots.S1.plot_id | safe}}" class="col-sm-12 col-xs-12">
-                        {{plots.S1.div | safe}}
-                    </div>
-
-                    <div id="{{ plots.A1.plot_id | safe}}" class="col-sm-12 col-xs-12">
-                        {{plots.A1.div | safe}}
-                    </div>
-                    <div id="{{ plots.MM1.plot_id | safe}}" class="col-sm-12 col-xs-12">
-                        {{plots.MM1.div | safe}}
-                    </div>
-                </div>
-            </div>
-
+        <div id="{{ plots.renounce2.plot_id | safe}}" class="col-sm-10 col-xs-10">
+            {{plots.renounce2.div | safe}}
         </div>
     </div>
 
-    <!-- Modal -->
-    <div id="perfilsSegon" class="modal fade" role="dialog">
-        <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Perfils de segon d'Enginyeria Informàtica</h4>
+</div>
+
+
+<!-- Modal -->
+<div id="perfilsPrimer" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Perfils de primer d'Enginyeria Informàtica</h4>
+            </div>
+            <div class="modal-body row">
+                <div id="{{ plots.MP1.plot_id | safe}}" class="col-sm-12 col-xs-12">
+                    {{plots.MP1.div | safe}}
                 </div>
-                <div class="modal-body row">
-                    <div id="{{ plots.BN2.plot_id | safe}}" class="col-sm-12 col-xs-12">
-                        {{plots.BN2.div | safe}}
-                    </div>
-                    <div id="{{ plots.ISF2.plot_id | safe}}" class="col-sm-12 col-xs-12">
-                        {{plots.ISF2.div | safe}}
-                    </div>
-                    <div id="{{ plots.A2.plot_id | safe}}" class="col-sm-12 col-xs-12">
-                        {{plots.A2.div | safe}}
-                    </div>
-                    <div id="{{ plots.PPIE2.plot_id | safe}}" class="col-sm-12 col-xs-12">
-                        {{plots.PPIE2.div | safe}}
-                    </div>
+                <div id="{{ plots.BN1.plot_id | safe}}" class="col-sm-12 col-xs-12">
+                    {{plots.BN1.div | safe}}
+                </div>
+                <div id="{{ plots.S1.plot_id | safe}}" class="col-sm-12 col-xs-12">
+                    {{plots.S1.div | safe}}
+                </div>
+
+                <div id="{{ plots.A1.plot_id | safe}}" class="col-sm-12 col-xs-12">
+                    {{plots.A1.div | safe}}
+                </div>
+                <div id="{{ plots.MM1.plot_id | safe}}" class="col-sm-12 col-xs-12">
+                    {{plots.MM1.div | safe}}
                 </div>
             </div>
-
         </div>
-    </div>
-{% endblock content %}
 
-{% block extra_js %}
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="perfilsSegon" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Perfils de segon d'Enginyeria Informàtica</h4>
+            </div>
+            <div class="modal-body row">
+                <div id="{{ plots.BN2.plot_id | safe}}" class="col-sm-12 col-xs-12">
+                    {{plots.BN2.div | safe}}
+                </div>
+                <div id="{{ plots.ISF2.plot_id | safe}}" class="col-sm-12 col-xs-12">
+                    {{plots.ISF2.div | safe}}
+                </div>
+                <div id="{{ plots.A2.plot_id | safe}}" class="col-sm-12 col-xs-12">
+                    {{plots.A2.div | safe}}
+                </div>
+                <div id="{{ plots.PPIE2.plot_id | safe}}" class="col-sm-12 col-xs-12">
+                    {{plots.PPIE2.div | safe}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
     var bokeh_function = function() {
-    for(var i=0; i<Bokeh.Collections('Plot').models.length; i++) {
-            var plot = Bokeh.Collections('Plot').at(i);
-            plot.set("plot_width", $("#" + plot.id).width());
-        }
-    }
+        for(var i=0; i<Bokeh.Collections('Plot').models.length; i++) {
+                var plot = Bokeh.Collections('Plot').at(i);
+                plot.set("plot_width", $("#" + plot.id).width());
+            }
+    };
     Bokeh.$(bokeh_function);
 
-    $('#perfilsPrimer').on('shown.bs.modal', bokeh_function)
-    $('#perfilsSegon').on('shown.bs.modal', bokeh_function)
-{% endblock extra_js %}
+    $('#perfilsPrimer').on('shown.bs.modal', bokeh_function);
+    $('#perfilsSegon').on('shown.bs.modal', bokeh_function);
+</script>

@@ -1,28 +1,35 @@
-{% load tags %}
+<!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">Intelligent tool</a>
+            </div>
 
-{% url 'dashboard' as dashboard %}
-{% url 'dashboard_asignaturas' as dashboard_asignaturas %}
-{% url 'other' as other %}
-{% url 'about' as about %}
-
-<nav class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Sistema intel·ligent de suport al tutor d'estudis</a>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#students">Students</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#subjects">Subjects</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">About</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="{% active request dashboard %}"><a href="{{ dashboard }}">Dashboard Alumnos</a></li>
-                <li class="{% active request dashboard_asignaturas %}"><a href="{{ dashboard_asignaturas }}">Dashboard Asignaturas</a></li>
-                <li class="{% active request other %}"><a href="{{ other }}">Other</a></li>
-                <li class="{% active request about %}"><a href="{{ about }}">About</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+        <!-- /.container-fluid -->
+    </nav>

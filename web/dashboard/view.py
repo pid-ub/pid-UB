@@ -8,23 +8,10 @@ from service.clustering import clustering, estimate, renounce
 from service.asignaturas import asignaturas
 from settings import *
 
-
-def dashboard_view(request):
+def home_view(request):
     # Insert in figures the plots given from service
     figures = []
     figures_lbl = []
-
-    if str(request) == "<WSGIRequest: GET '/dashboard_asignaturas/'>":
-        figura_regresion, figura_evolucion, figura_convalidacion = asignaturas(reg, qual, assig)
-        figures.append(figura_regresion)
-        figures_lbl.append("regresion")
-        figures.append(figura_evolucion)
-        figures_lbl.append("evolucion")
-        figures.append(figura_convalidacion)
-        figures_lbl.append("convalidacion")
-
-        script, plots = plot(figures_lbl, figures)
-        return render(request, "dashboard_asignaturas.html", {"script": script, "plots": plots})
 
     tmp = estimate(primer_info_qual, 5)
     lbl_clusters = ["MP1", # Milors en programació de primer
@@ -55,8 +42,17 @@ def dashboard_view(request):
     figures.append(renounce(tmp, colors, df_info, s3_info, lbl_clusters))
     figures_lbl.append("renounce2")
 
+
+    figura_regresion, figura_evolucion, figura_convalidacion = asignaturas(reg, qual, assig)
+    figures.append(figura_regresion)
+    figures_lbl.append("regresion")
+    figures.append(figura_evolucion)
+    figures_lbl.append("evolucion")
+    figures.append(figura_convalidacion)
+    figures_lbl.append("convalidacion")
+
     script, plots = plot(figures_lbl, figures)
-    return render(request, "dashboard.html", {"script": script, "plots": plots})
+    return render(request, "index.html", {"script": script, "plots": plots})
 
 
 def plot(keys, f):
