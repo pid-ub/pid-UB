@@ -5,25 +5,33 @@
     <!-- Alumnes -->
     <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 row">
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12 row">
-            <a data-toggle="modal" data-target="#perfilsPrimer" href="" class="col-12">Perfils d'estudiants de primer d'Enginyeria Informàtica</a>
             <div id="{{ plots.donut1.plot_id | safe}}" class="col-12 col-12">
                 {{plots.donut1.div | safe}}
             </div>
+            <p class="col-12 col-12">The number of students per kind in the <strong>1st year of Computer Engineering</strong>.
+                The distribution of each kind of student can be seen in this
+                <a data-toggle="modal" data-target="#perfilsPrimer" href="">link</a>.
+            </p>
         </div>
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12 row">
-            <a data-toggle="modal" data-target="#perfilsSegon" href="" class="col-12">Perfils d'estudiants de segon d'Enginyeria Informàtica</a>
             <div id="{{ plots.donut2.plot_id | safe}}" class="col-12 col-12">
                 {{plots.donut2.div | safe}}
             </div>
+            <p class="col-12 col-12">The number of students per kind in the <strong>2nd year of Computer Engineering</strong>.
+                The distribution of each kind of student can be seen in this
+                <a data-toggle="modal" data-target="#perfilsSegon" href="">link</a>.
+            </p>
         </div>
 
         <div id="{{ plots.renounce1.plot_id | safe}}" class="col-12">
             {{plots.renounce1.div | safe}}
         </div>
+        <p class="col-12 text-center">Dropout rate per kind of student in the 1st year of Computer Engineering.</p>
 
         <div id="{{ plots.renounce2.plot_id | safe}}" class="col-12">
             {{plots.renounce2.div | safe}}
         </div>
+        <p class="col-12 text-center">Dropout rate per kind of student in the 1st year of Math.</p>
     </div>
 
 
