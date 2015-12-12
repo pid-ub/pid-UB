@@ -7,6 +7,20 @@ from model.PlotModel import PlotModel
 from service.clustering import clustering, estimate, renounce
 from service.asignaturas import asignaturas
 from settings import *
+from django.shortcuts import redirect
+
+
+def students_view(request):
+    return redirect('/home/#students')
+
+
+def subjects_view(request):
+    return redirect('/home/#subjects')
+
+
+def about_view(request):
+    return redirect('/home/#about')
+
 
 def home_view(request):
     # Insert in figures the plots given from service

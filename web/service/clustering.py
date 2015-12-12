@@ -72,7 +72,7 @@ def clustering(tmp, lbl_clusters, colors):
     ends = [p*2*math.pi for p in percent[1:]]
 
 
-    donut = figure(x_range=(-1.2,1.2), y_range=(-1.2,1.2), plot_width=450, plot_height=450, title="Distribució dels clusters", tools="previewsave")
+    donut = figure(x_range=(-1.5,1.5), y_range=(-1.5,1.5), plot_width=450, plot_height=450, title="Distribució dels clusters", tools="previewsave")
     donut.xgrid.grid_line_color = None
     donut.ygrid.grid_line_color = None
     legend = []
