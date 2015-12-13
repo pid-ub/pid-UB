@@ -7,6 +7,12 @@
         <div id="{{ plots.regresion.plot_id | safe}}" class="col-sm-6 col-md-offset-3">
             {{plots.regresion.div | safe}}
         </div>
+        <br><br>
+        <div class="col-sm-6 col-md-offset-3">
+        <p>
+            <strong>Regression line</strong> where we can observe that students have <strong>lower grades</strong> in the first universitary course according to the university acces grades.
+        </p>
+        </div>
 
         <div id="{{ plots.evolucion.plot_id | safe}}" class="col-sm-12">
             {{plots.evolucion.div | safe}}
@@ -14,7 +20,7 @@
         <br><br>
         <div class="col-sm-12 col-md-offset-1">
         <p>
-            Evolution of the average grades for the subjects of the first course of Computer Engineering degree.
+            Evolution of the <strong>average grades</strong> for the subjects of the first course of Computer Engineering degree.
         </p>
         <br><br>
         </div>
@@ -22,18 +28,25 @@
             {{plots.convalidacion.div | safe}}
         </div>
         <br><br>
+                <div class="col-sm-6 col-md-offset-3">
+        <p>
+        Bloxplot with the <strong>grades of Integrated Software Project</strong> subject where we can observe that students with pre-validated programing subjects have <strong>lower grades</strong>.
+        </p>
+
+
+        <br><br>
         <p>
 
         </p>
 
-        <div class="col-sm-12 col-md-offset-3">
-            <div class="col-sm-12 col-md-offset-1">
+        <div class="col-sm-12">
+            <div class="col-sm-12">
                 <br><br><br><br>
             <p>Interactive graph with the relations between subjects</p>
                 </div>
             <IFRAME SRC="../static/html/grafica.html" width="100%" height="200px" scrolling="no" id="iframe1" marginheight="0" frameborder="0" onLoad="autoResize('iframe1');"></iframe>
         </div>
-        <div class="col-sm-10 col-md-offset-2">
+        <div class="col-sm-12">
             <br><br>
         <p>Using the above interactive graph we can study the relations that may have between the subjects of the <strong>Computer engineering degree</strong>. We will observe if the grades of the students has <strong>similar distributions</strong> for different subjects or to the contrary, we have <strong>outlier subjects</strong> with different distributions.
         </p>

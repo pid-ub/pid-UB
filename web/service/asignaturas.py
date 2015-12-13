@@ -198,18 +198,18 @@ def asignaturas(registers, qualifications, assig):
 
     s1 = pd.Series(notas_pis_conv)
     df1 = pd.DataFrame(s1, columns=['nota_primera_conv'])
-    df1['convalidado'] = 'Convalidado'
+    df1['convalidado'] = 'With validated subjects'
 
     s2 = pd.Series(notas_pis_no_conv)
     df2 = pd.DataFrame(s2, columns=['nota_primera_conv'])
-    df2['convalidado'] = 'No Convalidado'
+    df2['convalidado'] = 'Withouth validated subjects'
 
     df = pd.concat([df1, df2])
 
 
 
     # Las categorías de los datos
-    cats = ['Convalidado', 'No Convalidado']
+    cats = ['With validated subjects', 'Withouth validated subjects']
 
     # Buscamos los cuartiles y el IQR para cada categoría
     groups = df.groupby('convalidado')
@@ -265,7 +265,7 @@ def asignaturas(registers, qualifications, assig):
     p3.ygrid.grid_line_color = "white"
     p3.grid.grid_line_width = 2
     p3.xaxis.major_label_text_font_size="12pt"
-    p3.title = "Grades - Proyecto Integrado de Software"
+    p3.title = "Grades - Integrated software project"
 
     qualifications = qualifications2
     assig = assig2
