@@ -86,18 +86,18 @@ def asignaturas(registers, qualifications, assig):
     notas_acces= aux
 
 
-    p = figure(title = "Regresion entre nota de acceso y media cualificaciones", background_fill="#EFE8E2", tools="previewsave", x_range=(0, 10.1), y_range=(0, 10.1))
-    p.circle(qualificacions,notas_acces, radius=0.06, fill_color='#F38630',fill_alpha=0.6, legend="Alumnos")
+    p = figure(title = "Regression between admission grade and average score of first course", background_fill="#EFE8E2", tools="previewsave", x_range=(0, 10.1), y_range=(0, 10.1))
+    p.circle(qualificacions,notas_acces, radius=0.06, fill_color='#F38630',fill_alpha=0.6, legend="Students")
 
-    p.line(r_x, r_y, color="red", line_width = 2, legend="Linea de regresión obtenida")
-    p.line([0,10], [0,10], color="blue", line_width = 2, legend="Linea de regresión ideal")
+    p.line(r_x, r_y, color="red", line_width = 2, legend="Obtained regression line")
+    p.line([0,10], [0,10], color="blue", line_width = 2, legend="Ideal regression line")
 
 
     p.circle(alumne[1], alumne[0], radius = 0.07, fill_color = 'red' ,fill_alpha=0.6, line_color=None)
 
-    p.xaxis.axis_label = 'Nota media Universidad'
-    p.yaxis.axis_label = 'Nota de acceso'
-    p.title_text_font_size='15pt'
+    p.xaxis.axis_label = 'Average score of first course'
+    p.yaxis.axis_label = 'Admission grade'
+    p.title_text_font_size='13pt'
     p.plot_width = 600
     p.legend.orientation = "bottom_right"
 
@@ -110,7 +110,7 @@ def asignaturas(registers, qualifications, assig):
 
     # Selecionamos las calificaciones de Ingeniería Informática
     qual_info = qual[qual['id_enseny_assig'] == 'G1077']
-    list_a = ["Primer Curso", "Segundo curso", "Tercer curso", "Cuarto curso"]
+    list_a = ["Evolution of the average grades - First Course", "Evolution of the average grades- Second Course", "Evolution of the average grades - Third Course", "Evolution of the average grades - Fourth Course"]
     x_min_range = 2009
     figures = list()
 
@@ -241,7 +241,7 @@ def asignaturas(registers, qualifications, assig):
         except:
             pass
 
-    p3 = figure(tools="previewsave", background_fill="#EFE8E2", title="", x_range=cats)
+    p3 = figure(tools="previewsave", background_fill="#EFE8E2", title="", x_range=cats, plot_width=100)
 
     qmin = groups.quantile(q=0.00)
     qmax = groups.quantile(q=1.00)
@@ -265,7 +265,7 @@ def asignaturas(registers, qualifications, assig):
     p3.ygrid.grid_line_color = "white"
     p3.grid.grid_line_width = 2
     p3.xaxis.major_label_text_font_size="12pt"
-    p3.title = "Notas de Proyecto Integrado de Software"
+    p3.title = "Grades - Proyecto Integrado de Software"
 
     qualifications = qualifications2
     assig = assig2
