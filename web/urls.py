@@ -8,5 +8,6 @@ urlpatterns = patterns(
     url(r'^home/$', RedirectView.as_view(pattern_name='home', permanent=False)),
     url(r'^students/$', students_view, name="students"),
     url(r'^subjects/$', subjects_view, name="subjects"),
-    url(r'^about/$', about_view, name="about")
+    url(r'^predictive/$', predictive_view, name="predictive"),
+    url(r'^team/$', team_view, name="team")
 )

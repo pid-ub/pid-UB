@@ -8,8 +8,8 @@
             <div id="{{ plots.donut1.plot_id | safe}}" class="col-12 col-12">
                 {{plots.donut1.div | safe}}
             </div>
-            <p class="col-12 col-12">The number of students per kind in the <strong>1st year of Computer Engineering</strong>.
-                The distribution of each kind of student can be seen
+            <p align="justify" class="col-12 col-12">The number of students per profile in the <strong>1st year of Computer Engineering</strong>.
+                The distribution of each student profile can be seen
                 <a data-toggle="modal" data-target="#perfilsPrimer" href="">here</a>.
             </p>
         </div>
@@ -17,8 +17,8 @@
             <div id="{{ plots.donut2.plot_id | safe}}" class="col-12 col-12">
                 {{plots.donut2.div | safe}}
             </div>
-            <p class="col-12 col-12">The number of students per kind in the <strong>2nd year of Computer Engineering</strong>.
-                The distribution of each kind of student can be seen
+            <p align="justify" class="col-12 col-12">The number of students per profile in the <strong>2nd year of Computer Engineering</strong>.
+                The distribution of each student profile can be seen
                 <a data-toggle="modal" data-target="#perfilsSegon" href="">here</a>.
             </p>
         </div>
@@ -28,14 +28,25 @@
         <div id="{{ plots.renounce1.plot_id | safe}}" class="col-12">
             {{plots.renounce1.div | safe}}
         </div>
-        <p class="col-12 text-center">Dropout rate per kind of student in the <strong>1st year of Computer Engineering</strong>.</p>
+        <p align="justify" class="col-12 text-center">Dropout rate per student profile in the <strong>1st year of Computer Engineering</strong>.</p>
 
         <hr class="hr">
 
         <div id="{{ plots.renounce2.plot_id | safe}}" class="col-12">
             {{plots.renounce2.div | safe}}
         </div>
-        <p class="col-12 text-center">Dropout rate per kind of student in the <strong>1st year of Math</strong>.</p>
+        <p align="justify" class="col-12 text-center">Dropout rate per student profile in the <strong>1st year of Math</strong>.</p>
+
+        <div id="{{ plots.regresion.plot_id | safe}}" class="col-sm-6 col-md-offset-3">
+            {{plots.regresion.div | safe}}
+        </div>
+        <br><br>
+        <div class="col-sm-6 col-md-offset-3">
+        <p align="justify">
+            <strong>Regression line</strong> where we can observe that students have <strong>lower grades</strong> in the first universitary course according to the university acces grades.
+        </p>
+        </div>
+
     </div>
 
 
@@ -50,13 +61,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Kind of the students in 1st year of Computer Engineering</h4>
+                <h4 class="modal-title">Student profiles in 1st year of Computer Engineering</h4>
             </div>
             <div class="modal-body row">
                 <div id="{{ plots.MP1.plot_id | safe}}" class="col-sm-12 col-xs-12">
                     {{plots.MP1.div | safe}}
                 </div>
-                <p class="col-10 text-center text-center">
+                <p align="justify" class="col-10 text-center text-center">
                     Students who are bad in computing programming and are better in math
                 </p>
                 <hr size="5">
@@ -64,7 +75,7 @@
                 <div id="{{ plots.BN1.plot_id | safe}}" class="col-sm-12 col-xs-12">
                     {{plots.BN1.div | safe}}
                 </div>
-                <p class="col-10 text-center">
+                <p align="justify" class="col-10 text-center">
                     Students who tend to have good marks
                 </p>
                 <hr size="5">
@@ -72,7 +83,7 @@
                 <div id="{{ plots.S1.plot_id | safe}}" class="col-sm-12 col-xs-12">
                     {{plots.S1.div | safe}}
                 </div>
-                <p class="col-10 text-center">
+                <p align="justify" class="col-10 text-center">
                     Students who tend to have bad marks
                 </p>
                 <hr size="5">
@@ -80,7 +91,7 @@
                 <div id="{{ plots.A1.plot_id | safe}}" class="col-sm-12 col-xs-12">
                     {{plots.A1.div | safe}}
                 </div>
-                <p class="col-10 text-center">
+                <p align="justify" class="col-10 text-center">
                     Students who tend to have regular marks
                 </p>
                 <hr size="5">
@@ -88,7 +99,7 @@
                 <div id="{{ plots.MM1.plot_id | safe}}" class="col-sm-12 col-xs-12">
                     {{plots.MM1.div | safe}}
                 </div>
-                <p class="col-10 text-center">
+                <p align="justify" class="col-10 text-center">
                     Students who are bad in math and are better in computing programming
                 </p>
             </div>
@@ -105,13 +116,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Kind of the students in 2nd year of Computer Engineering</h4>
+                <h4 class="modal-title">Student profiles in 2nd year of Computer Engineering</h4>
             </div>
             <div class="modal-body row">
                 <div id="{{ plots.BN2.plot_id | safe}}" class="col-sm-12 col-xs-12">
                     {{plots.BN2.div | safe}}
                 </div>
-                <p class="col-10 text-center">
+                <p align="justify" class="col-10 text-center">
                     Students who tend to have good marks
                 </p>
                 <hr size="5">
@@ -119,7 +130,7 @@
                 <div id="{{ plots.ISF2.plot_id | safe}}" class="col-sm-12 col-xs-12">
                     {{plots.ISF2.div | safe}}
                 </div>
-                <p class="col-10 text-center">
+                <p align="justify" class="col-10 text-center">
                     Students who have subjects passed, but have dificulty with two subjects
                 </p>
                 <hr size="5">
@@ -127,7 +138,7 @@
                 <div id="{{ plots.A2.plot_id | safe}}" class="col-sm-12 col-xs-12">
                     {{plots.A2.div | safe}}
                 </div>
-                <p class="col-10 text-center">
+                <p align="justify" class="col-10 text-center">
                     Students who tend to have regular marks
                 </p>
                 <hr size="5">
@@ -135,7 +146,7 @@
                 <div id="{{ plots.PPIE2.plot_id | safe}}" class="col-sm-12 col-xs-12">
                     {{plots.PPIE2.div | safe}}
                 </div>
-                <p class="col-10 text-center">
+                <p align="justify" class="col-10 text-center">
                     Students who have subjects passed, but have dificulty with two subjects
                 </p>
             </div>

@@ -11,15 +11,19 @@ from django.shortcuts import redirect
 
 
 def students_view(request):
-    return redirect('/#students')
+    return redirect('#students')
 
 
 def subjects_view(request):
     return redirect('#subjects')
 
 
-def about_view(request):
-    return redirect('/#about')
+def predictive_view(request):
+    return redirect('#predictive')
+
+
+def team_view(request):
+    return redirect('#team')
 
 
 def home_view(request):

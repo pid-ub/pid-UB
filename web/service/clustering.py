@@ -47,7 +47,7 @@ def clustering(tmp, lbl_clusters, colors):
 
         f = figure(title=lbl_clusters[i],
                 x_range=tmp.columns[:-1].tolist(), y_range=[0, 10], plot_width=425, plot_height=250,
-                tools="hover,previewsave"
+                tools=""
         )
         f.xgrid.grid_line_color = None
         f.rect(x=tmp.columns[:-1], y=d/2, width=0.8, height=d, color=colors[i], alpha=0.8, source=source_mark) #colors[k]
@@ -70,7 +70,7 @@ def clustering(tmp, lbl_clusters, colors):
     ends = [p*2*math.pi for p in percent[1:]]
 
 
-    donut = figure(x_range=(-1.5,1.5), y_range=(-1.5,1.5), plot_width=450, plot_height=450, tools="previewsave")
+    donut = figure(x_range=(-1.5,1.5), y_range=(-1.5,1.5), plot_width=450, plot_height=450, tools="")
     donut.xgrid.grid_line_color = None
     donut.ygrid.grid_line_color = None
     legend = []
@@ -105,7 +105,7 @@ def renounce(df, colors, register, subjects1, lbl):
         )
     f = figure(
                 x_range=lbl, y_range=[0,100], plot_width=900, plot_height=300,
-                tools="previewsave,hover"
+                tools=""
               )
     f.xgrid.grid_line_color = None
     f.rect(x=lbl, y=groups/2, width=0.3, height=groups, color=colors, alpha=0.8, source=source)

@@ -86,7 +86,7 @@ def asignaturas(registers, qualifications, assig):
     notas_acces= aux
 
 
-    p = figure(title = "Regression between admission grade and average score of first course", background_fill="#EFE8E2", tools="previewsave", x_range=(0, 10.1), y_range=(0, 10.1))
+    p = figure(title = "Regression between admission grade and average score of first course", background_fill="#EFE8E2", tools="", x_range=(0, 10.1), y_range=(0, 10.1))
     p.circle(qualificacions,notas_acces, radius=0.06, fill_color='#F38630',fill_alpha=0.6, legend="Students")
 
     p.line(r_x, r_y, color="red", line_width = 2, legend="Obtained regression line")
@@ -127,7 +127,7 @@ def asignaturas(registers, qualifications, assig):
     assigs_anys = qualifications.groupby(['desc_assig', 'any_matriculacio_assig'])
 
     # Creamos el nuevo grafico y definimos sus caracteristicas
-    p2 = figure(title = list_a[curs - 1], x_range = [x_min_range - 1 + curs, 2014], plot_width=1250, tools="previewsave")
+    p2 = figure(title = list_a[curs - 1], x_range = [x_min_range - 1 + curs, 2014], plot_width=1250, tools="")
     col = ['#8f6b51','#dfcb8c','#d8b9b4','#7e858f','#373934','#653040','#dfdcd7','#6b9fc6','#7d8790','#30394a', '#8b9068','#a8bcaa','#008ea7','#606f75','#204253']
 
     test = [[],[]]
@@ -241,7 +241,7 @@ def asignaturas(registers, qualifications, assig):
         except:
             pass
 
-    p3 = figure(tools="previewsave", background_fill="#EFE8E2", title="", x_range=cats, plot_width=100)
+    p3 = figure(tools="", background_fill="#EFE8E2", title="", x_range=cats, plot_width=100)
 
     qmin = groups.quantile(q=0.00)
     qmax = groups.quantile(q=1.00)
