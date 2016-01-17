@@ -61,7 +61,7 @@ def home_view(request):
     figures_lbl.append("renounce2")
 
 
-    figura_regresion, figura_evolucion, figura_convalidacion = asignaturas(reg, qual, assig)
+    figura_regresion, figura_evolucion, figura_convalidacion, numero_alumnos_regresion, num_alumnes_conv, num_alumnes_outliers, num_evolucion = asignaturas(reg, qual, assig)
     figures.append(figura_regresion)
     figures_lbl.append("regresion")
     figures.append(figura_evolucion)
@@ -70,7 +70,7 @@ def home_view(request):
     figures_lbl.append("convalidacion")
 
     script, plots = plot(figures_lbl, figures)
-    return render(request, "index.html", {"script": script, "plots": plots})
+    return render(request, "index.html", {"script": script, "plots": plots, "num_reg": numero_alumnos_regresion, "num_conv": num_alumnes_conv, "num_out": num_alumnes_outliers, "num_evo":num_evolucion })
 
 
 def plot(keys, f):

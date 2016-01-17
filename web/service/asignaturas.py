@@ -85,6 +85,8 @@ def asignaturas(registers, qualifications, assig):
 
     notas_acces= aux
 
+    numero_alumnos_regresion = len(notas_acces)
+
 
     p = figure(title = "Regression between admission grade and average score of first course", background_fill="#EFE8E2", tools="", x_range=(0, 10.1), y_range=(0, 10.1))
     p.circle(qualificacions,notas_acces, radius=0.06, fill_color='#F38630',fill_alpha=0.6, legend="Students")
@@ -105,7 +107,7 @@ def asignaturas(registers, qualifications, assig):
 
 
     qual = pd.merge(qualifications, assig)
-    qual = qual[['any_matriculacio_assig', 'nota_primera_conv', 'desc_assig', 'curs_assig', 'id_enseny_assig']]
+    qual = qual[['any_matriculacio_assig', 'nota_primera_conv', 'desc_assig', 'curs_assig', 'id_enseny_assig', 'id_alumne']]
 
 
     # Selecionamos las calificaciones de Ingeniería Informática
@@ -120,6 +122,10 @@ def asignaturas(registers, qualifications, assig):
 
     # Obtenemos las calificaciones del curso actual
     qualifications = qual_info[qual_info['curs_assig'] == curs]
+
+    num_evolucion = len(qualifications.id_alumne.unique())
+
+
     assigs_list = qualifications.desc_assig.unique()
     anys_list = qualifications.any_matriculacio_assig.unique()
     anys_list.sort()
@@ -194,7 +200,7 @@ def asignaturas(registers, qualifications, assig):
     notas_pis_conv = [item for sublist in notas_pis_conv for item in sublist]
     notas_pis_no_conv = [item for sublist in notas_pis_no_conv for item in sublist]
 
-
+    num_alumnes_conv = len(notas_pis.id_alumne.unique())
 
     s1 = pd.Series(notas_pis_conv)
     df1 = pd.DataFrame(s1, columns=['nota_primera_conv'])
@@ -299,7 +305,7 @@ def asignaturas(registers, qualifications, assig):
     # Hacemos la traspuesta de la matriz
     ttt = tt.T
 
-
+    num_alumnes_outliers = len(tt)
     # Pasamos la matriz con las calificaciones a un DataFrame y obtenemos la matriz de correlación de Spearman entre las calificaciones de cada asignatura
     coll = []
     coll.append(list_assig[0])
@@ -310,7 +316,6 @@ def asignaturas(registers, qualifications, assig):
         df1[list_assig[i]] = pd.Series(ttt.ix[list_assig[i]], index=df1.index)
     # Obtenemos la matriz de correlación
     corr= df1.corr()
-
 
     # A continuaciñon creamos un JSON tal que por cada asignatura se selecionan las 4 asignaturas mas correlacionadas. En el caso de que todos los coeficientes de correlación de una asignaturas son menores que 0.5, esta asignaturas se queda sin relaciones, es decir outlier.
     jsonn = []
@@ -352,4 +357,4 @@ def asignaturas(registers, qualifications, assig):
 
 
 
-    return p, p2, p3
+    return p, p2, p3, numero_alumnos_regresion, num_alumnes_conv, num_alumnes_outliers, num_evolucion

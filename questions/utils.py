@@ -1,7 +1,7 @@
  # -*- coding: utf-8 -*-
 
 import math
-from bokeh.plotting import GridPlot
+from bokeh.plotting import *
 import numpy as np
 import pandas as pd
 

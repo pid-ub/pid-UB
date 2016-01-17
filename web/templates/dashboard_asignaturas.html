@@ -13,6 +13,7 @@
         <div class="col-sm-12 col-md-offset-1">
         <p align="justify">
             Evolution of the <strong>average grades</strong> for the subjects of the first course of Computer Engineering degree.
+            <br /><br /> For this graph we used the grades of <strong>{{num_evo | safe}} students</strong>.
         </p>
         <br><br>
         </div>
@@ -23,6 +24,7 @@
                 <div class="col-sm-6 col-md-offset-3">
         <p align="justify">
         Bloxplot with the <strong>grades of Integrated Software Project</strong> subject where we can observe that students with pre-validated programing subjects have <strong>lower grades</strong>.
+            <br /><br /> For this graph we used the grades of <strong>{{num_conv | safe}} students</strong>.
         </p>
 
 
@@ -36,12 +38,29 @@
                 <br><br><br><br>
             <p align="justify">Interactive graph with the relations between subjects</p>
                 </div>
-            <IFRAME SRC="../static/html/grafica.html" width="100%" height="200px" scrolling="no" id="iframe1" marginheight="0" frameborder="0" onLoad="autoResize('iframe1');"></iframe>
+            <IFRAME SRC="../static/html/grafica.html" width="200%" height="300px" scrolling="no" id="iframe1" marginheight="0" frameborder="0" onLoad="autoResize('iframe1');"></iframe>
         </div>
         <div class="col-sm-12">
             <br><br>
         <p align="justify">Using the above interactive graph we can study the relations that may have between the subjects of the <strong>Computer engineering degree</strong>. We will observe if the grades of the students has <strong>similar distributions</strong> for different subjects or to the contrary, we have <strong>outlier subjects</strong> with different distributions.
+        <br /><br /> For this graph we used the grades of <strong>{{num_out | safe}} students</strong>.
         </p>
+
+            <p align="justify">
+            <br /><strong>Description of the relations between the subjects</strong>
+
+<br /><br /> To select a subject we have to bring the arrow cursor over the name of the desired subject. Once selected, the following new items will appears:
+
+<br /><br /> &bull; The relations that are <strong>red colored</strong> represents the subjects to which there is a link from the selected subject.
+
+
+<br /> &bull; The relations that are <strong>green colored</strong> represents subjects from which there is a link to the selected subject.
+
+
+<br /> &bull; The subjects with <strong>no type of relation</strong> are considered <strong>outliers subjects</strong>. These subjects have a low correlation with the rest of subjects.
+
+            </p>
+
         </div>
         <br><br>
     </div>
