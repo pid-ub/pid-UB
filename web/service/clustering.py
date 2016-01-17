@@ -70,7 +70,7 @@ def clustering(tmp, lbl_clusters, colors):
     ends = [p*2*math.pi for p in percent[1:]]
 
 
-    donut = figure(x_range=(-1.5,1.5), y_range=(-1.5,1.5), plot_width=450, plot_height=450, tools="")
+    donut = figure(title="Distribution of student profiles", x_range=(-1.5,1.5), y_range=(-1.5,1.5), plot_width=450, plot_height=450, tools="")
     donut.xgrid.grid_line_color = None
     donut.ygrid.grid_line_color = None
     legend = []
@@ -80,7 +80,7 @@ def clustering(tmp, lbl_clusters, colors):
         legend[i] += " - " + lbl_clusters[i]
         donut.wedge(x=0, y=0, radius=1, start_angle=starts[i], end_angle=ends[i], color=colors[i], line_color = 'black', legend=legend[i])
 
-    return (figures, donut)
+    return (figures, donut, tmp.shape[0])
 
 
 def renounce(df, colors, register, subjects1, lbl):
@@ -104,7 +104,7 @@ def renounce(df, colors, register, subjects1, lbl):
             )
         )
     f = figure(
-                x_range=lbl, y_range=[0,100], plot_width=900, plot_height=300,
+                title="Dropout rate", x_range=lbl, y_range=[0,100], plot_width=900, plot_height=300,
                 tools=""
               )
     f.xgrid.grid_line_color = None

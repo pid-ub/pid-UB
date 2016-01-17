@@ -38,7 +38,7 @@ def home_view(request):
                             "A1", # Aprovats de primer
                             "MM1"] # Millors en matemátiques de primer
     colors = ['#fffea3', '#97f0aa', '#ff9f9a', '#92c6ff', '#FAC864']
-    cluster_figures, donut = clustering(tmp, lbl_clusters, colors)
+    cluster_figures, donut, clustering_size1 = clustering(tmp, lbl_clusters, colors)
     figures += cluster_figures
     figures_lbl += lbl_clusters
     figures.append(donut)
@@ -52,7 +52,7 @@ def home_view(request):
                                "A2", # Aprovats de segon
                                "PPIE2"] #problemes amb pie
     colors = ['#97f0aa', '#fffea3', '#92c6ff', '#FAC864']
-    cluster_figures, donut = clustering(tmp, lbl_clusters, colors)
+    cluster_figures, donut, clustering_size2 = clustering(tmp, lbl_clusters, colors)
     figures += cluster_figures
     figures_lbl += lbl_clusters
     figures.append(donut)
@@ -70,7 +70,7 @@ def home_view(request):
     figures_lbl.append("convalidacion")
 
     script, plots = plot(figures_lbl, figures)
-    return render(request, "index.html", {"script": script, "plots": plots, "num_reg": numero_alumnos_regresion, "num_conv": num_alumnes_conv, "num_out": num_alumnes_outliers, "num_evo":num_evolucion })
+    return render(request, "index.html", {"script": script, "plots": plots, "num_reg": numero_alumnos_regresion, "num_conv": num_alumnes_conv, "num_out": num_alumnes_outliers, "num_evo":num_evolucion, "cs1": clustering_size1, "cs2": clustering_size2 })
 
 
 def plot(keys, f):
