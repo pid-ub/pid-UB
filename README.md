@@ -4,14 +4,15 @@ Intelligent Support System for the Tutor of Studies
 
 This project is an educational innovation project in Universitat de Barcelona. 
 The aim of the project is to create an intelligent support system which tutors of studies can use in order to take better decisions in their tasks of orientation and enrollment guidance to students.
-This repository is part of the project.
+For that we develop an analysis of the curricular data based on data science and machine learning to automatically extract patterns and predict behavior of students (dropout and consecutive courses performance).
+This repository contains part of the code of this project.
 
 
-## Publications: "Data-driven System to Predict Academic Grades and Dropout"
+## Publication: "Data-driven System to Predict Academic Grades and Dropout"
 
 Reference of the paper: S. Rovira, E. Puertas, L. Igual. [«Data-driven system to predict academic grades and dropout»](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0171207). PLoS ONE, febrer de 2017. Doi:10.1371/journal.pone.0171207
 
-Abstract:
+**Abstract**:
 Nowadays, the role of a tutor is more important than ever to prevent students dropout and improve their academic performance. This work proposes a data-driven system to
 extract relevant information hidden in the student academic data and, thus, help tutors to offer their pupils a more proactive personal guidance. In particular, our system,
 based on machine learning techniques, makes predictions of dropout intention and courses grades of students, as well as personalized course recommendations. Moreover,
@@ -36,9 +37,9 @@ Other members:
 
 ## Students who worked in the project:
 
-- Daniel Urdas (2015)
-- Xavi Moreno (2015)
-- Laura Portell (2016)
+- Daniel Urdas: [TFG](http://diposit.ub.edu/dspace/handle/2445/68450) (2015)
+- Xavi Moreno [TFG](http://diposit.ub.edu/dspace/handle/2445/67262)(2015)
+- Laura Portell [TFG](http://diposit.ub.edu/dspace/handle/2445/105682)(2016)
 - Sergi Rovira (2016)
 
 Sample of the results in: http://pid-ub.github.io/
