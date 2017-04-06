@@ -2,9 +2,10 @@
 Intelligent Support System for Tutor of Studies
 ================================================
 
-This project is an educational innovation project in Universitat de Barcelona. 
-The aim of the project is to create an intelligent support system which tutors of studies can use in order to take better decisions in their tasks of orientation and enrollment guidance to students.
-For that we develop an analysis of the curricular data based on data science and machine learning to automatically extract patterns and predict behavior of students (dropout and consecutive courses performance).
+This work is part of an teaching innovation project in Universitat de Barcelona. 
+The aim of the project is to create an automatic tool to process and analyze the accumulated annual curricular data of the students.
+This tool is based on data science and machine learning techniques to automatically extract patterns and predict behavior of students, dropout and consecutive courses performance, among others.
+The system will be extremely helpful for the tutor of studies task which can use it in order to take better decisions in their tasks of orientation and enrollment guidance to students.
 This repository contains part of the code of this project.
 
 
