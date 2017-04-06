@@ -10,18 +10,24 @@ This repository is part of the project.
 ## Team:
 
 Dr. Laura Igual, Associate Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
+
 Dr. Eloi Puertas, Contracted Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
+
 Dr. Oriol Pujol, Associate Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
+
 Dr. Lluís Garrido, Associate Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
+
 Dr. Santi Seguí is an Assistant Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
+
 Dr. Jordi Vitrià, Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
+
 Dr. Petia Radeva, Associate Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
 
 Members of the INDOMAIN Innovation and Teaching Group.
 
 
 
-# Support by Universitat de Barcelona:
+## Support by Universitat de Barcelona:
 
 Grant [2014PID-UB/068](http://mid.ub.edu/webpmid/content/sistema-intel%E2%80%A2ligent-de-suport-al-tutor-d%E2%80%99estudis)
 
@@ -44,10 +50,10 @@ from the degree studies in Law, Computer Science and Mathematics of the Universi
 
 ## Students who worked in the project:
 
-Daniel Urdas (2015)
-Xavi Moreno (2015)
-Laura Portell (2016)
-Sergi Rovira (2016)
+- Daniel Urdas (2015)
+- Xavi Moreno (2015)
+- Laura Portell (2016)
+- Sergi Rovira (2016)
 
 Sample of the results in: http://pid-ub.github.io/
 
