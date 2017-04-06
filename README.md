@@ -9,21 +9,15 @@ This repository is part of the project.
 
 ## Team:
 
-Dr. Laura Igual, Associate Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
+- Dr. Laura Igual, Associate Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
+- Dr. Eloi Puertas, Contracted Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
+- Dr. Oriol Pujol, Associate Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
+- Dr. Lluís Garrido, Associate Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
+- Dr. Santi Seguí is an Assistant Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
+- Dr. Jordi Vitrià, Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
+- Dr. Petia Radeva, Associate Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
 
-Dr. Eloi Puertas, Contracted Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
-
-Dr. Oriol Pujol, Associate Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
-
-Dr. Lluís Garrido, Associate Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
-
-Dr. Santi Seguí is an Assistant Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
-
-Dr. Jordi Vitrià, Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
-
-Dr. Petia Radeva, Associate Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
-
-Members of the INDOMAIN Innovation and Teaching Group.
+All of them are members of the INDOMAIN Innovation and Teaching Group.
 
 
 
