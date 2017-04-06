@@ -1,6 +1,6 @@
 
-Intelligent Support System for the Tutor of Studies
-===================================================
+Intelligent Support System for Tutor of Studies
+================================================
 
 This project is an educational innovation project in Universitat de Barcelona. 
 The aim of the project is to create an intelligent support system which tutors of studies can use in order to take better decisions in their tasks of orientation and enrollment guidance to students.
