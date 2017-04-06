@@ -45,7 +45,7 @@ Other members:
 - Laura Portell [TFG](http://diposit.ub.edu/dspace/handle/2445/105682)(2016)
 - Sergi Rovira (2016)
 
-Sample of the results in: http://pid-ub.github.io/
+Sample of the results in: http://pid-ub.github.io/tfg
 
 
 
