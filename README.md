@@ -9,7 +9,7 @@ This repository is part of the project.
 
 ## Team:
 
-- Dr. Laura Igual, Associate Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
+- Dra. Laura Igual, Associate Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
 - Dr. Eloi Puertas, Contracted Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
 - Dr. Oriol Pujol, Associate Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
 - Dr. Lluís Garrido, Associate Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
@@ -17,7 +17,10 @@ This repository is part of the project.
 - Dr. Jordi Vitrià, Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
 - Dr. Petia Radeva, Associate Professor at the Departament de Matemàtiques i Informàtica, Universitat de Barcelona, Spain. 
 
-All of them are members of the INDOMAIN Innovation and Teaching Group.
+Mebers of the INDOMAIN Innovation and Teaching Group.
+
+- Dra. Maria del Pilar Folgueiras Bertomeu, Departament de Mètodes de Investigació i Diagnòstic en Educació (MIDE), Universitat de Barcelona, Spain. 
+- Dra. Pilar Figuera Gazo, Departament de Mètodes de Investigació i Diagnòstic en Educació (MIDE), Universitat de Barcelona, Spain. 
 
 
 
